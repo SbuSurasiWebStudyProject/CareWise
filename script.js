@@ -2,6 +2,7 @@ const sections = [...document.querySelectorAll(".page-section")];
 const dots = [...document.querySelectorAll(".section-dot")];
 const revealTargets = [...document.querySelectorAll("[data-reveal]")];
 const printButton = document.getElementById("printButton");
+const backToTopButton = document.getElementById("backToTop");
 
 const setActiveDot = (id) => {
   dots.forEach((dot) => {
@@ -59,5 +60,21 @@ revealTargets.forEach((element) => revealObserver.observe(element));
 if (printButton) {
   printButton.addEventListener("click", () => {
     window.print();
+  });
+}
+
+if (backToTopButton) {
+  const toggleBackToTop = () => {
+    backToTopButton.classList.toggle("is-visible", window.scrollY > 500);
+  };
+
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
+  toggleBackToTop();
+
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+    });
   });
 }
