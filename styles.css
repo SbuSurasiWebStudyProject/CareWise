@@ -562,6 +562,10 @@ h3 {
   gap: 6px;
 }
 
+.contact-card .contact-meta span {
+  color: rgba(255, 255, 255, 0.92);
+}
+
 .section-head p,
 .section-copy p,
 .contact-copy p,
