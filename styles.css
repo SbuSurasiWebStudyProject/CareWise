@@ -364,14 +364,14 @@ h3 {
 
 .hero-card {
   position: absolute;
-  padding: 15px 17px;
+  padding: 13px 15px;
 }
 
 .card-primary {
   left: 18px;
   right: auto;
   top: 18px;
-  width: 246px;
+  width: 220px;
 }
 
 .card-secondary {
@@ -393,7 +393,7 @@ h3 {
 .hero-card strong {
   display: block;
   margin-bottom: 8px;
-  font-size: 1.28rem;
+  font-size: 1.15rem;
 }
 
 .split-grid {
