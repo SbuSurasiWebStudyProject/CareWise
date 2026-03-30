@@ -642,21 +642,38 @@ h3 {
     position: static;
     width: min(calc(100% - 18px), var(--content-width));
     margin-top: 10px;
-    border-radius: 26px;
+    border-radius: 22px;
     padding: 14px;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .top-nav {
-    gap: 12px;
+    width: 100%;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .top-nav a {
+    padding: 6px 10px;
+    border: 1px solid rgba(47, 149, 204, 0.12);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.62);
+    font-size: 0.95rem;
   }
 
   .hero-section,
   .content-section {
-    padding: 46px 0;
+    padding: 40px 0;
   }
 
   .hero-grid {
     min-height: auto;
+    gap: 22px;
+  }
+
+  .hero-copy {
+    gap: 16px;
   }
 
   .hero-points,
@@ -666,27 +683,148 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  h1 {
-    font-size: 2.45rem;
-  }
-
   .hero-brand-name {
-    font-size: 3.7rem;
+    font-size: 3.25rem;
+    line-height: 0.92;
   }
 
   h2 {
-    font-size: 1.92rem;
+    font-size: 1.72rem;
+    line-height: 1.18;
+  }
+
+  h3 {
+    font-size: 1.18rem;
+  }
+
+  p,
+  li,
+  .feature-card span,
+  .model-card p,
+  .top-nav a,
+  .contact-meta span {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .hero-brand-subtitle,
+  .lead {
+    font-size: 1.02rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
   }
 
   .hero-image {
-    height: 300px;
+    height: 260px;
+    border-radius: 24px;
+  }
+
+  .hero-card {
+    padding: 14px 15px;
+  }
+
+  .hero-card strong {
+    font-size: 1.15rem;
+  }
+
+  .hero-points article,
+  .info-card,
+  .service-card,
+  .feature-card,
+  .model-card,
+  .contact-card {
+    padding: 20px;
+  }
+
+  .service-card {
+    grid-template-rows: auto;
+  }
+
+  .service-detail {
+    padding: 13px 14px;
+  }
+
+  .highlight-band {
+    padding: 14px;
+    gap: 14px;
   }
 
   .highlight-image {
-    min-height: 220px;
+    min-height: 190px;
   }
 
   .closing-quote {
-    font-size: 1.4rem;
+    font-size: 1.26rem;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: min(calc(100% - 14px), var(--content-width));
+  }
+
+  .site-header {
+    width: min(calc(100% - 14px), var(--content-width));
+    padding: 12px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+  }
+
+  .brand-copy strong {
+    font-size: 1.05rem;
+  }
+
+  .brand-copy small {
+    font-size: 0.7rem;
+  }
+
+  .hero-section,
+  .content-section {
+    padding: 34px 0;
+  }
+
+  .hero-brand-name {
+    font-size: 2.9rem;
+  }
+
+  .hero-brand-subtitle,
+  .lead {
+    font-size: 0.98rem;
+  }
+
+  h2 {
+    font-size: 1.58rem;
+  }
+
+  .top-nav a {
+    font-size: 0.9rem;
+  }
+
+  .hero-image {
+    height: 220px;
+  }
+
+  .mini-label {
+    font-size: 0.64rem;
+  }
+
+  .hero-card strong {
+    font-size: 1.08rem;
   }
 }
