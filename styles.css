@@ -309,7 +309,10 @@ h3 {
 .feature-grid,
 .franchise-grid,
 .packages-grid,
-.promotion-grid {
+.promotion-grid,
+.audience-grid,
+.trust-grid,
+.faq-grid {
   display: grid;
   gap: 18px;
 }
@@ -324,6 +327,9 @@ h3 {
 .feature-card,
 .model-card,
 .contact-card,
+.audience-card,
+.trust-card,
+.faq-card,
 .package-hero,
 .package-card,
 .promotion-card,
@@ -462,6 +468,65 @@ h3 {
 
 .tone-accent {
   background: linear-gradient(180deg, rgba(232, 244, 253, 0.86), rgba(243, 250, 255, 0.22));
+}
+
+.audience-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 18px;
+}
+
+.audience-card,
+.trust-card,
+.faq-card {
+  padding: 24px;
+}
+
+.audience-card {
+  display: grid;
+  gap: 12px;
+}
+
+.audience-card.emphasis {
+  background: linear-gradient(145deg, rgba(47, 149, 204, 0.96), rgba(29, 95, 148, 0.94));
+  color: #fff;
+}
+
+.audience-card.emphasis h3,
+.audience-card.emphasis p {
+  color: inherit;
+}
+
+.trust-grid {
+  grid-template-columns: 1.2fr repeat(2, minmax(0, 1fr));
+}
+
+.trust-card {
+  display: grid;
+  gap: 10px;
+}
+
+.trust-card strong,
+.faq-card h3 {
+  color: var(--brand-deep);
+}
+
+.trust-card.emphasis {
+  background: linear-gradient(145deg, rgba(47, 149, 204, 0.96), rgba(29, 95, 148, 0.94));
+  color: #fff;
+}
+
+.trust-card.emphasis h3,
+.trust-card.emphasis p {
+  color: inherit;
+}
+
+.faq-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.faq-card {
+  display: grid;
+  gap: 12px;
 }
 
 .services-grid {
@@ -782,6 +847,9 @@ h3 {
 .package-card p,
 .promotion-card p,
 .package-footnote p,
+.audience-card p,
+.trust-card p,
+.faq-card p,
 .contact-meta span,
 .hero-points span,
 .highlight-copy p,
@@ -813,14 +881,17 @@ h3 {
 
   .services-grid,
   .franchise-grid,
-  .packages-grid {
+  .packages-grid,
+  .faq-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-points,
   .feature-grid,
   .promotion-grid,
-  .package-hero-metrics {
+  .package-hero-metrics,
+  .audience-grid,
+  .trust-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -905,7 +976,10 @@ h3 {
   .franchise-grid,
   .packages-grid,
   .promotion-grid,
-  .package-hero-metrics {
+  .package-hero-metrics,
+  .audience-grid,
+  .trust-grid,
+  .faq-grid {
     grid-template-columns: 1fr;
   }
 
@@ -987,6 +1061,9 @@ h3 {
   .feature-card,
   .model-card,
   .contact-card,
+  .audience-card,
+  .trust-card,
+  .faq-card,
   .package-card,
   .promotion-card {
     padding: 20px;
