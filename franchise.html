@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareWise | Franchise</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .top-nav { gap: 8px; }
+    .top-nav a { position: relative; padding: 0.72rem 1.05rem; border-radius: 999px; transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+    .top-nav a::after { content: ""; position: absolute; left: 1rem; right: 1rem; bottom: 0.5rem; height: 2px; border-radius: 999px; background: linear-gradient(90deg, rgba(205,233,224,0), rgba(92,153,130,0.95), rgba(205,233,224,0)); opacity: 0; transform: scaleX(0.35); transition: opacity 180ms ease, transform 180ms ease; }
+    .top-nav a:hover, .top-nav a:focus-visible { background: rgba(255,255,255,0.52); box-shadow: 0 10px 22px rgba(27,67,50,0.08); transform: translateY(-1px); outline: none; }
+    .top-nav a:hover::after, .top-nav a:focus-visible::after, .top-nav a[aria-current="page"]::after { opacity: 1; transform: scaleX(1); }
+    .top-nav a[aria-current="page"] { color: #1b4332; background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244,250,247,0.88)); box-shadow: inset 0 0 0 1px rgba(92,153,130,0.22), 0 10px 24px rgba(27,67,50,0.1); }
+    .section-rail { position: fixed; top: 50%; left: 24px; transform: translateY(-50%); z-index: 30; display: flex; flex-direction: column; gap: 12px; padding: 14px 10px; border-radius: 999px; background: rgba(255,255,255,0.72); backdrop-filter: blur(16px); box-shadow: 0 18px 40px rgba(29,53,87,0.12); }
+    .section-dot { position: relative; width: 12px; height: 12px; border-radius: 999px; background: rgba(27,67,50,0.18); border: 1px solid rgba(27,67,50,0.16); transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease; }
+    .section-dot::after { content: attr(data-label); position: absolute; top: 50%; left: 24px; transform: translateY(-50%); padding: 6px 10px; border-radius: 999px; background: rgba(22,31,42,0.9); color: #fff; font-size: 0.72rem; letter-spacing: 0.04em; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 180ms ease, transform 180ms ease; }
+    .section-dot:hover::after, .section-dot:focus-visible::after, .section-dot.is-active::after { opacity: 1; transform: translateY(-50%) translateX(4px); }
+    .section-dot:hover, .section-dot:focus-visible, .section-dot.is-active { background: #1b4332; box-shadow: 0 0 0 6px rgba(27,67,50,0.12); transform: scale(1.08); outline: none; }
+    .page-hero { padding: 8rem 0 5rem; }
+    .page-hero-grid, .fee-grid, .support-grid, .quality-grid, .roadmap-grid, .kpi-grid { display: grid; gap: 1.5rem; }
+    .page-hero-grid { grid-template-columns: 1.08fr 0.92fr; align-items: start; }
+    .fee-grid, .support-grid, .quality-grid, .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .roadmap-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .glass-card, .detail-card, .roadmap-card, .kpi-card { background: rgba(255,255,255,0.72); border: 1px solid rgba(120,157,140,0.18); border-radius: 28px; box-shadow: 0 18px 44px rgba(34,56,48,0.08); backdrop-filter: blur(12px); padding: 1.5rem; }
+    .hero-image-card { margin: 0; }
+    .hero-image-card img { width: 100%; min-height: 360px; object-fit: cover; border-radius: 22px; }
+    .hero-side { display: contents; }
+    .section-shell { display: grid; gap: 1.5rem; }
+    .highlight-list { display: grid; gap: 1.2rem; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-column: 1 / -1; align-items: stretch; }
+    .highlight-item { padding: 1.1rem 1.15rem; border-radius: 22px; background: linear-gradient(135deg, rgba(246,252,248,0.94), rgba(230,242,236,0.92)); border: 1px solid rgba(120,157,140,0.2); }
+    .feature-chip-row { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .feature-chip { display: inline-flex; align-items: center; padding: 0.55rem 0.95rem; border-radius: 999px; background: rgba(219,238,230,0.9); color: #1f4d3a; font-size: 0.92rem; }
+    .roadmap-card { position: relative; overflow: hidden; }
+    .roadmap-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 5px; background: linear-gradient(180deg, #94c7b3, #2d6a4f); }
+    .kpi-card strong { display: inline-block; margin-top: 0.5rem; color: #2d6a4f; }
+    .note-band { padding: 1.6rem 1.75rem; border-radius: 30px; background: linear-gradient(135deg, rgba(246,252,248,0.94), rgba(230,242,236,0.92)); border: 1px solid rgba(120,157,140,0.22); color: #274739; box-shadow: 0 18px 44px rgba(34,56,48,0.08); }
+    .source-note { font-size: 0.95rem; color: #5f6f67; margin-top: 0.8rem; }
+    @media (max-width: 1100px) { .section-rail { left: 12px; } .roadmap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 900px) { .section-rail { display: none; } .page-hero { padding-top: 7rem; } .page-hero-grid, .fee-grid, .support-grid, .quality-grid, .roadmap-grid, .kpi-grid, .highlight-list { grid-template-columns: 1fr; } .hero-side { display: grid; gap: 1.5rem; } }
+  </style>
+</head>
+<body>
+  <div class="ambient ambient-left"></div>
+  <div class="ambient ambient-right"></div>
+  <aside class="section-rail" aria-label="Page sections">
+    <a class="section-dot" href="#overview" data-label="Overview" aria-label="Overview section"></a>
+    <a class="section-dot" href="#model" data-label="Model" aria-label="Model section"></a>
+    <a class="section-dot" href="#support" data-label="Support" aria-label="Support section"></a>
+    <a class="section-dot" href="#quality" data-label="Quality" aria-label="Quality section"></a>
+    <a class="section-dot" href="#roadmap" data-label="Roadmap" aria-label="Roadmap section"></a>
+    <a class="section-dot" href="#selection" data-label="Selection" aria-label="Selection section"></a>
+  </aside>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="CareWise">
+      <span class="brand-mark">CW</span>
+      <span class="brand-copy"><strong>CareWise</strong><small>Company Profile | Elderly Care &amp; Smart Service</small></span>
+    </a>
+    <nav class="top-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="ai.html">AI &amp; App</a>
+      <a href="franchise.html" aria-current="page">Franchise</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero-section page-hero" id="overview">
+      <div class="container page-hero-grid">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow">Franchise Detail</p>
+          <div class="hero-brand-block">
+            <h1 class="hero-brand-name">CareWise Franchise</h1>
+            <p class="hero-brand-subtitle">ขยายธุรกิจการดูแลผู้สูงอายุด้วยมาตรฐานเดียวกัน ทั้งความอบอุ่นของบริการและความแม่นยำของระบบกลาง</p>
+          </div>
+          <p class="lead">ในแผนธุรกิจ CareWise วางระบบแฟรนไชส์แบบ <strong>Business Format Franchise</strong> ที่ส่งต่อทั้งแบรนด์, มาตรฐานบริการ, AI Platform, คู่มือการดำเนินงาน และระบบสนับสนุนจากส่วนกลาง เพื่อให้ทุกสาขายังรักษาความตั้งใจเดิมของแบรนด์ไว้ได้อย่างสม่ำเสมอ</p>
+          <div class="feature-chip-row">
+            <span class="feature-chip">Business Format Franchise</span>
+            <span class="feature-chip">Central AI Platform</span>
+            <span class="feature-chip">CareWise University</span>
+            <span class="feature-chip">Quality Score Dashboard</span>
+          </div>
+        </div>
+        <div class="hero-side" data-reveal>
+          <article class="glass-card hero-image-card"><img src="images/img_5_sq.jpg" alt="CareWise franchise business concept"></article>
+          <div class="highlight-list">
+            <article class="highlight-item"><strong>เริ่มรับแฟรนไชส์ปีที่ 3</strong><p>หลังจากสาขาต้นแบบพิสูจน์โมเดลธุรกิจและสร้าง SOP พร้อมระบบ AI ที่รองรับหลายสาขาได้จริง</p></article>
+            <article class="highlight-item"><strong>ค่าธรรมเนียมแรกเข้า 800,000-1,500,000 บาท</strong><p>ครอบคลุมสิทธิ์ใช้แบรนด์ 5 ปี การฝึกอบรมเริ่มต้น ชุด SOP และสิทธิ์ใช้ AI Platform</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="content-section" id="model"><div class="container section-shell"><div class="section-intro" data-reveal><p class="eyebrow">Franchise Model</p><h2>โมเดลแฟรนไชส์ถูกออกแบบให้ขยายได้ โดยไม่ลดทอนมาตรฐานของการดูแล</h2><p>CareWise ไม่ได้ขายแค่ชื่อแบรนด์ แต่ส่งต่อทั้งระบบคิด การปฏิบัติงาน และโครงสร้างเทคโนโลยีที่ช่วยให้แต่ละสาขาให้บริการด้วยคุณภาพใกล้เคียงกัน</p></div><div class="fee-grid"><article class="detail-card" data-reveal><h3>Franchise Fee</h3><p>ค่าธรรมเนียมแรกเข้าอยู่ที่ 800,000-1,500,000 บาท ขึ้นอยู่กับขนาดสาขาและทำเล โดยครอบคลุมสิทธิ์ใช้แบรนด์ 5 ปี การฝึกอบรม 4 สัปดาห์ ชุด SOP และสิทธิ์ใช้ AI Platform</p></article><article class="detail-card" data-reveal><h3>Royalty &amp; Marketing</h3><p>Royalty Fee รายเดือน 5% ของยอดขายรวม และ Marketing Fund 2% ของยอดขายรวม เพื่อรักษาการสนับสนุนจากส่วนกลางและภาพลักษณ์ของแบรนด์ในระดับประเทศและนานาชาติ</p></article><article class="detail-card" data-reveal><h3>Renewal Logic</h3><p>ต่ออายุได้ทุก 5 ปี โดยมีค่าธรรมเนียม 30% ของค่าแรกเข้าเดิม หากสาขามีคะแนน AI Quality Score เกิน 85% ต่อเนื่อง 12 เดือน</p></article><article class="detail-card" data-reveal><h3>What The Franchisee Receives</h3><p>ผู้ซื้อแฟรนไชส์จะได้รับแบรนด์, มาตรฐานบริการ, ระบบ AI กลาง, คู่มือปฏิบัติงาน, การฝึกอบรม และการสนับสนุนจากทีมส่วนกลางอย่างต่อเนื่อง</p></article></div></div></section>
+    <section class="content-section tone-soft" id="support"><div class="container section-shell"><div class="section-intro" data-reveal><p class="eyebrow">Support System</p><h2>ระบบสนับสนุนถูกวางไว้เพื่อให้แฟรนไชส์ซีไม่ต้องเริ่มต้นลำพัง</h2></div><div class="support-grid"><article class="detail-card" data-reveal><h3>Franchise Onboarding Program</h3><p>หลักสูตร 4 สัปดาห์ที่ไล่ตั้งแต่ทฤษฎีและมาตรฐาน CareWise, ฝึกปฏิบัติที่สาขาต้นแบบในกรุงเทพฯ, ทดสอบระบบ AI และ Mock Operation ก่อนเปิดสาขาจริง</p></article><article class="detail-card" data-reveal><h3>CareWise University</h3><p>แพลตฟอร์มอบรมออนไลน์สำหรับ Caregiver, ทีม Telehealth, ผู้จัดการสาขา และผู้ปฏิบัติงานด้านระบบ พร้อม E-Exam และใบรับรอง</p></article><article class="detail-card" data-reveal><h3>Central Supply Chain</h3><p>ส่วนกลางช่วยจัดซื้ออุปกรณ์ IoT, Wearable และเวชภัณฑ์ในราคาแบบ Volume Discount ช่วยลดต้นทุนได้ราว 15-25% เมื่อเทียบกับการจัดซื้อเอง</p></article><article class="detail-card" data-reveal><h3>Dedicated Business Coach</h3><p>แต่ละสาขามี Business Coach ประจำจากส่วนกลาง เพื่อช่วยติดตามผลประกอบการ แก้ปัญหา และวางแผนการเติบโตรายเดือน</p></article></div></div></section>
+    <section class="content-section" id="quality"><div class="container section-shell"><div class="section-intro" data-reveal><p class="eyebrow">Quality Control</p><h2>AI ถูกใช้เพื่อควบคุมมาตรฐานอย่างต่อเนื่อง ไม่ต้องรอให้เกิดปัญหาใหญ่ก่อนค่อยตรวจเจอ</h2></div><div class="quality-grid"><article class="detail-card" data-reveal><h3>AI Quality Dashboard</h3><p>ส่วนกลางมองเห็นภาพรวมทุกสาขาแบบ Real-time ครอบคลุม KPI ด้านบริการ ความพึงพอใจลูกค้า การตอบสนองฉุกเฉิน และประสิทธิภาพบุคลากร</p></article><article class="detail-card" data-reveal><h3>Automated Compliance Alerts</h3><p>หากสาขาใดเบี่ยงเบนจากมาตรฐาน เช่น Response Time เกินกำหนด, รายงานสุขภาพส่งช้า หรืออุปกรณ์ออฟไลน์ ระบบจะส่งแจ้งเตือนทันที</p></article><article class="detail-card" data-reveal><h3>Mystery Client + Sentiment Analysis</h3><p>ใช้ทั้งการเยี่ยมตรวจสาขาและการวิเคราะห์รีวิว/feedback ด้วย AI เพื่อให้เห็นคุณภาพจากทั้งภายในและภายนอกอย่างต่อเนื่อง</p></article><article class="detail-card" data-reveal><h3>Brand Protection Mindset</h3><p>แนวคิดสำคัญของระบบแฟรนไชส์คือไม่ยอมให้ความไม่สม่ำเสมอของบางสาขากระทบความเชื่อมั่นของลูกค้าต่อทั้งแบรนด์</p></article></div><div class="note-band" data-reveal>แกนสำคัญของแฟรนไชส์ CareWise คือ “ความอุ่นใจที่ขยายสาขาได้” จึงต้องมีทั้งระบบสนับสนุนที่ชัดเจนและระบบตรวจสอบที่ไม่ทำให้มาตรฐานสะดุดเมื่อธุรกิจโตขึ้น</div></div></section>
+    <section class="content-section tone-soft" id="roadmap"><div class="container section-shell"><div class="section-intro" data-reveal><p class="eyebrow">Expansion Roadmap</p><h2>เส้นทางการขยายสาขาถูกแบ่งเป็นระยะอย่างระมัดระวัง เพื่อให้การเติบโตยังมีคุณภาพ</h2></div><div class="roadmap-grid"><article class="roadmap-card" data-reveal><h3>Phase 1</h3><p><strong>ปี 1-2</strong></p><p>พิสูจน์โมเดลสาขาต้นแบบในกรุงเทพฯ สร้าง case study, SOP และพัฒนา AI Platform ให้รองรับหลายสาขา</p></article><article class="roadmap-card" data-reveal><h3>Phase 2</h3><p><strong>ปี 3</strong></p><p>เปิดรับ 3-5 แฟรนไชส์ซีในไทย โดยเน้นเมืองใหญ่ เช่น เชียงใหม่ ชลบุรี ขอนแก่น และภูเก็ต</p></article><article class="roadmap-card" data-reveal><h3>Phase 3</h3><p><strong>ปี 4</strong></p><p>ขยายสู่อาเซียน เริ่มจากสิงคโปร์ มาเลเซีย และเวียดนาม เพื่อทดสอบตลาดที่มีกำลังซื้อและความพร้อมรับเทคโนโลยี</p></article><article class="roadmap-card" data-reveal><h3>Phase 4</h3><p><strong>ปี 5+</strong></p><p>มุ่งสู่ญี่ปุ่น เกาหลีใต้ และออสเตรเลีย โดยตั้งเป้าหมายสาขารวม 50+ สาขาภายในปีที่ 7</p></article></div></div></section>
+    <section class="content-section" id="selection"><div class="container section-shell"><div class="section-intro" data-reveal><p class="eyebrow">Selection &amp; KPI</p><h2>การคัดเลือกแฟรนไชส์ซีและตัวชี้วัดถูกกำหนดไว้ชัด เพื่อรักษาทั้งผลลัพธ์ทางธุรกิจและคุณภาพการดูแล</h2></div><div class="kpi-grid"><article class="kpi-card" data-reveal><h3>คุณสมบัติเบื้องต้น</h3><p>ต้องมีเงินลงทุนพร้อมอย่างน้อย 3,000,000 บาท มีประสบการณ์บริหารธุรกิจ หรือมีพาร์ทเนอร์ที่มีพื้นหลังด้านสุขภาพ/บริการ และผ่านการอบรม CareWise Certification</p></article><article class="kpi-card" data-reveal><h3>Operational KPI</h3><p>สาขาต้องรักษา AI Quality Score ≥ 80%, Customer Retention Rate ≥ 75%, Response Time ฉุกเฉิน ≤ 5 นาที และส่งรายงาน B2B ตรงเวลา 100%</p><strong>ยอดขายควรเติบโต ≥ 15% ต่อปี</strong></article><article class="kpi-card" data-reveal><h3>หากสาขายังไม่ผ่านมาตรฐาน</h3><p>CareWise จะเริ่มจากการส่ง Business Coach เข้าไปช่วยภายในช่วง Warning Period 60 วัน ก่อนพิจารณามาตรการที่เข้มขึ้นเพื่อปกป้องแบรนด์</p></article><article class="kpi-card" data-reveal><h3>ภาพที่อยากให้เกิดขึ้น</h3><p>ทุกสาขาเติบโตบนมาตรฐานเดียวกัน ลูกค้ารู้สึกถึงความใส่ใจแบบเดียวกับสาขาต้นแบบ และส่วนกลางยังมองเห็นคุณภาพได้อย่างโปร่งใส</p></article></div><p class="source-note" data-reveal>หน้า Franchise นี้สรุปและเรียบเรียงจากหัวข้อ Franchise Management, บริการ B2B, Expansion Roadmap และ KPI ที่อยู่ในไฟล์ Carewise_BusinessPlan_2569_v7.docx</p></div></section>
+  </main>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      const dots = Array.from(document.querySelectorAll('.section-dot'));
+      const sections = dots.map((dot) => {
+        const id = dot.getAttribute('href');
+        if (!id || !id.startsWith('#')) return null;
+        const section = document.querySelector(id);
+        return section ? { dot, section, id } : null;
+      }).filter(Boolean);
+      if (!sections.length || typeof IntersectionObserver === 'undefined') return;
+      const setActive = (id) => {
+        sections.forEach(({ dot, id: sectionId }) => {
+          const isActive = sectionId === id;
+          dot.classList.toggle('is-active', isActive);
+          if (isActive) dot.setAttribute('aria-current', 'true');
+          else dot.removeAttribute('aria-current');
+        });
+      };
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (!visible.length) return;
+        setActive(`#${visible[0].target.id}`);
+      }, { rootMargin: '-28% 0px -45% 0px', threshold: [0.2, 0.35, 0.55, 0.75] });
+      sections.forEach(({ section }) => observer.observe(section));
+      setActive(sections[0].id);
+    })();
+  </script>
+</body>
+</html>

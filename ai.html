@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareWise | AI & App</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .top-nav { gap: 8px; }
+    .top-nav a { position: relative; padding: 0.72rem 1.05rem; border-radius: 999px; transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+    .top-nav a::after { content: ""; position: absolute; left: 1rem; right: 1rem; bottom: 0.5rem; height: 2px; border-radius: 999px; background: linear-gradient(90deg, rgba(205,233,224,0), rgba(92,153,130,0.95), rgba(205,233,224,0)); opacity: 0; transform: scaleX(0.35); transition: opacity 180ms ease, transform 180ms ease; }
+    .top-nav a:hover, .top-nav a:focus-visible { background: rgba(255,255,255,0.52); box-shadow: 0 10px 22px rgba(27,67,50,0.08); transform: translateY(-1px); outline: none; }
+    .top-nav a:hover::after, .top-nav a:focus-visible::after, .top-nav a[aria-current="page"]::after { opacity: 1; transform: scaleX(1); }
+    .top-nav a[aria-current="page"] { color: #1b4332; background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244,250,247,0.88)); box-shadow: inset 0 0 0 1px rgba(92,153,130,0.22), 0 10px 24px rgba(27,67,50,0.1); }
+    .section-rail { position: fixed; top: 50%; left: 24px; transform: translateY(-50%); z-index: 30; display: flex; flex-direction: column; gap: 12px; padding: 14px 10px; border-radius: 999px; background: rgba(255,255,255,0.72); backdrop-filter: blur(16px); box-shadow: 0 18px 40px rgba(29,53,87,0.12); }
+    .section-dot { position: relative; width: 12px; height: 12px; border-radius: 999px; background: rgba(27,67,50,0.18); border: 1px solid rgba(27,67,50,0.16); transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease; }
+    .section-dot::after { content: attr(data-label); position: absolute; top: 50%; left: 24px; transform: translateY(-50%); padding: 6px 10px; border-radius: 999px; background: rgba(22,31,42,0.9); color: #fff; font-size: 0.72rem; letter-spacing: 0.04em; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 180ms ease, transform 180ms ease; }
+    .section-dot:hover::after, .section-dot:focus-visible::after, .section-dot.is-active::after { opacity: 1; transform: translateY(-50%) translateX(4px); }
+    .section-dot:hover, .section-dot:focus-visible, .section-dot.is-active { background: #1b4332; box-shadow: 0 0 0 6px rgba(27,67,50,0.12); transform: scale(1.08); outline: none; }
+    .page-hero { padding: 8rem 0 5rem; }
+    .page-hero-grid, .story-grid, .system-grid, .app-grid, .global-grid, .app-flow, .metric-stack, .app-demo-shell { display: grid; gap: 1.5rem; }
+    .page-hero-grid { grid-template-columns: 1.15fr 0.85fr; align-items: start; }
+    .story-grid, .app-grid, .global-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .app-demo-shell { grid-template-columns: minmax(0, 1.16fr) minmax(300px, 0.84fr); align-items: start; gap: 0.4rem; margin-top: -0.6rem; }
+    .system-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .app-flow { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .metric-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .glass-card, .metric-card, .story-card, .app-card, .timeline-card, .global-card { background: rgba(255,255,255,0.72); border: 1px solid rgba(120,157,140,0.18); border-radius: 28px; box-shadow: 0 18px 44px rgba(34,56,48,0.08); backdrop-filter: blur(12px); }
+    .glass-card, .story-card, .app-card, .global-card, .metric-card, .timeline-card { padding: 1.5rem; }
+    .hero-panel, .section-shell { display: grid; gap: 1.5rem; }
+    .hero-image-card img { width: 100%; min-height: 340px; object-fit: cover; border-radius: 22px; }
+    .feature-chip-row, .device-list { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .feature-chip, .device-pill { display: inline-flex; align-items: center; padding: 0.55rem 0.95rem; border-radius: 999px; background: rgba(219,238,230,0.9); color: #1f4d3a; font-size: 0.92rem; }
+    .app-shell { gap: 1rem; }
+    .app-shell .section-intro { max-width: 74ch; margin: 0; }
+    .app-demo-panel { display: grid; gap: 1rem; align-content: start; max-width: 100%; }
+    .app-demo-tabs { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .app-demo-tab { border: 0; border-radius: 999px; padding: 0.7rem 1rem; background: rgba(226, 239, 233, 0.88); color: #365748; font: inherit; cursor: pointer; transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease; }
+    .app-demo-tab:hover, .app-demo-tab:focus-visible { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(27,67,50,0.08); outline: none; }
+    .app-demo-tab.is-active { background: #2f6fa3; color: #f5fbff; box-shadow: 0 14px 30px rgba(47,111,163,0.2); }
+    .app-demo-caption { margin: -0.2rem 0 0.15rem; min-height: 2.8em; color: #587693; font-size: 0.95rem; line-height: 1.55; }
+    .phone-stage { display: flex; justify-content: flex-end; align-self: start; margin-top: -16.4rem; margin-right: 1.6rem; }
+    .phone-mockup { position: relative; width: min(318px, 100%); aspect-ratio: 9 / 19.5; padding: 14px; box-sizing: border-box; display: flex; border-radius: 40px; background: linear-gradient(180deg, #233038, #0f171c); box-shadow: 0 30px 60px rgba(15,23,28,0.28), inset 0 0 0 2px rgba(255,255,255,0.06); }
+    .phone-mockup::before { content: ""; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 110px; height: 22px; border-radius: 0 0 14px 14px; background: #0a0f12; }
+    .phone-screen { width: 100%; height: 100%; overflow: hidden; border-radius: 28px; min-height: 0; background: linear-gradient(180deg, #f6fbff, #eaf3fb); }
+    .screen-view { display: none; height: 100%; padding: 0.82rem; box-sizing: border-box; color: #21425d; background:
+      radial-gradient(circle at top right, rgba(150, 198, 232, 0.45), transparent 32%),
+      linear-gradient(180deg, #f8fcff, #eaf3fb); }
+    .screen-view.is-active { display: flex; flex-direction: column; }
+    .status-bar, .phone-nav { display: flex; align-items: center; justify-content: space-between; }
+    .status-bar { margin-bottom: 0.72rem; font-size: 0.74rem; color: #60788e; }
+    .screen-view h3 { font-size: 1.08rem; line-height: 1.25; }
+    .screen-view p, .screen-view span, .screen-view strong { line-height: 1.35; }
+    .screen-view p, .screen-view span { font-size: 0.83rem; }
+    .mini-label { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: #6f8ca4; }
+    .app-shell-card { padding: 0.82rem; border-radius: 22px; background: rgba(255,255,255,0.9); box-shadow: 0 16px 34px rgba(55,91,126,0.09); border: 1px solid rgba(132, 173, 210, 0.24); }
+    .app-shell-card + .app-shell-card { margin-top: 0.72rem; }
+    .greeting-row { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 0.72rem; }
+    .avatar-badge { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, #dcebfa, #9fc7ea); color: #1e4f79; font-weight: 700; }
+    .health-score { display: flex; align-items: baseline; gap: 0.3rem; }
+    .health-score strong { font-size: 1.72rem; color: #235b88; }
+    .mini-chart { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; align-items: end; height: 68px; margin-top: 0.72rem; }
+    .mini-chart span { display: block; border-radius: 999px 999px 8px 8px; background: linear-gradient(180deg, #8ab9e1, #3f79ad); opacity: 0.95; }
+    .metric-pills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.52rem; margin-top: 0.72rem; }
+    .metric-pill { padding: 0.68rem; border-radius: 16px; background: #f1f7fd; }
+    .metric-pill strong { display: block; color: #235b88; }
+    .alert-card { border-radius: 22px; padding: 0.88rem; background: linear-gradient(135deg, #eef7ff, #dcecff); border: 1px solid rgba(104, 156, 206, 0.26); }
+    .alert-card strong { color: #8b3d16; }
+    .alert-actions, .telehealth-actions { display: flex; gap: 0.5rem; margin-top: 0.72rem; flex-wrap: wrap; }
+    .action-chip { padding: 0.55rem 0.82rem; border-radius: 999px; background: #2f6fa3; color: #fff; font-size: 0.8rem; }
+    .action-chip.soft { background: rgba(47,111,163,0.12); color: #2b5c84; }
+    .report-list { display: grid; gap: 0.52rem; margin-top: 0.72rem; }
+    .report-item { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; padding: 0.72rem 0.8rem; border-radius: 16px; background: #f2f7fc; }
+    .doctor-row { display: flex; align-items: center; gap: 0.7rem; margin-top: 0.72rem; }
+    .doctor-avatar { width: 44px; height: 44px; border-radius: 16px; display: grid; place-items: center; background: linear-gradient(135deg, #dcebf9, #b5d2ee); color: #235b88; font-weight: 700; }
+    .call-window { margin-top: 0.72rem; padding: 0.88rem; border-radius: 20px; background: linear-gradient(180deg, #22415a, #162b3e); color: #eff7ff; min-height: 148px; display: grid; align-content: space-between; }
+    .phone-nav { margin-top: auto; padding: 0.7rem 0 0.05rem; color: #64819a; font-size: 0.77rem; }
+    .phone-nav span.active { color: #2f6fa3; font-weight: 700; }
+    .metric-card strong, .timeline-card strong { display: block; font-size: 1.35rem; color: #1b4332; margin-bottom: 0.45rem; }
+    .note-band { padding: 1.6rem 1.75rem; border-radius: 30px; background: linear-gradient(135deg, rgba(246,252,248,0.94), rgba(230,242,236,0.92)); border: 1px solid rgba(120,157,140,0.22); color: #274739; box-shadow: 0 18px 44px rgba(34,56,48,0.08); }
+    .source-note { font-size: 0.95rem; color: #5f6f67; margin-top: 0.8rem; }
+    @media (max-width: 1100px) { .section-rail { left: 12px; } .page-hero-grid, .system-grid, .app-flow, .app-demo-shell { grid-template-columns: repeat(2, minmax(0, 1fr)); } .app-demo-shell { gap: 0.8rem; } .phone-stage { margin-top: -8.5rem; margin-right: 0.6rem; } }
+    @media (max-width: 900px) { .section-rail { display: none; } .page-hero { padding-top: 7rem; } .page-hero-grid, .story-grid, .system-grid, .app-grid, .global-grid, .app-flow, .metric-stack, .app-demo-shell { grid-template-columns: 1fr; } .app-demo-shell { margin-top: 0; } .phone-stage { justify-content: center; margin-top: 0; } .app-demo-caption { min-height: 0; } .phone-mockup { width: min(340px, 100%); } }
+  </style>
+</head>
+<body>
+  <div class="ambient ambient-left"></div>
+  <div class="ambient ambient-right"></div>
+  <aside class="section-rail" aria-label="Page sections">
+    <a class="section-dot" href="#overview" data-label="Overview" aria-label="Overview section"></a>
+    <a class="section-dot" href="#platform" data-label="Platform" aria-label="Platform section"></a>
+    <a class="section-dot" href="#channels" data-label="Channels" aria-label="Channels section"></a>
+    <a class="section-dot" href="#app" data-label="App" aria-label="App section"></a>
+    <a class="section-dot" href="#service-flow" data-label="Flow" aria-label="Service flow section"></a>
+    <a class="section-dot" href="#fall-detection" data-label="Guardian AI" aria-label="Guardian AI section"></a>
+    <a class="section-dot" href="#global" data-label="Global Scale" aria-label="Global Scale section"></a>
+  </aside>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="CareWise">
+      <span class="brand-mark">CW</span>
+      <span class="brand-copy"><strong>CareWise</strong><small>Company Profile | Elderly Care &amp; Smart Service</small></span>
+    </a>
+    <nav class="top-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="ai.html" aria-current="page">AI &amp; App</a>
+      <a href="franchise.html">Franchise</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero-section page-hero" id="overview">
+      <div class="container page-hero-grid">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow">AI &amp; App Detail</p>
+          <div class="hero-brand-block">
+            <h1 class="hero-brand-name">CareWise Guardian AI</h1>
+            <p class="hero-brand-subtitle">ระบบที่ช่วยให้การดูแลผู้สูงอายุยังคงความอบอุ่นของมนุษย์ พร้อมเพิ่มความมั่นใจด้วยข้อมูลที่ชัดเจนและการติดตามแบบต่อเนื่อง</p>
+          </div>
+          <p class="lead">จากแผนธุรกิจ CareWise, AI ไม่ได้ถูกวางให้มาแทนคนดูแล แต่ทำหน้าที่เป็นผู้ช่วยกลางที่คอยเชื่อมข้อมูลสุขภาพ, คาดการณ์ความเสี่ยงล่วงหน้า, สนับสนุนการตัดสินใจของทีมดูแล และส่งต่อความอุ่นใจไปถึงครอบครัวผ่านแอปอย่างเป็นระบบ</p>
+          <div class="feature-chip-row">
+            <span class="feature-chip">Real-time Monitoring 24/7</span>
+            <span class="feature-chip">Predictive Analytics 7-30 วัน</span>
+            <span class="feature-chip">Personalized Care Plan</span>
+            <span class="feature-chip">LINE / App / Telehealth</span>
+          </div>
+        </div>
+        <div class="hero-panel" data-reveal>
+          <article class="glass-card hero-image-card"><img src="images/img_4.jpg" alt="CareWise AI and caregiver service"></article>
+          <div class="metric-stack">
+            <article class="metric-card"><strong>90%+</strong><span>เป้าหมายความแม่นยำของระบบตรวจจับและแจ้งเตือนเมื่อใช้ข้อมูลร่วมกันจากหลายแหล่ง</span></article>
+            <article class="metric-card"><strong>10 วินาที</strong><span>เวลาส่ง alert อัตโนมัติถึงครอบครัวและทีมแพทย์เมื่อพบเหตุผิดปกติที่มีความเชื่อมั่นสูง</span></article>
+            <article class="metric-card"><strong>3 ช่องทาง</strong><span>รองรับทั้ง Care Center, Home Care และ Hospital Partnership บนแพลตฟอร์มเดียวกัน</span></article>
+            <article class="metric-card"><strong>24/7 App</strong><span>ครอบครัวติดตามข้อมูลสุขภาพ นัดหมาย และรับรายงานผ่านแอปได้ตลอดเวลา</span></article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="content-section" id="platform"><div class="container section-shell"><div class="section-intro" data-reveal><p class="eyebrow">Central Platform</p><h2>AI ของ CareWise ถูกออกแบบเป็นแกนกลางที่รวมทุกสัญญาณสำคัญไว้ในที่เดียว</h2><p>ในแผนธุรกิจเรียกระบบนี้ว่า <strong>CareWise Guardian AI</strong> ซึ่งรวบรวมข้อมูลจาก Wearable, IoT Sensor, Camera และการบันทึกของทีมดูแล เพื่อให้เห็นภาพสุขภาพแบบต่อเนื่อง ไม่ใช่รอเฉพาะตอนเกิดเหตุ</p></div><div class="system-grid"><article class="story-card" data-reveal><h3>Real-time Health Monitoring</h3><p>ประมวลผลค่า Heart Rate, SpO2, การเคลื่อนไหว, การล้ม และการใช้ยาแบบเรียลไทม์ พร้อมแจ้งเตือนอัตโนมัติเมื่อพบความเสี่ยงที่เกินเกณฑ์</p></article><article class="story-card" data-reveal><h3>Predictive Analytics</h3><p>วิเคราะห์แนวโน้มสุขภาพจากข้อมูลย้อนหลัง เพื่อคาดการณ์ความเสี่ยงล่วงหน้า 7-30 วัน เช่น ภาวะหัวใจ ความดันผิดปกติ หรือการถดถอยด้านสมอง</p></article><article class="story-card" data-reveal><h3>Personalized Care Plan Engine</h3><p>สร้างแผนการดูแลเฉพาะบุคคลจากโรคประจำตัว ยาที่ใช้ พฤติกรรมการนอน-กิน-ออกกำลังกาย และอัปเดตตามข้อมูลล่าสุดทุกสัปดาห์</p></article><article class="story-card" data-reveal><h3>NLP &amp; Family Communication</h3><p>ช่วยให้ครอบครัวสอบถามสถานะสุขภาพ นัดหมายแพทย์ และรับรายงานประจำวันผ่าน LINE หรือแอป โดยไม่ต้องโทรหาทีมงานทุกครั้ง</p></article></div><div class="note-band" data-reveal>AI ในที่นี้จึงไม่ใช่แค่ “ระบบแจ้งเตือน” แต่เป็นโครงสร้างที่ช่วยให้การดูแลมีทั้งความต่อเนื่อง ความละเอียด และความสบายใจสำหรับทุกฝ่าย ตั้งแต่ผู้สูงอายุ ครอบครัว ไปจนถึงทีมแพทย์และพาร์ทเนอร์</div></div></section>
+    <section class="content-section tone-soft" id="channels"><div class="container section-shell"><div class="section-intro" data-reveal><p class="eyebrow">AI Across Services</p><h2>แพลตฟอร์มเดียว แต่ต่อยอดคุณภาพบริการได้ครบทั้ง 3 ช่องทางหลักของธุรกิจ</h2></div><div class="story-grid"><article class="story-card" data-reveal><span class="mini-label">Care Center</span><h3>ดูแลภายในศูนย์ได้ใกล้ชิดและตอบสนองเร็วขึ้น</h3><p>Sensor และ AI Camera ภายในศูนย์วิเคราะห์พฤติกรรมรายวัน ตรวจจับการล้ม แจ้ง Caregiver ที่ใกล้ที่สุด พร้อมแนะนำกิจกรรมและโภชนาการให้เหมาะกับแต่ละคน</p></article><article class="story-card" data-reveal><span class="mini-label">Home Care</span><h3>ช่วยทีมเยี่ยมบ้านทำงานแม่นขึ้นโดยไม่ทิ้งความเป็นมนุษย์</h3><p>Caregiver ที่บ้านบันทึกข้อมูลผ่านแอป ส่วน AI ช่วยจัดลำดับการเยี่ยม วิเคราะห์รายงานสุขภาพ และแจ้งเตือนเมื่อมีค่าที่เบี่ยงเบนจากเกณฑ์</p></article><article class="story-card" data-reveal><span class="mini-label">Hospital B2B</span><h3>เชื่อมการดูแลหลังออกจากโรงพยาบาลให้ต่อเนื่อง</h3><p>แพลตฟอร์มเชื่อมต่อกับระบบโรงพยาบาลผ่าน Secure API เพื่อให้แพทย์ติดตามผู้ป่วยหลัง Discharge ได้ต่อเนื่อง และลดโอกาสกลับเข้า Admit ซ้ำ</p></article><article class="story-card" data-reveal><span class="mini-label">Efficiency</span><h3>ลดภาระงานเอกสารและเพิ่มเวลาที่ใช้กับคนจริง</h3><p>AI ช่วยสรุปรายงานสุขภาพ จัดทำบันทึก และจัดตารางงานได้ดีขึ้น ช่วยลดชั่วโมงงานธุรการของทีมดูแลและเพิ่มประสิทธิภาพการบริการในระยะยาว</p></article></div></div></section>
+    <section class="content-section" id="app"><div class="container section-shell app-shell"><div class="section-intro" data-reveal><p class="eyebrow">Family App Experience</p><h2>แอปของ CareWise ควรทำให้ครอบครัว “เห็นภาพการดูแลจริง” และรู้สึกอุ่นใจได้ในไม่กี่วินาที</h2><p>ด้านล่างคือ mockup แบบ interactive ที่จำลองประสบการณ์บนมือถือจริง ผู้เข้าชมสามารถกดสลับหน้าจอเพื่อดูว่า dashboard, alert, report และ telehealth จะหน้าตาเป็นอย่างไรเมื่อใช้งานจริง</p></div><div class="app-demo-shell"><div class="app-demo-panel" data-reveal><div class="app-demo-tabs" role="tablist" aria-label="App screens"><button class="app-demo-tab is-active" type="button" data-screen="dashboard" role="tab" aria-selected="true">Dashboard</button><button class="app-demo-tab" type="button" data-screen="alert" role="tab" aria-selected="false">Emergency Alert</button><button class="app-demo-tab" type="button" data-screen="report" role="tab" aria-selected="false">Weekly Report</button><button class="app-demo-tab" type="button" data-screen="telehealth" role="tab" aria-selected="false">Telehealth</button></div><p class="app-demo-caption" data-demo-caption>มุมมองรวมของสุขภาพประจำวัน อ่านค่า vital sign แผนดูแล และสถานะล่าสุดได้ในหน้าจอเดียว</p><article class="app-card"><h3>ภาพที่อยากให้คนดูรับรู้จากแอปนี้</h3><ul class="clean-list"><li>ข้อมูลสำคัญต้องอ่านง่าย และไม่ทำให้ครอบครัวรู้สึกกังวลเกินจำเป็น</li><li>เมื่อเกิดความเสี่ยง ต้องเห็นบริบท ระดับความเร่งด่วน และทางเลือกในการตอบสนองทันที</li><li>การนัดพบแพทย์และการอ่านรายงานควรทำได้จากหน้าจอเดียวกันอย่างเป็นธรรมชาติ</li></ul></article></div><div class="phone-stage" data-reveal><div class="phone-mockup"><div class="phone-screen"><section class="screen-view is-active" data-screen-view="dashboard"><div class="status-bar"><span>9:41</span><span>CareWise Live</span><span>98%</span></div><div class="app-shell-card"><div class="greeting-row"><div><span class="mini-label">Good Morning</span><h3 style="margin:0.35rem 0 0;">คุณยายสมพร</h3><p style="margin:0.35rem 0 0; color:#5f7fa0;">วันนี้อารมณ์คงที่ และพักผ่อนได้ดี</p></div><div class="avatar-badge">CW</div></div><div class="health-score"><strong>82</strong><span>/ 100 Health Score</span></div><div class="mini-chart"><span style="height:42%;"></span><span style="height:58%;"></span><span style="height:66%;"></span><span style="height:72%;"></span><span style="height:64%;"></span><span style="height:78%;"></span><span style="height:84%;"></span></div><div class="metric-pills"><div class="metric-pill"><strong>Heart Rate</strong><span>72 bpm</span></div><div class="metric-pill"><strong>SpO2</strong><span>98%</span></div><div class="metric-pill"><strong>Sleep</strong><span>7h 40m</span></div><div class="metric-pill"><strong>Medication</strong><span>ครบ 3/3 ครั้ง</span></div></div></div><div class="app-shell-card"><strong>Today's Care Plan</strong><p style="margin:0.5rem 0 0; color:#5f7fa0;">เดินช้า 15 นาที, ทานยาหลังอาหารเช้า, วิดีโอคอลกับลูกสาวเวลา 18:30 น.</p></div><div class="phone-nav"><span class="active">Home</span><span>Report</span><span>Care</span><span>Call</span></div></section><section class="screen-view" data-screen-view="alert"><div class="status-bar"><span>10:02</span><span>Emergency Alert</span><span>4G</span></div><div class="alert-card"><strong>High Confidence Alert</strong><h3 style="margin:0.55rem 0;">พบการทรุดตัวผิดปกติในห้องนั่งเล่น</h3><p style="margin:0; color:#8b4a22;">Guardian AI ตรวจพบความเสี่ยงสูงจาก Camera และ Wearable พร้อมส่งสัญญาณถึงครอบครัวและ Caregiver ใกล้ที่สุดแล้ว</p><div class="alert-actions"><span class="action-chip">Call Care Team</span><span class="action-chip soft">Open Camera Log</span></div></div><div class="app-shell-card"><strong>Response Timeline</strong><div class="report-list"><div class="report-item"><span>10:02 ระบบแจ้งเตือน</span><strong>Done</strong></div><div class="report-item"><span>10:03 โทรหาคุณยาย</span><strong>Done</strong></div><div class="report-item"><span>10:05 Caregiver กำลังเดินทาง</span><strong>ETA 4 min</strong></div></div></div><div class="phone-nav"><span>Home</span><span class="active">Alert</span><span>Care</span><span>Call</span></div></section><section class="screen-view" data-screen-view="report"><div class="status-bar"><span>18:16</span><span>Weekly Report</span><span>Wi-Fi</span></div><div class="app-shell-card"><span class="mini-label">Week Summary</span><h3 style="margin:0.45rem 0;">รายงานสุขภาพประจำสัปดาห์</h3><p style="margin:0; color:#5f7fa0;">แนวโน้มโดยรวมดีขึ้นจากสัปดาห์ก่อน โดยเฉพาะการนอนและการทานยา</p><div class="report-list"><div class="report-item"><span>Sleep Consistency</span><strong>ดีขึ้น 12%</strong></div><div class="report-item"><span>Fall Risk</span><strong>Low</strong></div><div class="report-item"><span>Medication Adherence</span><strong>100%</strong></div><div class="report-item"><span>Mood & Activity</span><strong>Stable</strong></div></div></div><div class="app-shell-card"><strong>AI Recommendation</strong><p style="margin:0.45rem 0 0; color:#5f7fa0;">แนะนำคงกิจกรรมเดินช่วงเช้า และเพิ่มการฝึกสมองเบา ๆ 3 ครั้งต่อสัปดาห์</p></div><div class="phone-nav"><span>Home</span><span class="active">Report</span><span>Care</span><span>Call</span></div></section><section class="screen-view" data-screen-view="telehealth"><div class="status-bar"><span>19:10</span><span>Telehealth</span><span>HD</span></div><div class="app-shell-card"><span class="mini-label">Next Session</span><div class="doctor-row"><div class="doctor-avatar">DR</div><div><strong>พญ. พิมพ์ชนก</strong><p style="margin:0.2rem 0 0; color:#5f7fa0;">Geriatric Telehealth นัดหมาย 19:30 น.</p></div></div><div class="telehealth-actions"><span class="action-chip">Join Call</span><span class="action-chip soft">Reschedule</span></div></div><div class="call-window"><div><strong>Pre-call Notes</strong><p style="margin:0.45rem 0 0; color:#dcecff;">วันนี้ควรพูดคุยเรื่องการนอนและอาการเวียนศีรษะที่ลดลงหลังปรับยา</p></div><div style="display:flex; justify-content:space-between; align-items:center;"><span>Family connected</span><span>Mic on</span></div></div><div class="phone-nav"><span>Home</span><span>Report</span><span>Care</span><span class="active">Call</span></div></section></div></div></div></div></section><section class="content-section tone-soft" id="service-flow"><div class="container section-shell"><div class="section-intro" data-reveal><p class="eyebrow">Care Journey</p><h2>เส้นทางการดูแลของ CareWise คือระบบบริการทั้งหมด ไม่ใช่เฉพาะหน้าจอในแอป</h2><p>ส่วนนี้สรุปว่า AI, ทีมดูแล, อุปกรณ์ และแอปเชื่อมต่อกันอย่างไรตั้งแต่เริ่มประเมินจนถึงการลงมือดูแลจริง</p></div><div class="app-flow"><article class="timeline-card" data-reveal><strong>1. Assess</strong><span>ทีมพยาบาลและ AI ประเมินข้อมูลสุขภาพเบื้องต้นเพื่อกำหนดรูปแบบการดูแลที่เหมาะสม</span></article><article class="timeline-card" data-reveal><strong>2. Install</strong><span>ติดตั้งอุปกรณ์ IoT ที่บ้านหรือภายในศูนย์ พร้อมเชื่อมข้อมูลเข้าสู่ระบบกลาง</span></article><article class="timeline-card" data-reveal><strong>3. Monitor</strong><span>AI ทำงานตลอด 24/7 เพื่อเฝ้าระวัง แจ้งเตือน และสรุปข้อมูลสำคัญให้อ่านง่าย</span></article><article class="timeline-card" data-reveal><strong>4. Report</strong><span>ครอบครัวรับรายงานรายสัปดาห์ ส่วนโรงพยาบาลหรือพาร์ทเนอร์รับข้อมูลที่เชื่อมต่อผ่านระบบ</span></article><article class="timeline-card" data-reveal><strong>5. Act</strong><span>นัด Telehealth ปรับแผนดูแล หรือส่งทีมดูแลเข้าพบได้รวดเร็วเมื่อระบบเห็นความเสี่ยง</span></article></div></div></section>
+    <section class="content-section tone-soft" id="fall-detection"><div class="container section-shell"><div class="section-intro" data-reveal><p class="eyebrow">Guardian AI</p><h2>ระบบตรวจจับการล้มแบบ Hybrid ช่วยให้แม่นยำขึ้น และเตือนเท่าที่ควรเตือน</h2><p>CareWise ไม่พึ่งอุปกรณ์ชิ้นเดียว แต่ใช้แนวคิด <strong>Multi-source AI Decision</strong> เพื่อรวมข้อมูลจากหลายแหล่ง ลด False Alarm และทำให้การแจ้งเตือนมีน้ำหนักมากขึ้น</p></div><div class="device-list" data-reveal><span class="device-pill">Wearable: Accelerometer + Gyroscope</span><span class="device-pill">AI Camera: Pose Estimation</span><span class="device-pill">Smart Sensor: Movement &amp; Environment</span><span class="device-pill">Hybrid Confidence Score</span></div><div class="story-grid"><article class="story-card" data-reveal><h3>Wearable</h3><p>เหมาะกับการตรวจจับแรงกระแทกและการล้มแรง โดยเฉพาะกรณีนอกบ้านหรือผู้สูงอายุยังเคลื่อนไหวได้มาก</p></article><article class="story-card" data-reveal><h3>AI Camera</h3><p>ช่วยเห็นการทรุดตัว หน้ามืด หรือล้มช้าได้ดีขึ้น แม้ไม่ได้สวมอุปกรณ์ และยังวางแนวทางรักษาความเป็นส่วนตัวไว้ชัดเจน</p></article><article class="story-card" data-reveal><h3>Confidence Score</h3><p>ระบบจะประเมินเป็น Low, Medium, High เพื่อแยกเหตุการณ์ที่ควรเก็บ log, ส่ง soft alert หรือเข้าสู่ emergency alert ทันที</p></article><article class="story-card" data-reveal><h3>Warm Response</h3><p>เป้าหมายไม่ใช่แค่เตือนเร็ว แต่เตือนอย่างมีบริบท เพื่อให้ครอบครัวรู้สึกมั่นใจ และทีมดูแลตอบสนองอย่างเหมาะสมไม่ตื่นตระหนกเกินจำเป็น</p></article></div></div></section>
+    <section class="content-section" id="global"><div class="container section-shell"><div class="section-intro" data-reveal><p class="eyebrow">AI For Global Scale</p><h2>AI ของ CareWise ถูกวางไว้ตั้งแต่ต้นให้รองรับการเติบโตระดับแฟรนไชส์ในอนาคต</h2></div><div class="global-grid"><article class="global-card" data-reveal><h3>Multi-language AI Engine</h3><p>รองรับภาษาไทย อังกฤษ ญี่ปุ่น จีน และภาษาอาเซียนอื่น ๆ เพื่อให้ประสบการณ์ของผู้ใช้สอดคล้องกันแม้ขยายไปต่างประเทศ</p></article><article class="global-card" data-reveal><h3>Compliance-ready by Design</h3><p>แนวคิดระบบรองรับ PDPA, GDPR และข้อกำหนดสุขภาพของแต่ละประเทศ โดยกำหนดสิทธิ์การเข้าถึงข้อมูลตามบทบาทผู้ใช้งาน</p></article><article class="global-card" data-reveal><h3>AI-driven Franchise Quality Score</h3><p>ช่วยให้สำนักงานใหญ่เห็นคุณภาพของแต่ละสาขาจาก Response Time, Health Outcome, Staff Compliance และ Customer Satisfaction แบบต่อเนื่อง</p></article><article class="global-card" data-reveal><h3>Network Effect</h3><p>เมื่อมีข้อมูลสุขภาพจากหลายสาขามากขึ้น โมเดลก็ยิ่งเรียนรู้และแม่นยำขึ้น ทำให้ “ยิ่งโต ยิ่งฉลาด” ตามแนวคิดในแผนธุรกิจ</p></article></div><p class="source-note" data-reveal>หน้า AI นี้สรุปและเรียบเรียงจากหัวข้อ AI Strategy, Service Flow, อุปกรณ์เทคโนโลยีหลัก และแผนการขยายธุรกิจในไฟล์ Carewise_BusinessPlan_2569_v7.docx</p></div></section>
+  </main>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      const dots = Array.from(document.querySelectorAll('.section-dot'));
+      const sections = dots.map((dot) => {
+        const id = dot.getAttribute('href');
+        if (!id || !id.startsWith('#')) return null;
+        const section = document.querySelector(id);
+        return section ? { dot, section, id } : null;
+      }).filter(Boolean);
+      if (!sections.length || typeof IntersectionObserver === 'undefined') return;
+      const setActive = (id) => {
+        sections.forEach(({ dot, id: sectionId }) => {
+          const isActive = sectionId === id;
+          dot.classList.toggle('is-active', isActive);
+          if (isActive) dot.setAttribute('aria-current', 'true');
+          else dot.removeAttribute('aria-current');
+        });
+      };
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (!visible.length) return;
+        setActive(`#${visible[0].target.id}`);
+      }, { rootMargin: '-28% 0px -45% 0px', threshold: [0.2, 0.35, 0.55, 0.75] });
+      sections.forEach(({ section }) => observer.observe(section));
+      setActive(sections[0].id);
+
+      const demoTabs = Array.from(document.querySelectorAll('.app-demo-tab'));
+      const demoViews = Array.from(document.querySelectorAll('.screen-view'));
+      const demoCaption = document.querySelector('[data-demo-caption]');
+      const demoDescriptions = {
+        dashboard: 'มุมมองรวมของสุขภาพประจำวัน อ่านค่า vital sign แผนดูแล และสถานะล่าสุดได้ในหน้าจอเดียว',
+        alert: 'หน้าการแจ้งเตือนเร่งด่วนที่บอกระดับความเสี่ยง บริบทของเหตุการณ์ และสิ่งที่ครอบครัวทำต่อได้ทันที',
+        report: 'สรุปรายงานรายสัปดาห์ให้ครอบครัวเข้าใจแนวโน้มสุขภาพ การนอน การใช้ยา และคำแนะนำจาก AI แบบรวบรัด',
+        telehealth: 'หน้าสำหรับนัดหมายและเข้าพบแพทย์ออนไลน์ พร้อมข้อมูลก่อนคอลเพื่อให้การพูดคุยมีบริบทครบขึ้น'
+      };
+      const setDemoScreen = (screen) => {
+        demoTabs.forEach((tab) => {
+          const active = tab.dataset.screen === screen;
+          tab.classList.toggle('is-active', active);
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        demoViews.forEach((view) => {
+          view.classList.toggle('is-active', view.dataset.screenView === screen);
+        });
+        if (demoCaption && demoDescriptions[screen]) {
+          demoCaption.textContent = demoDescriptions[screen];
+        }
+      };
+      demoTabs.forEach((tab) => {
+        tab.addEventListener('click', () => setDemoScreen(tab.dataset.screen));
+      });
+    })();
+  </script>
+</body>
+</html>
