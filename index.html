@@ -5,13 +5,143 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CareWise | Company Profile</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .top-nav {
+      gap: 8px;
+    }
+
+    .top-nav a {
+      position: relative;
+      padding: 0.72rem 1.05rem;
+      border-radius: 999px;
+      transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .top-nav a::after {
+      content: "";
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 0.5rem;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(205, 233, 224, 0), rgba(92, 153, 130, 0.95), rgba(205, 233, 224, 0));
+      opacity: 0;
+      transform: scaleX(0.35);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .top-nav a:hover,
+    .top-nav a:focus-visible {
+      background: rgba(255, 255, 255, 0.52);
+      box-shadow: 0 10px 22px rgba(27, 67, 50, 0.08);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .top-nav a:hover::after,
+    .top-nav a:focus-visible::after,
+    .top-nav a[aria-current="page"]::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .top-nav a[aria-current="page"] {
+      color: #1b4332;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 250, 247, 0.88));
+      box-shadow: inset 0 0 0 1px rgba(92, 153, 130, 0.22), 0 10px 24px rgba(27, 67, 50, 0.1);
+    }
+
+    .section-rail {
+      position: fixed;
+      top: 50%;
+      left: 24px;
+      transform: translateY(-50%);
+      z-index: 30;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 14px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 40px rgba(29, 53, 87, 0.12);
+    }
+
+    .section-dot {
+      position: relative;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(27, 67, 50, 0.18);
+      border: 1px solid rgba(27, 67, 50, 0.16);
+      transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .section-dot::after {
+      content: attr(data-label);
+      position: absolute;
+      top: 50%;
+      left: 24px;
+      transform: translateY(-50%);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(22, 31, 42, 0.9);
+      color: #fff;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .section-dot:hover::after,
+    .section-dot:focus-visible::after,
+    .section-dot.is-active::after {
+      opacity: 1;
+      transform: translateY(-50%) translateX(4px);
+    }
+
+    .section-dot:hover,
+    .section-dot:focus-visible,
+    .section-dot.is-active {
+      background: #1b4332;
+      box-shadow: 0 0 0 6px rgba(27, 67, 50, 0.12);
+      transform: scale(1.08);
+      outline: none;
+    }
+
+    @media (max-width: 1100px) {
+      .section-rail {
+        left: 12px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .section-rail {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="ambient ambient-left"></div>
   <div class="ambient ambient-right"></div>
 
+  <aside class="section-rail" aria-label="Page sections">
+    <a class="section-dot" href="#about" data-label="About" aria-label="About section"></a>
+    <a class="section-dot" href="#why-carewise" data-label="Why CareWise" aria-label="Why CareWise section"></a>
+    <a class="section-dot" href="#services" data-label="Services" aria-label="Services section"></a>
+    <a class="section-dot" href="#packages" data-label="Packages" aria-label="Packages section"></a>
+    <a class="section-dot" href="#ai" data-label="AI" aria-label="AI section"></a>
+    <a class="section-dot" href="#faq" data-label="FAQ" aria-label="FAQ section"></a>
+    <a class="section-dot" href="#franchise" data-label="Franchise" aria-label="Franchise section"></a>
+    <a class="section-dot" href="#contact" data-label="Profile" aria-label="Profile section"></a>
+  </aside>
+
   <header class="site-header">
-    <a class="brand" href="#hero" aria-label="CareWise">
+    <a class="brand" href="index.html" aria-label="CareWise">
       <span class="brand-mark">CW</span>
       <span class="brand-copy">
         <strong>CareWise</strong>
@@ -20,12 +150,9 @@
     </a>
 
     <nav class="top-nav" aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#packages">Packages</a>
-      <a href="#ai">AI</a>
-      <a href="#franchise">Franchise</a>
-      <a href="#contact">Profile</a>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="ai.html">AI &amp; App</a>
+      <a href="franchise.html">Franchise</a>
     </nav>
   </header>
 
@@ -114,69 +241,86 @@
       </div>
     </section>
 
-    <section class="content-section tone-soft" id="services">
+    <section class="content-section tone-soft" id="why-carewise">
       <div class="container">
         <div class="section-head center" data-reveal>
-          <p class="eyebrow">Services</p>
-          <h2>บริการหลักของ <span class="brand-inline">CareWise</span> ออกแบบให้เข้าใจง่าย เข้าถึงง่าย และตอบโจทย์การดูแลจริง</h2>
-          <p>เราให้ความสำคัญกับบริการที่ครอบครัวมองเห็นได้ทันทีว่าช่วยดูแลผู้สูงอายุอย่างไร และช่วยให้คนในบ้านรู้สึกเบาใจขึ้นอย่างไร</p>
+          <p class="eyebrow">Why CareWise</p>
+          <h2>บริการที่ออกแบบให้ครอบครัวเข้าใจง่าย และรู้สึกมั่นใจได้ตั้งแต่ครั้งแรกที่เข้ามาคุย</h2>
+          <p>เราอยากให้การเลือกบริการดูแลผู้สูงอายุไม่ใช่เรื่องซับซ้อน แต่เป็นการตัดสินใจที่ชัดเจน อบอุ่น และตรงกับสิ่งที่แต่ละครอบครัวต้องการจริง ๆ</p>
+        </div>
+
+        <div class="audience-grid">
+          <article class="audience-card emphasis" data-reveal>
+            <h3>ทำไมหลายครอบครัวจึงรู้สึกว่า CareWise “ใกล้ตัว” มากกว่าบริการดูแลทั่วไป</h3>
+            <p>เพราะเราไม่ได้มองแค่การดูแลให้ครบขั้นตอน แต่ใส่ใจว่าครอบครัวจะรู้สึกอย่างไรระหว่างทางด้วย</p>
+          </article>
+          <article class="audience-card" data-reveal>
+            <span class="mini-label">เหมาะกับใคร</span>
+            <h3>ครอบครัวที่อยากดูแลให้ดีที่สุด แม้จะไม่ได้อยู่ข้าง ๆ ตลอดวัน</h3>
+            <p>เหมาะสำหรับทั้งการดูแลรายวัน การดูแลต่อเนื่องที่บ้าน และช่วงพักฟื้นที่ต้องการความใส่ใจมากขึ้น</p>
+          </article>
+          <article class="audience-card" data-reveal>
+            <span class="mini-label">สิ่งที่ต่าง</span>
+            <h3>ดูแลด้วยคนที่เข้าใจ พร้อมระบบช่วยให้มั่นใจขึ้น</h3>
+            <p>ทีมดูแลสื่อสารอย่างอ่อนโยน ขณะเดียวกันระบบติดตามช่วยเสริมความต่อเนื่องของการดูแลในแต่ละวัน</p>
+          </article>
+          <article class="audience-card" data-reveal>
+            <span class="mini-label">เลือกง่าย</span>
+            <h3>มีแพ็กเกจที่ยืดหยุ่นและค่าใช้จ่ายที่ดูเข้าใจง่าย</h3>
+            <p>ครอบครัวสามารถเลือกบริการให้เหมาะกับสภาพร่างกาย ช่วงเวลา และงบประมาณได้สบายใจกว่าเดิม</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="services">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <p class="eyebrow">Services &amp; Packages</p>
+          <h2>บริการหลักของ <span class="brand-inline">CareWise</span> ออกแบบให้เข้าใจง่าย เข้าถึงได้ และตอบโจทย์การดูแลจริง</h2>
+          <p>เลือกบริการได้ตามรูปแบบการดูแลที่ต้องการ ทั้งที่ศูนย์ ที่บ้าน และแบบดูแลต่อเนื่อง</p>
         </div>
 
         <div class="services-grid">
           <article class="service-card" data-reveal>
             <img src="images/svg/svg/001-elderly.svg" alt="Care Center icon">
             <h3>Care Center</h3>
-            <p>ศูนย์ดูแลผู้สูงอายุที่ให้ทั้งความปลอดภัย กิจกรรมส่งเสริมสุขภาวะ และบรรยากาศที่อบอุ่นเป็นมิตร</p>
+            <p>ดูแลรายวันและระยะสั้นในศูนย์ที่ปลอดภัย อบอุ่น และเป็นมิตร</p>
             <ul class="clean-list">
               <li>เหมาะกับการดูแลรายวันและระยะสั้น</li>
-              <li>สร้างประสบการณ์ที่อ่อนโยนและต่างจากศูนย์ดูแลแบบเดิม</li>
-              <li>ช่วยให้แบรนด์ดูมีมาตรฐานและน่าเชื่อถือ</li>
+              <li>มีกิจกรรม อาหาร และทีมดูแลคอยใส่ใจ</li>
             </ul>
             <div class="service-detail">
-              <strong>บริการที่ดูแลให้</strong>
-              <p>แพ็กเกจดูแลรายวัน, Short Stay, โปรแกรมกิจกรรมสำหรับผู้สูงอายุ และบริการเสริมด้านสุขภาวะ</p>
-            </div>
-            <div class="service-detail">
-              <strong>สิ่งที่ลูกค้าได้รับ</strong>
-              <p>สถานที่ดูแลที่ปลอดภัย มีกิจกรรมกระตุ้นร่างกายและอารมณ์ พร้อมทีมดูแลที่ครอบครัวพูดคุยและเข้าถึงได้ง่าย</p>
+              <strong>เหมาะสำหรับ</strong>
+              <p>ครอบครัวที่ต้องการดูแลแบบไป-กลับ หรือช่วงพักฟื้นระยะสั้น</p>
             </div>
           </article>
 
           <article class="service-card" data-reveal>
             <img src="images/svg/svg/004-nurse.svg" alt="Home Care icon">
             <h3>Home Care</h3>
-            <p>บริการดูแลถึงบ้านที่ช่วยให้ครอบครัวได้รับการดูแลแบบมืออาชีพ โดยไม่ต้องย้ายผู้สูงอายุออกจากบ้านที่คุ้นเคย</p>
+            <p>บริการดูแลถึงบ้านสำหรับครอบครัวที่ต้องการความสะดวกและใกล้ชิด</p>
             <ul class="clean-list">
-              <li>สะดวกและยืดหยุ่นต่อชีวิตประจำวันของครอบครัว</li>
-              <li>ดูแลต่อเนื่องได้อย่างสม่ำเสมอ</li>
-              <li>เชื่อมกับระบบติดตามและ Telehealth ได้</li>
+              <li>ดูแลในสภาพแวดล้อมที่ผู้สูงอายุคุ้นเคย</li>
+              <li>เสริมด้วยระบบติดตามและ Telehealth ได้</li>
             </ul>
             <div class="service-detail">
-              <strong>บริการที่ดูแลให้</strong>
-              <p>บริการ Caregiver ถึงบ้าน, แพ็กเกจเยี่ยมบ้านตามรอบ, ติดตามอาการ และบริการปรึกษาออนไลน์</p>
-            </div>
-            <div class="service-detail">
-              <strong>สิ่งที่ลูกค้าได้รับ</strong>
-              <p>ความสะดวกในการดูแลผู้สูงอายุที่บ้าน โดยยังคงความเป็นระบบ ความใกล้ชิด และความมั่นใจแบบบริการมืออาชีพ</p>
+              <strong>เหมาะสำหรับ</strong>
+              <p>ครอบครัวที่อยากให้ผู้สูงอายุอยู่บ้าน แต่ยังได้รับการดูแลอย่างต่อเนื่อง</p>
             </div>
           </article>
 
           <article class="service-card" data-reveal>
             <img src="images/svg/svg/006-elderly-3.svg" alt="Partnership icon">
             <h3>Partnership Service</h3>
-            <p>บริการดูแลต่อเนื่องร่วมกับโรงพยาบาล คลินิก หรือองค์กร เพื่อให้ผู้สูงอายุได้รับการดูแลที่เชื่อมต่อกันอย่างราบรื่น</p>
+            <p>แผนดูแลต่อเนื่องร่วมกับโรงพยาบาล คลินิก หรือองค์กร</p>
             <ul class="clean-list">
-              <li>ช่วยให้การดูแลเชื่อมต่อกันได้ดีขึ้น</li>
-              <li>สร้างความน่าเชื่อถือให้กับแบรนด์</li>
-              <li>ทำให้ผู้รับบริการรู้สึกว่าได้รับการดูแลอย่างต่อเนื่อง</li>
+              <li>ช่วยให้การดูแลต่อเนื่องและเป็นระบบมากขึ้น</li>
+              <li>เหมาะกับการดูแลหลังออกจากโรงพยาบาล</li>
             </ul>
             <div class="service-detail">
-              <strong>บริการที่ดูแลให้</strong>
-              <p>บริการติดตามผู้สูงอายุหลังการรักษา, โซลูชันดูแลต่อเนื่องสำหรับองค์กร และความร่วมมือกับโรงพยาบาลหรือคลินิก</p>
-            </div>
-            <div class="service-detail">
-              <strong>สิ่งที่ลูกค้าได้รับ</strong>
-              <p>บริการต่อเนื่องที่ช่วยให้ผู้เกี่ยวข้องทุกฝ่ายทำงานร่วมกันได้ดีขึ้น และทำให้ผู้สูงอายุได้รับการดูแลอย่างไม่ขาดช่วง</p>
+              <strong>เหมาะสำหรับ</strong>
+              <p>ผู้ที่ต้องการเชื่อมการดูแลจากทีมสุขภาพสู่บ้านหรือศูนย์ดูแลอย่างราบรื่น</p>
             </div>
           </article>
         </div>
@@ -193,42 +337,10 @@
       </div>
     </section>
 
-    <section class="content-section" id="ai">
-      <div class="container split-grid align-start">
-        <div class="section-copy" data-reveal>
-          <p class="eyebrow">AI & Innovation</p>
-          <h2>AI คือเหตุผลสำคัญที่ทำให้ <span class="brand-inline">CareWise</span> ไม่ใช่แค่ธุรกิจดูแลผู้สูงอายุทั่วไป</h2>
-          <p>
-            สำหรับโปรเจกต์วิชาปัญญาประดิษฐ์และนวัตกรรม ส่วนนี้คือหัวใจสำคัญของ CareWise เพราะ AI ช่วยให้การดูแลมีความต่อเนื่อง
-            ช่วยให้ครอบครัวสบายใจขึ้น และทำให้การดูแลดูร่วมสมัยโดยยังคงความอบอุ่นของมนุษย์ไว้ครบถ้วน
-          </p>
-        </div>
-
-        <div class="feature-grid">
-          <article class="feature-card" data-reveal>
-            <strong>Monitoring</strong>
-            <span>AI ช่วยติดตามข้อมูลสุขภาพและพฤติกรรม เพื่อให้การดูแลมีความต่อเนื่องและใส่ใจรายละเอียดมากขึ้น</span>
-          </article>
-          <article class="feature-card" data-reveal>
-            <strong>Alerts</strong>
-            <span>ระบบแจ้งเตือนช่วยให้ครอบครัวรู้สึกว่ามีผู้ช่วยคอยดูแลอยู่เสมอ</span>
-          </article>
-          <article class="feature-card" data-reveal>
-            <strong>Personalization</strong>
-            <span>ข้อมูลจาก AI ช่วยให้การดูแลเหมาะกับผู้สูงอายุแต่ละคนมากขึ้น และตอบสนองได้ตรงความต้องการมากขึ้น</span>
-          </article>
-          <article class="feature-card" data-reveal>
-            <strong>Innovation Image</strong>
-            <span>AI ช่วยให้ CareWise ดูเป็นธุรกิจยุคใหม่ที่เข้าใจทั้งเทคโนโลยีและความรู้สึกของผู้รับบริการ</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="content-section tone-soft" id="packages">
       <div class="container">
         <div class="section-head center" data-reveal>
-          <p class="eyebrow">Package & Promotion</p>
+          <p class="eyebrow">Package Options &amp; Promotion</p>
           <h2>แพ็กเกจของ <span class="brand-inline">CareWise</span> ออกแบบจากรูปแบบการดูแลจริง เพื่อให้ครอบครัวเลือกได้อย่างมั่นใจและเหมาะกับชีวิตประจำวัน</h2>
           <p>เราจัดแพ็กเกจให้เข้าใจง่าย ดูขอบเขตบริการและค่าใช้จ่ายได้ชัด เพื่อช่วยให้ครอบครัวตัดสินใจได้สะดวกและเลือกแผนที่เหมาะกับผู้สูงอายุแต่ละท่าน</p>
         </div>
@@ -387,6 +499,63 @@
       </div>
     </section>
 
+    <section class="content-section" id="ai">
+      <div class="container split-grid align-start">
+        <div class="section-copy" data-reveal>
+          <p class="eyebrow">AI & Innovation</p>
+          <h2>AI คือเหตุผลสำคัญที่ทำให้ <span class="brand-inline">CareWise</span> ไม่ใช่แค่ธุรกิจดูแลผู้สูงอายุทั่วไป</h2>
+          <p>
+            สำหรับโปรเจกต์วิชาปัญญาประดิษฐ์และนวัตกรรม ส่วนนี้คือหัวใจสำคัญของ CareWise เพราะ AI ช่วยให้การดูแลมีความต่อเนื่อง
+            ช่วยให้ครอบครัวสบายใจขึ้น และทำให้การดูแลดูร่วมสมัยโดยยังคงความอบอุ่นของมนุษย์ไว้ครบถ้วน
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card" data-reveal>
+            <strong>Monitoring</strong>
+            <span>AI ช่วยติดตามข้อมูลสุขภาพและพฤติกรรม เพื่อให้การดูแลมีความต่อเนื่องและใส่ใจรายละเอียดมากขึ้น</span>
+          </article>
+          <article class="feature-card" data-reveal>
+            <strong>Alerts</strong>
+            <span>ระบบแจ้งเตือนช่วยให้ครอบครัวรู้สึกว่ามีผู้ช่วยคอยดูแลอยู่เสมอ</span>
+          </article>
+          <article class="feature-card" data-reveal>
+            <strong>Personalization</strong>
+            <span>ข้อมูลจาก AI ช่วยให้การดูแลเหมาะกับผู้สูงอายุแต่ละคนมากขึ้น และตอบสนองได้ตรงความต้องการมากขึ้น</span>
+          </article>
+          <article class="feature-card" data-reveal>
+            <strong>Innovation Image</strong>
+            <span>AI ช่วยให้ CareWise ดูเป็นธุรกิจยุคใหม่ที่เข้าใจทั้งเทคโนโลยีและความรู้สึกของผู้รับบริการ</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="faq">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <p class="eyebrow">FAQ</p>
+          <h2>คำถามที่ครอบครัวมักอยากรู้ก่อนเริ่มใช้บริการ</h2>
+          <p>เราอยากให้การเริ่มต้นพูดคุยกับ CareWise เป็นเรื่องง่าย จึงสรุปคำถามพื้นฐานที่หลายครอบครัวมักใช้ประกอบการตัดสินใจไว้ให้ชัดเจน</p>
+        </div>
+
+        <div class="faq-grid">
+          <article class="faq-card" data-reveal>
+            <h3>ถ้ายังไม่แน่ใจว่าควรเลือกแพ็กเกจไหน ทำอย่างไร</h3>
+            <p>สามารถเริ่มจากการพูดคุยกับทีมงานเพื่อประเมินลักษณะการดูแลที่เหมาะสมก่อน โดยเราจะช่วยแนะนำว่าควรเริ่มจาก Care Center, Home Care หรือแผนดูแลต่อเนื่องแบบใด</p>
+          </article>
+          <article class="faq-card" data-reveal>
+            <h3>สามารถปรับแผนการดูแลระหว่างทางได้หรือไม่</h3>
+            <p>ได้ หากสภาพร่างกายหรือความต้องการของผู้สูงอายุเปลี่ยนไป ทีมงานสามารถช่วยปรับรูปแบบบริการ ความถี่ หรืออุปกรณ์เสริมให้เหมาะสมมากขึ้น</p>
+          </article>
+          <article class="faq-card" data-reveal>
+            <h3>ครอบครัวจะติดตามข้อมูลการดูแลได้อย่างไร</h3>
+            <p>CareWise เน้นการสื่อสารที่ชัดเจน ทั้งจากทีมดูแลและระบบติดตาม เพื่อให้ครอบครัวรับรู้ความเคลื่อนไหวและรู้สึกมั่นใจตลอดการใช้บริการ</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="content-section tone-accent" id="franchise">
       <div class="container">
         <div class="section-head center" data-reveal>
@@ -442,5 +611,51 @@
   <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
 
   <script src="script.js"></script>
+  <script>
+    (function () {
+      const dots = Array.from(document.querySelectorAll('.section-dot'));
+      const sections = dots
+        .map((dot) => {
+          const id = dot.getAttribute('href');
+          if (!id || !id.startsWith('#')) return null;
+          const section = document.querySelector(id);
+          return section ? { dot, section, id } : null;
+        })
+        .filter(Boolean);
+
+      if (!sections.length || typeof IntersectionObserver === 'undefined') return;
+
+      const setActive = (id) => {
+        sections.forEach(({ dot, id: sectionId }) => {
+          const isActive = sectionId === id;
+          dot.classList.toggle('is-active', isActive);
+          if (isActive) {
+            dot.setAttribute('aria-current', 'true');
+          } else {
+            dot.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+          if (!visible.length) return;
+          setActive(`#${visible[0].target.id}`);
+        },
+        {
+          rootMargin: '-28% 0px -45% 0px',
+          threshold: [0.2, 0.35, 0.55, 0.75]
+        }
+      );
+
+      sections.forEach(({ section }) => observer.observe(section));
+      setActive(sections[0].id);
+    })();
+  </script>
 </body>
 </html>
+
