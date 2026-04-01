@@ -78,3 +78,31 @@ if (backToTopButton) {
     });
   });
 }
+
+const sectionRail = document.querySelector(".section-rail");
+
+if (sectionRail) {
+  let idleTimer;
+
+  const showRail = () => {
+    sectionRail.classList.remove("is-idle");
+  };
+
+  const scheduleRailIdle = () => {
+    window.clearTimeout(idleTimer);
+    idleTimer = window.setTimeout(() => {
+      sectionRail.classList.add("is-idle");
+    }, 1000);
+  };
+
+  const refreshRailVisibility = () => {
+    showRail();
+    scheduleRailIdle();
+  };
+
+  window.addEventListener("scroll", refreshRailVisibility, { passive: true });
+  sectionRail.addEventListener("mouseenter", showRail);
+  sectionRail.addEventListener("mouseleave", scheduleRailIdle);
+
+  refreshRailVisibility();
+}
