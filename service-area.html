@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareWise | Service Area</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .top-nav { gap: 8px; }
+    .top-nav a { position: relative; padding: 0.72rem 1.05rem; border-radius: 999px; transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+    .top-nav a::after { content: ""; position: absolute; left: 1rem; right: 1rem; bottom: 0.5rem; height: 2px; border-radius: 999px; background: linear-gradient(90deg, rgba(205,233,224,0), rgba(92,153,130,0.95), rgba(205,233,224,0)); opacity: 0; transform: scaleX(0.35); transition: opacity 180ms ease, transform 180ms ease; }
+    .top-nav a:hover, .top-nav a:focus-visible { background: rgba(255,255,255,0.52); box-shadow: 0 10px 22px rgba(27,67,50,0.08); transform: translateY(-1px); outline: none; }
+    .top-nav a:hover::after, .top-nav a:focus-visible::after, .top-nav a[aria-current="page"]::after { opacity: 1; transform: scaleX(1); }
+    .top-nav a[aria-current="page"] { color: #1b4332; background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244,250,247,0.88)); box-shadow: inset 0 0 0 1px rgba(92,153,130,0.22), 0 10px 24px rgba(27,67,50,0.1); }
+
+    .section-rail { position: fixed; top: 50%; left: 14px; transform: translateY(-50%); z-index: 30; display: flex; flex-direction: column; gap: 10px; padding: 0; opacity: 1; transition: opacity 220ms ease, transform 220ms ease; }
+    .section-dot { position: relative; display: flex; align-items: center; width: auto; min-height: 18px; padding: 2px 0 2px 16px; border-radius: 999px; color: rgba(24,56,76,0.44); transition: color 180ms ease, transform 180ms ease; }
+    .section-dot::before { content: ""; position: absolute; left: 0; top: 50%; width: 7px; height: 7px; border-radius: 999px; background: rgba(27,67,50,0.22); box-shadow: 0 0 0 4px rgba(27,67,50,0.05); transform: translateY(-50%); transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+    .section-dot::after { content: attr(data-label); position: relative; display: block; font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; line-height: 1; white-space: nowrap; opacity: 0.72; transform-origin: left center; transition: opacity 180ms ease, color 180ms ease, font-size 180ms ease, font-weight 180ms ease, transform 180ms ease; }
+    .section-dot:hover, .section-dot:focus-visible { color: rgba(24,56,76,0.76); transform: translateX(2px); outline: none; }
+    .section-dot:hover::before, .section-dot:focus-visible::before { background: rgba(27,67,50,0.36); box-shadow: 0 0 0 5px rgba(27,67,50,0.08); transform: translateY(-50%) scale(1.08); }
+    .section-dot:hover::after, .section-dot:focus-visible::after { opacity: 0.88; }
+    .section-dot.is-active { color: #18384c; transform: translateX(3px); }
+    .section-dot.is-active::before { width: 9px; height: 9px; background: rgba(27,67,50,0.82); box-shadow: 0 0 0 6px rgba(27,67,50,0.08); transform: translateY(-50%) scale(1.02); }
+    .section-dot.is-active::after { font-size: 0.88rem; font-weight: 600; opacity: 1; transform: scale(1); }
+    .section-rail.is-idle { opacity: 0.02; transform: translateY(-50%) translateX(-10px); }
+    .section-rail.is-idle:hover, .section-rail.is-idle:focus-within { opacity: 1; transform: translateY(-50%); }
+
+    .page-hero { position: relative; padding: 7.4rem 0 3.5rem; }
+    .hero-grid, .info-grid, .address-grid { display: grid; gap: 1.6rem; }
+    .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(360px, 0.92fr); align-items: center; }
+    .map-section-grid { display: grid; gap: 1.6rem; }
+    .map-section-grid { grid-template-columns: minmax(0, 1.16fr) minmax(320px, 0.84fr); align-items: start; }
+    .info-grid, .address-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .hero-copy, .hero-photo-card, .map-card, .summary-card, .address-card { padding: 1.55rem; border-radius: 30px; background: rgba(255,255,255,0.78); border: 1px solid rgba(120,157,140,0.18); box-shadow: 0 18px 44px rgba(34,56,48,0.08); backdrop-filter: blur(12px); }
+    .hero-copy { display: grid; gap: 1.05rem; background: transparent; border: 0; box-shadow: none; padding: 0; }
+    .hero-kicker { color: var(--brand); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
+    .hero-title { font-family: var(--title-font); font-size: clamp(3.2rem, 8vw, 6.2rem); line-height: 0.93; letter-spacing: -0.05em; color: var(--brand-deep); }
+    .hero-subtitle { max-width: 42rem; font-size: 1.18rem; line-height: 1.8; color: #4f6779; }
+    .hero-metric-row { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+    .metric-pill { display: inline-flex; align-items: center; padding: 0.82rem 1.05rem; border-radius: 999px; background: rgba(223,241,250,0.96); color: #205777; font-size: 1rem; font-weight: 700; }
+    .metric-pill.soft { background: rgba(231,241,236,0.96); color: #27543f; }
+
+    .hero-photo-card { display: grid; gap: 1rem; align-content: start; }
+    .hero-photo-card img { width: 100%; aspect-ratio: 4 / 3.1; object-fit: cover; border-radius: 22px; }
+    .photo-caption strong { display: block; margin-bottom: 0.35rem; font-size: 1.18rem; color: #214f71; }
+    .photo-caption p { font-size: 1.02rem; line-height: 1.72; color: #486477; }
+
+    .map-card { padding: 1rem; }
+    .map-visual { position: relative; }
+    .map-embed { width: 100%; height: 620px; border: 0; border-radius: 24px; background: #eef6fb; pointer-events: none; user-select: none; }
+    .map-overlay { position: absolute; inset: 0; pointer-events: none; border-radius: 24px; overflow: hidden; }
+    .service-radius {
+      position: absolute;
+      border-radius: 50%;
+      border: 3px solid rgba(47, 149, 204, 0.8);
+      background: rgba(136, 204, 235, 0.12);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.55) inset;
+      transform: translate(-50%, -50%);
+    }
+    .service-radius::after {
+      content: "30 กม.";
+      position: absolute;
+      top: 50%;
+      right: 14px;
+      transform: translateY(-50%);
+      padding: 0.34rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.96);
+      color: #1f5679;
+      font-size: 0.92rem;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 8px 20px rgba(31, 86, 121, 0.12);
+    }
+    .map-note { margin-top: 1rem; padding: 1rem 1.1rem; border-radius: 20px; background: rgba(238,246,251,0.9); color: #486477; font-size: 1rem; line-height: 1.72; }
+
+    .summary-card { height: 100%; display: flex; flex-direction: column; }
+    .summary-card h3, .address-card h3 { margin-bottom: 0.6rem; color: #1f5679; font-size: 1.38rem; }
+    .summary-card p, .summary-card li, .address-card p { color: #486477; font-size: 1.08rem; line-height: 1.75; }
+    .summary-card strong, .address-card strong { display: block; margin-bottom: 0.35rem; color: #214f71; font-size: 1.16rem; }
+    .coverage-list { margin: 0.85rem 0 0; padding-left: 1.2rem; }
+    .coverage-list li + li { margin-top: 0.45rem; }
+    .highlight-band { padding: 1.15rem 1.2rem; border-radius: 22px; background: linear-gradient(135deg, rgba(246,252,248,0.94), rgba(230,242,236,0.92)); border: 1px solid rgba(120,157,140,0.22); color: #274739; font-size: 1rem; line-height: 1.75; }
+    .service-compact-stack { margin-top: auto; display: grid; gap: 0.75rem; }
+    .service-compact-card { padding: 0.9rem 1rem; border-radius: 18px; background: rgba(239,247,252,0.92); border: 1px solid rgba(126,163,186,0.18); }
+    .service-compact-card strong { display: block; margin-bottom: 0.18rem; color: #205777; font-size: 1rem; }
+    .service-compact-card p { margin: 0; color: #4b687b; font-size: 0.94rem; line-height: 1.6; }
+
+    @media (max-width: 1100px) {
+      .section-rail { left: 8px; }
+      .section-dot::after { font-size: 0.68rem; }
+      .section-dot.is-active::after { font-size: 0.8rem; }
+      .hero-grid, .map-section-grid, .info-grid, .address-grid { grid-template-columns: 1fr; }
+      .map-embed { height: 560px; }
+    }
+
+    @media (max-width: 900px) {
+      .section-rail { display: none; }
+      .page-hero { padding-top: 7rem; }
+      .hero-photo-card, .map-card, .summary-card, .address-card { padding: 1.2rem; border-radius: 24px; }
+      .hero-title { font-size: clamp(2.7rem, 12vw, 4.6rem); }
+      .hero-subtitle, .summary-card p, .summary-card li, .address-card p { font-size: 1rem; }
+      .map-embed { height: 440px; border-radius: 20px; }
+      .map-overlay { border-radius: 20px; }
+      .service-radius::after { font-size: 0.82rem; right: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient ambient-left"></div>
+  <div class="ambient ambient-right"></div>
+
+  <aside class="section-rail" aria-label="Page sections">
+    <a class="section-dot" href="#overview" data-label="Overview" aria-label="Overview section"></a>
+    <a class="section-dot" href="#service-map" data-label="Map" aria-label="Map section"></a>
+    <a class="section-dot" href="#coverage" data-label="Coverage" aria-label="Coverage section"></a>
+    <a class="section-dot" href="#address" data-label="Address" aria-label="Address section"></a>
+  </aside>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="CareWise">
+      <span class="brand-mark">CW</span>
+      <span class="brand-copy"><strong>CareWise</strong><small>Company Profile | Elderly Care &amp; Smart Service</small></span>
+    </a>
+    <nav class="top-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="packages.html">Packages</a>
+      <a href="ai.html">AI &amp; App</a>
+      <a href="franchise.html">Franchise</a>
+      <a href="service-area.html" aria-current="page">Service Area</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section page-hero" id="overview">
+      <div class="container hero-grid">
+        <div class="hero-copy" data-reveal>
+          <p class="hero-kicker">พื้นที่ให้บริการ</p>
+          <h1 class="hero-title">CareWise<br>เริ่มต้นในกรุงเทพฯ</h1>
+          <p class="hero-subtitle">
+            ถ้าคุณกำลังดูว่าบ้านของคุณอยู่ในโซนที่ CareWise ไปดูแลได้สะดวกหรือไม่
+            หน้านี้จะช่วยให้เห็นทันทีว่าสาขาแรกอยู่ตรงไหน อยู่ย่านใดของกรุงเทพฯ
+            และพื้นที่รอบ ๆ ที่อยู่ในระยะบริการเบื้องต้นมีบริเวณใดบ้าง
+          </p>
+          <div class="hero-metric-row">
+            <span class="metric-pill">รัศมีบริการประมาณ 30 กม.</span>
+            <span class="metric-pill soft">กรุงเทพฯ และปริมณฑลใกล้เคียง</span>
+          </div>
+        </div>
+
+        <article class="hero-photo-card" data-reveal>
+          <img src="images/FYI_Center.jpg" alt="อาคาร FYI Center จุดอ้างอิงสาขาแรกของ CareWise">
+          <div class="photo-caption">
+            <strong>หากจะเดินทางมา ให้มองหา FYI Center พระราม 4</strong>
+            <p>
+              สาขาแรกของ CareWise อยู่ที่อาคาร FYI Center ย่านคลองเตย บนถนนพระราม 4
+              ซึ่งเป็นจุดที่เชื่อมต่อเข้าเมืองได้สะดวก และใช้เป็นจุดอ้างอิงหลักของพื้นที่ให้บริการในระยะแรก
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section" id="service-map">
+      <div class="container map-section-grid">
+        <article class="map-card" data-reveal>
+          <div class="map-visual">
+            <iframe
+              class="map-embed"
+              title="CareWise service area map"
+              loading="lazy"
+              tabindex="-1"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=100.177734375%2C13.431357176747696%2C100.90283203125%2C14.067198245730885&layer=mapnik&marker=13.72145%2C100.55969"
+            ></iframe>
+            <div class="map-overlay" aria-hidden="true">
+              <div class="service-radius" data-radius-circle></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="summary-card" data-reveal>
+          <h3>พื้นที่ให้บริการเบื้องต้น</h3>
+          <p>
+            ถ้าคุณอยู่ในกรุงเทพฯ ชั้นใน ชั้นกลาง หรืออยู่ในแนวที่เชื่อมต่อคลองเตยได้สะดวก
+            พื้นที่ของคุณมีโอกาสอยู่ในระยะบริการเบื้องต้นของ CareWise มากขึ้น
+          </p>
+          <ul class="coverage-list">
+            <li>กรุงเทพมหานคร: เหมาะกับบ้านที่อยู่ในโซนเมืองและแนวถนนสายหลัก</li>
+            <li>นนทบุรี: เหมาะกับพื้นที่ฝั่งเมืองที่เข้ากรุงเทพฯ ได้สะดวก</li>
+            <li>สมุทรปราการ: เหมาะกับแนวบางนา พระประแดง และพื้นที่ต่อเนื่องจากกรุงเทพฯ</li>
+            <li>ปทุมธานี: ครอบคลุมบางพื้นที่ฝั่งใต้ที่เดินทางเชื่อมกับเมืองได้ดี</li>
+            <li>สมุทรสาคร: ครอบคลุมบางพื้นที่ฝั่งตะวันตกเฉียงใต้ที่อยู่ไม่ไกลเกินระยะบริการ</li>
+          </ul>
+          <div class="service-compact-stack">
+            <div class="service-compact-card">
+              <strong>Home Care</strong>
+              <p>เริ่มจากโซนที่เดินทางสะดวกภายในรัศมีนี้ก่อน เพื่อให้นัดหมายและดูแลต่อเนื่องได้ง่าย</p>
+            </div>
+            <div class="service-compact-card">
+              <strong>เหมาะกับใคร</strong>
+              <p>เหมาะกับครอบครัวที่ต้องการดูแลที่บ้านเป็นประจำ หรือเริ่มจากการเยี่ยมบ้านก่อน</p>
+            </div>
+            <div class="service-compact-card">
+              <strong>เช็กพื้นที่ได้</strong>
+              <p>ส่งย่านหรือพิกัดบ้านให้ทีมช่วยประเมินระยะเดินทางเพิ่มเติมได้</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section tone-soft" id="coverage">
+      <div class="container info-grid">
+        <article class="summary-card" data-reveal>
+          <h3>เหมาะกับลูกค้าแบบใด</h3>
+          <p>
+            เหมาะกับครอบครัวที่ต้องการเช็กเบื้องต้นว่าบ้านของตัวเองอยู่ในโซนที่ทีม CareWise
+            สามารถเดินทางไปดูแลได้สะดวกหรือไม่ ทั้งแบบเยี่ยมบ้าน ดูแลตามแผน และดูแลต่อเนื่องระยะยาว
+          </p>
+          <div class="highlight-band">
+            ถ้าบ้านของคุณอยู่ใกล้แนวรถไฟฟ้า ถนนสุขุมวิท พระราม 4 พระราม 3 บางนา
+            หรืออยู่ใกล้เส้นทางหลักที่เข้าเมืองได้ง่าย โอกาสที่ทีมจะเดินทางได้สะดวกมักสูงขึ้น
+          </div>
+        </article>
+
+        <article class="summary-card" data-reveal>
+          <h3>สิ่งที่ลูกค้าควรรู้</h3>
+          <p>
+            แม้บ้านของคุณจะอยู่ในรัศมีประมาณ 30 กิโลเมตร แต่การรับบริการจริงยังขึ้นอยู่กับเวลาเดินทาง
+            สภาพจราจร และประเภทบริการที่ต้องการในแต่ละเคส
+          </p>
+          <p>
+            คุณสามารถใช้หน้านี้ดูภาพรวมก่อน แล้วให้ทีมงานช่วยประเมินเส้นทางและความเหมาะสมของพื้นที่จริงอีกครั้งเพื่อความชัดเจน
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section" id="address">
+      <div class="container address-grid">
+        <article class="address-card" data-reveal>
+          <h3>ที่ตั้งสาขาแรก</h3>
+          <strong>CareWise Co., Ltd.</strong>
+          <p>999/9 อาคาร FYI Center ชั้น 2 ถนนพระราม 4 แขวงคลองเตย กรุงเทพมหานคร 10110</p>
+          <p>ถ้าคุณต้องการมาที่สาขาแรก ให้ใช้ FYI Center เป็นจุดสังเกตหลัก เพราะอาคารตั้งอยู่บนถนนพระราม 4 ในย่านคลองเตย</p>
+        </article>
+
+        <article class="address-card" data-reveal>
+          <h3>เดินทางมายังพื้นที่บริการ</h3>
+          <p>หากคุณเดินทางจากในเมือง ให้ยึดแนวถนนพระราม 4 เป็นเส้นหลัก และมองหาย่านคลองเตยหรือโซนใกล้ศูนย์ประชุมแห่งชาติสิริกิติ์เป็นจุดสังเกต</p>
+          <p>ถ้าคุณสะดวกด้วยรถไฟฟ้า ให้เลือกเส้นทางที่เชื่อมต่อมายังย่านคลองเตยหรือพระราม 4 แล้วต่อรถมายังอาคาร FYI Center จะเดินทางได้ง่ายกว่า</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      const dots = Array.from(document.querySelectorAll('.section-dot'));
+      const sections = dots.map((dot) => {
+        const id = dot.getAttribute('href');
+        if (!id || !id.startsWith('#')) return null;
+        const section = document.querySelector(id);
+        return section ? { dot, section, id } : null;
+      }).filter(Boolean);
+
+      if (!sections.length) return;
+
+      const setActive = (id) => {
+        sections.forEach(({ dot, id: sectionId }) => {
+          const isActive = sectionId === id;
+          dot.classList.toggle('is-active', isActive);
+          if (isActive) dot.setAttribute('aria-current', 'true');
+          else dot.removeAttribute('aria-current');
+        });
+      };
+
+      const getNearestSectionId = () => {
+        const viewportAnchor = window.innerHeight * 0.42;
+        let nearest = sections[0];
+        let nearestDistance = Number.POSITIVE_INFINITY;
+
+        sections.forEach((item) => {
+          const rect = item.section.getBoundingClientRect();
+          const sectionAnchor = rect.top + Math.min(rect.height * 0.35, 180);
+          const distance = Math.abs(sectionAnchor - viewportAnchor);
+
+          if (distance < nearestDistance) {
+            nearest = item;
+            nearestDistance = distance;
+          }
+        });
+
+        return nearest.id;
+      };
+
+      const updateActiveSection = () => {
+        setActive(getNearestSectionId());
+      };
+
+      window.addEventListener('scroll', updateActiveSection, { passive: true });
+      window.addEventListener('resize', updateActiveSection, { passive: true });
+      updateActiveSection();
+
+      const radiusCircle = document.querySelector('[data-radius-circle]');
+      const mapVisual = document.querySelector('.map-visual');
+
+      const mercatorY = (latitude) => {
+        const rad = latitude * Math.PI / 180;
+        return Math.log(Math.tan(Math.PI / 4 + rad / 2));
+      };
+
+      const updateRadiusOverlay = () => {
+        if (!radiusCircle || !mapVisual) return;
+
+        const bounds = {
+          west: 100.177734375,
+          south: 13.431357176747696,
+          east: 100.90283203125,
+          north: 14.067198245730885
+        };
+        const center = { lat: 13.72145, lng: 100.55969 };
+        const radiusKm = 30;
+        const width = mapVisual.clientWidth;
+        const height = mapVisual.clientHeight;
+
+        const xRatio = (center.lng - bounds.west) / (bounds.east - bounds.west);
+        const northY = mercatorY(bounds.north);
+        const southY = mercatorY(bounds.south);
+        const centerY = mercatorY(center.lat);
+        const yRatio = (northY - centerY) / (northY - southY);
+
+        const kmPerDegLng = 111.32 * Math.cos(center.lat * Math.PI / 180);
+        const radiusDegLng = radiusKm / kmPerDegLng;
+        const pixelRadius = (radiusDegLng / (bounds.east - bounds.west)) * width;
+
+        radiusCircle.style.left = `${xRatio * width}px`;
+        radiusCircle.style.top = `${yRatio * height}px`;
+        radiusCircle.style.width = `${pixelRadius * 2}px`;
+        radiusCircle.style.height = `${pixelRadius * 2}px`;
+      };
+
+      window.addEventListener('resize', updateRadiusOverlay, { passive: true });
+      updateRadiusOverlay();
+    })();
+  </script>
+</body>
+</html>
