@@ -448,6 +448,7 @@ h3 {
   color: #fff;
 }
 
+.info-card.emphasis p,
 .info-card.emphasis h3,
 .info-card.emphasis li {
   color: inherit;
@@ -751,11 +752,13 @@ h3 {
   color: inherit;
 }
 
+.section-footnote,
 .package-footnote {
   margin-top: 18px;
   padding: 20px 24px;
 }
 
+.section-footnote strong,
 .package-footnote strong {
   display: block;
   margin-bottom: 8px;
@@ -846,6 +849,7 @@ h3 {
 .package-hero-metrics span,
 .package-card p,
 .promotion-card p,
+.section-footnote p,
 .package-footnote p,
 .audience-card p,
 .trust-card p,
