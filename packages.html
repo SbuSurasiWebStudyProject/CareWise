@@ -27,28 +27,34 @@
     .section-rail.is-idle:hover, .section-rail.is-idle:focus-within { opacity: 1; transform: translateY(-50%); }
 
     .page-hero { padding: 8rem 0 4.5rem; }
-    .page-hero-grid, .offer-grid, .benefit-grid, .support-grid, .compare-grid, .decision-grid { display: grid; gap: 1.5rem; }
+    .page-hero-grid, .offer-grid, .addon-grid, .benefit-grid, .support-grid, .compare-grid, .decision-grid { display: grid; gap: 1.5rem; }
     .page-hero-grid { grid-template-columns: 1.06fr 0.94fr; align-items: center; }
     .offer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .addon-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .benefit-grid, .support-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .compare-grid, .decision-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .glass-card, .offer-card, .benefit-card, .support-card, .overview-band, .compare-card, .decision-card { background: rgba(255,255,255,0.76); border: 1px solid rgba(120,157,140,0.18); border-radius: 30px; box-shadow: 0 18px 44px rgba(34,56,48,0.08); backdrop-filter: blur(12px); }
-    .glass-card, .offer-card, .benefit-card, .support-card, .overview-band, .compare-card, .decision-card { padding: 1.5rem; }
+    .glass-card, .offer-card, .addon-card, .benefit-card, .support-card, .overview-band, .compare-card, .decision-card { background: rgba(255,255,255,0.76); border: 1px solid rgba(120,157,140,0.18); border-radius: 30px; box-shadow: 0 18px 44px rgba(34,56,48,0.08); backdrop-filter: blur(12px); }
+    .glass-card, .offer-card, .addon-card, .benefit-card, .support-card, .overview-band, .compare-card, .decision-card { padding: 1.5rem; }
     .hero-image-card img { width: 100%; min-height: 360px; object-fit: cover; border-radius: 22px; }
     .hero-panel { display: grid; gap: 1rem; }
     .metric-pills { display: flex; flex-wrap: wrap; gap: 0.75rem; }
     .metric-pills span { display: inline-flex; align-items: center; padding: 0.7rem 0.95rem; border-radius: 999px; background: rgba(220,239,230,0.92); color: #24513d; font-size: 0.98rem; font-weight: 700; }
-    .price-line { display: flex; align-items: baseline; gap: 0.5rem; margin: 0.8rem 0 1rem; }
-    .price-line strong { font-size: 2rem; color: #1d5f94; }
-    .price-line span { color: #5d7486; font-size: 0.98rem; }
+    .price-line { display: grid; align-content: start; gap: 0.35rem; min-height: 6.6rem; margin: 0.8rem 0 1rem; }
+    .price-line strong { display: block; font-size: 2rem; line-height: 1.08; color: #1d5f94; }
+    .price-line span { display: block; color: #5d7486; font-size: 0.98rem; line-height: 1.55; }
+    .offer-card { display: grid; grid-template-rows: auto minmax(10.4rem, auto) auto 1fr; align-content: start; }
     .offer-card.featured { background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(240,248,244,0.92)); border-color: rgba(92,153,130,0.26); }
     .offer-topline { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.9rem; }
     .offer-badge { display: inline-flex; align-items: center; padding: 0.46rem 0.75rem; border-radius: 999px; background: rgba(47,149,204,0.12); color: #2d6b94; font-size: 0.88rem; font-weight: 700; }
     .offer-badge.soft { background: rgba(92,153,130,0.12); color: #32604d; }
-    .offer-card h3, .benefit-card h3, .support-card h3 { margin-bottom: 0.55rem; }
-    .offer-card p, .benefit-card p, .support-card p, .compare-card p, .decision-card p { color: #4e687c; line-height: 1.7; }
-    .offer-card ul, .benefit-card ul, .support-card ul, .compare-card ul, .decision-card ul { margin: 0.9rem 0 0; padding-left: 1.2rem; color: #4e687c; }
-    .offer-card li + li, .benefit-card li + li, .support-card li + li, .compare-card li + li, .decision-card li + li { margin-top: 0.4rem; }
+    .offer-card h3, .addon-card h3, .benefit-card h3, .support-card h3 { margin-bottom: 0.55rem; }
+    .offer-copy { display: grid; align-content: start; min-height: 10.4rem; }
+    .offer-copy p { margin: 0; }
+    .offer-card p, .addon-card p, .benefit-card p, .support-card p, .compare-card p, .decision-card p { color: #4e687c; line-height: 1.7; }
+    .offer-card ul, .addon-card ul, .benefit-card ul, .support-card ul, .compare-card ul, .decision-card ul { margin: 0.9rem 0 0; padding-left: 1.2rem; color: #4e687c; }
+    .offer-card li + li, .addon-card li + li, .benefit-card li + li, .support-card li + li, .compare-card li + li, .decision-card li + li { margin-top: 0.4rem; }
+    .addon-card { background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(240,246,252,0.92)); }
+    .addon-card strong { display: block; margin-bottom: 0.5rem; color: #214f71; font-size: 1.12rem; }
     .overview-band { display: grid; gap: 0.8rem; }
     .overview-band strong { color: #214f71; font-size: 1.16rem; }
     .compare-card strong, .decision-card strong { display: block; margin-bottom: 0.35rem; color: #214f71; font-size: 1.12rem; }
@@ -58,13 +64,13 @@
       .section-rail { left: 8px; }
       .section-dot::after { font-size: 0.68rem; }
       .section-dot.is-active::after { font-size: 0.8rem; }
-      .page-hero-grid, .offer-grid, .benefit-grid, .support-grid, .compare-grid, .decision-grid { grid-template-columns: 1fr; }
+      .page-hero-grid, .offer-grid, .addon-grid, .benefit-grid, .support-grid, .compare-grid, .decision-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 900px) {
       .section-rail { display: none; }
       .page-hero { padding-top: 7rem; }
-      .glass-card, .offer-card, .benefit-card, .support-card, .overview-band, .compare-card, .decision-card { padding: 1.2rem; border-radius: 24px; }
+      .glass-card, .offer-card, .addon-card, .benefit-card, .support-card, .overview-band, .compare-card, .decision-card { padding: 1.2rem; border-radius: 24px; }
     }
   </style>
 </head>
@@ -75,6 +81,7 @@
   <aside class="section-rail" aria-label="Page sections">
     <a class="section-dot" href="#overview" data-label="Overview" aria-label="Overview section"></a>
     <a class="section-dot" href="#plans" data-label="Plans" aria-label="Plans section"></a>
+    <a class="section-dot" href="#addons" data-label="Add-ons" aria-label="Add-ons section"></a>
     <a class="section-dot" href="#compare" data-label="Compare" aria-label="Compare section"></a>
     <a class="section-dot" href="#benefits" data-label="Benefits" aria-label="Benefits section"></a>
     <a class="section-dot" href="#support" data-label="Support" aria-label="Support section"></a>
@@ -91,6 +98,7 @@
       <a href="ai.html">AI &amp; App</a>
       <a href="franchise.html">Franchise</a>
       <a href="service-area.html">Service Area</a>
+      <a href="standards.html">Standards</a>
     </nav>
   </header>
 
@@ -107,7 +115,7 @@
             <span>Care Center</span>
             <span>Home Care</span>
             <span>Care Program</span>
-            <span>6-12 เดือนมีสิทธิพิเศษ</span>
+            <span>บริการเสริมแยกต่างหาก</span>
           </div>
         </div>
         <div class="hero-panel" data-reveal>
@@ -134,9 +142,12 @@
               <span class="mini-label">Care Center</span>
               <span class="offer-badge">ยืดหยุ่น</span>
             </div>
-            <h3>ดูแลรายวันและระยะสั้นในศูนย์</h3>
-            <p>เหมาะกับครอบครัวที่ต้องการพื้นที่ดูแลปลอดภัยในช่วงกลางวัน หรือช่วงพักฟื้นที่ต้องการทีมดูแลใกล้ชิด</p>
-            <div class="price-line"><strong>1,000-38,000 บาท</strong><span>ตามรูปแบบรายวันหรือรายเดือน</span></div>
+            <div class="offer-copy"><h3>ดูแลรายวันและระยะสั้นในศูนย์</h3>
+            <p>เหมาะกับครอบครัวที่ต้องการพื้นที่ดูแลปลอดภัยในช่วงกลางวัน หรือช่วงพักฟื้นที่ต้องการทีมดูแลใกล้ชิด</p></div>
+            <div class="price-line">
+              <strong>1,000-38,000 บาท</strong>
+              <span>ตามรูปแบบการให้บริการ</span>
+            </div>
             <ul>
               <li>`Half Day` 1,000-1,400 บาท/วัน</li>
               <li>`Full Day` 1,800-2,500 บาท/วัน</li>
@@ -150,14 +161,17 @@
               <span class="mini-label">Home Care</span>
               <span class="offer-badge soft">ดูแลที่บ้าน</span>
             </div>
-            <h3>ดูแลถึงบ้านแบบใกล้ชิด</h3>
-            <p>สำหรับครอบครัวที่อยากให้ผู้สูงอายุอยู่ในสภาพแวดล้อมเดิม แต่ยังได้รับการติดตามและการดูแลอย่างต่อเนื่อง</p>
-            <div class="price-line"><strong>500-65,000 บาท</strong><span>ตามความถี่และอุปกรณ์เสริม</span></div>
+            <div class="offer-copy"><h3>ดูแลถึงบ้านแบบใกล้ชิด</h3>
+            <p>สำหรับครอบครัวที่อยากให้ผู้สูงอายุอยู่ในสภาพแวดล้อมเดิม แต่ยังได้รับการติดตามและการดูแลอย่างต่อเนื่อง</p></div>
+            <div class="price-line">
+              <strong>1,500-65,000 บาท</strong>
+              <span>ตามความถี่และรูปแบบการดูแลที่บ้าน</span>
+            </div>
             <ul>
               <li>`Caregiver Half Day` 1,500-2,500 บาท/ครั้ง</li>
               <li>`Monthly Care Plan` 25,000-65,000 บาท/เดือน</li>
-              <li>`Telehealth` 500-1,200 บาท/ครั้ง</li>
-              <li>`Monitoring Kit` 2,500-5,500 บาท/เดือน</li>
+              <li>มีทั้งแบบรายครั้งและแผนต่อเนื่องรายเดือน</li>
+              <li>เหมาะกับการดูแลที่ต้องมีทีมไปถึงบ้านจริง</li>
             </ul>
           </article>
 
@@ -166,9 +180,12 @@
               <span class="mini-label">Care Program</span>
               <span class="offer-badge soft">ออกแบบได้</span>
             </div>
-            <h3>แผนดูแลต่อเนื่องสำหรับเคสเฉพาะ</h3>
-            <p>เหมาะกับการดูแลหลังออกจากโรงพยาบาล โปรแกรมดูแลองค์กร หรือแผนร่วมกับพาร์ทเนอร์ด้านสุขภาพ</p>
-            <div class="price-line"><strong>Custom Quote</strong><span>ประเมินตามรูปแบบบริการ</span></div>
+            <div class="offer-copy"><h3>แผนดูแลต่อเนื่องสำหรับเคสเฉพาะ</h3>
+            <p>เหมาะกับการดูแลหลังออกจากโรงพยาบาล โปรแกรมดูแลองค์กร หรือแผนร่วมกับพาร์ทเนอร์ด้านสุขภาพ</p></div>
+            <div class="price-line">
+              <strong>Custom Plan</strong>
+              <span>ประเมินตามรูปแบบบริการ</span>
+            </div>
             <ul>
               <li>`Post-discharge Care`</li>
               <li>`Hospital Partnership`</li>
@@ -182,6 +199,43 @@
 
     <section class="content-section tone-soft" id="compare">
       <div class="container">
+        <div class="section-head center" data-reveal id="addons" style="margin-bottom: 1.5rem;">
+          <p class="eyebrow">Add-on Services</p>
+          <h2>บริการเสริมที่เลือกเพิ่มได้ตามความจำเป็น</h2>
+          <p>บริการกลุ่มนี้ช่วยเสริมการดูแลหลักให้ต่อเนื่องขึ้น แต่ไม่ได้แทนการดูแลที่ศูนย์หรือการดูแลถึงบ้านโดยตรง</p>
+        </div>
+        <div class="addon-grid" style="margin-bottom: 3rem;">
+          <article class="addon-card" data-reveal>
+            <span class="mini-label">Telehealth</span>
+            <h3>ปรึกษาแพทย์ออนไลน์</h3>
+            <div class="price-line"><strong>500-1,200 บาท</strong><span>ต่อครั้ง</span></div>
+            <p>เหมาะสำหรับติดตามอาการ รับคำแนะนำเพิ่มเติม หรือใช้ประกอบการดูแลต่อเนื่องโดยไม่ต้องเดินทางทุกครั้ง</p>
+            <ul>
+              <li>คุยผ่านวิดีโอคอลกับแพทย์หรือทีมที่เกี่ยวข้อง</li>
+              <li>เหมาะใช้ร่วมกับ Home Care หรือ Care Program</li>
+            </ul>
+          </article>
+          <article class="addon-card" data-reveal>
+            <span class="mini-label">Monitoring Kit</span>
+            <h3>อุปกรณ์ติดตามสุขภาพที่บ้าน</h3>
+            <div class="price-line"><strong>2,500-5,500 บาท</strong><span>ต่อเดือน</span></div>
+            <p>เหมาะกับบ้านที่ต้องการติดตามสุขภาพและรับข้อมูลต่อเนื่องมากขึ้น โดยเฉพาะเมื่อต้องดูแลระยะยาว</p>
+            <ul>
+              <li>ใช้ร่วมกับแผนดูแลที่บ้านได้สะดวก</li>
+              <li>ช่วยให้ทีมงานและครอบครัวติดตามข้อมูลได้ง่ายขึ้น</li>
+            </ul>
+          </article>
+          <article class="addon-card" data-reveal>
+            <span class="mini-label">Medication Delivery</span>
+            <h3>จัดส่งยาและอุปกรณ์สุขภาพ</h3>
+            <div class="price-line"><strong>50-100 บาท</strong><span>ค่าจัดส่ง ไม่รวมค่ายา</span></div>
+            <p>เหมาะกับครอบครัวที่ต้องการให้การดูแลต่อเนื่องขึ้น โดยลดภาระเรื่องการรับยาและจัดหาอุปกรณ์สุขภาพ</p>
+            <ul>
+              <li>คิดตามราคายาจริงและระยะทางจัดส่ง</li>
+              <li>เหมาะใช้ร่วมกับการดูแลต่อเนื่องรายเดือน</li>
+            </ul>
+          </article>
+        </div>
         <div class="section-head center" data-reveal>
           <p class="eyebrow">Quick Compare</p>
           <h2>เปรียบเทียบแต่ละบริการ ตามเป้าหมายการดูแล</h2>
@@ -201,14 +255,14 @@
             <ul>
               <li>อยากให้ผู้สูงอายุอยู่ที่บ้านตามเดิม</li>
               <li>ต้องการความใกล้ชิดและความยืดหยุ่นเรื่องเวลา</li>
-              <li>อยากเสริม Telehealth หรือ Monitoring ตามความจำเป็น</li>
+              <li>ต้องการให้มีทีมดูแลเดินทางไปถึงบ้านจริงอย่างต่อเนื่อง</li>
             </ul>
           </article>
           <article class="compare-card" data-reveal>
             <strong>Care Program เหมาะเมื่อ</strong>
             <ul>
               <li>เป็นเคสที่ต้องออกแบบแผนดูแลเฉพาะ</li>
-              <li>ต้องเชื่อมกับโรงพยาบาลหรือองค์กร</li>
+              <li>ต้องประสานงานกับโรงพยาบาลหรือองค์กร</li>
               <li>ต้องการแผนต่อเนื่องหลังการรักษาหรือสัญญาระยะยาว</li>
             </ul>
           </article>
