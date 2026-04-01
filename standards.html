@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareWise | Care Standards</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .top-nav { gap: 8px; }
+    .top-nav a { position: relative; padding: 0.72rem 1.05rem; border-radius: 999px; transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+    .top-nav a::after { content: ""; position: absolute; left: 1rem; right: 1rem; bottom: 0.5rem; height: 2px; border-radius: 999px; background: linear-gradient(90deg, rgba(205,233,224,0), rgba(92,153,130,0.95), rgba(205,233,224,0)); opacity: 0; transform: scaleX(0.35); transition: opacity 180ms ease, transform 180ms ease; }
+    .top-nav a:hover, .top-nav a:focus-visible { background: rgba(255,255,255,0.52); box-shadow: 0 10px 22px rgba(27,67,50,0.08); transform: translateY(-1px); outline: none; }
+    .top-nav a:hover::after, .top-nav a:focus-visible::after, .top-nav a[aria-current="page"]::after { opacity: 1; transform: scaleX(1); }
+    .top-nav a[aria-current="page"] { color: #1b4332; background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244,250,247,0.88)); box-shadow: inset 0 0 0 1px rgba(92,153,130,0.22), 0 10px 24px rgba(27,67,50,0.1); }
+
+    .section-rail { position: fixed; top: 50%; left: 14px; transform: translateY(-50%); z-index: 30; display: flex; flex-direction: column; gap: 10px; padding: 0; opacity: 1; transition: opacity 220ms ease, transform 220ms ease; }
+    .section-dot { position: relative; display: flex; align-items: center; width: auto; min-height: 18px; padding: 2px 0 2px 16px; border-radius: 999px; color: rgba(24,56,76,0.44); transition: color 180ms ease, transform 180ms ease; }
+    .section-dot::before { content: ""; position: absolute; left: 0; top: 50%; width: 7px; height: 7px; border-radius: 999px; background: rgba(27,67,50,0.22); box-shadow: 0 0 0 4px rgba(27,67,50,0.05); transform: translateY(-50%); transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+    .section-dot::after { content: attr(data-label); position: relative; display: block; font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; line-height: 1; white-space: nowrap; opacity: 0.72; transform-origin: left center; transition: opacity 180ms ease, color 180ms ease, font-size 180ms ease, font-weight 180ms ease, transform 180ms ease; }
+    .section-dot:hover, .section-dot:focus-visible { color: rgba(24,56,76,0.76); transform: translateX(2px); outline: none; }
+    .section-dot:hover::before, .section-dot:focus-visible::before { background: rgba(27,67,50,0.36); box-shadow: 0 0 0 5px rgba(27,67,50,0.08); transform: translateY(-50%) scale(1.08); }
+    .section-dot:hover::after, .section-dot:focus-visible::after { opacity: 0.88; }
+    .section-dot.is-active { color: #18384c; transform: translateX(3px); }
+    .section-dot.is-active::before { width: 9px; height: 9px; background: rgba(27,67,50,0.82); box-shadow: 0 0 0 6px rgba(27,67,50,0.08); transform: translateY(-50%) scale(1.02); }
+    .section-dot.is-active::after { font-size: 0.88rem; font-weight: 600; opacity: 1; transform: scale(1); }
+    .section-rail.is-idle { opacity: 0.02; transform: translateY(-50%) translateX(-10px); }
+    .section-rail.is-idle:hover, .section-rail.is-idle:focus-within { opacity: 1; transform: translateY(-50%); }
+
+    .page-hero { padding: 8rem 0 4rem; }
+    .page-hero-grid, .two-col-grid, .policy-grid, .device-grid, .source-grid, .step-grid { display: grid; gap: 1.6rem; }
+    .page-hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr); align-items: center; }
+    .two-col-grid { grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr); align-items: start; }
+    .policy-grid, .device-grid, .source-grid, .step-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .hero-copy, .hero-panel, .glass-card, .policy-card, .source-card { padding: 1.55rem; border-radius: 30px; background: rgba(255,255,255,0.78); border: 1px solid rgba(120,157,140,0.18); box-shadow: 0 18px 44px rgba(34,56,48,0.08); backdrop-filter: blur(12px); }
+    .hero-copy { padding: 0; background: transparent; border: 0; box-shadow: none; display: grid; gap: 1.05rem; }
+    .hero-kicker { color: var(--brand); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
+    .hero-title { font-family: var(--title-font); font-size: clamp(3.1rem, 7.5vw, 5.8rem); line-height: 0.95; letter-spacing: -0.05em; color: var(--brand-deep); }
+    .hero-subtitle { max-width: 42rem; font-size: 1.14rem; line-height: 1.82; color: #4f6779; }
+    .hero-chip-row, .source-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .hero-chip { display: inline-flex; align-items: center; padding: 0.82rem 1.05rem; border-radius: 999px; background: rgba(223,241,250,0.96); color: #205777; font-size: 1rem; font-weight: 700; }
+    .hero-chip.soft { background: rgba(231,241,236,0.96); color: #27543f; }
+
+    .hero-panel { display: grid; gap: 1rem; }
+    .hero-panel img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 22px; }
+    .panel-note strong, .policy-card strong, .source-card strong { display: block; margin-bottom: 0.35rem; color: #214f71; font-size: 1.12rem; }
+    .panel-note p, .policy-card p, .policy-card li, .source-card p { color: #486477; font-size: 1.02rem; line-height: 1.74; }
+
+    .section-head { display: grid; gap: 0.6rem; max-width: 48rem; margin-bottom: 1.5rem; }
+    .section-head.center { margin-inline: auto; text-align: center; }
+    .section-head h2 { color: #214f71; }
+    .mini-label { display: inline-flex; align-items: center; width: fit-content; padding: 0.42rem 0.7rem; border-radius: 999px; background: rgba(47,149,204,0.12); color: #2d6b94; font-size: 0.84rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+    .mini-label.soft { background: rgba(92,153,130,0.12); color: #32604d; }
+    .policy-card ul { margin: 0.85rem 0 0; padding-left: 1.2rem; color: #486477; }
+    .policy-card li + li { margin-top: 0.45rem; }
+    .policy-card.note { background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(241,248,244,0.92)); }
+    .step-grid .policy-card { display: grid; gap: 0.5rem; }
+    .step-index { font-size: 2rem; font-weight: 700; color: #1d5f94; }
+    .source-card { display: grid; gap: 0.8rem; }
+    .source-link { display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 1.05rem; border-radius: 999px; background: rgba(236,246,252,0.96); color: #1f5679; font-size: 0.96rem; font-weight: 700; text-decoration: none; border: 1px solid rgba(126,163,186,0.18); transition: transform 180ms ease, box-shadow 180ms ease; }
+    .source-link:hover, .source-link:focus-visible { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(31,86,121,0.12); outline: none; }
+    .closing-band { padding: 1.2rem 1.25rem; border-radius: 24px; background: linear-gradient(135deg, rgba(246,252,248,0.94), rgba(230,242,236,0.92)); border: 1px solid rgba(120,157,140,0.22); color: #274739; font-size: 1rem; line-height: 1.75; }
+
+    @media (max-width: 1100px) {
+      .section-rail { left: 8px; }
+      .section-dot::after { font-size: 0.68rem; }
+      .section-dot.is-active::after { font-size: 0.8rem; }
+      .page-hero-grid, .two-col-grid, .policy-grid, .device-grid, .source-grid, .step-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      .section-rail { display: none; }
+      .page-hero { padding-top: 7rem; }
+      .hero-panel, .glass-card, .policy-card, .source-card { padding: 1.2rem; border-radius: 24px; }
+      .hero-title { font-size: clamp(2.7rem, 12vw, 4.6rem); }
+      .hero-subtitle, .panel-note p, .policy-card p, .policy-card li, .source-card p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient ambient-left"></div>
+  <div class="ambient ambient-right"></div>
+
+  <aside class="section-rail" aria-label="Page sections">
+    <a class="section-dot" href="#overview" data-label="Overview" aria-label="Overview section"></a>
+    <a class="section-dot" href="#clinical" data-label="Medical" aria-label="Medical section"></a>
+    <a class="section-dot" href="#privacy" data-label="Privacy" aria-label="Privacy section"></a>
+    <a class="section-dot" href="#devices" data-label="Safety" aria-label="Safety section"></a>
+    <a class="section-dot" href="#sources" data-label="Sources" aria-label="Sources section"></a>
+  </aside>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="CareWise">
+      <span class="brand-mark">CW</span>
+      <span class="brand-copy"><strong>CareWise</strong><small>Company Profile | Elderly Care &amp; Smart Service</small></span>
+    </a>
+    <nav class="top-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="packages.html">Packages</a>
+      <a href="ai.html">AI &amp; App</a>
+      <a href="franchise.html">Franchise</a>
+      <a href="service-area.html">Service Area</a>
+      <a href="standards.html" aria-current="page">Standards</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section page-hero" id="overview">
+      <div class="container page-hero-grid">
+        <div class="hero-copy" data-reveal>
+          <p class="hero-kicker">Care Standards</p>
+          <h1 class="hero-title">CareWise<br>Standards</h1>
+          <p class="hero-subtitle" style="font-size: 1.4rem; line-height: 1.55; color: #214f71; max-width: 34rem;">มาตรฐานที่ช่วยให้ครอบครัวอุ่นใจ</p>
+          <p class="hero-subtitle">
+            เมื่อ CareWise มีบริการปรึกษาแพทย์ ส่งยา ติดตั้งอุปกรณ์ในบ้าน หรือใช้กล้องและเซนเซอร์ในศูนย์บริการ
+            เราอยากให้ครอบครัวรู้สึกได้ชัดเจนว่าทุกอย่างถูกออกแบบบนความใส่ใจ ความปลอดภัย และความเคารพต่อความเป็นส่วนตัวของผู้รับบริการ
+          </p>
+          <div class="hero-chip-row">
+            <span class="hero-chip">ดูแลร่วมกับสถานพยาบาลที่เหมาะสม</span>
+            <span class="hero-chip soft">ให้ความสำคัญกับข้อมูลส่วนตัวของลูกค้า</span>
+          </div>
+        </div>
+
+        <article class="hero-panel" data-reveal>
+          <img src="images/img_4.jpg" alt="CareWise medical collaboration and data privacy concept">
+          <div class="panel-note">
+            <strong>สิ่งที่เราอยากให้ครอบครัวมั่นใจ</strong>
+            <p>
+              หากมีการปรึกษาแพทย์หรือการส่งยา CareWise จะทำงานร่วมกับโรงพยาบาลหรือคลินิกที่มีใบอนุญาตอย่างเหมาะสม
+              เพื่อให้ครอบครัวมั่นใจได้ว่าการดูแลทางการแพทย์ การสั่งยา และการจ่ายยาอยู่ในมือของผู้เชี่ยวชาญที่รับผิดชอบโดยตรง
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section" id="clinical">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <p class="eyebrow">Medical Support</p>
+          <h2>เมื่อมีบริการด้านแพทย์ เราอยากให้ทุกขั้นตอนชัดเจนและปลอดภัย</h2>
+          <p>สำหรับครอบครัว สิ่งสำคัญไม่ใช่แค่ว่ามีบริการเพิ่มขึ้น แต่คือการรู้ว่าใครเป็นผู้ดูแลเรื่องแพทย์ ใครรับผิดชอบเรื่องยา และทุกอย่างเชื่อมต่อกันอย่างไรโดยไม่ทำให้เกิดความสับสน</p>
+        </div>
+
+        <div class="two-col-grid">
+          <article class="policy-card" data-reveal>
+            <span class="mini-label">Clear Roles</span>
+            <h3>เราอยากให้คุณรู้ว่าใครดูแลเรื่องไหน</h3>
+            <ul>
+              <li>CareWise ดูแลเรื่องการรับเรื่อง นัดหมาย ติดตามอาการ และประสานการดูแลกับครอบครัว</li>
+              <li>โรงพยาบาลหรือคลินิกที่ร่วมมือกัน ดูแลเรื่องการปรึกษาแพทย์และคำวินิจฉัย</li>
+              <li>ร้านยาหรือหน่วยงานที่ได้รับอนุญาต ดูแลเรื่องการจ่ายยาและจัดส่งยาอย่างถูกต้อง</li>
+              <li>แพทย์ที่ปรึกษาช่วยดูแลให้แนวทางการให้บริการมีมาตรฐานและเหมาะกับผู้สูงอายุ</li>
+            </ul>
+          </article>
+
+          <article class="policy-card note" data-reveal>
+            <span class="mini-label soft">Why It Matters</span>
+            <h3>เหตุผลที่แนวทางนี้ช่วยให้ครอบครัวสบายใจมากกว่า</h3>
+            <ul>
+              <li>ครอบครัวรู้ได้ชัดว่าเรื่องแพทย์และเรื่องยาถูกดูแลโดยผู้ให้บริการที่เหมาะสม</li>
+              <li>ลดความเสี่ยงจากการสื่อสารคลาดเคลื่อนระหว่างการดูแลทั่วไปกับการรักษาทางการแพทย์</li>
+              <li>ทำให้การดูแลต่อเนื่องขึ้น โดยไม่ทำให้ความปลอดภัยหรือความรับผิดชอบของแต่ละฝ่ายไม่ชัดเจน</li>
+              <li>ช่วยให้ CareWise รักษาคุณภาพของบริการดูแลหลักได้เต็มที่ พร้อมเชื่อมต่อกับบริการแพทย์อย่างเป็นระบบ</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="step-grid" style="margin-top: 1.6rem;">
+          <article class="policy-card" data-reveal>
+            <span class="step-index">1</span>
+            <strong>การปรึกษาแพทย์จะดำเนินการผ่านสถานพยาบาลที่เหมาะสม</strong>
+            <p>ครอบครัวจึงมั่นใจได้ว่าการพบแพทย์ทางไกลอยู่ภายใต้ระบบที่มีมาตรฐาน มีเวชระเบียน และมีการยืนยันตัวตนอย่างเหมาะสม</p>
+          </article>
+          <article class="policy-card" data-reveal>
+            <span class="step-index">2</span>
+            <strong>การส่งยาจะดำเนินการผ่านผู้ได้รับอนุญาตอย่างชัดเจน</strong>
+            <p>เมื่อมีใบสั่งยาหรือคำแนะนำทางการแพทย์ ครอบครัวจะทราบชัดว่ายาถูกจัดการโดยสถานพยาบาลหรือร้านยาที่ได้รับอนุญาต ไม่ใช่กระบวนการที่คลุมเครือหรือไม่มีผู้รับผิดชอบชัดเจน</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section tone-soft" id="privacy">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <p class="eyebrow">Privacy &amp; PDPA</p>
+          <h2>ข้อมูลของคุณจะถูกดูแลอย่างระมัดระวังไม่ต่างจากการดูแลสุขภาพ</h2>
+          <p>เมื่อต้องมีข้อมูลสุขภาพ ข้อมูลจากอุปกรณ์ หรือภาพจากกล้อง ครอบครัวจะทราบชัดว่าข้อมูลใดถูกเก็บ เก็บไปเพื่ออะไร และใครที่เข้าถึงได้จริง</p>
+        </div>
+
+        <div class="policy-grid">
+          <article class="policy-card" data-reveal>
+            <span class="mini-label">Sensitive Data</span>
+            <h3>ข้อมูลสุขภาพเป็นเรื่องที่ต้องระวังเป็นพิเศษ</h3>
+            <p>ข้อมูลสุขภาพ ประวัติการรักษา ข้อมูลจากอุปกรณ์ และข้อมูลพฤติกรรมที่สะท้อนภาวะสุขภาพ จะไม่ถูกเก็บหรือใช้แบบกว้าง ๆ โดยไม่มีเหตุผลที่ชัดเจน เพราะเป็นข้อมูลที่กระทบความเป็นส่วนตัวของผู้รับบริการโดยตรง</p>
+          </article>
+          <article class="policy-card" data-reveal>
+            <span class="mini-label">Minimum Necessary</span>
+            <h3>เก็บเฉพาะสิ่งที่จำเป็นต่อการดูแลจริง</h3>
+            <p>หากลูกค้าใช้เฉพาะบริการบางส่วน CareWise จะเก็บเฉพาะข้อมูลที่จำเป็นต่อการประเมิน นัดหมาย ความปลอดภัย และการสื่อสารกับครอบครัวเท่านั้น ไม่เก็บเกินความจำเป็น</p>
+          </article>
+          <article class="policy-card" data-reveal>
+            <span class="mini-label">Access Control</span>
+            <h3>ไม่ใช่ทุกคนต้องเห็นทุกข้อมูล</h3>
+            <p>ทีมดูแล แพทย์ ผู้จัดการสาขา และฝ่ายแอดมินจะไม่เห็นข้อมูลทั้งหมดเหมือนกัน การเข้าถึงจะถูกจำกัดตามหน้าที่ เพื่อให้ข้อมูลส่วนตัวอยู่ในมือของคนที่จำเป็นต้องใช้จริง</p>
+          </article>
+          <article class="policy-card" data-reveal>
+            <span class="mini-label">Incident Response</span>
+            <h3>ถ้าเกิดปัญหา ต้องมีคนรับผิดชอบและสื่อสารตรงไปตรงมา</h3>
+            <p>หากเกิดเหตุข้อมูลรั่วไหลหรือมีการเข้าถึงข้อมูลผิดปกติ CareWise จะมีขั้นตอนภายในที่ชัดเจน ทั้งการประเมินผลกระทบ การแจ้งหน่วยงานที่เกี่ยวข้อง และการสื่อสารกับเจ้าของข้อมูลอย่างเหมาะสม</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="devices">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <p class="eyebrow">Devices &amp; Cameras</p>
+          <h2>เทคโนโลยีจะช่วยให้ปลอดภัยขึ้น โดยไม่รบกวนความเป็นส่วนตัวเกินจำเป็น</h2>
+          <p>หากมีการติดตั้งอุปกรณ์ในบ้านหรือใช้กล้องในศูนย์บริการ ครอบครัวจะได้รับความชัดเจน ความยินยอม และความมั่นใจว่าเทคโนโลยีถูกใช้เพื่อการดูแลอย่างเหมาะสมจริง ๆ</p>
+        </div>
+
+        <div class="device-grid">
+          <article class="policy-card" data-reveal>
+            <span class="mini-label">At Home</span>
+            <h3>อุปกรณ์ในบ้านจะเริ่มจากความสมัครใจและความเข้าใจ</h3>
+            <ul>
+              <li>ก่อนติดตั้ง เราจะอธิบายให้ชัดว่าอุปกรณ์เก็บข้อมูลอะไร ส่งไปที่ใคร และเก็บไว้นานแค่ไหน</li>
+              <li>ลูกค้าจะเลือกได้ว่าจะติดเฉพาะ sensor บางตัว หรือเปิดบางฟังก์ชันเท่านั้น</li>
+              <li>เอกสารยินยอมและคำอธิบายเรื่องข้อมูลจะอ่านง่าย เข้าใจได้จริง ไม่ใช้ภาษากฎหมายที่ซับซ้อนเกินไป</li>
+            </ul>
+          </article>
+
+          <article class="policy-card" data-reveal>
+            <span class="mini-label">Service Center</span>
+            <h3>กล้องในศูนย์จะใช้เพื่อความปลอดภัย ไม่ใช่เพื่อเฝ้าดูเกินจำเป็น</h3>
+            <ul>
+              <li>ใช้กล้องในพื้นที่ส่วนกลาง ทางเดิน โถงกิจกรรม หรือจุดเสี่ยงด้านความปลอดภัย</li>
+              <li>จะไม่ติดในห้องน้ำ พื้นที่อาบน้ำ ห้องเปลี่ยนเสื้อผ้า หรือพื้นที่ที่คาดหวังความเป็นส่วนตัวสูง</li>
+              <li>จะมีป้ายแจ้งให้เห็นชัดว่าใช้กล้องเพื่อวัตถุประสงค์ใด และติดต่อใครได้หากครอบครัวมีคำถาม</li>
+            </ul>
+          </article>
+
+          <article class="policy-card note" data-reveal>
+            <span class="mini-label soft">Practical Safeguards</span>
+            <h3>สิ่งที่มีอยู่เบื้องหลังเพื่อปกป้องลูกค้า</h3>
+            <ul>
+              <li>เข้ารหัสข้อมูลระหว่างส่งและระหว่างเก็บ</li>
+              <li>ตั้ง retention period ของภาพและข้อมูลจากอุปกรณ์ให้ชัด</li>
+              <li>ทำสัญญาและข้อตกลงคุ้มครองข้อมูลกับ vendor และ partner ที่เกี่ยวข้อง</li>
+              <li>อบรมทีมดูแลเรื่องการใช้ข้อมูลสุขภาพและภาพจากกล้องอย่างเหมาะสม</li>
+            </ul>
+          </article>
+
+          <article class="policy-card note" data-reveal>
+            <span class="mini-label soft">Customer-facing Promise</span>
+            <h3>คำสัญญาที่ลูกค้าจะได้รับจากเรา</h3>
+            <p>CareWise จะสื่อให้ชัดว่าเทคโนโลยีถูกใช้เพื่อช่วยให้การดูแลปลอดภัยและต่อเนื่องขึ้น ไม่ใช่เพื่อเฝ้าดูชีวิตส่วนตัวเกินจำเป็น และลูกค้าจะรู้เสมอว่าข้อมูลใดถูกเก็บ ใช้อย่างไร และใครเข้าถึงได้บ้าง</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section tone-soft" id="sources">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <p class="eyebrow">Official Sources</p>
+          <h2>ข้อมูลอ้างอิงที่เราใช้เป็นฐานในการออกแบบแนวทางนี้</h2>
+          <p>เพื่อให้สิ่งที่สื่อกับครอบครัวมีความน่าเชื่อถือ หน้านี้อ้างอิงจากประกาศและข้อมูลภาครัฐเป็นหลัก แล้วเรียบเรียงใหม่ให้อ่านง่ายขึ้น</p>
+        </div>
+
+        <div class="source-grid">
+          <article class="source-card" data-reveal>
+            <strong>แพทยสภา: แนวทาง telemedicine และคลินิกออนไลน์</strong>
+            <p>ประเด็นสำคัญที่ใช้คือการให้บริการ telemedicine ดำเนินการผ่านสถานพยาบาล และระบบสารสนเทศต้องสอดคล้องกับกฎหมายคุ้มครองข้อมูลส่วนบุคคล</p>
+            <div class="source-actions">
+              <a class="source-link" href="https://www.ratchakitcha.soc.go.th/DATA/PDF/2563/E/166/T_0052.PDF" target="_blank" rel="noopener noreferrer">เปิดประกาศแพทยสภา</a>
+            </div>
+          </article>
+
+          <article class="source-card" data-reveal>
+            <strong>กระทรวงสาธารณสุข: มาตรฐานสถานพยาบาลที่ใช้ telemedicine</strong>
+            <p>ใช้ประกอบแนวคิดว่าหาก CareWise มีบริการแพทย์ทางไกล บริการนั้นจะอยู่ภายใต้สถานพยาบาลที่มีระบบและมาตรฐานรองรับอยู่แล้ว</p>
+            <div class="source-actions">
+              <a class="source-link" href="https://www.ratchakitcha.soc.go.th/DATA/PDF/2564/E/018/T_0001.PDF" target="_blank" rel="noopener noreferrer">เปิดมาตรฐาน telemedicine</a>
+            </div>
+          </article>
+
+          <article class="source-card" data-reveal>
+            <strong>PDPC / GPPC: แนวทางปฏิบัติตาม PDPA</strong>
+            <p>ใช้ประกอบเรื่องข้อมูลอ่อนไหว การบริหารจัดการสิทธิ์ การแจ้งเหตุละเมิดข้อมูลส่วนบุคคล และการจัดทำกระบวนการคุ้มครองข้อมูลในองค์กร</p>
+            <div class="source-actions">
+              <a class="source-link" href="https://gppc.pdpc.or.th/" target="_blank" rel="noopener noreferrer">เปิด GPPC ของ PDPC</a>
+            </div>
+          </article>
+
+          <article class="source-card" data-reveal>
+            <strong>ราชกิจจานุเบกษา: พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562</strong>
+            <p>ใช้เป็นฐานกฎหมายเรื่องข้อมูลสุขภาพ ข้อมูลอ่อนไหว สิทธิของเจ้าของข้อมูล และหน้าที่ของผู้ควบคุมข้อมูลส่วนบุคคล</p>
+            <div class="source-actions">
+              <a class="source-link" href="https://www.ratchakitcha.soc.go.th/DATA/PDF/2562/A/069/T_0052.PDF" target="_blank" rel="noopener noreferrer">เปิดกฎหมาย PDPA</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="closing-band" data-reveal style="margin-top: 1.6rem;">
+          เราอยากให้ครอบครัวรู้ว่า CareWise ให้ความสำคัญกับมาตรฐาน ความปลอดภัย และความเป็นส่วนตัวอย่างจริงจัง
+          และหากมีการเปิดบริการจริงที่เกี่ยวข้องกับการรักษา การสั่งยา การใช้กล้อง หรือการติดตั้งอุปกรณ์ในบ้านลูกค้า ก็จะมีการตรวจทานโดยที่ปรึกษากฎหมายและทีมวิชาชีพก่อนใช้งานจริงทุกครั้ง
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      const dots = Array.from(document.querySelectorAll('.section-dot'));
+      const sections = dots.map((dot) => {
+        const id = dot.getAttribute('href');
+        if (!id || !id.startsWith('#')) return null;
+        const section = document.querySelector(id);
+        return section ? { dot, section, id } : null;
+      }).filter(Boolean);
+
+      if (!sections.length) return;
+
+      const setActive = (id) => {
+        sections.forEach(({ dot, id: sectionId }) => {
+          const isActive = sectionId === id;
+          dot.classList.toggle('is-active', isActive);
+          if (isActive) dot.setAttribute('aria-current', 'true');
+          else dot.removeAttribute('aria-current');
+        });
+      };
+
+      const getNearestSectionId = () => {
+        const viewportAnchor = window.innerHeight * 0.42;
+        let nearest = sections[0];
+        let nearestDistance = Number.POSITIVE_INFINITY;
+
+        sections.forEach((item) => {
+          const rect = item.section.getBoundingClientRect();
+          const sectionAnchor = rect.top + Math.min(rect.height * 0.35, 180);
+          const distance = Math.abs(sectionAnchor - viewportAnchor);
+
+          if (distance < nearestDistance) {
+            nearest = item;
+            nearestDistance = distance;
+          }
+        });
+
+        return nearest.id;
+      };
+
+      const updateActiveSection = () => {
+        setActive(getNearestSectionId());
+      };
+
+      window.addEventListener('scroll', updateActiveSection, { passive: true });
+      window.addEventListener('resize', updateActiveSection, { passive: true });
+      updateActiveSection();
+    })();
+  </script>
+</body>
+</html>
