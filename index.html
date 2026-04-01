@@ -55,66 +55,118 @@
     .section-rail {
       position: fixed;
       top: 50%;
-      left: 24px;
+      left: 14px;
       transform: translateY(-50%);
       z-index: 30;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      padding: 14px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 18px 40px rgba(29, 53, 87, 0.12);
+      gap: 10px;
+      padding: 0;
+      opacity: 1;
+      transition: opacity 220ms ease, transform 220ms ease;
     }
 
     .section-dot {
       position: relative;
-      width: 12px;
-      height: 12px;
+      display: flex;
+      align-items: center;
+      width: auto;
+      min-height: 18px;
+      padding: 2px 0 2px 16px;
       border-radius: 999px;
-      background: rgba(27, 67, 50, 0.18);
-      border: 1px solid rgba(27, 67, 50, 0.16);
-      transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+      color: rgba(24, 56, 76, 0.44);
+      transition: color 180ms ease, transform 180ms ease;
+    }
+
+    .section-dot::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(27, 67, 50, 0.22);
+      box-shadow: 0 0 0 4px rgba(27, 67, 50, 0.05);
+      transform: translateY(-50%);
+      transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
     }
 
     .section-dot::after {
       content: attr(data-label);
-      position: absolute;
-      top: 50%;
-      left: 24px;
-      transform: translateY(-50%);
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(22, 31, 42, 0.9);
-      color: #fff;
-      font-size: 0.72rem;
-      letter-spacing: 0.04em;
+      position: relative;
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 1;
       white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 180ms ease, transform 180ms ease;
-    }
-
-    .section-dot:hover::after,
-    .section-dot:focus-visible::after,
-    .section-dot.is-active::after {
-      opacity: 1;
-      transform: translateY(-50%) translateX(4px);
+      opacity: 0.72;
+      transform-origin: left center;
+      transition: opacity 180ms ease, color 180ms ease, font-size 180ms ease, font-weight 180ms ease, transform 180ms ease;
     }
 
     .section-dot:hover,
-    .section-dot:focus-visible,
-    .section-dot.is-active {
-      background: #1b4332;
-      box-shadow: 0 0 0 6px rgba(27, 67, 50, 0.12);
-      transform: scale(1.08);
+    .section-dot:focus-visible {
+      color: rgba(24, 56, 76, 0.76);
+      transform: translateX(2px);
       outline: none;
+    }
+
+    .section-dot:hover::before,
+    .section-dot:focus-visible::before {
+      background: rgba(27, 67, 50, 0.36);
+      box-shadow: 0 0 0 5px rgba(27, 67, 50, 0.08);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .section-dot:hover::after,
+    .section-dot:focus-visible::after {
+      opacity: 0.88;
+    }
+
+    .section-dot.is-active {
+      color: #18384c;
+      transform: translateX(3px);
+    }
+
+    .section-dot.is-active::before {
+      width: 9px;
+      height: 9px;
+      background: rgba(27, 67, 50, 0.82);
+      box-shadow: 0 0 0 6px rgba(27, 67, 50, 0.08);
+      transform: translateY(-50%) scale(1.02);
+    }
+
+    .section-dot.is-active::after {
+      font-size: 0.88rem;
+      font-weight: 600;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .section-rail.is-idle {
+      opacity: 0.02;
+      transform: translateY(-50%) translateX(-10px);
+    }
+
+    .section-rail.is-idle:hover,
+    .section-rail.is-idle:focus-within {
+      opacity: 1;
+      transform: translateY(-50%);
     }
 
     @media (max-width: 1100px) {
       .section-rail {
-        left: 12px;
+        left: 8px;
+      }
+
+      .section-dot::after {
+        font-size: 0.68rem;
+      }
+
+      .section-dot.is-active::after {
+        font-size: 0.8rem;
       }
     }
 
@@ -151,8 +203,10 @@
 
     <nav class="top-nav" aria-label="Primary">
       <a href="index.html" aria-current="page">Home</a>
+      <a href="packages.html">Packages</a>
       <a href="ai.html">AI &amp; App</a>
       <a href="franchise.html">Franchise</a>
+      <a href="service-area.html">Service Area</a>
     </nav>
   </header>
 
@@ -341,15 +395,15 @@
       <div class="container">
         <div class="section-head center" data-reveal>
           <p class="eyebrow">Package Options &amp; Promotion</p>
-          <h2>แพ็กเกจของ <span class="brand-inline">CareWise</span> ออกแบบจากรูปแบบการดูแลจริง เพื่อให้ครอบครัวเลือกได้อย่างมั่นใจและเหมาะกับชีวิตประจำวัน</h2>
-          <p>เราจัดแพ็กเกจให้เข้าใจง่าย ดูขอบเขตบริการและค่าใช้จ่ายได้ชัด เพื่อช่วยให้ครอบครัวตัดสินใจได้สะดวกและเลือกแผนที่เหมาะกับผู้สูงอายุแต่ละท่าน</p>
+          <h2>แพ็กเกจของ <span class="brand-inline">CareWise</span> สรุปให้เห็นภาพรวมก่อนตัดสินใจ</h2>
+          <p>เลือกดูแบบคร่าว ๆ ได้จากหน้านี้ แล้วค่อยเปิดหน้ารายละเอียดเต็มเพื่อเทียบรูปแบบการดูแล ราคา และสิทธิพิเศษเพิ่มเติม</p>
         </div>
 
         <div class="package-hero" data-reveal>
           <div class="package-hero-copy">
             <span class="mini-label">Choose With Confidence</span>
-            <h3>เลือกได้ทั้งดูแลรายวัน รายเดือน หรือเชื่อมต่อการดูแลต่อเนื่องกับทีมมืออาชีพ</h3>
-            <p>ไม่ว่าจะต้องการคนช่วยดูแลช่วงกลางวัน ดูแลต่อเนื่องที่บ้าน หรือบริการฟื้นฟูหลังออกจากโรงพยาบาล CareWise มีตัวเลือกที่ยืดหยุ่นตามความต้องการของแต่ละครอบครัว</p>
+            <h3>มีทั้งแบบดูแลในศูนย์ ดูแลที่บ้าน และแผนดูแลต่อเนื่องสำหรับเคสเฉพาะ</h3>
+            <p>ถ้ายังไม่แน่ใจว่าจะเริ่มจากแบบไหน สามารถดูภาพรวมก่อน แล้วค่อยเข้าไปดูรายละเอียดแพ็กเกจเต็มในหน้าถัดไป</p>
           </div>
           <div class="package-hero-metrics">
             <article>
@@ -373,30 +427,11 @@
               <span class="mini-label">Care Center</span>
               <span class="package-badge">ดูแลได้ยืดหยุ่น</span>
             </div>
-            <h3>ดูแลรายวันและระยะสั้นในศูนย์ที่อบอุ่น</h3>
-            <p>เหมาะกับครอบครัวที่ต้องการพื้นที่ดูแลที่ปลอดภัยในช่วงกลางวัน หรือช่วงพักฟื้นระยะสั้นพร้อมกิจกรรมและการติดตามอย่างใกล้ชิด</p>
-            <div class="price-list">
-              <div class="price-item">
-                <strong>Half Day</strong>
-                <span>1,000-1,400 บาท/วัน</span>
-              </div>
-              <div class="price-item">
-                <strong>Full Day</strong>
-                <span>1,800-2,500 บาท/วัน</span>
-              </div>
-              <div class="price-item">
-                <strong>Short Stay</strong>
-                <span>3,500-5,500 บาท/คืน</span>
-              </div>
-              <div class="price-item">
-                <strong>20 Days Package</strong>
-                <span>28,000-38,000 บาท/เดือน</span>
-              </div>
-            </div>
+            <h3>ดูแลรายวันและระยะสั้นในศูนย์</h3>
+            <p>เหมาะกับครอบครัวที่ต้องการพื้นที่ดูแลที่ปลอดภัย อบอุ่น และมีทีมดูแลใกล้ชิดในช่วงกลางวันหรือพักฟื้น</p>
             <ul class="clean-list">
-              <li>มี AI Monitoring ตลอดช่วงการดูแล</li>
-              <li>รวมอาหาร กิจกรรม และทีมพยาบาลดูแล</li>
-              <li>เหมาะกับครอบครัวที่ต้องการความยืดหยุ่นแบบไป-กลับหรือพักค้าง</li>
+              <li>มีตัวเลือกครึ่งวัน เต็มวัน และพักค้าง</li>
+              <li>เหมาะกับการดูแลแบบไป-กลับหรือระยะสั้น</li>
             </ul>
           </article>
 
@@ -405,30 +440,11 @@
               <span class="mini-label">Home Care</span>
               <span class="package-badge soft">ดูแลสบายใจที่บ้าน</span>
             </div>
-            <h3>ดูแลถึงบ้านแบบใกล้ชิดและเป็นส่วนตัว</h3>
-            <p>สำหรับครอบครัวที่อยากให้ผู้สูงอายุอยู่ในสภาพแวดล้อมเดิม แต่ยังได้รับมาตรฐานการดูแลและการติดตามสุขภาพอย่างต่อเนื่อง</p>
-            <div class="price-list">
-              <div class="price-item">
-                <strong>Caregiver Half Day</strong>
-                <span>1,500-2,500 บาท/ครั้ง</span>
-              </div>
-              <div class="price-item">
-                <strong>Monthly Care Plan</strong>
-                <span>25,000-65,000 บาท/เดือน</span>
-              </div>
-              <div class="price-item">
-                <strong>Telehealth</strong>
-                <span>500-1,200 บาท/ครั้ง</span>
-              </div>
-              <div class="price-item">
-                <strong>Monitoring Kit</strong>
-                <span>2,500-5,500 บาท/เดือน</span>
-              </div>
-            </div>
+            <h3>ดูแลถึงบ้านแบบใกล้ชิด</h3>
+            <p>สำหรับครอบครัวที่อยากให้ผู้สูงอายุอยู่บ้าน แต่ยังได้รับการดูแลต่อเนื่องและมีทางเลือกเสริมด้านสุขภาพ</p>
             <ul class="clean-list">
-              <li>มีตัวเลือกแพ็กเกจรายเดือนสำหรับการดูแลต่อเนื่อง</li>
-              <li>เสริมด้วย Telehealth และอุปกรณ์ IoT ตามความเหมาะสม</li>
-              <li>ตอบโจทย์ลูกหลานวัยทำงานที่ต้องการความมั่นใจทุกวัน</li>
+              <li>มีทั้งรายครั้ง รายเดือน และอุปกรณ์เสริม</li>
+              <li>เหมาะกับครอบครัวที่ต้องการดูแลต่อเนื่องที่บ้าน</li>
             </ul>
           </article>
 
@@ -437,64 +453,21 @@
               <span class="mini-label">Care Program</span>
               <span class="package-badge soft">ออกแบบตามความต้องการ</span>
             </div>
-            <h3>แผนดูแลต่อเนื่องสำหรับครอบครัว องค์กร และพาร์ทเนอร์ด้านสุขภาพ</h3>
-            <p>เหมาะสำหรับผู้ที่ต้องการวางแผนดูแลต่อเนื่องหลังออกจากโรงพยาบาล หรือองค์กรที่ต้องการโปรแกรมดูแลผู้สูงอายุสำหรับพนักงานและครอบครัว</p>
-            <div class="package-tags" aria-label="B2B package types">
-              <span>Post-discharge Care</span>
-              <span>Hospital Partnership</span>
-              <span>Corporate Wellness</span>
-              <span>Monthly Contract</span>
-            </div>
-            <div class="service-detail package-note">
-              <strong>รูปแบบแพ็กเกจ</strong>
-              <p>ทีมงานสามารถช่วยออกแบบแผนบริการให้เหมาะกับจำนวนผู้รับบริการ ลักษณะการดูแล และระยะเวลาที่ต้องการได้</p>
-            </div>
+            <h3>แผนดูแลต่อเนื่องสำหรับเคสเฉพาะ</h3>
+            <p>เหมาะกับการดูแลหลังออกจากโรงพยาบาล แผนสำหรับองค์กร หรือบริการที่ต้องปรับตามบริบทของแต่ละเคส</p>
             <ul class="clean-list">
-              <li>เหมาะกับการดูแลต่อเนื่องหลังการรักษาและการติดตามระยะยาว</li>
-              <li>ช่วยให้ครอบครัวและทีมสุขภาพทำงานร่วมกันได้สะดวกขึ้น</li>
-              <li>ปรับรายละเอียดบริการได้ตามบริบทของแต่ละหน่วยงาน</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="promotion-grid">
-          <article class="promotion-card emphasis" data-reveal>
-            <p class="eyebrow">Special Offers</p>
-            <h3>สิทธิพิเศษที่ช่วยให้เริ่มต้นดูแลง่ายขึ้น และวางแผนระยะยาวได้สบายใจกว่าเดิม</h3>
-            <p>เราตั้งใจให้ทุกโปรโมชันช่วยลดภาระการตัดสินใจของครอบครัว พร้อมเพิ่มความคุ้มค่าโดยยังคงมาตรฐานการดูแลที่อบอุ่นและใส่ใจ</p>
-          </article>
-
-          <article class="promotion-card" data-reveal>
-            <h3>สิทธิพิเศษสำหรับแพ็กเกจต่อเนื่อง</h3>
-            <p>สำหรับครอบครัวที่เลือกดูแลต่อเนื่อง 6-12 เดือน</p>
-            <ul class="clean-list">
-              <li>ส่วนลด 10-15% ตามระยะสัญญา</li>
-              <li>ช่วยให้ครอบครัววางแผนค่าใช้จ่ายได้ชัดเจนขึ้น</li>
-            </ul>
-          </article>
-
-          <article class="promotion-card" data-reveal>
-            <h3>สิทธิ์อัปเกรดสำหรับลูกค้าประจำ</h3>
-            <p>สำหรับครอบครัวที่ใช้บริการครบ 12 เดือน</p>
-            <ul class="clean-list">
-              <li>อัปเกรดสิทธิ์บางบริการโดยไม่มีค่าใช้จ่ายเพิ่ม</li>
-              <li>ช่วยให้การดูแลระยะยาวคุ้มค่ามากขึ้นในทุกเดือน</li>
-            </ul>
-          </article>
-
-          <article class="promotion-card" data-reveal>
-            <h3>แพ็กเกจพิเศษผ่านพาร์ทเนอร์</h3>
-            <p>สำหรับผู้ที่เข้ามาผ่านโรงพยาบาลหรือองค์กรที่ร่วมดูแลกับเรา</p>
-            <ul class="clean-list">
-              <li>เลือกแผนดูแลที่เหมาะกับบริบทของแต่ละเคสได้มากขึ้น</li>
-              <li>เหมาะกับการดูแลต่อเนื่องหลังออกจากโรงพยาบาลและโปรแกรมองค์กร</li>
+              <li>เหมาะกับเคสที่ต้องการออกแบบบริการเฉพาะ</li>
+              <li>ช่วยเชื่อมครอบครัว ทีมดูแล และพาร์ทเนอร์สุขภาพ</li>
             </ul>
           </article>
         </div>
 
         <div class="package-footnote" data-reveal>
-          <strong>หมายเหตุเรื่องแพ็กเกจและค่าใช้จ่าย</strong>
-          <p>รายละเอียดแพ็กเกจสามารถปรับให้เหมาะกับสภาพร่างกาย รูปแบบการดูแล และความถี่ในการใช้บริการของแต่ละครอบครัวได้ โดยทีมงานจะช่วยแนะนำแผนที่เหมาะสมก่อนเริ่มใช้บริการ</p>
+          <strong>ต้องการดูรายละเอียดเต็ม?</strong>
+          <p>เราแยกหน้ารายละเอียดแพ็กเกจไว้แล้ว เพื่อให้ดูราคา รายการบริการ และสิทธิพิเศษได้ชัดเจนมากขึ้น</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="packages.html">ดูรายละเอียดแพ็กเกจ</a>
+          </div>
         </div>
       </div>
     </section>
@@ -637,23 +610,32 @@
         });
       };
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      const getNearestSectionId = () => {
+        const viewportAnchor = window.innerHeight * 0.42;
+        let nearest = sections[0];
+        let nearestDistance = Number.POSITIVE_INFINITY;
 
-          if (!visible.length) return;
-          setActive(`#${visible[0].target.id}`);
-        },
-        {
-          rootMargin: '-28% 0px -45% 0px',
-          threshold: [0.2, 0.35, 0.55, 0.75]
-        }
-      );
+        sections.forEach((item) => {
+          const rect = item.section.getBoundingClientRect();
+          const sectionAnchor = rect.top + Math.min(rect.height * 0.35, 180);
+          const distance = Math.abs(sectionAnchor - viewportAnchor);
 
-      sections.forEach(({ section }) => observer.observe(section));
-      setActive(sections[0].id);
+          if (distance < nearestDistance) {
+            nearest = item;
+            nearestDistance = distance;
+          }
+        });
+
+        return nearest.id;
+      };
+
+      const updateActiveSection = () => {
+        setActive(getNearestSectionId());
+      };
+
+      window.addEventListener('scroll', updateActiveSection, { passive: true });
+      window.addEventListener('resize', updateActiveSection, { passive: true });
+      updateActiveSection();
     })();
   </script>
 </body>
