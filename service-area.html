@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -27,13 +27,14 @@
     .section-rail.is-idle:hover, .section-rail.is-idle:focus-within { opacity: 1; transform: translateY(-50%); }
 
     .page-hero { position: relative; padding: 7.4rem 0 3.5rem; }
-    .hero-grid, .info-grid, .address-grid { display: grid; gap: 1.6rem; }
+    .hero-grid, .info-grid, .address-grid, .travel-grid { display: grid; gap: 1.6rem; }
     .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(360px, 0.92fr); align-items: center; }
     .map-section-grid { display: grid; gap: 1.6rem; }
     .map-section-grid { grid-template-columns: minmax(0, 1.16fr) minmax(320px, 0.84fr); align-items: start; }
     .info-grid, .address-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .travel-grid { grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr); align-items: stretch; }
 
-    .hero-copy, .hero-photo-card, .map-card, .summary-card, .address-card { padding: 1.55rem; border-radius: 30px; background: rgba(255,255,255,0.78); border: 1px solid rgba(120,157,140,0.18); box-shadow: 0 18px 44px rgba(34,56,48,0.08); backdrop-filter: blur(12px); }
+    .hero-copy, .hero-photo-card, .map-card, .summary-card, .address-card, .travel-map-card { padding: 1.55rem; border-radius: 30px; background: rgba(255,255,255,0.78); border: 1px solid rgba(120,157,140,0.18); box-shadow: 0 18px 44px rgba(34,56,48,0.08); backdrop-filter: blur(12px); }
     .hero-copy { display: grid; gap: 1.05rem; background: transparent; border: 0; box-shadow: none; padding: 0; }
     .hero-kicker { color: var(--brand); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
     .hero-title { font-family: var(--title-font); font-size: clamp(3.2rem, 8vw, 6.2rem); line-height: 0.93; letter-spacing: -0.05em; color: var(--brand-deep); }
@@ -88,18 +89,46 @@
     .service-compact-card strong { display: block; margin-bottom: 0.18rem; color: #205777; font-size: 1rem; }
     .service-compact-card p { margin: 0; color: #4b687b; font-size: 0.94rem; line-height: 1.6; }
 
+    .travel-map-card { display: grid; gap: 1rem; }
+    .travel-map-card h3 { margin-bottom: 0.2rem; color: #1f5679; font-size: 1.38rem; }
+    .travel-map-card p { color: #486477; font-size: 1.02rem; line-height: 1.72; }
+    .travel-map-frame { padding: 0.55rem; border-radius: 24px; background: linear-gradient(180deg, rgba(245,250,254,0.98), rgba(236,245,251,0.94)); border: 1px solid rgba(126,163,186,0.18); }
+    .travel-map-svg { width: 100%; height: auto; display: block; }
+    .travel-map-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .travel-map-link { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 1.2rem; border-radius: 999px; background: linear-gradient(135deg, #2f95cc, #3f7fd8); color: #ffffff; font-size: 0.98rem; font-weight: 700; text-decoration: none; box-shadow: 0 14px 28px rgba(47, 149, 204, 0.2); transition: transform 180ms ease, box-shadow 180ms ease; }
+    .travel-map-link:hover, .travel-map-link:focus-visible { transform: translateY(-1px); box-shadow: 0 18px 32px rgba(47, 149, 204, 0.24); outline: none; }
+    .travel-road { stroke: #7a838d; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .travel-road-minor { stroke: #8e97a0; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .travel-loop { stroke: #5f6770; stroke-width: 18; stroke-linecap: round; fill: none; }
+    .travel-label { font-family: "Sarabun", sans-serif; font-size: 14px; font-weight: 700; fill: #304c63; }
+    .travel-label-sub { font-family: "Sarabun", sans-serif; font-size: 11px; font-weight: 500; fill: #5b7283; }
+    .travel-place { fill: #ffffff; stroke: rgba(74, 112, 136, 0.16); stroke-width: 1.5; }
+    .travel-place-title { font-family: "Sarabun", sans-serif; font-size: 13px; font-weight: 700; fill: #1f5679; }
+    .travel-place-sub { font-family: "Sarabun", sans-serif; font-size: 10.5px; font-weight: 500; fill: #678195; }
+    .travel-stop { fill: #f7fbfe; stroke: rgba(64, 121, 160, 0.16); stroke-width: 1.4; }
+    .travel-stop text { font-family: "Sarabun", sans-serif; }
+    .travel-highlight { fill: #2f95cc; }
+    .travel-note { padding: 0.95rem 1rem; border-radius: 18px; background: rgba(238,246,251,0.9); color: #4a6678; font-size: 0.98rem; line-height: 1.68; }
+    .travel-building { fill: #4a9ad3; }
+    .travel-building-window { fill: rgba(255,255,255,0.88); }
+    .travel-pin-drop { fill: #2f95cc; }
+    .travel-pin-core { fill: #ffffff; }
+    .travel-fyi-chip { fill: rgba(255,255,255,0.96); stroke: rgba(47, 149, 204, 0.16); stroke-width: 1.4; }
+    .travel-fyi-label { font-family: "Sarabun", sans-serif; font-size: 13px; font-weight: 700; fill: #1f5679; text-anchor: middle; }
+    .travel-fyi-sub { font-family: "Sarabun", sans-serif; font-size: 11px; font-weight: 500; fill: #678195; text-anchor: middle; }
+
     @media (max-width: 1100px) {
       .section-rail { left: 8px; }
       .section-dot::after { font-size: 0.68rem; }
       .section-dot.is-active::after { font-size: 0.8rem; }
-      .hero-grid, .map-section-grid, .info-grid, .address-grid { grid-template-columns: 1fr; }
+      .hero-grid, .map-section-grid, .info-grid, .address-grid, .travel-grid { grid-template-columns: 1fr; }
       .map-embed { height: 560px; }
     }
 
     @media (max-width: 900px) {
       .section-rail { display: none; }
       .page-hero { padding-top: 7rem; }
-      .hero-photo-card, .map-card, .summary-card, .address-card { padding: 1.2rem; border-radius: 24px; }
+      .hero-photo-card, .map-card, .summary-card, .address-card, .travel-map-card { padding: 1.2rem; border-radius: 24px; }
       .hero-title { font-size: clamp(2.7rem, 12vw, 4.6rem); }
       .hero-subtitle, .summary-card p, .summary-card li, .address-card p { font-size: 1rem; }
       .map-embed { height: 440px; border-radius: 20px; }
@@ -115,7 +144,7 @@
   <aside class="section-rail" aria-label="Page sections">
     <a class="section-dot" href="#overview" data-label="Overview" aria-label="Overview section"></a>
     <a class="section-dot" href="#service-map" data-label="Map" aria-label="Map section"></a>
-    <a class="section-dot" href="#coverage" data-label="Coverage" aria-label="Coverage section"></a>
+    <a class="section-dot" href="#coverage" data-label="Route" aria-label="Route section"></a>
     <a class="section-dot" href="#address" data-label="Address" aria-label="Address section"></a>
   </aside>
 
@@ -200,10 +229,6 @@
               <p>เริ่มจากโซนที่เดินทางสะดวกภายในรัศมีนี้ก่อน เพื่อให้นัดหมายและดูแลต่อเนื่องได้ง่าย</p>
             </div>
             <div class="service-compact-card">
-              <strong>เหมาะกับใคร</strong>
-              <p>เหมาะกับครอบครัวที่ต้องการดูแลที่บ้านเป็นประจำ หรือเริ่มจากการเยี่ยมบ้านก่อน</p>
-            </div>
-            <div class="service-compact-card">
               <strong>เช็กพื้นที่ได้</strong>
               <p>ส่งย่านหรือพิกัดบ้านให้ทีมช่วยประเมินระยะเดินทางเพิ่มเติมได้</p>
             </div>
@@ -213,28 +238,100 @@
     </section>
 
     <section class="content-section tone-soft" id="coverage">
-      <div class="container info-grid">
-        <article class="summary-card" data-reveal>
-          <h3>เหมาะกับลูกค้าแบบใด</h3>
-          <p>
-            เหมาะกับครอบครัวที่ต้องการเช็กเบื้องต้นว่าบ้านของตัวเองอยู่ในโซนที่ทีม CareWise
-            สามารถเดินทางไปดูแลได้สะดวกหรือไม่ ทั้งแบบเยี่ยมบ้าน ดูแลตามแผน และดูแลต่อเนื่องระยะยาว
-          </p>
-          <div class="highlight-band">
-            ถ้าบ้านของคุณอยู่ใกล้แนวรถไฟฟ้า ถนนสุขุมวิท พระราม 4 พระราม 3 บางนา
-            หรืออยู่ใกล้เส้นทางหลักที่เข้าเมืองได้ง่าย โอกาสที่ทีมจะเดินทางได้สะดวกมักสูงขึ้น
+      <div class="container travel-grid">
+        <article class="travel-map-card" data-reveal>
+          <h3>แผนที่เดินทางแบบง่าย</h3>
+          <p>ถ้าคุณต้องการดูทางมาสาขาแรกแบบเข้าใจง่าย แผนที่นี้สรุปให้เห็นจุดหลักรอบ FYI Center และแนวถนนที่ใช้เดินทางได้สะดวก</p>
+          <div class="travel-map-frame">
+            <svg class="travel-map-svg" viewBox="0 0 760 520" role="img" aria-label="แผนที่เดินทางแบบง่ายไปยัง FYI Center พระราม 4">
+              <path class="travel-road" d="M44 108 H720" />
+              <path class="travel-road" d="M500 54 V472" />
+              <path class="travel-road" d="M118 316 H494" />
+              <path class="travel-road-minor" d="M190 408 H626" />
+              <path class="travel-loop" d="M612 90 C660 124, 660 188, 612 222" />
+              <text class="travel-label" x="246" y="92">ถนนพระราม 4</text>
+              <text class="travel-label-sub" x="248" y="110">Rama IV Rd.</text>
+              <text class="travel-label" x="578" y="264" transform="rotate(90 578 264)">ถนนรัชดาภิเษก</text>
+              <text class="travel-label-sub" x="598" y="257" transform="rotate(90 598 257)">Ratchadaphisek Rd.</text>
+              <text class="travel-label" x="228" y="302">ถนนสุขุมวิท</text>
+              <text class="travel-label-sub" x="230" y="320">Sukhumvit Rd.</text>
+              <text class="travel-label" x="336" y="394">ทางเชื่อมคลองเตย</text>
+              <text class="travel-label-sub" x="340" y="412">Khlong Toei Link</text>
+
+              <g transform="translate(64 76)">
+                <rect class="travel-stop" width="84" height="48" rx="18"></rect>
+                <text x="14" y="21" class="travel-place-title">QSNCC</text>
+                <text x="14" y="36" class="travel-place-sub">MRT</text>
+              </g>
+
+              <g transform="translate(558 64)">
+                <rect class="travel-stop" width="108" height="48" rx="18"></rect>
+                <text x="14" y="21" class="travel-place-title">ทางด่วน</text>
+                <text x="14" y="36" class="travel-place-sub">Expressway</text>
+              </g>
+
+              <g transform="translate(88 262)">
+                <rect class="travel-stop" width="110" height="48" rx="18"></rect>
+                <text x="14" y="21" class="travel-place-title">อโศก</text>
+                <text x="14" y="36" class="travel-place-sub">Asok</text>
+              </g>
+
+              <g transform="translate(544 262)">
+                <rect class="travel-stop" width="120" height="48" rx="18"></rect>
+                <text x="14" y="21" class="travel-place-title">คลองเตย</text>
+                <text x="14" y="36" class="travel-place-sub">Khlong Toei</text>
+              </g>
+
+              <g transform="translate(518 378)">
+                <rect class="travel-stop" width="128" height="48" rx="18"></rect>
+                <text x="14" y="21" class="travel-place-title">BTS พร้อมพงษ์</text>
+                <text x="14" y="36" class="travel-place-sub">Phrom Phong</text>
+              </g>
+
+              <g transform="translate(286 264)">
+                <path class="travel-building" d="M20 88 V30 L56 8 L92 30 V88 Z"></path>
+                <rect class="travel-building" x="10" y="88" width="92" height="12" rx="5"></rect>
+                <rect class="travel-building-window" x="30" y="30" width="12" height="12" rx="2"></rect>
+                <rect class="travel-building-window" x="50" y="30" width="12" height="12" rx="2"></rect>
+                <rect class="travel-building-window" x="70" y="30" width="12" height="12" rx="2"></rect>
+                <rect class="travel-building-window" x="30" y="50" width="12" height="12" rx="2"></rect>
+                <rect class="travel-building-window" x="50" y="50" width="12" height="12" rx="2"></rect>
+                <rect class="travel-building-window" x="70" y="50" width="12" height="12" rx="2"></rect>
+                <rect class="travel-building-window" x="50" y="68" width="12" height="20" rx="2"></rect>
+              </g>
+
+              <g transform="translate(330 164)">
+                <path class="travel-pin-drop" d="M22 0 C9.8 0 0 9.8 0 22 C0 39.4 22 64 22 64 C22 64 44 39.4 44 22 C44 9.8 34.2 0 22 0 Z"></path>
+                <circle class="travel-pin-core" cx="22" cy="22" r="9"></circle>
+              </g>
+
+              <g transform="translate(280 226)">
+                <rect class="travel-fyi-chip" width="144" height="44" rx="18"></rect>
+                <text class="travel-fyi-label" x="72" y="19">ตึก FYI</text>
+                <text class="travel-fyi-sub" x="72" y="34">บริษัท CareWise</text>
+              </g>
+            </svg>
+          </div>
+          <div class="travel-map-actions">
+            <a class="travel-map-link" href="https://maps.app.goo.gl/37kEompHAofLSsxLA" target="_blank" rel="noopener noreferrer">เปิดในแผนที่</a>
           </div>
         </article>
 
         <article class="summary-card" data-reveal>
-          <h3>สิ่งที่ลูกค้าควรรู้</h3>
-          <p>
-            แม้บ้านของคุณจะอยู่ในรัศมีประมาณ 30 กิโลเมตร แต่การรับบริการจริงยังขึ้นอยู่กับเวลาเดินทาง
-            สภาพจราจร และประเภทบริการที่ต้องการในแต่ละเคส
-          </p>
-          <p>
-            คุณสามารถใช้หน้านี้ดูภาพรวมก่อน แล้วให้ทีมงานช่วยประเมินเส้นทางและความเหมาะสมของพื้นที่จริงอีกครั้งเพื่อความชัดเจน
-          </p>
+          <h3>เดินทางมายังสาขาแรก</h3>
+          <p>หากคุณขับรถมาเอง ให้ใช้แนวถนนพระราม 4 เป็นเส้นหลัก แล้วมองหาย่านคลองเตยหรือโซนใกล้ศูนย์ประชุมแห่งชาติสิริกิติ์เป็นจุดสังเกต</p>
+          <p>หากคุณสะดวกด้วยรถไฟฟ้า จุดที่จำง่ายที่สุดคือ MRT ศูนย์ประชุมแห่งชาติสิริกิติ์ จากนั้นต่อรถเข้ามายัง FYI Center ได้สะดวก</p>
+          <div class="highlight-band">ถ้าคุณมาจากสุขุมวิท อโศก หรือพร้อมพงษ์ สามารถใช้เส้นเชื่อมเข้าโซนคลองเตยและพระราม 4 ได้ค่อนข้างตรง และเดินทางถึงตึกได้ง่ายกว่า</div>
+          <div class="service-compact-stack">
+            <div class="service-compact-card">
+              <strong>จุดสังเกตหลัก</strong>
+              <p>FYI Center, ถนนพระราม 4, คลองเตย และ MRT ศูนย์ประชุมแห่งชาติสิริกิติ์</p>
+            </div>
+            <div class="service-compact-card">
+              <strong>เหมาะสำหรับนัดหมาย</strong>
+              <p>ใช้ดูเส้นทางก่อนเข้ามาคุยเรื่องบริการ หรือนัดประเมินเบื้องต้นกับทีมงาน</p>
+            </div>
+          </div>
         </article>
       </div>
     </section>
@@ -249,9 +346,9 @@
         </article>
 
         <article class="address-card" data-reveal>
-          <h3>เดินทางมายังพื้นที่บริการ</h3>
-          <p>หากคุณเดินทางจากในเมือง ให้ยึดแนวถนนพระราม 4 เป็นเส้นหลัก และมองหาย่านคลองเตยหรือโซนใกล้ศูนย์ประชุมแห่งชาติสิริกิติ์เป็นจุดสังเกต</p>
-          <p>ถ้าคุณสะดวกด้วยรถไฟฟ้า ให้เลือกเส้นทางที่เชื่อมต่อมายังย่านคลองเตยหรือพระราม 4 แล้วต่อรถมายังอาคาร FYI Center จะเดินทางได้ง่ายกว่า</p>
+          <h3>สิ่งที่ลูกค้าควรรู้</h3>
+          <p>แม้บ้านของคุณจะอยู่ในรัศมีประมาณ 30 กิโลเมตร แต่การรับบริการจริงยังขึ้นอยู่กับเวลาเดินทาง สภาพจราจร และประเภทบริการที่ต้องการในแต่ละเคส</p>
+          <p>คุณสามารถใช้หน้านี้ดูภาพรวมก่อน แล้วให้ทีมงานช่วยประเมินเส้นทางและความเหมาะสมของพื้นที่จริงอีกครั้งเพื่อความชัดเจน</p>
         </article>
       </div>
     </section>
