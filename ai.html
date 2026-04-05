@@ -4,27 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CareWise | AI & App</title>
+  <meta name="description" content="CareWise Guardian AI ระบบ AI ดูแลผู้สูงอายุแบบเรียลไทม์ ติดตามสุขภาพ แจ้งเตือนภาวะฉุกเฉิน และรายงานให้ครอบครัวผ่านแอป">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CareWise | AI & App">
+  <meta property="og:description" content="CareWise Guardian AI ระบบ AI ดูแลผู้สูงอายุแบบเรียลไทม์ ติดตามสุขภาพ แจ้งเตือนภาวะฉุกเฉิน และรายงานให้ครอบครัวผ่านแอป">
+  <meta property="og:image" content="images/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .top-nav { gap: 8px; }
-    .top-nav a { position: relative; padding: 0.72rem 1.05rem; border-radius: 999px; transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
-    .top-nav a::after { content: ""; position: absolute; left: 1rem; right: 1rem; bottom: 0.5rem; height: 2px; border-radius: 999px; background: linear-gradient(90deg, rgba(205,233,224,0), rgba(92,153,130,0.95), rgba(205,233,224,0)); opacity: 0; transform: scaleX(0.35); transition: opacity 180ms ease, transform 180ms ease; }
-    .top-nav a:hover, .top-nav a:focus-visible { background: rgba(255,255,255,0.52); box-shadow: 0 10px 22px rgba(27,67,50,0.08); transform: translateY(-1px); outline: none; }
-    .top-nav a:hover::after, .top-nav a:focus-visible::after, .top-nav a[aria-current="page"]::after { opacity: 1; transform: scaleX(1); }
-    .top-nav a[aria-current="page"] { color: #1b4332; background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244,250,247,0.88)); box-shadow: inset 0 0 0 1px rgba(92,153,130,0.22), 0 10px 24px rgba(27,67,50,0.1); }
-    .section-rail { position: fixed; top: 50%; left: 14px; transform: translateY(-50%); z-index: 30; display: flex; flex-direction: column; gap: 10px; padding: 0; opacity: 1; transition: opacity 220ms ease, transform 220ms ease; }
-    .section-dot { position: relative; display: flex; align-items: center; width: auto; min-height: 18px; padding: 2px 0 2px 16px; border-radius: 999px; color: rgba(24,56,76,0.44); transition: color 180ms ease, transform 180ms ease; }
-    .section-dot::before { content: ""; position: absolute; left: 0; top: 50%; width: 7px; height: 7px; border-radius: 999px; background: rgba(27,67,50,0.22); box-shadow: 0 0 0 4px rgba(27,67,50,0.05); transform: translateY(-50%); transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
-    .section-dot::after { content: attr(data-label); position: relative; display: block; font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; line-height: 1; white-space: nowrap; opacity: 0.72; transform-origin: left center; transition: opacity 180ms ease, color 180ms ease, font-size 180ms ease, font-weight 180ms ease, transform 180ms ease; }
-    .section-dot:hover, .section-dot:focus-visible { color: rgba(24,56,76,0.76); transform: translateX(2px); outline: none; }
-    .section-dot:hover::before, .section-dot:focus-visible::before { background: rgba(27,67,50,0.36); box-shadow: 0 0 0 5px rgba(27,67,50,0.08); transform: translateY(-50%) scale(1.08); }
-    .section-dot:hover::after, .section-dot:focus-visible::after { opacity: 0.88; }
-    .section-dot.is-active { color: #18384c; transform: translateX(3px); }
-    .section-dot.is-active::before { width: 9px; height: 9px; background: rgba(27,67,50,0.82); box-shadow: 0 0 0 6px rgba(27,67,50,0.08); transform: translateY(-50%) scale(1.02); }
-    .section-dot.is-active::after { font-size: 0.88rem; font-weight: 600; opacity: 1; transform: scale(1); }
-    .section-rail.is-idle { opacity: 0.02; transform: translateY(-50%) translateX(-10px); }
-    .section-rail.is-idle:hover, .section-rail.is-idle:focus-within { opacity: 1; transform: translateY(-50%); }
-    .page-hero { padding: 8rem 0 5rem; }
+    .page-hero { padding: 56px 0 5rem; }
     .page-hero-grid, .story-grid, .system-grid, .app-grid, .global-grid, .app-flow, .metric-stack, .app-demo-shell { display: grid; gap: 1.5rem; }
     .page-hero-grid { grid-template-columns: 1.15fr 0.85fr; align-items: start; }
     .story-grid, .app-grid, .global-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -85,8 +73,8 @@
     .phone-nav span.active { color: #2f6fa3; font-weight: 700; }
     .metric-card strong, .timeline-card strong { display: block; font-size: 1.35rem; color: #1b4332; margin-bottom: 0.45rem; }
     .note-band { padding: 1.6rem 1.75rem; border-radius: 30px; background: linear-gradient(135deg, rgba(246,252,248,0.94), rgba(230,242,236,0.92)); border: 1px solid rgba(120,157,140,0.22); color: #274739; box-shadow: 0 18px 44px rgba(34,56,48,0.08); }
-    @media (max-width: 1100px) { .section-rail { left: 8px; } .section-dot::after { font-size: 0.68rem; } .section-dot.is-active::after { font-size: 0.8rem; } .page-hero-grid, .system-grid, .app-flow, .app-demo-shell { grid-template-columns: repeat(2, minmax(0, 1fr)); } .app-demo-shell { gap: 0.8rem; } .phone-stage { margin-top: -8.5rem; margin-right: 0.6rem; } }
-    @media (max-width: 900px) { .section-rail { display: none; } .page-hero { padding-top: 7rem; } .page-hero-grid, .story-grid, .system-grid, .app-grid, .global-grid, .app-flow, .metric-stack, .app-demo-shell { grid-template-columns: 1fr; } .app-demo-shell { margin-top: 0; } .phone-stage { justify-content: center; margin-top: 0; } .app-demo-caption { min-height: 0; } .phone-mockup { width: min(340px, 100%); } }
+    @media (max-width: 1100px) { .page-hero-grid, .system-grid, .app-flow, .app-demo-shell { grid-template-columns: repeat(2, minmax(0, 1fr)); } .app-demo-shell { gap: 0.8rem; } .phone-stage { margin-top: -8.5rem; margin-right: 0.6rem; } }
+    @media (max-width: 900px) { .page-hero { padding-top: 40px; } .page-hero-grid, .story-grid, .system-grid, .app-grid, .global-grid, .app-flow, .metric-stack, .app-demo-shell { grid-template-columns: 1fr; } .app-demo-shell { margin-top: 0; } .phone-stage { justify-content: center; margin-top: 0; } .app-demo-caption { min-height: 0; } .phone-mockup { width: min(340px, 100%); } }
   </style>
 </head>
 <body>
@@ -133,7 +121,7 @@
           </div>
         </div>
         <div class="hero-panel" data-reveal>
-          <article class="glass-card hero-image-card"><img src="images/img_4.jpg" alt="CareWise AI and caregiver service"></article>
+          <article class="glass-card hero-image-card"><img src="my_image/my004.jpg" alt="CareWise AI and caregiver service"></article>
           <div class="metric-stack">
             <article class="metric-card"><strong>90%+</strong><span>เป้าหมายความแม่นยำของระบบตรวจจับและแจ้งเตือนเมื่อใช้ข้อมูลร่วมกันจากหลายแหล่ง</span></article>
             <article class="metric-card"><strong>10 วินาที</strong><span>เวลาส่ง alert อัตโนมัติถึงครอบครัวและทีมแพทย์เมื่อพบเหตุผิดปกติที่มีความเชื่อมั่นสูง</span></article>
@@ -153,49 +141,6 @@
   <script src="script.js"></script>
   <script>
     (function () {
-      const dots = Array.from(document.querySelectorAll('.section-dot'));
-      const sections = dots.map((dot) => {
-        const id = dot.getAttribute('href');
-        if (!id || !id.startsWith('#')) return null;
-        const section = document.querySelector(id);
-        return section ? { dot, section, id } : null;
-      }).filter(Boolean);
-      if (!sections.length || typeof IntersectionObserver === 'undefined') return;
-      const setActive = (id) => {
-        sections.forEach(({ dot, id: sectionId }) => {
-          const isActive = sectionId === id;
-          dot.classList.toggle('is-active', isActive);
-          if (isActive) dot.setAttribute('aria-current', 'true');
-          else dot.removeAttribute('aria-current');
-        });
-      };
-      const getNearestSectionId = () => {
-        const viewportAnchor = window.innerHeight * 0.42;
-        let nearest = sections[0];
-        let nearestDistance = Number.POSITIVE_INFINITY;
-
-        sections.forEach((item) => {
-          const rect = item.section.getBoundingClientRect();
-          const sectionAnchor = rect.top + Math.min(rect.height * 0.35, 180);
-          const distance = Math.abs(sectionAnchor - viewportAnchor);
-
-          if (distance < nearestDistance) {
-            nearest = item;
-            nearestDistance = distance;
-          }
-        });
-
-        return nearest.id;
-      };
-
-      const updateActiveSection = () => {
-        setActive(getNearestSectionId());
-      };
-
-      window.addEventListener('scroll', updateActiveSection, { passive: true });
-      window.addEventListener('resize', updateActiveSection, { passive: true });
-      updateActiveSection();
-
       const demoTabs = Array.from(document.querySelectorAll('.app-demo-tab'));
       const demoViews = Array.from(document.querySelectorAll('.screen-view'));
       const demoCaption = document.querySelector('[data-demo-caption]');
