@@ -1,20 +1,31 @@
-const sections = [...document.querySelectorAll(".page-section")];
 const dots = [...document.querySelectorAll(".section-dot")];
 const revealTargets = [...document.querySelectorAll("[data-reveal]")];
 const printButton = document.getElementById("printButton");
 const backToTopButton = document.getElementById("backToTop");
 
+const sectionEntries = dots.map((dot) => {
+  const id = dot.getAttribute("href");
+  if (!id || !id.startsWith("#")) return null;
+  const section = document.querySelector(id);
+  return section ? { dot, section, id } : null;
+}).filter(Boolean);
+
 const setActiveDot = (id) => {
-  dots.forEach((dot) => {
-    dot.classList.toggle("is-active", dot.dataset.target === id);
+  sectionEntries.forEach(({ dot, id: sectionId }) => {
+    const isActive = sectionId === id;
+    dot.classList.toggle("is-active", isActive);
+    if (isActive) dot.setAttribute("aria-current", "true");
+    else dot.removeAttribute("aria-current");
   });
 };
 
 dots.forEach((dot) => {
-  dot.addEventListener("click", () => {
-    const target = document.getElementById(dot.dataset.target);
+  dot.addEventListener("click", (e) => {
+    const href = dot.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    const target = document.getElementById(href.slice(1));
     if (!target) return;
-
+    e.preventDefault();
     target.scrollIntoView({
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
       block: "start"
@@ -22,23 +33,35 @@ dots.forEach((dot) => {
   });
 });
 
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    const visibleEntry = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+const getNearestSectionId = () => {
+  const viewportAnchor = window.innerHeight * 0.42;
+  let nearest = sectionEntries[0];
+  let nearestDistance = Number.POSITIVE_INFINITY;
 
-    if (visibleEntry) {
-      setActiveDot(visibleEntry.target.id);
-      document.title = `CareWise | ${visibleEntry.target.dataset.title || "Company Profile"}`;
+  sectionEntries.forEach((item) => {
+    const rect = item.section.getBoundingClientRect();
+    const sectionAnchor = rect.top + Math.min(rect.height * 0.35, 180);
+    const distance = Math.abs(sectionAnchor - viewportAnchor);
+
+    if (distance < nearestDistance) {
+      nearest = item;
+      nearestDistance = distance;
     }
-  },
-  {
-    threshold: [0.25, 0.45, 0.65]
-  }
-);
+  });
 
-sections.forEach((section) => sectionObserver.observe(section));
+  return nearest ? nearest.id : null;
+};
+
+const updateActiveSection = () => {
+  const id = getNearestSectionId();
+  if (id) setActiveDot(id);
+};
+
+if (sectionEntries.length) {
+  window.addEventListener("scroll", updateActiveSection, { passive: true });
+  window.addEventListener("resize", updateActiveSection, { passive: true });
+  updateActiveSection();
+}
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
