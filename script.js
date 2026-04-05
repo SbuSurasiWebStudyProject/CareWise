@@ -1,3 +1,23 @@
+// ── Navigation Inject ─────────────────────────────────────────────
+const NAV_LINKS = [
+  { href: "index.html",        label: "Home" },
+  { href: "packages.html",     label: "Packages" },
+  { href: "ai.html",           label: "AI \u0026 App" },
+  { href: "franchise.html",    label: "Franchise" },
+  { href: "standards.html",    label: "Standards" },
+  { href: "service-area.html", label: "Contact Us" },
+];
+
+const topNav = document.querySelector(".top-nav");
+if (topNav) {
+  const currentFile = location.pathname.split("/").pop() || "index.html";
+  topNav.innerHTML = NAV_LINKS.map(({ href, label }) => {
+    const isCurrent = href === currentFile;
+    return `<a href="${href}"${isCurrent ? ' aria-current="page"' : ""}>${label}</a>`;
+  }).join("");
+}
+// ──────────────────────────────────────────────────────────────────
+
 const dots = [...document.querySelectorAll(".section-dot")];
 const revealTargets = [...document.querySelectorAll("[data-reveal]")];
 const printButton = document.getElementById("printButton");
