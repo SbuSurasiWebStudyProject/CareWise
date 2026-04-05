@@ -4,29 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CareWise | Service Area</title>
+  <meta name="description" content="พื้นที่ให้บริการของ CareWise ครอบคลุมรัศมี 30 กิโลเมตรในกรุงเทพฯ พร้อมข้อมูลการเดินทางและที่ตั้งศูนย์ดูแล">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CareWise | Service Area">
+  <meta property="og:description" content="พื้นที่ให้บริการของ CareWise ครอบคลุมรัศมี 30 กิโลเมตรในกรุงเทพฯ พร้อมข้อมูลการเดินทางและที่ตั้งศูนย์ดูแล">
+  <meta property="og:image" content="images/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .top-nav { gap: 8px; }
-    .top-nav a { position: relative; padding: 0.72rem 1.05rem; border-radius: 999px; transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
-    .top-nav a::after { content: ""; position: absolute; left: 1rem; right: 1rem; bottom: 0.5rem; height: 2px; border-radius: 999px; background: linear-gradient(90deg, rgba(205,233,224,0), rgba(92,153,130,0.95), rgba(205,233,224,0)); opacity: 0; transform: scaleX(0.35); transition: opacity 180ms ease, transform 180ms ease; }
-    .top-nav a:hover, .top-nav a:focus-visible { background: rgba(255,255,255,0.52); box-shadow: 0 10px 22px rgba(27,67,50,0.08); transform: translateY(-1px); outline: none; }
-    .top-nav a:hover::after, .top-nav a:focus-visible::after, .top-nav a[aria-current="page"]::after { opacity: 1; transform: scaleX(1); }
-    .top-nav a[aria-current="page"] { color: #1b4332; background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244,250,247,0.88)); box-shadow: inset 0 0 0 1px rgba(92,153,130,0.22), 0 10px 24px rgba(27,67,50,0.1); }
-
-    .section-rail { position: fixed; top: 50%; left: 14px; transform: translateY(-50%); z-index: 30; display: flex; flex-direction: column; gap: 10px; padding: 0; opacity: 1; transition: opacity 220ms ease, transform 220ms ease; }
-    .section-dot { position: relative; display: flex; align-items: center; width: auto; min-height: 18px; padding: 2px 0 2px 16px; border-radius: 999px; color: rgba(24,56,76,0.44); transition: color 180ms ease, transform 180ms ease; }
-    .section-dot::before { content: ""; position: absolute; left: 0; top: 50%; width: 7px; height: 7px; border-radius: 999px; background: rgba(27,67,50,0.22); box-shadow: 0 0 0 4px rgba(27,67,50,0.05); transform: translateY(-50%); transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
-    .section-dot::after { content: attr(data-label); position: relative; display: block; font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; line-height: 1; white-space: nowrap; opacity: 0.72; transform-origin: left center; transition: opacity 180ms ease, color 180ms ease, font-size 180ms ease, font-weight 180ms ease, transform 180ms ease; }
-    .section-dot:hover, .section-dot:focus-visible { color: rgba(24,56,76,0.76); transform: translateX(2px); outline: none; }
-    .section-dot:hover::before, .section-dot:focus-visible::before { background: rgba(27,67,50,0.36); box-shadow: 0 0 0 5px rgba(27,67,50,0.08); transform: translateY(-50%) scale(1.08); }
-    .section-dot:hover::after, .section-dot:focus-visible::after { opacity: 0.88; }
-    .section-dot.is-active { color: #18384c; transform: translateX(3px); }
-    .section-dot.is-active::before { width: 9px; height: 9px; background: rgba(27,67,50,0.82); box-shadow: 0 0 0 6px rgba(27,67,50,0.08); transform: translateY(-50%) scale(1.02); }
-    .section-dot.is-active::after { font-size: 0.88rem; font-weight: 600; opacity: 1; transform: scale(1); }
-    .section-rail.is-idle { opacity: 0.02; transform: translateY(-50%) translateX(-10px); }
-    .section-rail.is-idle:hover, .section-rail.is-idle:focus-within { opacity: 1; transform: translateY(-50%); }
-
-    .page-hero { position: relative; padding: 7.4rem 0 3.5rem; }
+    .page-hero { position: relative; padding: 56px 0 3.5rem; }
     .hero-grid, .info-grid, .address-grid, .travel-grid { display: grid; gap: 1.6rem; }
     .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(360px, 0.92fr); align-items: center; }
     .map-section-grid { display: grid; gap: 1.6rem; }
@@ -93,7 +79,7 @@
     .travel-map-card h3 { margin-bottom: 0.2rem; color: #1f5679; font-size: 1.38rem; }
     .travel-map-card p { color: #486477; font-size: 1.02rem; line-height: 1.72; }
     .travel-map-frame { padding: 0.55rem; border-radius: 24px; background: linear-gradient(180deg, rgba(245,250,254,0.98), rgba(236,245,251,0.94)); border: 1px solid rgba(126,163,186,0.18); }
-    .travel-map-svg { width: 100%; height: auto; display: block; }
+    .travel-map-image { width: 100%; height: auto; display: block; border-radius: 20px; }
     .travel-map-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
     .travel-map-link { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 1.2rem; border-radius: 999px; background: linear-gradient(135deg, #2f95cc, #3f7fd8); color: #ffffff; font-size: 0.98rem; font-weight: 700; text-decoration: none; box-shadow: 0 14px 28px rgba(47, 149, 204, 0.2); transition: transform 180ms ease, box-shadow 180ms ease; }
     .travel-map-link:hover, .travel-map-link:focus-visible { transform: translateY(-1px); box-shadow: 0 18px 32px rgba(47, 149, 204, 0.24); outline: none; }
@@ -118,16 +104,12 @@
     .travel-fyi-sub { font-family: "Sarabun", sans-serif; font-size: 11px; font-weight: 500; fill: #678195; text-anchor: middle; }
 
     @media (max-width: 1100px) {
-      .section-rail { left: 8px; }
-      .section-dot::after { font-size: 0.68rem; }
-      .section-dot.is-active::after { font-size: 0.8rem; }
       .hero-grid, .map-section-grid, .info-grid, .address-grid, .travel-grid { grid-template-columns: 1fr; }
       .map-embed { height: 560px; }
     }
 
     @media (max-width: 900px) {
-      .section-rail { display: none; }
-      .page-hero { padding-top: 7rem; }
+      .page-hero { padding-top: 40px; }
       .hero-photo-card, .map-card, .summary-card, .address-card, .travel-map-card { padding: 1.2rem; border-radius: 24px; }
       .hero-title { font-size: clamp(2.7rem, 12vw, 4.6rem); }
       .hero-subtitle, .summary-card p, .summary-card li, .address-card p { font-size: 1rem; }
@@ -247,74 +229,7 @@
           <h3>แผนที่เดินทางแบบง่าย</h3>
           <p>ถ้าคุณต้องการดูทางมาสาขาแรกแบบเข้าใจง่าย แผนที่นี้สรุปให้เห็นจุดหลักรอบ FYI Center และแนวถนนที่ใช้เดินทางได้สะดวก</p>
           <div class="travel-map-frame">
-            <svg class="travel-map-svg" viewBox="0 0 760 520" role="img" aria-label="แผนที่เดินทางแบบง่ายไปยัง FYI Center พระราม 4">
-              <path class="travel-road" d="M44 108 H720" />
-              <path class="travel-road" d="M500 54 V472" />
-              <path class="travel-road" d="M118 316 H494" />
-              <path class="travel-road-minor" d="M190 408 H626" />
-              <path class="travel-loop" d="M612 90 C660 124, 660 188, 612 222" />
-              <text class="travel-label" x="246" y="92">ถนนพระราม 4</text>
-              <text class="travel-label-sub" x="248" y="110">Rama IV Rd.</text>
-              <text class="travel-label" x="578" y="264" transform="rotate(90 578 264)">ถนนรัชดาภิเษก</text>
-              <text class="travel-label-sub" x="598" y="257" transform="rotate(90 598 257)">Ratchadaphisek Rd.</text>
-              <text class="travel-label" x="228" y="302">ถนนสุขุมวิท</text>
-              <text class="travel-label-sub" x="230" y="320">Sukhumvit Rd.</text>
-              <text class="travel-label" x="336" y="394">ทางเชื่อมคลองเตย</text>
-              <text class="travel-label-sub" x="340" y="412">Khlong Toei Link</text>
-
-              <g transform="translate(64 76)">
-                <rect class="travel-stop" width="84" height="48" rx="18"></rect>
-                <text x="14" y="21" class="travel-place-title">QSNCC</text>
-                <text x="14" y="36" class="travel-place-sub">MRT</text>
-              </g>
-
-              <g transform="translate(558 64)">
-                <rect class="travel-stop" width="108" height="48" rx="18"></rect>
-                <text x="14" y="21" class="travel-place-title">ทางด่วน</text>
-                <text x="14" y="36" class="travel-place-sub">Expressway</text>
-              </g>
-
-              <g transform="translate(88 262)">
-                <rect class="travel-stop" width="110" height="48" rx="18"></rect>
-                <text x="14" y="21" class="travel-place-title">อโศก</text>
-                <text x="14" y="36" class="travel-place-sub">Asok</text>
-              </g>
-
-              <g transform="translate(544 262)">
-                <rect class="travel-stop" width="120" height="48" rx="18"></rect>
-                <text x="14" y="21" class="travel-place-title">คลองเตย</text>
-                <text x="14" y="36" class="travel-place-sub">Khlong Toei</text>
-              </g>
-
-              <g transform="translate(518 378)">
-                <rect class="travel-stop" width="128" height="48" rx="18"></rect>
-                <text x="14" y="21" class="travel-place-title">BTS พร้อมพงษ์</text>
-                <text x="14" y="36" class="travel-place-sub">Phrom Phong</text>
-              </g>
-
-              <g transform="translate(286 264)">
-                <path class="travel-building" d="M20 88 V30 L56 8 L92 30 V88 Z"></path>
-                <rect class="travel-building" x="10" y="88" width="92" height="12" rx="5"></rect>
-                <rect class="travel-building-window" x="30" y="30" width="12" height="12" rx="2"></rect>
-                <rect class="travel-building-window" x="50" y="30" width="12" height="12" rx="2"></rect>
-                <rect class="travel-building-window" x="70" y="30" width="12" height="12" rx="2"></rect>
-                <rect class="travel-building-window" x="30" y="50" width="12" height="12" rx="2"></rect>
-                <rect class="travel-building-window" x="50" y="50" width="12" height="12" rx="2"></rect>
-                <rect class="travel-building-window" x="70" y="50" width="12" height="12" rx="2"></rect>
-                <rect class="travel-building-window" x="50" y="68" width="12" height="20" rx="2"></rect>
-              </g>
-
-              <g transform="translate(330 164)">
-                <path class="travel-pin-drop" d="M22 0 C9.8 0 0 9.8 0 22 C0 39.4 22 64 22 64 C22 64 44 39.4 44 22 C44 9.8 34.2 0 22 0 Z"></path>
-                <circle class="travel-pin-core" cx="22" cy="22" r="9"></circle>
-              </g>
-
-              <g transform="translate(280 226)">
-                <rect class="travel-fyi-chip" width="144" height="44" rx="18"></rect>
-                <text class="travel-fyi-label" x="72" y="19">ตึก FYI</text>
-                <text class="travel-fyi-sub" x="72" y="34">บริษัท CareWise</text>
-              </g>
-            </svg>
+            <img class="travel-map-image" src="Map/ChatGPT_FYIMap.png" alt="แผนที่เดินทางแบบง่ายไปยัง FYI Center พระราม 4">
           </div>
           <div class="travel-map-actions">
             <a class="travel-map-link" href="https://maps.app.goo.gl/37kEompHAofLSsxLA" target="_blank" rel="noopener noreferrer">เปิดในแผนที่</a>
@@ -363,52 +278,6 @@
   <script src="script.js"></script>
   <script>
     (function () {
-      const dots = Array.from(document.querySelectorAll('.section-dot'));
-      const sections = dots.map((dot) => {
-        const id = dot.getAttribute('href');
-        if (!id || !id.startsWith('#')) return null;
-        const section = document.querySelector(id);
-        return section ? { dot, section, id } : null;
-      }).filter(Boolean);
-
-      if (!sections.length) return;
-
-      const setActive = (id) => {
-        sections.forEach(({ dot, id: sectionId }) => {
-          const isActive = sectionId === id;
-          dot.classList.toggle('is-active', isActive);
-          if (isActive) dot.setAttribute('aria-current', 'true');
-          else dot.removeAttribute('aria-current');
-        });
-      };
-
-      const getNearestSectionId = () => {
-        const viewportAnchor = window.innerHeight * 0.42;
-        let nearest = sections[0];
-        let nearestDistance = Number.POSITIVE_INFINITY;
-
-        sections.forEach((item) => {
-          const rect = item.section.getBoundingClientRect();
-          const sectionAnchor = rect.top + Math.min(rect.height * 0.35, 180);
-          const distance = Math.abs(sectionAnchor - viewportAnchor);
-
-          if (distance < nearestDistance) {
-            nearest = item;
-            nearestDistance = distance;
-          }
-        });
-
-        return nearest.id;
-      };
-
-      const updateActiveSection = () => {
-        setActive(getNearestSectionId());
-      };
-
-      window.addEventListener('scroll', updateActiveSection, { passive: true });
-      window.addEventListener('resize', updateActiveSection, { passive: true });
-      updateActiveSection();
-
       const radiusCircle = document.querySelector('[data-radius-circle]');
       const mapVisual = document.querySelector('.map-visual');
 
