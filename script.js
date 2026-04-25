@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { href: "franchise.html",    label: "Franchise" },
   { href: "standards.html",    label: "Standards" },
   { href: "service-area.html", label: "Contact Us" },
+  { href: "careers.html",      label: "Join Us" },
 ];
 
 const topNav = document.querySelector(".top-nav");

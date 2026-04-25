@@ -1,0 +1,1918 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareWise | Join Us - ร่วมสร้างอนาคตการดูแลผู้สูงอายุ</title>
+  <meta name="description" content="CareWise Join Us รวมตำแหน่งงานของ CareWise ครบทุกสายงาน พร้อมรายละเอียดหน้าที่ความรับผิดชอบ คุณสมบัติ สวัสดิการ และข้อมูลสำคัญที่ผู้สนใจร่วมงานควรรู้">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .careers-hero {
+      padding-top: 76px;
+      padding-bottom: 56px;
+    }
+
+    .careers-hero-shell {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+      display: grid;
+      gap: 1.35rem;
+      justify-items: center;
+    }
+
+    .hero-title-careers {
+      margin: 0;
+      max-width: 860px;
+      font-size: clamp(3.2rem, 7.2vw, 6rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      background: linear-gradient(135deg, var(--brand-deep), var(--brand));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 14px 30px rgba(47, 149, 204, 0.14);
+    }
+
+    .hero-subtitle-careers {
+      max-width: 860px;
+      margin: 0 auto;
+      font-size: 1.18rem;
+      line-height: 1.82;
+      color: var(--ink-soft);
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.85rem;
+      margin-top: 0.35rem;
+    }
+
+    .metric-pill,
+    .status-chip,
+    .meta-chip,
+    .tag-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .metric-pill {
+      background: rgba(223, 241, 250, 0.92);
+      color: #205777;
+      border: 1px solid rgba(47, 149, 204, 0.12);
+    }
+
+    .metric-pill.soft {
+      background: rgba(234, 243, 237, 0.96);
+      color: #27543f;
+    }
+
+    .metric-pill.warm {
+      background: rgba(251, 240, 223, 0.96);
+      color: #8a5a1d;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2.4rem;
+    }
+
+    .stat-card,
+    .culture-card,
+    .job-item,
+    .note-card {
+      border-radius: 28px;
+      border: 1px solid rgba(120, 157, 140, 0.16);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 44px rgba(34, 56, 48, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .stat-card {
+      padding: 1.4rem 1.1rem;
+      text-align: center;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .stat-card strong {
+      font-family: var(--title-font);
+      font-size: clamp(1.9rem, 4vw, 2.7rem);
+      line-height: 1;
+      color: var(--brand-deep);
+    }
+
+    .stat-card span {
+      color: #678195;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .stat-card p {
+      color: var(--ink-soft);
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.6rem;
+    }
+
+    .culture-card {
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.26s ease, box-shadow 0.26s ease;
+    }
+
+    .culture-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 56px rgba(34, 56, 48, 0.11);
+    }
+
+    .icon-box {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 1.25rem;
+      background: rgba(223, 241, 250, 0.92);
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+    }
+
+    .culture-card h3 {
+      margin-bottom: 0.9rem;
+      color: var(--brand-deep);
+    }
+
+    .culture-card p {
+      color: var(--ink-soft);
+    }
+
+    .filter-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.9rem;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      max-width: 1180px;
+    }
+
+    .filter-toolbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.2rem;
+    }
+
+    .filter-btn {
+      padding: 0.78rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.88);
+      cursor: pointer;
+      font-weight: 700;
+      color: #587286;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn:focus-visible {
+      color: var(--brand-deep);
+      border-color: rgba(47, 149, 204, 0.24);
+      outline: none;
+    }
+
+    .filter-btn.active {
+      background: var(--brand-deep);
+      color: #fff;
+      border-color: var(--brand-deep);
+      box-shadow: 0 12px 24px rgba(29, 95, 148, 0.18);
+    }
+
+    .open-only-wrap {
+      display: flex;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .toggle-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.82rem 1.15rem;
+      border-radius: 999px;
+      border: 1px solid rgba(47, 149, 204, 0.14);
+      background: rgba(255, 255, 255, 0.9);
+      color: #587286;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    }
+
+    .toggle-pill:hover {
+      color: var(--brand-deep);
+      border-color: rgba(47, 149, 204, 0.24);
+      box-shadow: 0 10px 22px rgba(47, 149, 204, 0.08);
+    }
+
+    .toggle-pill input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 50px;
+      height: 28px;
+      border-radius: 999px;
+      background: rgba(136, 204, 235, 0.42);
+      transition: background 0.2s ease;
+      flex: 0 0 auto;
+    }
+
+    .toggle-switch::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 4px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(24, 56, 76, 0.16);
+      transition: transform 0.2s ease;
+    }
+
+    .toggle-pill input:checked + .toggle-switch {
+      background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+    }
+
+    .toggle-pill input:checked + .toggle-switch::after {
+      transform: translateX(20px);
+    }
+
+    .openings-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .job-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+      padding: 1.5rem 1.5rem;
+      transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+    }
+
+    .job-item:hover {
+      transform: translateY(-3px);
+      border-color: rgba(47, 149, 204, 0.2);
+      box-shadow: 0 24px 56px rgba(34, 56, 48, 0.11);
+    }
+
+    .job-info {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .job-info h3 {
+      margin: 0;
+      font-size: 1.42rem;
+      color: var(--brand-deep);
+    }
+
+    .job-summary {
+      color: var(--ink-soft);
+      line-height: 1.72;
+    }
+
+    .job-topline,
+    .job-actions,
+    .modal-meta,
+    .modal-header-meta,
+    .modal-footer-actions,
+    .benefit-list,
+    .detail-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .job-topline {
+      align-items: start;
+      justify-content: space-between;
+      gap: 0.85rem;
+    }
+
+    .meta-chip,
+    .tag-chip {
+      background: rgba(239, 247, 252, 0.95);
+      color: #305d79;
+      border: 1px solid rgba(47, 149, 204, 0.1);
+      padding-inline: 0.82rem;
+      font-size: 0.84rem;
+    }
+
+    .status-chip {
+      padding-inline: 0.85rem;
+      font-size: 0.82rem;
+    }
+
+    .status-open {
+      background: rgba(226, 245, 232, 0.96);
+      color: #1e6a43;
+    }
+
+    .status-hot {
+      background: rgba(255, 239, 204, 0.98);
+      color: #8b5c12;
+    }
+
+    .status-filled {
+      background: rgba(231, 238, 244, 0.98);
+      color: #516678;
+    }
+
+    .job-actions {
+      align-items: center;
+      justify-content: space-between;
+      min-width: 0;
+    }
+
+    .headcount-badge {
+      min-width: 138px;
+      padding: 0.95rem 1rem;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(245, 250, 254, 0.98), rgba(236, 245, 251, 0.94));
+      border: 1px solid rgba(47, 149, 204, 0.12);
+      text-align: center;
+    }
+
+    .headcount-badge strong {
+      display: block;
+      color: var(--brand-deep);
+      font-size: 1.14rem;
+    }
+
+    .headcount-badge span {
+      display: block;
+      color: #678195;
+      font-size: 0.82rem;
+      margin-top: 0.2rem;
+    }
+
+    .note-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.3rem;
+      margin-top: 2rem;
+    }
+
+    .note-card {
+      padding: 1.5rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .note-card h3 {
+      color: var(--brand-deep);
+      margin: 0;
+    }
+
+    .note-card p,
+    .note-card li {
+      color: var(--ink-soft);
+      line-height: 1.72;
+    }
+
+    .note-card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .note-card strong {
+      color: var(--brand-deep);
+    }
+
+    .contact-lines {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.25rem;
+    }
+
+    .jd-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(24, 56, 76, 0.44);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    .jd-modal.is-open {
+      display: block;
+    }
+
+    .jd-content {
+      max-width: 1120px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.98);
+      padding: 2.6rem;
+      border-radius: 34px;
+      position: relative;
+      box-shadow: 0 30px 80px rgba(16, 39, 53, 0.18);
+    }
+
+    .close-jd {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.4rem;
+      background: var(--accent-soft);
+      border: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--brand-deep);
+    }
+
+    .modal-header {
+      display: grid;
+      gap: 0.75rem;
+      padding-right: 3.5rem;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      color: var(--brand-deep);
+      font-size: clamp(2rem, 4vw, 3.05rem);
+      line-height: 1.06;
+    }
+
+    .modal-summary {
+      color: var(--ink-soft);
+      font-size: 1.08rem;
+      line-height: 1.78;
+    }
+
+    .modal-divider {
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 1.6rem 0;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 1.4rem;
+    }
+
+    .modal-panel {
+      padding: 1.25rem 1.3rem;
+      border-radius: 24px;
+      background: rgba(244, 249, 252, 0.95);
+      border: 1px solid rgba(47, 149, 204, 0.1);
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .modal-panel h3 {
+      margin: 0;
+      color: var(--brand-deep);
+      font-size: 1.18rem;
+    }
+
+    .modal-panel p,
+    .modal-panel li {
+      color: var(--ink-soft);
+      line-height: 1.72;
+    }
+
+    .modal-panel ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .modal-panel li + li {
+      margin-top: 0.4rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .detail-item {
+      padding: 0.9rem 1rem;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(47, 149, 204, 0.08);
+    }
+
+    .detail-item strong {
+      display: block;
+      margin-bottom: 0.28rem;
+      color: var(--brand-deep);
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+    }
+
+    .detail-item span {
+      color: var(--ink-soft);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .benefit-list {
+      gap: 0.55rem;
+    }
+
+    .modal-footer-actions {
+      margin-top: 1.5rem;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .pres-badge {
+      display: inline-block;
+      padding: 0.52rem 1rem;
+      background: #f0f4f8;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      color: #64748b;
+      margin-top: 2rem;
+    }
+
+    .apply-note {
+      color: #678195;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin-top: 0.35rem;
+    }
+
+    @media (max-width: 1100px) {
+      .quick-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .modal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .culture-grid,
+      .note-grid,
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .openings-list {
+        grid-template-columns: 1fr;
+      }
+
+      .job-item {
+        grid-template-columns: 1fr;
+      }
+
+      .job-actions {
+        min-width: 0;
+        justify-content: flex-start;
+      }
+
+      .jd-content {
+        padding: 1.5rem;
+        border-radius: 26px;
+      }
+
+      .modal-header {
+        padding-right: 2.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .careers-hero {
+        padding-top: 48px;
+        padding-bottom: 34px;
+      }
+
+      .quick-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-subtitle-careers {
+        font-size: 1.02rem;
+      }
+
+      .jd-modal {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient ambient-left"></div>
+  <div class="ambient ambient-right"></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="CareWise">
+      <span class="brand-mark"><img src="images_by_Friends/logo.jpg" alt="CareWise logo"></span>
+      <span class="brand-copy">
+        <strong>CareWise</strong>
+        <small>Join Us | Elderly Care &amp; Smart Service</small>
+      </span>
+    </a>
+    <nav class="top-nav" aria-label="Primary"></nav>
+  </header>
+
+  <main>
+    <section class="hero-section careers-hero">
+      <div class="container careers-hero-shell">
+        <p class="eyebrow" data-reveal>JOIN OUR MISSION</p>
+        <h1 class="hero-title-careers" data-reveal>สร้างรอยยิ้มด้วยหัวใจ<br>ขับเคลื่อนด้วยนวัตกรรม</h1>
+        <p class="hero-subtitle-careers" data-reveal>
+          มากกว่าการดูแล คือการมอบความอุ่นใจให้กับครอบครัว CareWise กำลังมองหาเพื่อนร่วมทีมที่อยากสร้างมาตรฐานใหม่ของ
+          Elderly Care ที่อบอุ่น เชื่อถือได้ และมีเทคโนโลยีช่วยงานจริงในทุกวัน
+        </p>
+        <div class="hero-actions" data-reveal>
+          <a class="button button-primary" href="#openings">ดูตำแหน่งที่เปิดรับ</a>
+          <a class="button button-secondary" href="#culture">ทำไมต้อง CareWise?</a>
+        </div>
+        <div class="hero-metrics" data-reveal>
+          <span class="metric-pill">21 ตำแหน่งหลัก</span>
+          <span class="metric-pill soft">C-Level ครบทุกตำแหน่ง</span>
+          <span class="metric-pill warm">มีทั้งทีมที่เปิดรับและทีมที่ใกล้เต็ม</span>
+        </div>
+      </div>
+      <div class="container">
+        <div class="quick-stats" id="quickStats"></div>
+      </div>
+    </section>
+
+    <section class="content-section tone-soft" id="culture">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <p class="eyebrow">Our Values</p>
+          <h2>วัฒนธรรมที่ทำให้ <span class="brand-inline">CareWise</span> แตกต่าง</h2>
+          <p>เรามองหาคนที่ไม่ได้มีแค่ทักษะ แต่มีความตั้งใจจะสร้างคุณภาพชีวิตที่ดีขึ้นให้ผู้สูงอายุและครอบครัวด้วย</p>
+        </div>
+
+        <div class="culture-grid">
+          <article class="culture-card" data-reveal>
+            <div class="icon-box">
+              <img src="images/svg/svg/005-elderly-2.svg" alt="Warm Care" width="40">
+            </div>
+            <h3>Warm Care</h3>
+            <p>ดูแลด้วยความเข้าใจ เคารพศักดิ์ศรีของผู้สูงอายุ และเชื่อว่าความอ่อนโยนคือส่วนหนึ่งของมาตรฐานการทำงาน</p>
+          </article>
+
+          <article class="culture-card" data-reveal>
+            <div class="icon-box">
+              <img src="images/svg/svg/004-nurse.svg" alt="Smart System" width="40">
+            </div>
+            <h3>Smart System</h3>
+            <p>เรานำ AI และ data tools มาช่วยให้ทีมทำงานแม่นขึ้น ติดตามได้จริง และมีเวลาทุ่มให้กับคุณภาพการดูแลมากขึ้น</p>
+          </article>
+
+          <article class="culture-card" data-reveal>
+            <div class="icon-box">
+              <img src="images/svg/svg/006-elderly-3.svg" alt="Trusted Community" width="40">
+            </div>
+            <h3>Trusted Community</h3>
+            <p>ทำงานอย่างรับผิดชอบ โปร่งใส และพร้อมพัฒนาตัวเองเสมอ เพื่อให้ครอบครัวไว้วางใจส่งต่อคนที่รักให้ CareWise ดูแล</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="openings">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <p class="eyebrow">Current Openings</p>
+          <h2>ตำแหน่งงานของ CareWise แบบครบถ้วน</h2>
+          <p>ดูรายชื่อตำแหน่งทั้งหมดได้จากหน้านี้ แล้วกดอ่านรายละเอียดเพื่อดูหน้าที่ความรับผิดชอบ คุณสมบัติ รูปแบบงาน และสวัสดิการของแต่ละบทบาท</p>
+        </div>
+
+        <div class="filter-toolbar" data-reveal>
+          <nav class="filter-nav">
+            <button class="filter-btn active" data-group="all">ทุกตำแหน่ง</button>
+            <button class="filter-btn" data-group="executive">Executive & Corporate</button>
+            <button class="filter-btn" data-group="care-center">Care Center</button>
+            <button class="filter-btn" data-group="home-care">Home Care</button>
+            <button class="filter-btn" data-group="technology">Technology</button>
+            <button class="filter-btn" data-group="growth">Growth & Marketing</button>
+          </nav>
+          <div class="open-only-wrap">
+            <label class="toggle-pill" for="openOnlyToggle">
+              <input type="checkbox" id="openOnlyToggle">
+              <span class="toggle-switch" aria-hidden="true"></span>
+              <span>ดูเฉพาะตำแหน่งที่ยังว่าง</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="openings-list" id="jobContainer"></div>
+
+        <div class="note-grid">
+          <article class="note-card" data-reveal style="grid-column: 1 / -1;">
+            <h3>ช่องทางสมัครเบื้องต้น</h3>
+            <p>สามารถส่งประวัติย่อและระบุตำแหน่งที่สนใจมาที่อีเมลของฝ่ายทรัพยากรบุคคล พร้อมแนบข้อมูลประสบการณ์ที่เกี่ยวข้อง ผลงาน หรือข้อมูลเพิ่มเติมที่ช่วยให้ทีมพิจารณาเบื้องต้นได้รวดเร็วขึ้น</p>
+            <div class="contact-lines">
+              <p><strong>อีเมล:</strong> hr_carewise@carewise.co.th</p>
+              <p><strong>โทร:</strong> 064-982-5662</p>
+            </div>
+            <p class="apply-note">สำหรับเวอร์ชันพรีเซนต์ หน้า Join Us นี้ทำหน้าที่เป็นทั้งภาพรวมโครงสร้างทีมและ mockup ของหน้ารับสมัครงาน</p>
+          </article>
+        </div>
+
+        <div style="text-align: center;">
+          <p class="pres-badge">Presentation Note: โครงสร้างตำแหน่งครบตาม Position Master List และเสริมข้อมูลเชิงประกาศรับสมัครเพื่อให้ดูสมจริงมากขึ้น</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="jd-modal" id="jdModal" aria-hidden="true">
+    <div class="jd-content">
+      <button class="close-jd" id="closeJd" aria-label="Close details">&times;</button>
+      <div id="jdBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const commonBenefits = [
+      "ประกันสังคมและสิทธิการลาตามกฎหมายแรงงาน",
+      "อบรมและพัฒนาทักษะตามแผนการเรียนรู้ของตำแหน่ง",
+      "ประเมินผลงานตามรอบและมีโอกาสเติบโตตามผลงาน",
+      "ทำงานร่วมกับทีมที่ให้ความสำคัญกับคุณภาพการดูแลและการสื่อสารอย่างมืออาชีพ"
+    ];
+
+    const positions = [
+      {
+        id: "p01",
+        code: "P01",
+        title: "กรรมการผู้จัดการ",
+        titleEn: "CEO",
+        category: "executive",
+        teamLabel: "Executive & Corporate",
+        location: "FYI Center, Rama 4",
+        type: "Full-time",
+        reportTo: "คณะกรรมการ / ผู้ถือหุ้น",
+        headcount: { planned: 1, filled: 1, open: 0 },
+        status: "filled",
+        salary: "ตามโครงสร้างผู้บริหารระดับสูงของบริษัท",
+        schedule: "จันทร์-ศุกร์ และพร้อมกำกับงานตามความจำเป็นเชิงธุรกิจ",
+        summary: "กำหนดทิศทางเชิงกลยุทธ์และขับเคลื่อน CareWise ให้เติบโตเป็นผู้นำด้าน AI-powered Elderly Care ที่มีทั้งความอบอุ่นและมาตรฐานการดูแลที่เชื่อถือได้",
+        responsibilities: [
+          "กำหนดวิสัยทัศน์ กลยุทธ์ และเป้าหมายการเติบโตของบริษัทในระยะสั้น กลาง และยาว",
+          "กำกับการดำเนินงานของทุกสายงานให้สอดคล้องกับแผนธุรกิจและภาพลักษณ์ของแบรนด์",
+          "สร้างความร่วมมือกับโรงพยาบาล พันธมิตรธุรกิจ นักลงทุน และเครือข่ายที่เกี่ยวข้อง",
+          "ติดตามผลประกอบการ คุณภาพบริการ และความเสี่ยงเชิงธุรกิจในภาพรวม",
+          "สร้างวัฒนธรรมองค์กรที่ให้ความสำคัญกับคุณภาพ มาตรฐาน และความไว้วางใจจากครอบครัวผู้ใช้บริการ"
+        ],
+        qualifications: [
+          "มีประสบการณ์บริหารองค์กรหรือธุรกิจบริการอย่างน้อย 8-10 ปี",
+          "มองภาพธุรกิจ การเงิน การตลาด และ operations ได้เชื่อมกัน",
+          "มีภาวะผู้นำสูง ตัดสินใจชัดเจน และบริหาร stakeholder ได้ดี",
+          "หากมีประสบการณ์ในธุรกิจสุขภาพ การดูแล หรือบริการที่มีความละเอียดอ่อน จะเหมาะมาก"
+        ],
+        idealProfile: [
+          "เป็นผู้นำที่ดูได้ทั้งภาพใหญ่และรายละเอียดที่กระทบคุณภาพบริการ",
+          "เชื่อในการใช้เทคโนโลยีเพื่อเสริมทีม ไม่ใช่แทนความเป็นมนุษย์",
+          "สื่อสารเป้าหมายให้ทีมหลายสายงานเดินไปในทิศทางเดียวกันได้"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "สิทธิ์อุปกรณ์และเครื่องมือการทำงานสำหรับบทบาทบริหาร",
+          "เข้าร่วมเวทีประชุมเชิงกลยุทธ์และเครือข่ายพันธมิตรธุรกิจของบริษัท"
+        ]
+      },
+      {
+        id: "p02",
+        code: "P02",
+        title: "ประธานเจ้าหน้าที่ฝ่ายเทคโนโลยี",
+        titleEn: "CTO",
+        category: "executive",
+        teamLabel: "Executive & Corporate",
+        location: "Hybrid / FYI Center",
+        type: "Full-time",
+        reportTo: "CEO",
+        headcount: { planned: 1, filled: 1, open: 0 },
+        status: "filled",
+        salary: "ตามโครงสร้างผู้บริหารสายเทคโนโลยี",
+        schedule: "จันทร์-ศุกร์ และพร้อมสนับสนุนระบบเมื่อมีเหตุจำเป็น",
+        summary: "วางทิศทางเทคโนโลยีของ CareWise ให้ระบบ AI, data tools และโครงสร้างการทำงานรองรับบริการจริงได้อย่างเสถียร ปลอดภัย และขยายต่อได้",
+        responsibilities: [
+          "กำหนดสถาปัตยกรรมระบบ ข้อมูล และเครื่องมือที่รองรับการให้บริการของ CareWise",
+          "แปลง pain point จากหน้างานดูแลและปฏิบัติการให้เป็น product roadmap ที่ใช้ได้จริง",
+          "กำกับทีม AI, data, operators และ vendor ที่เกี่ยวข้องกับระบบหลัก",
+          "ดูแลเรื่อง data governance, privacy และความพร้อมของระบบที่เกี่ยวข้องกับข้อมูลผู้ใช้บริการ",
+          "ประสานกับทีมบริหารเพื่อให้เทคโนโลยีตอบโจทย์ทั้งคุณภาพบริการและการเติบโตของธุรกิจ"
+        ],
+        qualifications: [
+          "มีประสบการณ์นำทีมเทคโนโลยีหรือ product engineering ในระดับ senior",
+          "เข้าใจทั้ง software, data workflow, AI implementation และ operations",
+          "สื่อสารกับทีมเทคนิคและ non-technical ได้ดี",
+          "ถ้ามีประสบการณ์ใน healthtech, caretech หรือ service operations จะได้เปรียบ"
+        ],
+        idealProfile: [
+          "เป็นคนที่ชอบสร้างระบบที่เชื่อมกับงานหน้างานจริง",
+          "ให้ความสำคัญกับความต่อเนื่องของระบบพอ ๆ กับนวัตกรรม",
+          "พร้อมทำงานใกล้ชิดกับทีมบริการเพื่อเข้าใจโจทย์ของผู้ใช้งานจริง"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เครื่องมือการทำงานและ software stack ที่จำเป็นต่อบทบาทเทคโนโลยี",
+          "มีส่วนร่วมในการกำหนด roadmap และการลงทุนด้านระบบขององค์กร"
+        ]
+      },
+      {
+        id: "p03",
+        code: "P03",
+        title: "ประธานเจ้าหน้าที่ฝ่ายการตลาด",
+        titleEn: "CMO",
+        category: "executive",
+        teamLabel: "Executive & Corporate",
+        location: "FYI Center, Rama 4",
+        type: "Full-time",
+        reportTo: "CEO",
+        headcount: { planned: 1, filled: 1, open: 0 },
+        status: "filled",
+        salary: "ตามโครงสร้างผู้บริหารสายการตลาด",
+        schedule: "จันทร์-ศุกร์",
+        summary: "ดูแลภาพรวมแบรนด์ การสื่อสาร และการเติบโตของ demand ให้ CareWise เป็นแบรนด์ดูแลผู้สูงอายุที่อบอุ่น ทันสมัย และไว้วางใจได้",
+        responsibilities: [
+          "วางกลยุทธ์แบรนด์ การสื่อสาร และแผนการตลาดให้สอดคล้องกับ positioning ของ CareWise",
+          "ดูแลการสร้าง lead ทั้ง B2C และ B2B ผ่านช่องทางออนไลน์ ออฟไลน์ และพันธมิตร",
+          "ประสานงานกับทีม Growth, Sales และ Operations เพื่อให้ประสบการณ์ลูกค้าต่อเนื่อง",
+          "กำหนด narrative ของแบรนด์ให้สื่อสารทั้งความอบอุ่นและนวัตกรรมได้ชัดเจน",
+          "ติดตาม performance ของแคมเปญและปรับแผนตามข้อมูลจริง"
+        ],
+        qualifications: [
+          "มีประสบการณ์ด้าน brand, marketing หรือ growth strategy อย่างน้อย 7 ปี",
+          "เข้าใจธุรกิจบริการและสามารถสื่อสารเรื่องที่ละเอียดอ่อนอย่างการดูแลผู้สูงอายุได้ดี",
+          "มีทักษะวิเคราะห์ data และสื่อสารเชิงกลยุทธ์",
+          "บริหารทีมข้ามสายงานและทำงานร่วมกับผู้บริหารระดับสูงได้"
+        ],
+        idealProfile: [
+          "เข้าใจทั้งภาพแบรนด์และผลลัพธ์เชิงธุรกิจ",
+          "ชอบเล่าเรื่องที่มีความหมายและเปลี่ยนเป็นการเติบโตได้",
+          "มีความละเอียดอ่อนต่อความรู้สึกของครอบครัวผู้ใช้บริการ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "งบและเครื่องมือการตลาดตามบทบาทผู้บริหาร",
+          "โอกาสทำงานกับพันธมิตรและ campaign เชิงกลยุทธ์ขององค์กร"
+        ]
+      },
+      {
+        id: "p04",
+        code: "P04",
+        title: "ประธานเจ้าหน้าที่ฝ่ายการเงิน",
+        titleEn: "CFO",
+        category: "executive",
+        teamLabel: "Executive & Corporate",
+        location: "FYI Center, Rama 4",
+        type: "Full-time",
+        reportTo: "CEO",
+        headcount: { planned: 1, filled: 1, open: 0 },
+        status: "filled",
+        salary: "ตามโครงสร้างผู้บริหารสายการเงิน",
+        schedule: "จันทร์-ศุกร์",
+        summary: "กำกับการเงิน งบประมาณ ต้นทุน และความมั่นคงทางการเงินของ CareWise เพื่อรองรับการเติบโตอย่างยั่งยืน",
+        responsibilities: [
+          "วางแผนงบประมาณ กระแสเงินสด และ financial control ของบริษัท",
+          "วิเคราะห์ต้นทุน กำไร และความคุ้มค่าของบริการแต่ละสายงาน",
+          "สนับสนุนทีมผู้บริหารในการตัดสินใจเรื่องการลงทุนและการขยายธุรกิจ",
+          "ดูแลด้านภาษี บัญชี และความเสี่ยงทางการเงิน",
+          "สร้างกรอบการทำงานทางการเงินที่โปร่งใสและใช้ตัดสินใจได้จริง"
+        ],
+        qualifications: [
+          "มีประสบการณ์ด้านการเงิน การบัญชี หรือ planning ในระดับสูง",
+          "เข้าใจ budgeting, forecasting และการควบคุมต้นทุนในธุรกิจบริการ",
+          "รอบคอบ เชื่อถือได้ และแปลงตัวเลขเป็น insight ทางธุรกิจได้",
+          "หากมีพื้นฐานธุรกิจสุขภาพหรือ service business จะเหมาะมาก"
+        ],
+        idealProfile: [
+          "ชอบสร้างเสถียรภาพให้การเติบโตขององค์กร",
+          "มีวินัยและความน่าเชื่อถือสูง",
+          "สามารถทำงานกับทีมบริหารและทีมปฏิบัติการได้อย่างสมดุล"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "อุปกรณ์การทำงานและระบบที่จำเป็นต่อบทบาทการเงิน",
+          "มีส่วนร่วมใน strategic planning และการกำหนดโครงสร้างธุรกิจ"
+        ]
+      },
+      {
+        id: "p05",
+        code: "P05",
+        title: "ผู้จัดการทั่วไป",
+        titleEn: "General Manager",
+        category: "executive",
+        teamLabel: "Executive & Corporate",
+        location: "FYI Center, Rama 4",
+        type: "Full-time",
+        reportTo: "CEO",
+        headcount: { planned: 1, filled: 0, open: 1 },
+        status: "hot",
+        salary: "45,000 - 60,000 บาท / เดือน",
+        schedule: "จันทร์-ศุกร์ และพร้อมติดตามงานปฏิบัติการตามความจำเป็น",
+        summary: "ดูแลภาพรวมการดำเนินงานประจำวันของ CareWise ให้ทุกหน่วยงานเดินหน้าอย่างเป็นระบบและรักษามาตรฐานคุณภาพบริการ",
+        responsibilities: [
+          "กำกับงานปฏิบัติการของทุกฝ่ายให้เดินไปตามเป้าหมายร่วมกัน",
+          "ติดตาม KPI คุณภาพบริการ ทรัพยากรบุคคล และการใช้กำลังคน",
+          "ประสานงานระหว่างทีมบริหาร ทีมดูแล และทีมสนับสนุนเพื่อแก้ปัญหาเฉพาะหน้า",
+          "ผลักดัน execution ของแผนธุรกิจในระดับหน้างาน",
+          "รายงานภาพรวมการดำเนินงานแก่ CEO และผู้บริหารที่เกี่ยวข้อง"
+        ],
+        qualifications: [
+          "มีประสบการณ์บริหาร operations ในธุรกิจบริการอย่างน้อย 5 ปี",
+          "จัดลำดับความสำคัญและแก้ปัญหาได้ดีภายใต้หลายโจทย์พร้อมกัน",
+          "มีภาวะผู้นำ สื่อสารชัดเจน และทำงานกับหลายฝ่ายได้",
+          "หากเคยบริหารศูนย์บริการหรือธุรกิจ care / hospitality จะเหมาะมาก"
+        ],
+        idealProfile: [
+          "มองทั้งภาพใหญ่และแก้จุดติดขัดหน้างานได้",
+          "ชอบทำให้งานหลายทีมเชื่อมกันอย่างลื่นไหล",
+          "พร้อมลงรายละเอียดเพื่อยกระดับมาตรฐานขององค์กร"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "ค่าเดินทางหรือค่าโทรศัพท์ตามลักษณะงาน",
+          "สิทธิ์เข้าร่วมอบรมด้านการบริหารบริการและภาวะผู้นำ"
+        ]
+      },
+      {
+        id: "p06",
+        code: "P06",
+        title: "ผู้จัดการศูนย์ดูแล",
+        titleEn: "Care Center Manager",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time",
+        reportTo: "General Manager",
+        headcount: { planned: 1, filled: 0, open: 1 },
+        status: "open",
+        salary: "ตามโครงสร้างผู้จัดการศูนย์",
+        schedule: "ทำงานประจำศูนย์ พร้อมดูแลตารางบริการ",
+        summary: "บริหารการดำเนินงานของ Care Center ให้ผู้สูงอายุได้รับการดูแลอย่างปลอดภัย อบอุ่น และเป็นมาตรฐานในทุกวัน",
+        responsibilities: [
+          "ดูแลการทำงานประจำวันของศูนย์ ทั้งคน พื้นที่ และคุณภาพบริการ",
+          "ประสานงานกับ Head Nurse, caregiver, ครอบครัว และทีมสนับสนุน",
+          "ติดตามความเรียบร้อยของตารางงาน กิจกรรม และการใช้ทรัพยากรภายในศูนย์",
+          "รับมือสถานการณ์หน้างานและ escalation ที่เกี่ยวกับผู้ใช้บริการ",
+          "รายงานผลการดำเนินงานและข้อเสนอแนะเพื่อพัฒนาศูนย์"
+        ],
+        qualifications: [
+          "มีประสบการณ์บริหารหน่วยงานบริการหรือศูนย์ดูแล",
+          "เข้าใจการประสานงานทีมหลายบทบาทในสภาพแวดล้อมที่มีผู้ใช้บริการจริง",
+          "ใจเย็น มีวุฒิภาวะ และรับมือเหตุการณ์เฉพาะหน้าได้ดี",
+          "หากมีพื้นฐานด้านสุขภาพหรือ care service จะพิจารณาเป็นพิเศษ"
+        ],
+        idealProfile: [
+          "ชอบทำให้พื้นที่บริการดูอบอุ่นแต่มีระบบ",
+          "สามารถดูแลทั้งคนและคุณภาพหน้างานได้พร้อมกัน",
+          "ให้ความสำคัญกับประสบการณ์ของครอบครัวและผู้สูงอายุ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "ค่าเครื่องแบบหรือสิ่งสนับสนุนงานตามบทบาท",
+          "มีโอกาสเติบโตสู่บทบาทบริหาร operations ในระดับสูงขึ้น"
+        ]
+      },
+      {
+        id: "p07",
+        code: "P07",
+        title: "ผู้จัดการบริการดูแลถึงบ้าน",
+        titleEn: "Home Care Manager",
+        category: "home-care",
+        teamLabel: "Home Care",
+        location: "FYI Center / ภาคสนาม",
+        type: "Full-time",
+        reportTo: "General Manager",
+        headcount: { planned: 1, filled: 0, open: 1 },
+        status: "open",
+        salary: "ตามโครงสร้างผู้จัดการบริการถึงบ้าน",
+        schedule: "จันทร์-ศุกร์ และติดตาม service schedule ตามความจำเป็น",
+        summary: "กำกับงาน Home Care ให้การดูแลถึงบ้านมีมาตรฐาน น่าเชื่อถือ และต่อเนื่องในทุกเคส",
+        responsibilities: [
+          "วางแผนกำลังคนและจัดคิวบริการของทีม Home Care",
+          "ติดตามคุณภาพการดูแล ประเมิน feedback และแก้ปัญหาเคสที่ซับซ้อน",
+          "ประสานกับ Home Care Coordinator, พยาบาล และ caregiver ในแต่ละเคส",
+          "ดูแลให้การสื่อสารกับครอบครัวผู้ใช้บริการมีความชัดเจนและตรงเวลา",
+          "ช่วยพัฒนามาตรฐานการบริการถึงบ้านและระบบติดตามผล"
+        ],
+        qualifications: [
+          "มีประสบการณ์บริหารทีมภาคสนามหรือทีมบริการถึงบ้าน",
+          "จัดการ schedule และงานหลายเคสพร้อมกันได้ดี",
+          "สื่อสารกับครอบครัวและทีมปฏิบัติการได้อย่างเป็นระบบ",
+          "หากเข้าใจบริการดูแล สุขภาพ หรือ home service จะเหมาะมาก"
+        ],
+        idealProfile: [
+          "ชอบงานที่ต้องคิดทั้ง logistics และประสบการณ์ของลูกค้า",
+          "ตัดสินใจหน้างานได้ดีและไม่ตื่นตระหนกง่าย",
+          "ให้ความสำคัญกับความต่อเนื่องของการดูแล"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "ค่าเดินทางหรือค่าใช้จ่ายที่เกี่ยวข้องกับงานภาคสนามตามนโยบาย",
+          "อุปกรณ์สื่อสารและระบบงานที่ช่วยติดตาม service ได้ชัดเจน"
+        ]
+      },
+      {
+        id: "p08",
+        code: "P08",
+        title: "หัวหน้าพยาบาล",
+        titleEn: "Head Nurse",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time",
+        reportTo: "Care Center Manager / General Manager",
+        headcount: { planned: 1, filled: 1, open: 0 },
+        status: "filled",
+        salary: "ตามโครงสร้างหัวหน้าพยาบาล",
+        schedule: "ประจำศูนย์ และกำกับมาตรฐานงานพยาบาล",
+        summary: "ดูแลมาตรฐานวิชาชีพพยาบาลและคุณภาพการดูแลของทีม clinical ให้ผู้สูงอายุได้รับบริการที่ปลอดภัยและเหมาะสม",
+        responsibilities: [
+          "กำหนดแนวปฏิบัติทางการพยาบาลและควบคุมคุณภาพการดูแล",
+          "สอนงานและสนับสนุนทีมพยาบาลทั้งในศูนย์และบริการเกี่ยวเนื่อง",
+          "ประเมินแผนการดูแลรายบุคคลร่วมกับ caregiver และครอบครัว",
+          "ติดตามเหตุการณ์ผิดปกติและช่วยวางแนวทางป้องกันความเสี่ยง",
+          "เป็น clinical lead ในการยกระดับมาตรฐานบริการของ CareWise"
+        ],
+        qualifications: [
+          "มีใบประกอบวิชาชีพพยาบาล",
+          "มีประสบการณ์พยาบาลอย่างน้อย 5 ปี และเคยคุมงานทีม",
+          "ละเอียด รอบคอบ และให้คำแนะนำทีมได้ดี",
+          "เข้าใจงานดูแลผู้สูงอายุและบริบทการทำงานร่วมกับครอบครัว"
+        ],
+        idealProfile: [
+          "เป็นคนที่ทีมพึ่งพาได้ในวันที่ต้องตัดสินใจเรื่องสำคัญ",
+          "รักษาสมดุลระหว่างมาตรฐานวิชาชีพกับความอ่อนโยนในการดูแล",
+          "สื่อสาร clinical reasoning ให้ทีม non-clinical เข้าใจได้"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "สิทธิ์อบรมวิชาชีพและพัฒนาความรู้ด้านผู้สูงอายุ",
+          "เครื่องแบบและอุปกรณ์ที่จำเป็นต่อการปฏิบัติงาน"
+        ]
+      },
+      {
+        id: "p09",
+        code: "P09",
+        title: "พยาบาลวิชาชีพประจำศูนย์ดูแล",
+        titleEn: "Care Center Registered Nurse",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time / Shift",
+        reportTo: "Head Nurse",
+        headcount: { planned: 4, filled: 3, open: 1 },
+        status: "hot",
+        salary: "ตามโครงสร้างพยาบาลวิชาชีพประจำศูนย์",
+        schedule: "ทำงานเป็นกะตามตารางศูนย์ดูแล",
+        summary: "ดูแลผู้สูงอายุภายในศูนย์ ติดตามอาการ ประสานแผนการดูแล และสนับสนุนทีม caregiver ให้การบริการเป็นมาตรฐาน",
+        responsibilities: [
+          "ประเมินอาการทั่วไป ติดตาม vital signs และดูแลการพยาบาลตามแผน",
+          "สื่อสารกับ Head Nurse และครอบครัวเมื่อพบประเด็นที่ต้องติดตาม",
+          "แนะนำ caregiver เรื่องข้อควรระวังและกิจกรรมการดูแลประจำวัน",
+          "บันทึกข้อมูลการดูแลและเหตุการณ์สำคัญอย่างครบถ้วน",
+          "สนับสนุนบรรยากาศการดูแลที่ปลอดภัย สุภาพ และเป็นมืออาชีพ"
+        ],
+        qualifications: [
+          "มีใบประกอบวิชาชีพพยาบาล",
+          "สนใจงานผู้สูงอายุและการดูแลระยะยาว",
+          "ทำงานเป็นทีมในระบบกะได้ดี",
+          "สื่อสารกับครอบครัวได้อย่างมั่นใจและอ่อนโยน"
+        ],
+        idealProfile: [
+          "ชอบงานที่ได้เห็นผู้ใช้บริการอย่างต่อเนื่อง",
+          "ใส่ใจรายละเอียดและสังเกตการเปลี่ยนแปลงของผู้สูงอายุได้ดี",
+          "พร้อมทำงานร่วมกับทีมหลายบทบาทในพื้นที่เดียวกัน"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "ค่าเวรหรือค่ากะตามโครงสร้างที่บริษัทกำหนด",
+          "การสนับสนุนด้านชุดยูนิฟอร์มและอุปกรณ์การพยาบาล"
+        ]
+      },
+      {
+        id: "p10",
+        code: "P10",
+        title: "พยาบาลวิชาชีพ Home Care",
+        titleEn: "Home Care Registered Nurse",
+        category: "home-care",
+        teamLabel: "Home Care",
+        location: "ภาคสนาม / บ้านผู้ใช้บริการ",
+        type: "Full-time",
+        reportTo: "Home Care Manager / Head Nurse",
+        headcount: { planned: 3, filled: 1, open: 2 },
+        status: "open",
+        salary: "ตามโครงสร้างพยาบาลวิชาชีพ Home Care",
+        schedule: "ตามตารางนัดหมายของผู้ใช้บริการ",
+        summary: "ให้บริการพยาบาลถึงบ้าน ดูแลเคสเฉพาะราย และเชื่อมแผนการดูแลของผู้สูงอายุกับครอบครัวและทีม CareWise",
+        responsibilities: [
+          "เยี่ยมบ้าน ประเมินอาการ และให้การพยาบาลตามแผนดูแล",
+          "สื่อสารข้อแนะนำแก่ครอบครัวเกี่ยวกับการดูแลต่อเนื่องที่บ้าน",
+          "ประสานข้อมูลกับ Home Care Coordinator, Telehealth และ Head Nurse",
+          "ติดตามความเปลี่ยนแปลงของเคสและรายงานเหตุที่ต้องเฝ้าระวัง",
+          "สร้างความมั่นใจให้ครอบครัวผ่านการดูแลที่เป็นมืออาชีพและตรงเวลา"
+        ],
+        qualifications: [
+          "มีใบประกอบวิชาชีพพยาบาล",
+          "พร้อมทำงานนอกสถานที่และบริหารตารางบริการได้",
+          "มีทักษะประเมินเคสและสื่อสารกับครอบครัวได้ชัดเจน",
+          "หากมีประสบการณ์ Home Care หรือ case management จะพิจารณาเป็นพิเศษ"
+        ],
+        idealProfile: [
+          "ชอบงานที่มีความยืดหยุ่นและได้เห็นบริบทของผู้ใช้บริการจริง",
+          "วางตัวดี สุภาพ และน่าเชื่อถือเมื่อเข้าไปในบ้านผู้ใช้บริการ",
+          "มีความรับผิดชอบสูงและรายงานงานอย่างครบถ้วน"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "ค่าเดินทางหรือสวัสดิการตามลักษณะงานภาคสนาม",
+          "อุปกรณ์และระบบสนับสนุนการติดตามเคส"
+        ]
+      },
+      {
+        id: "p11",
+        code: "P11",
+        title: "พยาบาล Telehealth",
+        titleEn: "Telehealth Nurse",
+        category: "home-care",
+        teamLabel: "Home Care",
+        location: "FYI Center / Hybrid",
+        type: "Full-time",
+        reportTo: "Head Nurse",
+        headcount: { planned: 3, filled: 2, open: 1 },
+        status: "hot",
+        salary: "ตามโครงสร้างพยาบาล Telehealth",
+        schedule: "ตามรอบเวลาการติดตามและการให้คำปรึกษาทางไกล",
+        summary: "ติดตามข้อมูลสุขภาพและให้คำแนะนำทางไกล เพื่อเพิ่มความต่อเนื่องของการดูแลและช่วยให้ครอบครัวเข้าถึงทีมวิชาชีพได้ง่ายขึ้น",
+        responsibilities: [
+          "ติดตามข้อมูลจากระบบและประเมินสัญญาณที่ต้องเฝ้าระวัง",
+          "ให้คำแนะนำทางโทรศัพท์หรือช่องทางดิจิทัลแก่ครอบครัวและผู้ดูแล",
+          "ประสานเคสต่อกับทีม Home Care หรือ Care Center เมื่อมีประเด็นสำคัญ",
+          "บันทึกการติดตามและผลการประเมินอย่างเป็นระบบ",
+          "ช่วยสร้าง protocol การดูแลแบบผสมผสานระหว่างคนและเทคโนโลยี"
+        ],
+        qualifications: [
+          "มีใบประกอบวิชาชีพพยาบาล",
+          "สื่อสารทางโทรศัพท์หรือ online consultation ได้ดี",
+          "วิเคราะห์ข้อมูลและตัดสินใจส่งต่อเคสได้เหมาะสม",
+          "สนใจการใช้เทคโนโลยีในงานดูแลผู้สูงอายุ"
+        ],
+        idealProfile: [
+          "ใจเย็นและอธิบายเรื่องสุขภาพให้ครอบครัวเข้าใจง่าย",
+          "ชอบงานที่ผสมทั้งการติดตามข้อมูลและการสื่อสารเชิงดูแล",
+          "มองเห็นสัญญาณสำคัญจากข้อมูลและบริบทของเคสได้"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "ระบบและเครื่องมือ digital health ที่ช่วยทำงานได้สะดวก",
+          "โอกาสพัฒนาทักษะด้าน telehealth และ care technology"
+        ]
+      },
+      {
+        id: "p12",
+        code: "P12",
+        title: "ผู้ดูแลผู้สูงอายุประจำศูนย์",
+        titleEn: "Professional Caregiver",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time / Shift",
+        reportTo: "Head Nurse / Care Center Manager",
+        headcount: { planned: 12, filled: 8, open: 4 },
+        status: "open",
+        salary: "ตามโครงสร้าง caregiver ประจำศูนย์",
+        schedule: "ทำงานเป็นกะตามตารางศูนย์",
+        summary: "เป็นกำลังหลักของการดูแลรายวันในศูนย์ ช่วยให้ผู้สูงอายุรู้สึกปลอดภัย สบายใจ และมีคุณภาพชีวิตที่ดีขึ้นในทุกวัน",
+        responsibilities: [
+          "ช่วยผู้สูงอายุในกิจวัตรประจำวัน เช่น การเคลื่อนไหว รับประทานอาหาร และการดูแลตนเอง",
+          "สังเกตอาการ พฤติกรรม หรือความเปลี่ยนแปลงที่ควรแจ้งทีมพยาบาล",
+          "ร่วมดูแลบรรยากาศภายในศูนย์ให้เป็นมิตร อบอุ่น และปลอดภัย",
+          "สนับสนุนกิจกรรมประจำวันร่วมกับทีม Wellness และทีมพยาบาล",
+          "รายงานผลการดูแลตามรอบและปฏิบัติตามมาตรฐานของศูนย์"
+        ],
+        qualifications: [
+          "มีใจรักงานบริการและพร้อมดูแลผู้สูงอายุอย่างจริงใจ",
+          "อดทน ใจเย็น สุภาพ และทำงานเป็นกะได้",
+          "หากผ่านการอบรม caregiver หรือมีประสบการณ์ใกล้เคียงจะพิจารณาเป็นพิเศษ",
+          "สุขภาพแข็งแรงและมีวินัยในการทำงาน"
+        ],
+        idealProfile: [
+          "ชอบทำงานใกล้ชิดกับผู้สูงอายุในทุกวัน",
+          "มองเห็นคุณค่าของงานดูแลแม้เป็นงานรายละเอียดเล็ก ๆ",
+          "มีความสม่ำเสมอและไว้ใจได้"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "ค่าเวรหรือสวัสดิการตามระบบกะที่บริษัทกำหนด",
+          "การอบรมมาตรฐานการดูแลผู้สูงอายุและการป้องกันความเสี่ยงหน้างาน"
+        ]
+      },
+      {
+        id: "p13",
+        code: "P13",
+        title: "ผู้ดูแลผู้สูงอายุที่บ้าน",
+        titleEn: "Home Care Caregiver",
+        category: "home-care",
+        teamLabel: "Home Care",
+        location: "บ้านผู้ใช้บริการ",
+        type: "Full-time / Shift",
+        reportTo: "Home Care Manager / Home Care Coordinator",
+        headcount: { planned: 10, filled: 6, open: 4 },
+        status: "open",
+        salary: "ตามโครงสร้าง caregiver ดูแลที่บ้าน",
+        schedule: "ตามแผนบริการของผู้ใช้บริการ",
+        summary: "ดูแลผู้สูงอายุในบ้านของผู้ใช้บริการด้วยความใส่ใจ สุภาพ และให้เกียรติพื้นที่ส่วนตัวของครอบครัว",
+        responsibilities: [
+          "ดูแลกิจวัตรประจำวันของผู้สูงอายุในบ้านตามแผนบริการที่กำหนด",
+          "ช่วยสร้างความสบายใจให้ครอบครัวผ่านการดูแลที่สม่ำเสมอและตรงเวลา",
+          "สื่อสารกับ Home Care Coordinator และรายงานสิ่งที่ต้องติดตาม",
+          "ดูแลความเรียบร้อย ความปลอดภัย และความเหมาะสมของการดูแลภายในบ้าน",
+          "ปฏิบัติตาม guideline ของ CareWise อย่างครบถ้วน"
+        ],
+        qualifications: [
+          "รักงานบริการและสามารถทำงานในบ้านผู้ใช้บริการได้อย่างเหมาะสม",
+          "ตรงต่อเวลา สุภาพ และมีความรับผิดชอบสูง",
+          "พร้อมเรียนรู้วิธีการดูแลตามมาตรฐานของบริษัท",
+          "ถ้ามีประสบการณ์ Home Care หรือดูแลผู้สูงอายุจะได้เปรียบ"
+        ],
+        idealProfile: [
+          "ชอบทำงานที่สร้างความเชื่อใจแบบใกล้ชิดกับครอบครัว",
+          "มี maturity และมารยาทการทำงานในพื้นที่ส่วนตัวของผู้อื่น",
+          "สื่อสารได้สุภาพและรายงานงานอย่างตรงไปตรงมา"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "ค่าเดินทางหรือค่าบริการตามลักษณะงานที่บ้าน",
+          "การจัดตารางงานและระบบประสานงานที่ช่วยให้ทำงานได้ชัดเจนขึ้น"
+        ]
+      },
+      {
+        id: "p14",
+        code: "P14",
+        title: "ผู้ประสานงาน Home Care",
+        titleEn: "Home Care Coordinator",
+        category: "home-care",
+        teamLabel: "Home Care",
+        location: "FYI Center, Rama 4",
+        type: "Full-time",
+        reportTo: "Home Care Manager",
+        headcount: { planned: 3, filled: 2, open: 1 },
+        status: "hot",
+        salary: "ตามโครงสร้าง Home Care Coordinator",
+        schedule: "จันทร์-ศุกร์ และพร้อมติดตามเคสตามช่วงเวลาบริการ",
+        summary: "เป็นศูนย์กลางของการนัดหมายและการประสานงานระหว่างทีมดูแลกับครอบครัว เพื่อให้บริการ Home Care ราบรื่นที่สุด",
+        responsibilities: [
+          "จัดตารางนัดหมายและจับคู่ทีมดูแลให้เหมาะกับแต่ละเคส",
+          "ติดตามความพร้อมของข้อมูลเคส เอกสาร และการอัปเดตหน้างาน",
+          "ประสานการเปลี่ยนแปลงตาราง งานด่วน และ feedback จากครอบครัว",
+          "ดูแลการสื่อสารระหว่างทีม field service กับทีมบริหารงานหลังบ้าน",
+          "สรุปข้อมูลและรายงานสิ่งที่ควรปรับปรุงต่อผู้จัดการบริการ"
+        ],
+        qualifications: [
+          "จัดการรายละเอียดและงานหลายรายการพร้อมกันได้ดี",
+          "สื่อสารสุภาพ ชัดเจน และตอบสนองไว",
+          "มีทักษะด้าน coordination, scheduling หรือ customer support",
+          "หากเคยดูแลงานบริการที่มี field team จะเหมาะมาก"
+        ],
+        idealProfile: [
+          "ชอบงานหลังบ้านที่ช่วยให้คนหน้างานทำงานง่ายขึ้น",
+          "คิดเป็นระบบและไม่พลาดเรื่องสำคัญ",
+          "ใจเย็นเมื่อต้องรับมือกับการเปลี่ยนแปลงหลายอย่างพร้อมกัน"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เครื่องมือและระบบงานที่ช่วยติดตาม schedule ได้ชัดเจน",
+          "มีโอกาสเติบโตสู่บทบาท operations coordination และ service planning"
+        ]
+      },
+      {
+        id: "p15",
+        code: "P15",
+        title: "ครูหรือผู้ฝึกกิจกรรมผู้สูงอายุ",
+        titleEn: "Wellness Instructor",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time / Part-time",
+        reportTo: "Care Center Manager",
+        headcount: { planned: 2, filled: 1, open: 1 },
+        status: "hot",
+        salary: "ตามโครงสร้าง Wellness Instructor",
+        schedule: "ตามตารางกิจกรรมของศูนย์",
+        summary: "ออกแบบและนำกิจกรรมที่ช่วยส่งเสริมสุขภาวะกายใจของผู้สูงอายุให้ชีวิตประจำวันในศูนย์มีความหมายและมีชีวิตชีวา",
+        responsibilities: [
+          "ออกแบบกิจกรรมให้เหมาะกับช่วงวัย สภาพร่างกาย และอารมณ์ของผู้สูงอายุ",
+          "นำกิจกรรมกลุ่มหรือกิจกรรมรายบุคคลร่วมกับทีมดูแล",
+          "สังเกตการมีส่วนร่วมและ feedback ของผู้สูงอายุเพื่อนำไปพัฒนาโปรแกรม",
+          "ประสานกับทีมพยาบาลและ caregiver เพื่อให้กิจกรรมปลอดภัยและเหมาะสม",
+          "ช่วยสร้างบรรยากาศเชิงบวกภายในศูนย์"
+        ],
+        qualifications: [
+          "รักการทำกิจกรรมและการทำงานกับผู้สูงอายุ",
+          "มีความคิดสร้างสรรค์และปรับกิจกรรมให้เหมาะกับผู้เข้าร่วมได้",
+          "สื่อสารอบอุ่น เป็นมิตร และมี energy เชิงบวก",
+          "หากมีพื้นฐานกิจกรรมบำบัด การออกกำลังกายเบา ๆ หรือ wellness จะดีมาก"
+        ],
+        idealProfile: [
+          "เชื่อว่าคุณภาพชีวิตไม่ได้มีแค่เรื่องการรักษา แต่รวมถึงความสุขในแต่ละวัน",
+          "ชอบเห็นผู้สูงอายุได้ขยับ ได้มีส่วนร่วม และยิ้มมากขึ้น",
+          "พร้อมทำงานร่วมกับทีมดูแลแบบใกล้ชิด"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "งบอุปกรณ์กิจกรรมหรือสื่อการสอนตามความจำเป็น",
+          "โอกาสร่วมออกแบบ signature wellness activities ของ CareWise"
+        ]
+      },
+      {
+        id: "p16",
+        code: "P16",
+        title: "ทีมระบบ AI",
+        titleEn: "AI System Team",
+        category: "technology",
+        teamLabel: "Technology",
+        location: "Hybrid / FYI Center",
+        type: "Full-time",
+        reportTo: "CTO",
+        headcount: { planned: 4, filled: 2, open: 2 },
+        status: "open",
+        salary: "ตามโครงสร้างทีมระบบ AI",
+        schedule: "จันทร์-ศุกร์",
+        summary: "พัฒนาและดูแลระบบ AI, dashboards และ data workflow ที่ช่วยให้ทีมดูแลและทีมบริหารตัดสินใจได้ดีขึ้น",
+        responsibilities: [
+          "ออกแบบและพัฒนาระบบ AI ที่เกี่ยวข้องกับการติดตาม การสรุปข้อมูล และการสนับสนุนการดูแล",
+          "ทำงานร่วมกับทีมปฏิบัติการเพื่อแปลง requirement จากหน้างานเป็นเครื่องมือที่ใช้งานได้จริง",
+          "ดูแล data quality, workflow และความเสถียรของระบบที่เชื่อมกับงานบริการ",
+          "ทดสอบ ปรับปรุง และวัดผลการใช้งานของเครื่องมือในสภาพจริง",
+          "ช่วยขยายขีดความสามารถของ CareWise ในด้าน smart service"
+        ],
+        qualifications: [
+          "มีพื้นฐานด้าน software, data, automation หรือ AI implementation",
+          "ชอบแก้ปัญหาที่เชื่อมเทคโนโลยีกับโลกการทำงานจริง",
+          "เข้าใจการออกแบบระบบและสามารถทำงานกับผู้ใช้งานที่ไม่ใช่สายเทคนิคได้",
+          "หากมีประสบการณ์กับ dashboards, LLM workflow หรือ data platform จะได้เปรียบ"
+        ],
+        idealProfile: [
+          "ไม่ได้สนใจแค่เทคโนโลยี แต่สนใจผลลัพธ์ที่ระบบสร้างให้ทีม",
+          "พร้อม iterate งานจาก feedback หน้างาน",
+          "มองปัญหาเป็นระบบและอธิบายวิธีแก้ได้ชัด"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "อุปกรณ์และ software stack ตามบทบาทเทคโนโลยี",
+          "ได้ร่วมสร้าง use case AI ที่มีผลจริงต่อคุณภาพการดูแล"
+        ]
+      },
+      {
+        id: "p17",
+        code: "P17",
+        title: "เจ้าหน้าที่ปฏิบัติการระบบ AI",
+        titleEn: "AI Operator",
+        category: "technology",
+        teamLabel: "Technology",
+        location: "FYI Center / Hybrid",
+        type: "Full-time",
+        reportTo: "CTO / AI System Team Lead",
+        headcount: { planned: 4, filled: 2, open: 2 },
+        status: "open",
+        salary: "ตามโครงสร้าง AI Operator",
+        schedule: "จันทร์-ศุกร์ หรือตามรอบเวลาของระบบ",
+        summary: "ดูแลการใช้งานระบบ AI ในระดับปฏิบัติการ ตรวจสอบข้อมูล และช่วยให้เครื่องมือที่ทีมใช้ในแต่ละวันทำงานได้ต่อเนื่อง",
+        responsibilities: [
+          "ตรวจสอบ workflow ของระบบ AI และความครบถ้วนของข้อมูลที่ป้อนเข้า",
+          "ช่วยแก้ปัญหาเบื้องต้นจากการใช้งานของทีมบริการหรือทีมภายใน",
+          "ประสาน issue และ feedback ไปยังทีมระบบเพื่อปรับปรุงต่อ",
+          "จัดทำรายงานสั้น ๆ เกี่ยวกับการใช้งานและข้อขัดข้องที่พบ",
+          "ช่วยอบรมหรือสนับสนุนการใช้งานเครื่องมือสำหรับทีมที่เกี่ยวข้อง"
+        ],
+        qualifications: [
+          "ทำงานกับข้อมูลหรือระบบซ้ำ ๆ ได้ละเอียดและสม่ำเสมอ",
+          "เรียนรู้เครื่องมือใหม่ได้ไว",
+          "สื่อสารกับทั้งทีมเทคนิคและทีมปฏิบัติการได้",
+          "หากเคยทำ operations support, QA หรือ system coordination จะเหมาะมาก"
+        ],
+        idealProfile: [
+          "ชอบงานที่ต้องคุมความเรียบร้อยและคุณภาพของระบบ",
+          "มีความอดทนและไม่มองข้ามรายละเอียดเล็ก ๆ",
+          "พร้อมเป็นตัวกลางระหว่างคนใช้ระบบกับคนพัฒนาระบบ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "การเรียนรู้เครื่องมือ AI และ operations platform อย่างต่อเนื่อง",
+          "เส้นทางเติบโตไปยังสาย system operations หรือ data workflow"
+        ]
+      },
+      {
+        id: "p18",
+        code: "P18",
+        title: "เจ้าหน้าที่พัฒนาธุรกิจและขาย B2B",
+        titleEn: "BD / Sales B2B",
+        category: "growth",
+        teamLabel: "Growth & Marketing",
+        location: "FYI Center / ออกพบลูกค้า",
+        type: "Full-time",
+        reportTo: "CMO / CEO",
+        headcount: { planned: 3, filled: 1, open: 2 },
+        status: "open",
+        salary: "ตามโครงสร้าง BD / Sales และ incentive ตามผลงาน",
+        schedule: "จันทร์-ศุกร์ และนัดหมายตามลูกค้าองค์กร",
+        summary: "ขยายโอกาสทางธุรกิจของ CareWise กับองค์กร โรงพยาบาล คลินิก และพันธมิตรที่เกี่ยวข้องกับการดูแลผู้สูงอายุ",
+        responsibilities: [
+          "สร้าง pipeline ของลูกค้าองค์กรและพันธมิตรใหม่",
+          "นำเสนอ solution ของ CareWise ให้เหมาะกับโจทย์ของแต่ละองค์กร",
+          "ติดตามโอกาสทางธุรกิจจนถึงการปิดดีลหรือการสร้างความร่วมมือ",
+          "ประสานงานกับทีมบริการและผู้บริหารเพื่อพัฒนา proposal ที่นำไปใช้ได้จริง",
+          "ดูแลความสัมพันธ์กับ partner และบัญชีลูกค้าสำคัญ"
+        ],
+        qualifications: [
+          "มีประสบการณ์ด้าน B2B sales หรือ business development",
+          "นำเสนอและเจรจาทางธุรกิจได้ดี",
+          "ติดตามงานต่อเนื่องและบริหาร pipeline อย่างเป็นระบบ",
+          "ถ้าเข้าใจบริการด้านสุขภาพ elderly care หรือ partnership model จะได้เปรียบ"
+        ],
+        idealProfile: [
+          "ชอบสร้างโอกาสใหม่และต่อยอดความสัมพันธ์ระยะยาว",
+          "เข้าใจว่าการขายในธุรกิจ care ต้องอาศัยทั้งความเชื่อมั่นและความชัดเจน",
+          "ทำงานเชิงรุกแต่ยังรับฟังลูกค้าได้ดี"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "incentive หรือ commission ตามโครงสร้างบริษัท",
+          "ค่าเดินทางและการสนับสนุนการพบลูกค้าตามความจำเป็น"
+        ]
+      },
+      {
+        id: "p19",
+        code: "P19",
+        title: "เจ้าหน้าที่การตลาดดิจิทัล",
+        titleEn: "Digital Marketing Specialist",
+        category: "growth",
+        teamLabel: "Growth & Marketing",
+        location: "FYI Center, Rama 4",
+        type: "Full-time",
+        reportTo: "CMO",
+        headcount: { planned: 2, filled: 1, open: 1 },
+        status: "hot",
+        salary: "ตามโครงสร้าง Digital Marketing",
+        schedule: "จันทร์-ศุกร์",
+        summary: "สื่อสารความอบอุ่นและความทันสมัยของ CareWise ผ่านคอนเทนต์ แคมเปญ และช่องทางดิจิทัล เพื่อให้แบรนด์เข้าถึงครอบครัวยุคใหม่ได้มากขึ้น",
+        responsibilities: [
+          "วางแผนคอนเทนต์และแคมเปญการตลาดในช่องทางออนไลน์",
+          "ดูแล social media, website content และ communication assets ของแบรนด์",
+          "ติดตามผล lead generation, engagement และ performance ของแคมเปญ",
+          "ทำงานร่วมกับทีมขายและ operations เพื่อให้สารที่สื่อออกไปตรงกับประสบการณ์จริง",
+          "ช่วยพัฒนา tone of voice และ narrative ของแบรนด์ให้คงเส้นคงวา"
+        ],
+        qualifications: [
+          "มีประสบการณ์ Digital Marketing หรือ Content Marketing 1-3 ปี",
+          "เขียนสื่อสารได้ดีและมี sense เรื่องแบรนด์",
+          "อ่านข้อมูล performance และปรับปรุงงานตาม insight ได้",
+          "หากมีประสบการณ์กับ service business หรือ health-related communication จะได้เปรียบ"
+        ],
+        idealProfile: [
+          "เล่าเรื่องเก่งและแปลงคุณค่าของแบรนด์ให้คนรู้สึกได้",
+          "ทำงาน creative ได้แต่ยังวัดผลเป็น",
+          "ใส่ใจภาพลักษณ์ของแบรนด์ในรายละเอียด"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เครื่องมือการตลาดและระบบ analytics ตามบทบาท",
+          "โอกาสร่วมออกแบบแคมเปญหลักของ CareWise"
+        ]
+      },
+      {
+        id: "p20",
+        code: "P20",
+        title: "พ่อครัวหรือแม่ครัวด้านโภชนาการผู้สูงอายุ",
+        titleEn: "Nutrition Cook",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time",
+        reportTo: "Care Center Manager",
+        headcount: { planned: 2, filled: 1, open: 1 },
+        status: "hot",
+        salary: "ตามโครงสร้างครัวและโภชนาการ",
+        schedule: "ตามเวลาการให้บริการอาหารของศูนย์",
+        summary: "จัดเตรียมอาหารที่เหมาะกับผู้สูงอายุโดยคำนึงถึงโภชนาการ ความสะอาด ความปลอดภัย และความน่ารับประทาน",
+        responsibilities: [
+          "วางและเตรียมเมนูให้เหมาะกับผู้สูงอายุและข้อจำกัดเฉพาะราย",
+          "ดูแลมาตรฐานความสะอาดและความปลอดภัยของครัว",
+          "ประสานกับทีมดูแลเมื่อมีข้อกำหนดด้านอาหารของผู้ใช้บริการแต่ละคน",
+          "จัดการวัตถุดิบและควบคุมคุณภาพอาหารในแต่ละมื้อ",
+          "ช่วยยกระดับประสบการณ์การอยู่อาศัยของผู้สูงอายุผ่านเรื่องอาหาร"
+        ],
+        qualifications: [
+          "มีประสบการณ์ทำอาหารหรือครัวบริการ",
+          "เข้าใจเรื่องโภชนาการพื้นฐานและการจัดอาหารสำหรับผู้สูงอายุ",
+          "มีวินัยเรื่องความสะอาดและมาตรฐานความปลอดภัยอาหาร",
+          "หากมีประสบการณ์กับอาหารเฉพาะโรคจะพิจารณาเป็นพิเศษ"
+        ],
+        idealProfile: [
+          "ใส่ใจทั้งรสชาติ ความเหมาะสม และความปลอดภัย",
+          "มองว่าอาหารคือส่วนหนึ่งของการดูแลคุณภาพชีวิต",
+          "พร้อมทำงานร่วมกับทีมบริการในบริบท care setting"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "ชุดและอุปกรณ์ที่จำเป็นสำหรับงานครัว",
+          "โอกาสพัฒนาเมนูเฉพาะสำหรับผู้สูงอายุร่วมกับทีม"
+        ]
+      },
+      {
+        id: "p21",
+        code: "P21",
+        title: "แม่บ้านประจำศูนย์",
+        titleEn: "Housekeeper",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time / Shift",
+        reportTo: "Care Center Manager",
+        headcount: { planned: 3, filled: 2, open: 1 },
+        status: "hot",
+        salary: "ตามโครงสร้างแม่บ้านประจำศูนย์",
+        schedule: "ตามตารางของศูนย์ดูแล",
+        summary: "ดูแลความสะอาดและความเรียบร้อยของศูนย์ เพื่อให้ CareWise เป็นพื้นที่ที่สะอาด น่าอยู่ และสร้างความมั่นใจให้ทั้งผู้สูงอายุและครอบครัว",
+        responsibilities: [
+          "ทำความสะอาดพื้นที่ส่วนกลาง ห้องพัก และจุดใช้งานหลักตามมาตรฐาน",
+          "ดูแลความพร้อมของอุปกรณ์ สิ่งของใช้ และความเรียบร้อยโดยรวมของศูนย์",
+          "ประสานทีมดูแลเมื่อมีความจำเป็นด้านความสะอาดหรือการจัดพื้นที่",
+          "สนับสนุนบรรยากาศของศูนย์ให้ดูปลอดภัยและพร้อมใช้งานอยู่เสมอ",
+          "ปฏิบัติตาม guideline เรื่องสุขอนามัยและความปลอดภัย"
+        ],
+        qualifications: [
+          "มีความรับผิดชอบและใส่ใจรายละเอียดเรื่องความสะอาด",
+          "ทำงานสม่ำเสมอ มีวินัย และเชื่อถือได้",
+          "เข้าใจว่าความสะอาดเป็นส่วนหนึ่งของคุณภาพการดูแล",
+          "หากมีประสบการณ์ในศูนย์บริการหรือโรงแรมจะพิจารณาเป็นพิเศษ"
+        ],
+        idealProfile: [
+          "ชอบงานที่ทำให้สถานที่พร้อมต้อนรับทุกคน",
+          "ละเอียดรอบคอบและไม่มองข้ามงานเล็ก ๆ",
+          "ทำงานร่วมกับทีมบริการได้ดี"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เครื่องแบบและอุปกรณ์ทำความสะอาดตามมาตรฐานงาน",
+          "มีโอกาสเติบโตในสายสนับสนุนบริการ"
+        ]
+      }
+    ];
+
+    const extraPositions = [
+      {
+        id: "x01",
+        code: "P09B",
+        title: "พยาบาลวิชาชีพกะเช้า",
+        titleEn: "Care Center RN - Morning Shift",
+        category: "clinical",
+        teamLabel: "Clinical Care",
+        location: "Care Center",
+        type: "Full-time / Shift",
+        reportTo: "Head Nurse",
+        headcount: { planned: 1, filled: 1, open: 0 },
+        status: "filled",
+        salary: "รวมอยู่ในโครงพยาบาลประจำศูนย์",
+        schedule: "กะเช้า",
+        summary: "ตำแหน่งย่อยในโครงพยาบาลประจำศูนย์ที่ดูแลช่วงเช้าของ Care Center",
+        responsibilities: [
+          "ดูแลรอบเช้าของผู้สูงอายุภายในศูนย์",
+          "ประสานงานกับทีม caregiver และหัวหน้าพยาบาล",
+          "ติดตามอาการและจัดการงานพยาบาลตามมาตรฐาน"
+        ],
+        qualifications: [
+          "มีใบประกอบวิชาชีพพยาบาล",
+          "ทำงานกะเช้าและประสานงานทีมได้ดี",
+          "มีความละเอียดและพร้อมดูแลผู้สูงอายุ"
+        ],
+        idealProfile: [
+          "พร้อมดูแลความต่อเนื่องของผู้ใช้บริการในช่วงเริ่มต้นวัน",
+          "ทำงานเป็นระบบและสื่อสารกับทีมได้ดี",
+          "ชอบงานใน care setting ที่มีความใกล้ชิดกับผู้ใช้บริการ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "สวัสดิการตามสายวิชาชีพพยาบาล"
+        ]
+      }
+    ];
+
+    const allPositions = [
+      ...positions,
+      {
+        id: "p09x",
+        code: "P09X",
+        title: "พยาบาลวิชาชีพประจำศูนย์ดูแล (สำรองกำลังคน)",
+        titleEn: "Care Center RN Reserve",
+        category: "clinical",
+        teamLabel: "Clinical Care",
+        location: "Care Center",
+        type: "Full-time / Shift",
+        reportTo: "Head Nurse",
+        headcount: { planned: 1, filled: 0, open: 1 },
+        status: "open",
+        salary: "ตามโครงสร้างพยาบาลประจำศูนย์",
+        schedule: "ตามตารางกะ",
+        summary: "กำลังคนสำรองเพื่อรองรับการขยายบริการของ Care Center",
+        responsibilities: [
+          "ช่วยรองรับเคสและ coverage เพิ่มเติมตามการขยายทีม",
+          "ปฏิบัติงานพยาบาลตามมาตรฐานของศูนย์",
+          "สนับสนุนความต่อเนื่องของการให้บริการ"
+        ],
+        qualifications: [
+          "มีใบประกอบวิชาชีพพยาบาล",
+          "พร้อมทำงานเป็นกะ",
+          "สนใจงานดูแลผู้สูงอายุ"
+        ],
+        idealProfile: [
+          "พร้อมเติบโตไปกับการขยายทีมของศูนย์",
+          "ทำงานร่วมกับทีม clinical ได้ดี",
+          "ละเอียดและรับผิดชอบสูง"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "สวัสดิการตามสายวิชาชีพพยาบาล"
+        ]
+      }
+    ];
+
+    const positionsFull = [
+      positions[0], positions[1], positions[2], positions[3], positions[4], positions[5], positions[6], positions[7], positions[8], positions[9],
+      positions[10], positions[11], positions[12], positions[13], positions[14], positions[15], positions[16], positions[17], positions[18], positions[19], positions[20]
+    ];
+
+    const totals = positionsFull.reduce((acc, position) => {
+      acc.roles += 1;
+      acc.planned += position.headcount.planned;
+      acc.filled += position.headcount.filled;
+      acc.open += position.headcount.open;
+      return acc;
+    }, { roles: 0, planned: 0, filled: 0, open: 0 });
+
+    const quickStats = [
+      { value: totals.roles, label: "ตำแหน่ง", note: "ครบตามโครง Position Master List" },
+      { value: totals.planned, label: "Planned", note: "จำนวนกำลังคนตามโครงที่วางไว้" },
+      { value: totals.filled, label: "Filled", note: "จำนวนบุคลากร" },
+      { value: totals.open, label: "Open", note: "จำนวนที่ยังเปิดรับ" }
+    ];
+
+    document.getElementById("quickStats").innerHTML = quickStats.map((item) => `
+      <article class="stat-card" data-reveal>
+        <strong>${item.value}</strong>
+        <span>${item.label}</span>
+        <p>${item.note}</p>
+      </article>
+    `).join("");
+
+    const state = {
+      activeGroup: "all",
+      openOnly: false
+    };
+
+    function getStatusMeta(position) {
+      if (position.headcount.open === 0) {
+        return { label: "ทีมครบแล้ว", className: "status-filled" };
+      }
+      return {
+        label: `เปิดรับ ${position.headcount.open} อัตรา`,
+        className: position.headcount.open === 1 ? "status-hot" : "status-open"
+      };
+    }
+
+    function renderJobs() {
+      const container = document.getElementById("jobContainer");
+      let filtered = state.activeGroup === "all"
+        ? positionsFull
+        : positionsFull.filter((position) => position.category === state.activeGroup);
+
+      if (state.openOnly) {
+        filtered = filtered.filter((position) => position.headcount.open > 0);
+      }
+
+      if (!filtered.length) {
+        container.innerHTML = `
+          <article class="note-card" data-reveal>
+            <h3>ไม่พบตำแหน่งตามเงื่อนไขที่เลือก</h3>
+            <p>ลองเปลี่ยนกลุ่มตำแหน่ง หรือปิดตัวกรองเฉพาะตำแหน่งที่ยังว่างเพื่อดูรายการทั้งหมดของ CareWise</p>
+          </article>
+        `;
+        observeReveals();
+        return;
+      }
+
+      container.innerHTML = filtered.map((position) => {
+        const statusMeta = getStatusMeta(position);
+        return `
+          <article class="job-item" data-reveal>
+            <div class="job-info">
+              <div class="job-topline">
+                <h3>${position.title} <span class="role-sub">(${position.titleEn})</span></h3>
+                <span class="status-chip ${statusMeta.className}">${statusMeta.label}</span>
+              </div>
+              <p class="job-summary">${position.summary}</p>
+            </div>
+            <div class="job-actions">
+              <div class="headcount-badge">
+                <strong>${position.headcount.filled}/${position.headcount.planned}</strong>
+                <span>Filled / Planned</span>
+              </div>
+              <button class="button button-secondary" onclick="openJd('${position.id}')">ดูรายละเอียด</button>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      observeReveals();
+    }
+
+    function renderList(items) {
+      return `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+    }
+
+    function openJd(id) {
+      const job = positionsFull.find((position) => position.id === id);
+      if (!job) return;
+
+      const statusMeta = getStatusMeta(job);
+      const body = document.getElementById("jdBody");
+
+      body.innerHTML = `
+        <div class="modal-header">
+          <div class="modal-header-meta">
+            <span class="meta-chip">${job.code}</span>
+            <span class="meta-chip">${job.teamLabel}</span>
+            <span class="status-chip ${statusMeta.className}">${statusMeta.label}</span>
+          </div>
+          <h2>${job.title} (${job.titleEn})</h2>
+          <p class="modal-summary">${job.summary}</p>
+        </div>
+
+        <hr class="modal-divider">
+
+        <div class="modal-grid">
+          <div class="modal-panel">
+            <h3>หน้าที่ความรับผิดชอบหลัก</h3>
+            ${renderList(job.responsibilities)}
+          </div>
+
+          <div class="modal-panel">
+            <h3>ข้อมูลเบื้องต้นของตำแหน่ง</h3>
+            <div class="detail-grid">
+              <div class="detail-item">
+                <strong>สถานที่ทำงาน</strong>
+                <span>${job.location}</span>
+              </div>
+              <div class="detail-item">
+                <strong>รูปแบบงาน</strong>
+                <span>${job.type}</span>
+              </div>
+              <div class="detail-item">
+                <strong>รายงานต่อ</strong>
+                <span>${job.reportTo}</span>
+              </div>
+              <div class="detail-item">
+                <strong>เวลาทำงาน</strong>
+                <span>${job.schedule}</span>
+              </div>
+              <div class="detail-item">
+                <strong>โครงค่าตอบแทน</strong>
+                <span>${job.salary}</span>
+              </div>
+              <div class="detail-item">
+                <strong>จำนวนกำลังคน</strong>
+                <span>Planned ${job.headcount.planned} / Filled ${job.headcount.filled} / Open ${job.headcount.open}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-panel">
+            <h3>คุณสมบัติที่มองหา</h3>
+            ${renderList(job.qualifications)}
+          </div>
+
+          <div class="modal-panel">
+            <h3>เหมาะกับคนแบบไหน</h3>
+            ${renderList(job.idealProfile)}
+          </div>
+
+          <div class="modal-panel" style="grid-column: 1 / -1;">
+            <h3>สวัสดิการและสิ่งที่ผู้สนใจร่วมงานควรรู้</h3>
+            <div class="benefit-list">
+              ${job.benefits.map((benefit) => `<span class="tag-chip">${benefit}</span>`).join("")}
+            </div>
+            <p class="apply-note">หมายเหตุ: รายละเอียดค่าตอบแทนและสิทธิประโยชน์เชิงตัวเลขสามารถปรับตามนโยบายบริษัทและประสบการณ์ของผู้สมัครได้ในเวอร์ชันใช้งานจริง</p>
+          </div>
+        </div>
+
+        <div class="modal-footer-actions">
+          <a class="button button-primary" href="mailto:hr_carewise@carewise.co.th?subject=Application%20for%20${encodeURIComponent(job.titleEn)}">ส่งใบสมัครตำแหน่งนี้</a>
+          <button class="button button-secondary" id="closeJdBtn">กลับไปดูตำแหน่งอื่น</button>
+        </div>
+      `;
+
+      const modal = document.getElementById("jdModal");
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+
+      const closeBtn = document.getElementById("closeJdBtn");
+      if (closeBtn) {
+        closeBtn.onclick = closeModal;
+      }
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("jdModal");
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    document.querySelectorAll(".filter-btn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        document.querySelectorAll(".filter-btn").forEach((item) => item.classList.remove("active"));
+        event.currentTarget.classList.add("active");
+        state.activeGroup = event.currentTarget.dataset.group;
+        renderJobs();
+      });
+    });
+
+    document.getElementById("openOnlyToggle").addEventListener("change", (event) => {
+      state.openOnly = event.currentTarget.checked;
+      renderJobs();
+    });
+
+    document.getElementById("closeJd").addEventListener("click", closeModal);
+    document.getElementById("jdModal").addEventListener("click", (event) => {
+      if (event.target.id === "jdModal") {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    renderJobs();
+
+    function observeReveals() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+      document.querySelectorAll("[data-reveal]").forEach((element) => {
+        if (!element.classList.contains("is-visible")) observer.observe(element);
+      });
+    }
+
+    observeReveals();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
+

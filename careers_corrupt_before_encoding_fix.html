@@ -1,0 +1,1918 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareWise | Join Us - เธฃเนเธงเธกเธชเธฃเนเธฒเธเธญเธเธฒเธเธ•เธเธฒเธฃเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธ</title>
+  <meta name="description" content="CareWise Join Us เธฃเธงเธกเธ•เธณเนเธซเธเนเธเธเธฒเธเธเธญเธ CareWise เธเธฃเธเธ—เธธเธเธชเธฒเธขเธเธฒเธ เธเธฃเนเธญเธกเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธซเธเนเธฒเธ—เธตเนเธเธงเธฒเธกเธฃเธฑเธเธเธดเธ”เธเธญเธ เธเธธเธ“เธชเธกเธเธฑเธ•เธด เธชเธงเธฑเธชเธ”เธดเธเธฒเธฃ เนเธฅเธฐเธเนเธญเธกเธนเธฅเธชเธณเธเธฑเธเธ—เธตเนเธเธนเนเธชเธเนเธเธฃเนเธงเธกเธเธฒเธเธเธงเธฃเธฃเธนเน">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .careers-hero {
+      padding-top: 76px;
+      padding-bottom: 56px;
+    }
+
+    .careers-hero-shell {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+      display: grid;
+      gap: 1.35rem;
+      justify-items: center;
+    }
+
+    .hero-title-careers {
+      margin: 0;
+      max-width: 860px;
+      font-size: clamp(3.2rem, 7.2vw, 6rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      background: linear-gradient(135deg, var(--brand-deep), var(--brand));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 14px 30px rgba(47, 149, 204, 0.14);
+    }
+
+    .hero-subtitle-careers {
+      max-width: 860px;
+      margin: 0 auto;
+      font-size: 1.18rem;
+      line-height: 1.82;
+      color: var(--ink-soft);
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.85rem;
+      margin-top: 0.35rem;
+    }
+
+    .metric-pill,
+    .status-chip,
+    .meta-chip,
+    .tag-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .metric-pill {
+      background: rgba(223, 241, 250, 0.92);
+      color: #205777;
+      border: 1px solid rgba(47, 149, 204, 0.12);
+    }
+
+    .metric-pill.soft {
+      background: rgba(234, 243, 237, 0.96);
+      color: #27543f;
+    }
+
+    .metric-pill.warm {
+      background: rgba(251, 240, 223, 0.96);
+      color: #8a5a1d;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2.4rem;
+    }
+
+    .stat-card,
+    .culture-card,
+    .job-item,
+    .note-card {
+      border-radius: 28px;
+      border: 1px solid rgba(120, 157, 140, 0.16);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 44px rgba(34, 56, 48, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .stat-card {
+      padding: 1.4rem 1.1rem;
+      text-align: center;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .stat-card strong {
+      font-family: var(--title-font);
+      font-size: clamp(1.9rem, 4vw, 2.7rem);
+      line-height: 1;
+      color: var(--brand-deep);
+    }
+
+    .stat-card span {
+      color: #678195;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .stat-card p {
+      color: var(--ink-soft);
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.6rem;
+    }
+
+    .culture-card {
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.26s ease, box-shadow 0.26s ease;
+    }
+
+    .culture-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 56px rgba(34, 56, 48, 0.11);
+    }
+
+    .icon-box {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 1.25rem;
+      background: rgba(223, 241, 250, 0.92);
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+    }
+
+    .culture-card h3 {
+      margin-bottom: 0.9rem;
+      color: var(--brand-deep);
+    }
+
+    .culture-card p {
+      color: var(--ink-soft);
+    }
+
+    .filter-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.9rem;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      max-width: 1180px;
+    }
+
+    .filter-toolbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.2rem;
+    }
+
+    .filter-btn {
+      padding: 0.78rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.88);
+      cursor: pointer;
+      font-weight: 700;
+      color: #587286;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn:focus-visible {
+      color: var(--brand-deep);
+      border-color: rgba(47, 149, 204, 0.24);
+      outline: none;
+    }
+
+    .filter-btn.active {
+      background: var(--brand-deep);
+      color: #fff;
+      border-color: var(--brand-deep);
+      box-shadow: 0 12px 24px rgba(29, 95, 148, 0.18);
+    }
+
+    .open-only-wrap {
+      display: flex;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .toggle-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.82rem 1.15rem;
+      border-radius: 999px;
+      border: 1px solid rgba(47, 149, 204, 0.14);
+      background: rgba(255, 255, 255, 0.9);
+      color: #587286;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    }
+
+    .toggle-pill:hover {
+      color: var(--brand-deep);
+      border-color: rgba(47, 149, 204, 0.24);
+      box-shadow: 0 10px 22px rgba(47, 149, 204, 0.08);
+    }
+
+    .toggle-pill input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 50px;
+      height: 28px;
+      border-radius: 999px;
+      background: rgba(136, 204, 235, 0.42);
+      transition: background 0.2s ease;
+      flex: 0 0 auto;
+    }
+
+    .toggle-switch::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 4px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(24, 56, 76, 0.16);
+      transition: transform 0.2s ease;
+    }
+
+    .toggle-pill input:checked + .toggle-switch {
+      background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+    }
+
+    .toggle-pill input:checked + .toggle-switch::after {
+      transform: translateX(20px);
+    }
+
+    .openings-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .job-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+      padding: 1.5rem 1.5rem;
+      transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+    }
+
+    .job-item:hover {
+      transform: translateY(-3px);
+      border-color: rgba(47, 149, 204, 0.2);
+      box-shadow: 0 24px 56px rgba(34, 56, 48, 0.11);
+    }
+
+    .job-info {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .job-info h3 {
+      margin: 0;
+      font-size: 1.42rem;
+      color: var(--brand-deep);
+    }
+
+    .job-summary {
+      color: var(--ink-soft);
+      line-height: 1.72;
+    }
+
+    .job-topline,
+    .job-actions,
+    .modal-meta,
+    .modal-header-meta,
+    .modal-footer-actions,
+    .benefit-list,
+    .detail-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .job-topline {
+      align-items: start;
+      justify-content: space-between;
+      gap: 0.85rem;
+    }
+
+    .meta-chip,
+    .tag-chip {
+      background: rgba(239, 247, 252, 0.95);
+      color: #305d79;
+      border: 1px solid rgba(47, 149, 204, 0.1);
+      padding-inline: 0.82rem;
+      font-size: 0.84rem;
+    }
+
+    .status-chip {
+      padding-inline: 0.85rem;
+      font-size: 0.82rem;
+    }
+
+    .status-open {
+      background: rgba(226, 245, 232, 0.96);
+      color: #1e6a43;
+    }
+
+    .status-hot {
+      background: rgba(255, 239, 204, 0.98);
+      color: #8b5c12;
+    }
+
+    .status-filled {
+      background: rgba(231, 238, 244, 0.98);
+      color: #516678;
+    }
+
+    .job-actions {
+      align-items: center;
+      justify-content: space-between;
+      min-width: 0;
+    }
+
+    .headcount-badge {
+      min-width: 138px;
+      padding: 0.95rem 1rem;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(245, 250, 254, 0.98), rgba(236, 245, 251, 0.94));
+      border: 1px solid rgba(47, 149, 204, 0.12);
+      text-align: center;
+    }
+
+    .headcount-badge strong {
+      display: block;
+      color: var(--brand-deep);
+      font-size: 1.14rem;
+    }
+
+    .headcount-badge span {
+      display: block;
+      color: #678195;
+      font-size: 0.82rem;
+      margin-top: 0.2rem;
+    }
+
+    .note-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.3rem;
+      margin-top: 2rem;
+    }
+
+    .note-card {
+      padding: 1.5rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .note-card h3 {
+      color: var(--brand-deep);
+      margin: 0;
+    }
+
+    .note-card p,
+    .note-card li {
+      color: var(--ink-soft);
+      line-height: 1.72;
+    }
+
+    .note-card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .note-card strong {
+      color: var(--brand-deep);
+    }
+
+    .contact-lines {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.25rem;
+    }
+
+    .jd-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(24, 56, 76, 0.44);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    .jd-modal.is-open {
+      display: block;
+    }
+
+    .jd-content {
+      max-width: 1120px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.98);
+      padding: 2.6rem;
+      border-radius: 34px;
+      position: relative;
+      box-shadow: 0 30px 80px rgba(16, 39, 53, 0.18);
+    }
+
+    .close-jd {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.4rem;
+      background: var(--accent-soft);
+      border: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--brand-deep);
+    }
+
+    .modal-header {
+      display: grid;
+      gap: 0.75rem;
+      padding-right: 3.5rem;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      color: var(--brand-deep);
+      font-size: clamp(2rem, 4vw, 3.05rem);
+      line-height: 1.06;
+    }
+
+    .modal-summary {
+      color: var(--ink-soft);
+      font-size: 1.08rem;
+      line-height: 1.78;
+    }
+
+    .modal-divider {
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 1.6rem 0;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 1.4rem;
+    }
+
+    .modal-panel {
+      padding: 1.25rem 1.3rem;
+      border-radius: 24px;
+      background: rgba(244, 249, 252, 0.95);
+      border: 1px solid rgba(47, 149, 204, 0.1);
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .modal-panel h3 {
+      margin: 0;
+      color: var(--brand-deep);
+      font-size: 1.18rem;
+    }
+
+    .modal-panel p,
+    .modal-panel li {
+      color: var(--ink-soft);
+      line-height: 1.72;
+    }
+
+    .modal-panel ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .modal-panel li + li {
+      margin-top: 0.4rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .detail-item {
+      padding: 0.9rem 1rem;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(47, 149, 204, 0.08);
+    }
+
+    .detail-item strong {
+      display: block;
+      margin-bottom: 0.28rem;
+      color: var(--brand-deep);
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+    }
+
+    .detail-item span {
+      color: var(--ink-soft);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .benefit-list {
+      gap: 0.55rem;
+    }
+
+    .modal-footer-actions {
+      margin-top: 1.5rem;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .pres-badge {
+      display: inline-block;
+      padding: 0.52rem 1rem;
+      background: #f0f4f8;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      color: #64748b;
+      margin-top: 2rem;
+    }
+
+    .apply-note {
+      color: #678195;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin-top: 0.35rem;
+    }
+
+    @media (max-width: 1100px) {
+      .quick-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .modal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .culture-grid,
+      .note-grid,
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .openings-list {
+        grid-template-columns: 1fr;
+      }
+
+      .job-item {
+        grid-template-columns: 1fr;
+      }
+
+      .job-actions {
+        min-width: 0;
+        justify-content: flex-start;
+      }
+
+      .jd-content {
+        padding: 1.5rem;
+        border-radius: 26px;
+      }
+
+      .modal-header {
+        padding-right: 2.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .careers-hero {
+        padding-top: 48px;
+        padding-bottom: 34px;
+      }
+
+      .quick-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-subtitle-careers {
+        font-size: 1.02rem;
+      }
+
+      .jd-modal {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient ambient-left"></div>
+  <div class="ambient ambient-right"></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="CareWise">
+      <span class="brand-mark"><img src="images_by_Friends/logo.jpg" alt="CareWise logo"></span>
+      <span class="brand-copy">
+        <strong>CareWise</strong>
+        <small>Join Us | Elderly Care &amp; Smart Service</small>
+      </span>
+    </a>
+    <nav class="top-nav" aria-label="Primary"></nav>
+  </header>
+
+  <main>
+    <section class="hero-section careers-hero">
+      <div class="container careers-hero-shell">
+        <p class="eyebrow" data-reveal>JOIN OUR MISSION</p>
+        <h1 class="hero-title-careers" data-reveal>เธชเธฃเนเธฒเธเธฃเธญเธขเธขเธดเนเธกเธ”เนเธงเธขเธซเธฑเธงเนเธ<br>เธเธฑเธเน€เธเธฅเธทเนเธญเธเธ”เนเธงเธขเธเธงเธฑเธ•เธเธฃเธฃเธก</h1>
+        <p class="hero-subtitle-careers" data-reveal>
+          เธกเธฒเธเธเธงเนเธฒเธเธฒเธฃเธ”เธนเนเธฅ เธเธทเธญเธเธฒเธฃเธกเธญเธเธเธงเธฒเธกเธญเธธเนเธเนเธเนเธซเนเธเธฑเธเธเธฃเธญเธเธเธฃเธฑเธง CareWise เธเธณเธฅเธฑเธเธกเธญเธเธซเธฒเน€เธเธทเนเธญเธเธฃเนเธงเธกเธ—เธตเธกเธ—เธตเนเธญเธขเธฒเธเธชเธฃเนเธฒเธเธกเธฒเธ•เธฃเธเธฒเธเนเธซเธกเนเธเธญเธ
+          Elderly Care เธ—เธตเนเธญเธเธญเธธเนเธ เน€เธเธทเนเธญเธ–เธทเธญเนเธ”เน เนเธฅเธฐเธกเธตเน€เธ—เธเนเธเนเธฅเธขเธตเธเนเธงเธขเธเธฒเธเธเธฃเธดเธเนเธเธ—เธธเธเธงเธฑเธ
+        </p>
+        <div class="hero-actions" data-reveal>
+          <a class="button button-primary" href="#openings">เธ”เธนเธ•เธณเนเธซเธเนเธเธ—เธตเนเน€เธเธดเธ”เธฃเธฑเธ</a>
+          <a class="button button-secondary" href="#culture">เธ—เธณเนเธกเธ•เนเธญเธ CareWise?</a>
+        </div>
+        <div class="hero-metrics" data-reveal>
+          <span class="metric-pill">21 เธ•เธณเนเธซเธเนเธเธซเธฅเธฑเธ</span>
+          <span class="metric-pill soft">C-Level เธเธฃเธเธ—เธธเธเธ•เธณเนเธซเธเนเธ</span>
+          <span class="metric-pill warm">เธกเธตเธ—เธฑเนเธเธ—เธตเธกเธ—เธตเนเน€เธเธดเธ”เธฃเธฑเธเนเธฅเธฐเธ—เธตเธกเธ—เธตเนเนเธเธฅเนเน€เธ•เนเธก</span>
+        </div>
+      </div>
+      <div class="container">
+        <div class="quick-stats" id="quickStats"></div>
+      </div>
+    </section>
+
+    <section class="content-section tone-soft" id="culture">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <p class="eyebrow">Our Values</p>
+          <h2>เธงเธฑเธ’เธเธเธฃเธฃเธกเธ—เธตเนเธ—เธณเนเธซเน <span class="brand-inline">CareWise</span> เนเธ•เธเธ•เนเธฒเธ</h2>
+          <p>เน€เธฃเธฒเธกเธญเธเธซเธฒเธเธเธ—เธตเนเนเธกเนเนเธ”เนเธกเธตเนเธเนเธ—เธฑเธเธฉเธฐ เนเธ•เนเธกเธตเธเธงเธฒเธกเธ•เธฑเนเธเนเธเธเธฐเธชเธฃเนเธฒเธเธเธธเธ“เธ เธฒเธเธเธตเธงเธดเธ•เธ—เธตเนเธ”เธตเธเธถเนเธเนเธซเนเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธฅเธฐเธเธฃเธญเธเธเธฃเธฑเธงเธ”เนเธงเธข</p>
+        </div>
+
+        <div class="culture-grid">
+          <article class="culture-card" data-reveal>
+            <div class="icon-box">
+              <img src="images/svg/svg/005-elderly-2.svg" alt="Warm Care" width="40">
+            </div>
+            <h3>Warm Care</h3>
+            <p>เธ”เธนเนเธฅเธ”เนเธงเธขเธเธงเธฒเธกเน€เธเนเธฒเนเธ เน€เธเธฒเธฃเธเธจเธฑเธเธ”เธดเนเธจเธฃเธตเธเธญเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธ เนเธฅเธฐเน€เธเธทเนเธญเธงเนเธฒเธเธงเธฒเธกเธญเนเธญเธเนเธขเธเธเธทเธญเธชเนเธงเธเธซเธเธถเนเธเธเธญเธเธกเธฒเธ•เธฃเธเธฒเธเธเธฒเธฃเธ—เธณเธเธฒเธ</p>
+          </article>
+
+          <article class="culture-card" data-reveal>
+            <div class="icon-box">
+              <img src="images/svg/svg/004-nurse.svg" alt="Smart System" width="40">
+            </div>
+            <h3>Smart System</h3>
+            <p>เน€เธฃเธฒเธเธณ AI เนเธฅเธฐ data tools เธกเธฒเธเนเธงเธขเนเธซเนเธ—เธตเธกเธ—เธณเธเธฒเธเนเธกเนเธเธเธถเนเธ เธ•เธดเธ”เธ•เธฒเธกเนเธ”เนเธเธฃเธดเธ เนเธฅเธฐเธกเธตเน€เธงเธฅเธฒเธ—เธธเนเธกเนเธซเนเธเธฑเธเธเธธเธ“เธ เธฒเธเธเธฒเธฃเธ”เธนเนเธฅเธกเธฒเธเธเธถเนเธ</p>
+          </article>
+
+          <article class="culture-card" data-reveal>
+            <div class="icon-box">
+              <img src="images/svg/svg/006-elderly-3.svg" alt="Trusted Community" width="40">
+            </div>
+            <h3>Trusted Community</h3>
+            <p>เธ—เธณเธเธฒเธเธญเธขเนเธฒเธเธฃเธฑเธเธเธดเธ”เธเธญเธ เนเธเธฃเนเธเนเธช เนเธฅเธฐเธเธฃเนเธญเธกเธเธฑเธ’เธเธฒเธ•เธฑเธงเน€เธญเธเน€เธชเธกเธญ เน€เธเธทเนเธญเนเธซเนเธเธฃเธญเธเธเธฃเธฑเธงเนเธงเนเธงเธฒเธเนเธเธชเนเธเธ•เนเธญเธเธเธ—เธตเนเธฃเธฑเธเนเธซเน CareWise เธ”เธนเนเธฅ</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="openings">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <p class="eyebrow">Current Openings</p>
+          <h2>เธ•เธณเนเธซเธเนเธเธเธฒเธเธเธญเธ CareWise เนเธเธเธเธฃเธเธ–เนเธงเธ</h2>
+          <p>เธ”เธนเธฃเธฒเธขเธเธทเนเธญเธ•เธณเนเธซเธเนเธเธ—เธฑเนเธเธซเธกเธ”เนเธ”เนเธเธฒเธเธซเธเนเธฒเธเธตเน เนเธฅเนเธงเธเธ”เธญเนเธฒเธเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เน€เธเธทเนเธญเธ”เธนเธซเธเนเธฒเธ—เธตเนเธเธงเธฒเธกเธฃเธฑเธเธเธดเธ”เธเธญเธ เธเธธเธ“เธชเธกเธเธฑเธ•เธด เธฃเธนเธเนเธเธเธเธฒเธ เนเธฅเธฐเธชเธงเธฑเธชเธ”เธดเธเธฒเธฃเธเธญเธเนเธ•เนเธฅเธฐเธเธ—เธเธฒเธ—</p>
+        </div>
+
+        <div class="filter-toolbar" data-reveal>
+          <nav class="filter-nav">
+            <button class="filter-btn active" data-group="all">เธ—เธธเธเธ•เธณเนเธซเธเนเธ</button>
+            <button class="filter-btn" data-group="executive">Executive & Corporate</button>
+            <button class="filter-btn" data-group="care-center">Care Center</button>
+            <button class="filter-btn" data-group="home-care">Home Care</button>
+            <button class="filter-btn" data-group="technology">Technology</button>
+            <button class="filter-btn" data-group="growth">Growth & Marketing</button>
+          </nav>
+          <div class="open-only-wrap">
+            <label class="toggle-pill" for="openOnlyToggle">
+              <input type="checkbox" id="openOnlyToggle">
+              <span class="toggle-switch" aria-hidden="true"></span>
+              <span>เธ”เธนเน€เธเธเธฒเธฐเธ•เธณเนเธซเธเนเธเธ—เธตเนเธขเธฑเธเธงเนเธฒเธ</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="openings-list" id="jobContainer"></div>
+
+        <div class="note-grid">
+          <article class="note-card" data-reveal style="grid-column: 1 / -1;">
+            <h3>ช่องทางสมัครเบื้องต้น</h3>
+            <p>สามารถส่งประวัติย่อและระบุตำแหน่งที่สนใจมาที่อีเมลของฝ่ายทรัพยากรบุคคล พร้อมแนบข้อมูลประสบการณ์ที่เกี่ยวข้อง ผลงาน หรือข้อมูลเพิ่มเติมที่ช่วยให้ทีมพิจารณาเบื้องต้นได้รวดเร็วขึ้น</p>
+            <div class="contact-lines">
+              <p><strong>อีเมล:</strong> hr_carewise@carewise.co.th</p>
+              <p><strong>โทร:</strong> 064-982-5662</p>
+            </div>
+            <p class="apply-note">สำหรับเวอร์ชันพรีเซนต์ หน้า Join Us นี้ทำหน้าที่เป็นทั้งภาพรวมโครงสร้างทีมและ mockup ของหน้ารับสมัครงาน</p>
+          </article>
+        </div>
+
+        <div style="text-align: center;">
+          <p class="pres-badge">Presentation Note: เนเธเธฃเธเธชเธฃเนเธฒเธเธ•เธณเนเธซเธเนเธเธเธฃเธเธ•เธฒเธก Position Master List เนเธฅเธฐเน€เธชเธฃเธดเธกเธเนเธญเธกเธนเธฅเน€เธเธดเธเธเธฃเธฐเธเธฒเธจเธฃเธฑเธเธชเธกเธฑเธเธฃเน€เธเธทเนเธญเนเธซเนเธ”เธนเธชเธกเธเธฃเธดเธเธกเธฒเธเธเธถเนเธ</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="jd-modal" id="jdModal" aria-hidden="true">
+    <div class="jd-content">
+      <button class="close-jd" id="closeJd" aria-label="Close details">ร—</button>
+      <div id="jdBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const commonBenefits = [
+      "เธเธฃเธฐเธเธฑเธเธชเธฑเธเธเธกเนเธฅเธฐเธชเธดเธ—เธเธดเธเธฒเธฃเธฅเธฒเธ•เธฒเธกเธเธเธซเธกเธฒเธขเนเธฃเธเธเธฒเธ",
+      "เธญเธเธฃเธกเนเธฅเธฐเธเธฑเธ’เธเธฒเธ—เธฑเธเธฉเธฐเธ•เธฒเธกเนเธเธเธเธฒเธฃเน€เธฃเธตเธขเธเธฃเธนเนเธเธญเธเธ•เธณเนเธซเธเนเธ",
+      "เธเธฃเธฐเน€เธกเธดเธเธเธฅเธเธฒเธเธ•เธฒเธกเธฃเธญเธเนเธฅเธฐเธกเธตเนเธญเธเธฒเธชเน€เธ•เธดเธเนเธ•เธ•เธฒเธกเธเธฅเธเธฒเธ",
+      "เธ—เธณเธเธฒเธเธฃเนเธงเธกเธเธฑเธเธ—เธตเธกเธ—เธตเนเนเธซเนเธเธงเธฒเธกเธชเธณเธเธฑเธเธเธฑเธเธเธธเธ“เธ เธฒเธเธเธฒเธฃเธ”เธนเนเธฅเนเธฅเธฐเธเธฒเธฃเธชเธทเนเธญเธชเธฒเธฃเธญเธขเนเธฒเธเธกเธทเธญเธญเธฒเธเธตเธ"
+    ];
+
+    const positions = [
+      {
+        id: "p01",
+        code: "P01",
+        title: "เธเธฃเธฃเธกเธเธฒเธฃเธเธนเนเธเธฑเธ”เธเธฒเธฃ",
+        titleEn: "CEO",
+        category: "executive",
+        teamLabel: "Executive & Corporate",
+        location: "FYI Center, Rama 4",
+        type: "Full-time",
+        reportTo: "เธเธ“เธฐเธเธฃเธฃเธกเธเธฒเธฃ / เธเธนเนเธ–เธทเธญเธซเธธเนเธ",
+        headcount: { planned: 1, filled: 1, open: 0 },
+        status: "filled",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธเธนเนเธเธฃเธดเธซเธฒเธฃเธฃเธฐเธ”เธฑเธเธชเธนเธเธเธญเธเธเธฃเธดเธฉเธฑเธ—",
+        schedule: "เธเธฑเธเธ—เธฃเน-เธจเธธเธเธฃเน เนเธฅเธฐเธเธฃเนเธญเธกเธเธณเธเธฑเธเธเธฒเธเธ•เธฒเธกเธเธงเธฒเธกเธเธณเน€เธเนเธเน€เธเธดเธเธเธธเธฃเธเธดเธ",
+        summary: "เธเธณเธซเธเธ”เธ—เธดเธจเธ—เธฒเธเน€เธเธดเธเธเธฅเธขเธธเธ—เธเนเนเธฅเธฐเธเธฑเธเน€เธเธฅเธทเนเธญเธ CareWise เนเธซเนเน€เธ•เธดเธเนเธ•เน€เธเนเธเธเธนเนเธเธณเธ”เนเธฒเธ AI-powered Elderly Care เธ—เธตเนเธกเธตเธ—เธฑเนเธเธเธงเธฒเธกเธญเธเธญเธธเนเธเนเธฅเธฐเธกเธฒเธ•เธฃเธเธฒเธเธเธฒเธฃเธ”เธนเนเธฅเธ—เธตเนเน€เธเธทเนเธญเธ–เธทเธญเนเธ”เน",
+        responsibilities: [
+          "เธเธณเธซเธเธ”เธงเธดเธชเธฑเธขเธ—เธฑเธจเธเน เธเธฅเธขเธธเธ—เธเน เนเธฅเธฐเน€เธเนเธฒเธซเธกเธฒเธขเธเธฒเธฃเน€เธ•เธดเธเนเธ•เธเธญเธเธเธฃเธดเธฉเธฑเธ—เนเธเธฃเธฐเธขเธฐเธชเธฑเนเธ เธเธฅเธฒเธ เนเธฅเธฐเธขเธฒเธง",
+          "เธเธณเธเธฑเธเธเธฒเธฃเธ”เธณเน€เธเธดเธเธเธฒเธเธเธญเธเธ—เธธเธเธชเธฒเธขเธเธฒเธเนเธซเนเธชเธญเธ”เธเธฅเนเธญเธเธเธฑเธเนเธเธเธเธธเธฃเธเธดเธเนเธฅเธฐเธ เธฒเธเธฅเธฑเธเธฉเธ“เนเธเธญเธเนเธเธฃเธเธ”เน",
+          "เธชเธฃเนเธฒเธเธเธงเธฒเธกเธฃเนเธงเธกเธกเธทเธญเธเธฑเธเนเธฃเธเธเธขเธฒเธเธฒเธฅ เธเธฑเธเธเธกเธดเธ•เธฃเธเธธเธฃเธเธดเธ เธเธฑเธเธฅเธเธ—เธธเธ เนเธฅเธฐเน€เธเธฃเธทเธญเธเนเธฒเธขเธ—เธตเนเน€เธเธตเนเธขเธงเธเนเธญเธ",
+          "เธ•เธดเธ”เธ•เธฒเธกเธเธฅเธเธฃเธฐเธเธญเธเธเธฒเธฃ เธเธธเธ“เธ เธฒเธเธเธฃเธดเธเธฒเธฃ เนเธฅเธฐเธเธงเธฒเธกเน€เธชเธตเนเธขเธเน€เธเธดเธเธเธธเธฃเธเธดเธเนเธเธ เธฒเธเธฃเธงเธก",
+          "เธชเธฃเนเธฒเธเธงเธฑเธ’เธเธเธฃเธฃเธกเธญเธเธเนเธเธฃเธ—เธตเนเนเธซเนเธเธงเธฒเธกเธชเธณเธเธฑเธเธเธฑเธเธเธธเธ“เธ เธฒเธ เธกเธฒเธ•เธฃเธเธฒเธ เนเธฅเธฐเธเธงเธฒเธกเนเธงเนเธงเธฒเธเนเธเธเธฒเธเธเธฃเธญเธเธเธฃเธฑเธงเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃ"
+        ],
+        qualifications: [
+          "เธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธฃเธดเธซเธฒเธฃเธญเธเธเนเธเธฃเธซเธฃเธทเธญเธเธธเธฃเธเธดเธเธเธฃเธดเธเธฒเธฃเธญเธขเนเธฒเธเธเนเธญเธข 8-10 เธเธต",
+          "เธกเธญเธเธ เธฒเธเธเธธเธฃเธเธดเธ เธเธฒเธฃเน€เธเธดเธ เธเธฒเธฃเธ•เธฅเธฒเธ” เนเธฅเธฐ operations เนเธ”เนเน€เธเธทเนเธญเธกเธเธฑเธ",
+          "เธกเธตเธ เธฒเธงเธฐเธเธนเนเธเธณเธชเธนเธ เธ•เธฑเธ”เธชเธดเธเนเธเธเธฑเธ”เน€เธเธ เนเธฅเธฐเธเธฃเธดเธซเธฒเธฃ stakeholder เนเธ”เนเธ”เธต",
+          "เธซเธฒเธเธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเนเธเธเธธเธฃเธเธดเธเธชเธธเธเธ เธฒเธ เธเธฒเธฃเธ”เธนเนเธฅ เธซเธฃเธทเธญเธเธฃเธดเธเธฒเธฃเธ—เธตเนเธกเธตเธเธงเธฒเธกเธฅเธฐเน€เธญเธตเธขเธ”เธญเนเธญเธ เธเธฐเน€เธซเธกเธฒเธฐเธกเธฒเธ"
+        ],
+        idealProfile: [
+          "เน€เธเนเธเธเธนเนเธเธณเธ—เธตเนเธ”เธนเนเธ”เนเธ—เธฑเนเธเธ เธฒเธเนเธซเธเนเนเธฅเธฐเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธ—เธตเนเธเธฃเธฐเธ—เธเธเธธเธ“เธ เธฒเธเธเธฃเธดเธเธฒเธฃ",
+          "เน€เธเธทเนเธญเนเธเธเธฒเธฃเนเธเนเน€เธ—เธเนเธเนเธฅเธขเธตเน€เธเธทเนเธญเน€เธชเธฃเธดเธกเธ—เธตเธก เนเธกเนเนเธเนเนเธ—เธเธเธงเธฒเธกเน€เธเนเธเธกเธเธธเธฉเธขเน",
+          "เธชเธทเนเธญเธชเธฒเธฃเน€เธเนเธฒเธซเธกเธฒเธขเนเธซเนเธ—เธตเธกเธซเธฅเธฒเธขเธชเธฒเธขเธเธฒเธเน€เธ”เธดเธเนเธเนเธเธ—เธดเธจเธ—เธฒเธเน€เธ”เธตเธขเธงเธเธฑเธเนเธ”เน"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธชเธดเธ—เธเธดเนเธญเธธเธเธเธฃเธ“เนเนเธฅเธฐเน€เธเธฃเธทเนเธญเธเธกเธทเธญเธเธฒเธฃเธ—เธณเธเธฒเธเธชเธณเธซเธฃเธฑเธเธเธ—เธเธฒเธ—เธเธฃเธดเธซเธฒเธฃ",
+          "เน€เธเนเธฒเธฃเนเธงเธกเน€เธงเธ—เธตเธเธฃเธฐเธเธธเธกเน€เธเธดเธเธเธฅเธขเธธเธ—เธเนเนเธฅเธฐเน€เธเธฃเธทเธญเธเนเธฒเธขเธเธฑเธเธเธกเธดเธ•เธฃเธเธธเธฃเธเธดเธเธเธญเธเธเธฃเธดเธฉเธฑเธ—"
+        ]
+      },
+      {
+        id: "p02",
+        code: "P02",
+        title: "เธเธฃเธฐเธเธฒเธเน€เธเนเธฒเธซเธเนเธฒเธ—เธตเนเธเนเธฒเธขเน€เธ—เธเนเธเนเธฅเธขเธต",
+        titleEn: "CTO",
+        category: "executive",
+        teamLabel: "Executive & Corporate",
+        location: "Hybrid / FYI Center",
+        type: "Full-time",
+        reportTo: "CEO",
+        headcount: { planned: 1, filled: 1, open: 0 },
+        status: "filled",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธเธนเนเธเธฃเธดเธซเธฒเธฃเธชเธฒเธขเน€เธ—เธเนเธเนเธฅเธขเธต",
+        schedule: "เธเธฑเธเธ—เธฃเน-เธจเธธเธเธฃเน เนเธฅเธฐเธเธฃเนเธญเธกเธชเธเธฑเธเธชเธเธธเธเธฃเธฐเธเธเน€เธกเธทเนเธญเธกเธตเน€เธซเธ•เธธเธเธณเน€เธเนเธ",
+        summary: "เธงเธฒเธเธ—เธดเธจเธ—เธฒเธเน€เธ—เธเนเธเนเธฅเธขเธตเธเธญเธ CareWise เนเธซเนเธฃเธฐเธเธ AI, data tools เนเธฅเธฐเนเธเธฃเธเธชเธฃเนเธฒเธเธเธฒเธฃเธ—เธณเธเธฒเธเธฃเธญเธเธฃเธฑเธเธเธฃเธดเธเธฒเธฃเธเธฃเธดเธเนเธ”เนเธญเธขเนเธฒเธเน€เธชเธ–เธตเธขเธฃ เธเธฅเธญเธ”เธ เธฑเธข เนเธฅเธฐเธเธขเธฒเธขเธ•เนเธญเนเธ”เน",
+        responsibilities: [
+          "เธเธณเธซเธเธ”เธชเธ–เธฒเธเธฑเธ•เธขเธเธฃเธฃเธกเธฃเธฐเธเธ เธเนเธญเธกเธนเธฅ เนเธฅเธฐเน€เธเธฃเธทเนเธญเธเธกเธทเธญเธ—เธตเนเธฃเธญเธเธฃเธฑเธเธเธฒเธฃเนเธซเนเธเธฃเธดเธเธฒเธฃเธเธญเธ CareWise",
+          "เนเธเธฅเธ pain point เธเธฒเธเธซเธเนเธฒเธเธฒเธเธ”เธนเนเธฅเนเธฅเธฐเธเธเธดเธเธฑเธ•เธดเธเธฒเธฃเนเธซเนเน€เธเนเธ product roadmap เธ—เธตเนเนเธเนเนเธ”เนเธเธฃเธดเธ",
+          "เธเธณเธเธฑเธเธ—เธตเธก AI, data, operators เนเธฅเธฐ vendor เธ—เธตเนเน€เธเธตเนเธขเธงเธเนเธญเธเธเธฑเธเธฃเธฐเธเธเธซเธฅเธฑเธ",
+          "เธ”เธนเนเธฅเน€เธฃเธทเนเธญเธ data governance, privacy เนเธฅเธฐเธเธงเธฒเธกเธเธฃเนเธญเธกเธเธญเธเธฃเธฐเธเธเธ—เธตเนเน€เธเธตเนเธขเธงเธเนเธญเธเธเธฑเธเธเนเธญเธกเธนเธฅเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃ",
+          "เธเธฃเธฐเธชเธฒเธเธเธฑเธเธ—เธตเธกเธเธฃเธดเธซเธฒเธฃเน€เธเธทเนเธญเนเธซเนเน€เธ—เธเนเธเนเธฅเธขเธตเธ•เธญเธเนเธเธ—เธขเนเธ—เธฑเนเธเธเธธเธ“เธ เธฒเธเธเธฃเธดเธเธฒเธฃเนเธฅเธฐเธเธฒเธฃเน€เธ•เธดเธเนเธ•เธเธญเธเธเธธเธฃเธเธดเธ"
+        ],
+        qualifications: [
+          "เธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธณเธ—เธตเธกเน€เธ—เธเนเธเนเธฅเธขเธตเธซเธฃเธทเธญ product engineering เนเธเธฃเธฐเธ”เธฑเธ senior",
+          "เน€เธเนเธฒเนเธเธ—เธฑเนเธ software, data workflow, AI implementation เนเธฅเธฐ operations",
+          "เธชเธทเนเธญเธชเธฒเธฃเธเธฑเธเธ—เธตเธกเน€เธ—เธเธเธดเธเนเธฅเธฐ non-technical เนเธ”เนเธ”เธต",
+          "เธ–เนเธฒเธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเนเธ healthtech, caretech เธซเธฃเธทเธญ service operations เธเธฐเนเธ”เนเน€เธเธฃเธตเธขเธ"
+        ],
+        idealProfile: [
+          "เน€เธเนเธเธเธเธ—เธตเนเธเธญเธเธชเธฃเนเธฒเธเธฃเธฐเธเธเธ—เธตเนเน€เธเธทเนเธญเธกเธเธฑเธเธเธฒเธเธซเธเนเธฒเธเธฒเธเธเธฃเธดเธ",
+          "เนเธซเนเธเธงเธฒเธกเธชเธณเธเธฑเธเธเธฑเธเธเธงเธฒเธกเธ•เนเธญเน€เธเธทเนเธญเธเธเธญเธเธฃเธฐเธเธเธเธญ เน เธเธฑเธเธเธงเธฑเธ•เธเธฃเธฃเธก",
+          "เธเธฃเนเธญเธกเธ—เธณเธเธฒเธเนเธเธฅเนเธเธดเธ”เธเธฑเธเธ—เธตเธกเธเธฃเธดเธเธฒเธฃเน€เธเธทเนเธญเน€เธเนเธฒเนเธเนเธเธ—เธขเนเธเธญเธเธเธนเนเนเธเนเธเธฒเธเธเธฃเธดเธ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เน€เธเธฃเธทเนเธญเธเธกเธทเธญเธเธฒเธฃเธ—เธณเธเธฒเธเนเธฅเธฐ software stack เธ—เธตเนเธเธณเน€เธเนเธเธ•เนเธญเธเธ—เธเธฒเธ—เน€เธ—เธเนเธเนเธฅเธขเธต",
+          "เธกเธตเธชเนเธงเธเธฃเนเธงเธกเนเธเธเธฒเธฃเธเธณเธซเธเธ” roadmap เนเธฅเธฐเธเธฒเธฃเธฅเธเธ—เธธเธเธ”เนเธฒเธเธฃเธฐเธเธเธเธญเธเธญเธเธเนเธเธฃ"
+        ]
+      },
+      {
+        id: "p03",
+        code: "P03",
+        title: "เธเธฃเธฐเธเธฒเธเน€เธเนเธฒเธซเธเนเธฒเธ—เธตเนเธเนเธฒเธขเธเธฒเธฃเธ•เธฅเธฒเธ”",
+        titleEn: "CMO",
+        category: "executive",
+        teamLabel: "Executive & Corporate",
+        location: "FYI Center, Rama 4",
+        type: "Full-time",
+        reportTo: "CEO",
+        headcount: { planned: 1, filled: 1, open: 0 },
+        status: "filled",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธเธนเนเธเธฃเธดเธซเธฒเธฃเธชเธฒเธขเธเธฒเธฃเธ•เธฅเธฒเธ”",
+        schedule: "เธเธฑเธเธ—เธฃเน-เธจเธธเธเธฃเน",
+        summary: "เธ”เธนเนเธฅเธ เธฒเธเธฃเธงเธกเนเธเธฃเธเธ”เน เธเธฒเธฃเธชเธทเนเธญเธชเธฒเธฃ เนเธฅเธฐเธเธฒเธฃเน€เธ•เธดเธเนเธ•เธเธญเธ demand เนเธซเน CareWise เน€เธเนเธเนเธเธฃเธเธ”เนเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธเธ—เธตเนเธญเธเธญเธธเนเธ เธ—เธฑเธเธชเธกเธฑเธข เนเธฅเธฐเนเธงเนเธงเธฒเธเนเธเนเธ”เน",
+        responsibilities: [
+          "เธงเธฒเธเธเธฅเธขเธธเธ—เธเนเนเธเธฃเธเธ”เน เธเธฒเธฃเธชเธทเนเธญเธชเธฒเธฃ เนเธฅเธฐเนเธเธเธเธฒเธฃเธ•เธฅเธฒเธ”เนเธซเนเธชเธญเธ”เธเธฅเนเธญเธเธเธฑเธ positioning เธเธญเธ CareWise",
+          "เธ”เธนเนเธฅเธเธฒเธฃเธชเธฃเนเธฒเธ lead เธ—เธฑเนเธ B2C เนเธฅเธฐ B2B เธเนเธฒเธเธเนเธญเธเธ—เธฒเธเธญเธญเธเนเธฅเธเน เธญเธญเธเนเธฅเธเน เนเธฅเธฐเธเธฑเธเธเธกเธดเธ•เธฃ",
+          "เธเธฃเธฐเธชเธฒเธเธเธฒเธเธเธฑเธเธ—เธตเธก Growth, Sales เนเธฅเธฐ Operations เน€เธเธทเนเธญเนเธซเนเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธฅเธนเธเธเนเธฒเธ•เนเธญเน€เธเธทเนเธญเธ",
+          "เธเธณเธซเธเธ” narrative เธเธญเธเนเธเธฃเธเธ”เนเนเธซเนเธชเธทเนเธญเธชเธฒเธฃเธ—เธฑเนเธเธเธงเธฒเธกเธญเธเธญเธธเนเธเนเธฅเธฐเธเธงเธฑเธ•เธเธฃเธฃเธกเนเธ”เนเธเธฑเธ”เน€เธเธ",
+          "เธ•เธดเธ”เธ•เธฒเธก performance เธเธญเธเนเธเธกเน€เธเธเนเธฅเธฐเธเธฃเธฑเธเนเธเธเธ•เธฒเธกเธเนเธญเธกเธนเธฅเธเธฃเธดเธ"
+        ],
+        qualifications: [
+          "เธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธ”เนเธฒเธ brand, marketing เธซเธฃเธทเธญ growth strategy เธญเธขเนเธฒเธเธเนเธญเธข 7 เธเธต",
+          "เน€เธเนเธฒเนเธเธเธธเธฃเธเธดเธเธเธฃเธดเธเธฒเธฃเนเธฅเธฐเธชเธฒเธกเธฒเธฃเธ–เธชเธทเนเธญเธชเธฒเธฃเน€เธฃเธทเนเธญเธเธ—เธตเนเธฅเธฐเน€เธญเธตเธขเธ”เธญเนเธญเธเธญเธขเนเธฒเธเธเธฒเธฃเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธ”เนเธ”เธต",
+          "เธกเธตเธ—เธฑเธเธฉเธฐเธงเธดเน€เธเธฃเธฒเธฐเธซเน data เนเธฅเธฐเธชเธทเนเธญเธชเธฒเธฃเน€เธเธดเธเธเธฅเธขเธธเธ—เธเน",
+          "เธเธฃเธดเธซเธฒเธฃเธ—เธตเธกเธเนเธฒเธกเธชเธฒเธขเธเธฒเธเนเธฅเธฐเธ—เธณเธเธฒเธเธฃเนเธงเธกเธเธฑเธเธเธนเนเธเธฃเธดเธซเธฒเธฃเธฃเธฐเธ”เธฑเธเธชเธนเธเนเธ”เน"
+        ],
+        idealProfile: [
+          "เน€เธเนเธฒเนเธเธ—เธฑเนเธเธ เธฒเธเนเธเธฃเธเธ”เนเนเธฅเธฐเธเธฅเธฅเธฑเธเธเนเน€เธเธดเธเธเธธเธฃเธเธดเธ",
+          "เธเธญเธเน€เธฅเนเธฒเน€เธฃเธทเนเธญเธเธ—เธตเนเธกเธตเธเธงเธฒเธกเธซเธกเธฒเธขเนเธฅเธฐเน€เธเธฅเธตเนเธขเธเน€เธเนเธเธเธฒเธฃเน€เธ•เธดเธเนเธ•เนเธ”เน",
+          "เธกเธตเธเธงเธฒเธกเธฅเธฐเน€เธญเธตเธขเธ”เธญเนเธญเธเธ•เนเธญเธเธงเธฒเธกเธฃเธนเนเธชเธถเธเธเธญเธเธเธฃเธญเธเธเธฃเธฑเธงเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธเธเนเธฅเธฐเน€เธเธฃเธทเนเธญเธเธกเธทเธญเธเธฒเธฃเธ•เธฅเธฒเธ”เธ•เธฒเธกเธเธ—เธเธฒเธ—เธเธนเนเธเธฃเธดเธซเธฒเธฃ",
+          "เนเธญเธเธฒเธชเธ—เธณเธเธฒเธเธเธฑเธเธเธฑเธเธเธกเธดเธ•เธฃเนเธฅเธฐ campaign เน€เธเธดเธเธเธฅเธขเธธเธ—เธเนเธเธญเธเธญเธเธเนเธเธฃ"
+        ]
+      },
+      {
+        id: "p04",
+        code: "P04",
+        title: "เธเธฃเธฐเธเธฒเธเน€เธเนเธฒเธซเธเนเธฒเธ—เธตเนเธเนเธฒเธขเธเธฒเธฃเน€เธเธดเธ",
+        titleEn: "CFO",
+        category: "executive",
+        teamLabel: "Executive & Corporate",
+        location: "FYI Center, Rama 4",
+        type: "Full-time",
+        reportTo: "CEO",
+        headcount: { planned: 1, filled: 1, open: 0 },
+        status: "filled",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธเธนเนเธเธฃเธดเธซเธฒเธฃเธชเธฒเธขเธเธฒเธฃเน€เธเธดเธ",
+        schedule: "เธเธฑเธเธ—เธฃเน-เธจเธธเธเธฃเน",
+        summary: "เธเธณเธเธฑเธเธเธฒเธฃเน€เธเธดเธ เธเธเธเธฃเธฐเธกเธฒเธ“ เธ•เนเธเธ—เธธเธ เนเธฅเธฐเธเธงเธฒเธกเธกเธฑเนเธเธเธเธ—เธฒเธเธเธฒเธฃเน€เธเธดเธเธเธญเธ CareWise เน€เธเธทเนเธญเธฃเธญเธเธฃเธฑเธเธเธฒเธฃเน€เธ•เธดเธเนเธ•เธญเธขเนเธฒเธเธขเธฑเนเธเธขเธทเธ",
+        responsibilities: [
+          "เธงเธฒเธเนเธเธเธเธเธเธฃเธฐเธกเธฒเธ“ เธเธฃเธฐเนเธชเน€เธเธดเธเธชเธ” เนเธฅเธฐ financial control เธเธญเธเธเธฃเธดเธฉเธฑเธ—",
+          "เธงเธดเน€เธเธฃเธฒเธฐเธซเนเธ•เนเธเธ—เธธเธ เธเธณเนเธฃ เนเธฅเธฐเธเธงเธฒเธกเธเธธเนเธกเธเนเธฒเธเธญเธเธเธฃเธดเธเธฒเธฃเนเธ•เนเธฅเธฐเธชเธฒเธขเธเธฒเธ",
+          "เธชเธเธฑเธเธชเธเธธเธเธ—เธตเธกเธเธนเนเธเธฃเธดเธซเธฒเธฃเนเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธเน€เธฃเธทเนเธญเธเธเธฒเธฃเธฅเธเธ—เธธเธเนเธฅเธฐเธเธฒเธฃเธเธขเธฒเธขเธเธธเธฃเธเธดเธ",
+          "เธ”เธนเนเธฅเธ”เนเธฒเธเธ เธฒเธฉเธต เธเธฑเธเธเธต เนเธฅเธฐเธเธงเธฒเธกเน€เธชเธตเนเธขเธเธ—เธฒเธเธเธฒเธฃเน€เธเธดเธ",
+          "เธชเธฃเนเธฒเธเธเธฃเธญเธเธเธฒเธฃเธ—เธณเธเธฒเธเธ—เธฒเธเธเธฒเธฃเน€เธเธดเธเธ—เธตเนเนเธเธฃเนเธเนเธชเนเธฅเธฐเนเธเนเธ•เธฑเธ”เธชเธดเธเนเธเนเธ”เนเธเธฃเธดเธ"
+        ],
+        qualifications: [
+          "เธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธ”เนเธฒเธเธเธฒเธฃเน€เธเธดเธ เธเธฒเธฃเธเธฑเธเธเธต เธซเธฃเธทเธญ planning เนเธเธฃเธฐเธ”เธฑเธเธชเธนเธ",
+          "เน€เธเนเธฒเนเธ budgeting, forecasting เนเธฅเธฐเธเธฒเธฃเธเธงเธเธเธธเธกเธ•เนเธเธ—เธธเธเนเธเธเธธเธฃเธเธดเธเธเธฃเธดเธเธฒเธฃ",
+          "เธฃเธญเธเธเธญเธ เน€เธเธทเนเธญเธ–เธทเธญเนเธ”เน เนเธฅเธฐเนเธเธฅเธเธ•เธฑเธงเน€เธฅเธเน€เธเนเธ insight เธ—เธฒเธเธเธธเธฃเธเธดเธเนเธ”เน",
+          "เธซเธฒเธเธกเธตเธเธทเนเธเธเธฒเธเธเธธเธฃเธเธดเธเธชเธธเธเธ เธฒเธเธซเธฃเธทเธญ service business เธเธฐเน€เธซเธกเธฒเธฐเธกเธฒเธ"
+        ],
+        idealProfile: [
+          "เธเธญเธเธชเธฃเนเธฒเธเน€เธชเธ–เธตเธขเธฃเธ เธฒเธเนเธซเนเธเธฒเธฃเน€เธ•เธดเธเนเธ•เธเธญเธเธญเธเธเนเธเธฃ",
+          "เธกเธตเธงเธดเธเธฑเธขเนเธฅเธฐเธเธงเธฒเธกเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญเธชเธนเธ",
+          "เธชเธฒเธกเธฒเธฃเธ–เธ—เธณเธเธฒเธเธเธฑเธเธ—เธตเธกเธเธฃเธดเธซเธฒเธฃเนเธฅเธฐเธ—เธตเธกเธเธเธดเธเธฑเธ•เธดเธเธฒเธฃเนเธ”เนเธญเธขเนเธฒเธเธชเธกเธ”เธธเธฅ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธญเธธเธเธเธฃเธ“เนเธเธฒเธฃเธ—เธณเธเธฒเธเนเธฅเธฐเธฃเธฐเธเธเธ—เธตเนเธเธณเน€เธเนเธเธ•เนเธญเธเธ—เธเธฒเธ—เธเธฒเธฃเน€เธเธดเธ",
+          "เธกเธตเธชเนเธงเธเธฃเนเธงเธกเนเธ strategic planning เนเธฅเธฐเธเธฒเธฃเธเธณเธซเธเธ”เนเธเธฃเธเธชเธฃเนเธฒเธเธเธธเธฃเธเธดเธ"
+        ]
+      },
+      {
+        id: "p05",
+        code: "P05",
+        title: "เธเธนเนเธเธฑเธ”เธเธฒเธฃเธ—เธฑเนเธงเนเธ",
+        titleEn: "General Manager",
+        category: "executive",
+        teamLabel: "Executive & Corporate",
+        location: "FYI Center, Rama 4",
+        type: "Full-time",
+        reportTo: "CEO",
+        headcount: { planned: 1, filled: 0, open: 1 },
+        status: "hot",
+        salary: "45,000 - 60,000 เธเธฒเธ— / เน€เธ”เธทเธญเธ",
+        schedule: "เธเธฑเธเธ—เธฃเน-เธจเธธเธเธฃเน เนเธฅเธฐเธเธฃเนเธญเธกเธ•เธดเธ”เธ•เธฒเธกเธเธฒเธเธเธเธดเธเธฑเธ•เธดเธเธฒเธฃเธ•เธฒเธกเธเธงเธฒเธกเธเธณเน€เธเนเธ",
+        summary: "เธ”เธนเนเธฅเธ เธฒเธเธฃเธงเธกเธเธฒเธฃเธ”เธณเน€เธเธดเธเธเธฒเธเธเธฃเธฐเธเธณเธงเธฑเธเธเธญเธ CareWise เนเธซเนเธ—เธธเธเธซเธเนเธงเธขเธเธฒเธเน€เธ”เธดเธเธซเธเนเธฒเธญเธขเนเธฒเธเน€เธเนเธเธฃเธฐเธเธเนเธฅเธฐเธฃเธฑเธเธฉเธฒเธกเธฒเธ•เธฃเธเธฒเธเธเธธเธ“เธ เธฒเธเธเธฃเธดเธเธฒเธฃ",
+        responsibilities: [
+          "เธเธณเธเธฑเธเธเธฒเธเธเธเธดเธเธฑเธ•เธดเธเธฒเธฃเธเธญเธเธ—เธธเธเธเนเธฒเธขเนเธซเนเน€เธ”เธดเธเนเธเธ•เธฒเธกเน€เธเนเธฒเธซเธกเธฒเธขเธฃเนเธงเธกเธเธฑเธ",
+          "เธ•เธดเธ”เธ•เธฒเธก KPI เธเธธเธ“เธ เธฒเธเธเธฃเธดเธเธฒเธฃ เธ—เธฃเธฑเธเธขเธฒเธเธฃเธเธธเธเธเธฅ เนเธฅเธฐเธเธฒเธฃเนเธเนเธเธณเธฅเธฑเธเธเธ",
+          "เธเธฃเธฐเธชเธฒเธเธเธฒเธเธฃเธฐเธซเธงเนเธฒเธเธ—เธตเธกเธเธฃเธดเธซเธฒเธฃ เธ—เธตเธกเธ”เธนเนเธฅ เนเธฅเธฐเธ—เธตเธกเธชเธเธฑเธเธชเธเธธเธเน€เธเธทเนเธญเนเธเนเธเธฑเธเธซเธฒเน€เธเธเธฒเธฐเธซเธเนเธฒ",
+          "เธเธฅเธฑเธเธ”เธฑเธ execution เธเธญเธเนเธเธเธเธธเธฃเธเธดเธเนเธเธฃเธฐเธ”เธฑเธเธซเธเนเธฒเธเธฒเธ",
+          "เธฃเธฒเธขเธเธฒเธเธ เธฒเธเธฃเธงเธกเธเธฒเธฃเธ”เธณเน€เธเธดเธเธเธฒเธเนเธเน CEO เนเธฅเธฐเธเธนเนเธเธฃเธดเธซเธฒเธฃเธ—เธตเนเน€เธเธตเนเธขเธงเธเนเธญเธ"
+        ],
+        qualifications: [
+          "เธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธฃเธดเธซเธฒเธฃ operations เนเธเธเธธเธฃเธเธดเธเธเธฃเธดเธเธฒเธฃเธญเธขเนเธฒเธเธเนเธญเธข 5 เธเธต",
+          "เธเธฑเธ”เธฅเธณเธ”เธฑเธเธเธงเธฒเธกเธชเธณเธเธฑเธเนเธฅเธฐเนเธเนเธเธฑเธเธซเธฒเนเธ”เนเธ”เธตเธ เธฒเธขเนเธ•เนเธซเธฅเธฒเธขเนเธเธ—เธขเนเธเธฃเนเธญเธกเธเธฑเธ",
+          "เธกเธตเธ เธฒเธงเธฐเธเธนเนเธเธณ เธชเธทเนเธญเธชเธฒเธฃเธเธฑเธ”เน€เธเธ เนเธฅเธฐเธ—เธณเธเธฒเธเธเธฑเธเธซเธฅเธฒเธขเธเนเธฒเธขเนเธ”เน",
+          "เธซเธฒเธเน€เธเธขเธเธฃเธดเธซเธฒเธฃเธจเธนเธเธขเนเธเธฃเธดเธเธฒเธฃเธซเธฃเธทเธญเธเธธเธฃเธเธดเธ care / hospitality เธเธฐเน€เธซเธกเธฒเธฐเธกเธฒเธ"
+        ],
+        idealProfile: [
+          "เธกเธญเธเธ—เธฑเนเธเธ เธฒเธเนเธซเธเนเนเธฅเธฐเนเธเนเธเธธเธ”เธ•เธดเธ”เธเธฑเธ”เธซเธเนเธฒเธเธฒเธเนเธ”เน",
+          "เธเธญเธเธ—เธณเนเธซเนเธเธฒเธเธซเธฅเธฒเธขเธ—เธตเธกเน€เธเธทเนเธญเธกเธเธฑเธเธญเธขเนเธฒเธเธฅเธทเนเธเนเธซเธฅ",
+          "เธเธฃเนเธญเธกเธฅเธเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เน€เธเธทเนเธญเธขเธเธฃเธฐเธ”เธฑเธเธกเธฒเธ•เธฃเธเธฒเธเธเธญเธเธญเธเธเนเธเธฃ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธเนเธฒเน€เธ”เธดเธเธ—เธฒเธเธซเธฃเธทเธญเธเนเธฒเนเธ—เธฃเธจเธฑเธเธ—เนเธ•เธฒเธกเธฅเธฑเธเธฉเธ“เธฐเธเธฒเธ",
+          "เธชเธดเธ—เธเธดเนเน€เธเนเธฒเธฃเนเธงเธกเธญเธเธฃเธกเธ”เนเธฒเธเธเธฒเธฃเธเธฃเธดเธซเธฒเธฃเธเธฃเธดเธเธฒเธฃเนเธฅเธฐเธ เธฒเธงเธฐเธเธนเนเธเธณ"
+        ]
+      },
+      {
+        id: "p06",
+        code: "P06",
+        title: "เธเธนเนเธเธฑเธ”เธเธฒเธฃเธจเธนเธเธขเนเธ”เธนเนเธฅ",
+        titleEn: "Care Center Manager",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time",
+        reportTo: "General Manager",
+        headcount: { planned: 1, filled: 0, open: 1 },
+        status: "open",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธเธนเนเธเธฑเธ”เธเธฒเธฃเธจเธนเธเธขเน",
+        schedule: "เธ—เธณเธเธฒเธเธเธฃเธฐเธเธณเธจเธนเธเธขเน เธเธฃเนเธญเธกเธ”เธนเนเธฅเธ•เธฒเธฃเธฒเธเธเธฃเธดเธเธฒเธฃ",
+        summary: "เธเธฃเธดเธซเธฒเธฃเธเธฒเธฃเธ”เธณเน€เธเธดเธเธเธฒเธเธเธญเธ Care Center เนเธซเนเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธ”เนเธฃเธฑเธเธเธฒเธฃเธ”เธนเนเธฅเธญเธขเนเธฒเธเธเธฅเธญเธ”เธ เธฑเธข เธญเธเธญเธธเนเธ เนเธฅเธฐเน€เธเนเธเธกเธฒเธ•เธฃเธเธฒเธเนเธเธ—เธธเธเธงเธฑเธ",
+        responsibilities: [
+          "เธ”เธนเนเธฅเธเธฒเธฃเธ—เธณเธเธฒเธเธเธฃเธฐเธเธณเธงเธฑเธเธเธญเธเธจเธนเธเธขเน เธ—เธฑเนเธเธเธ เธเธทเนเธเธ—เธตเน เนเธฅเธฐเธเธธเธ“เธ เธฒเธเธเธฃเธดเธเธฒเธฃ",
+          "เธเธฃเธฐเธชเธฒเธเธเธฒเธเธเธฑเธ Head Nurse, caregiver, เธเธฃเธญเธเธเธฃเธฑเธง เนเธฅเธฐเธ—เธตเธกเธชเธเธฑเธเธชเธเธธเธ",
+          "เธ•เธดเธ”เธ•เธฒเธกเธเธงเธฒเธกเน€เธฃเธตเธขเธเธฃเนเธญเธขเธเธญเธเธ•เธฒเธฃเธฒเธเธเธฒเธ เธเธดเธเธเธฃเธฃเธก เนเธฅเธฐเธเธฒเธฃเนเธเนเธ—เธฃเธฑเธเธขเธฒเธเธฃเธ เธฒเธขเนเธเธจเธนเธเธขเน",
+          "เธฃเธฑเธเธกเธทเธญเธชเธ–เธฒเธเธเธฒเธฃเธ“เนเธซเธเนเธฒเธเธฒเธเนเธฅเธฐ escalation เธ—เธตเนเน€เธเธตเนเธขเธงเธเธฑเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃ",
+          "เธฃเธฒเธขเธเธฒเธเธเธฅเธเธฒเธฃเธ”เธณเน€เธเธดเธเธเธฒเธเนเธฅเธฐเธเนเธญเน€เธชเธเธญเนเธเธฐเน€เธเธทเนเธญเธเธฑเธ’เธเธฒเธจเธนเธเธขเน"
+        ],
+        qualifications: [
+          "เธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธฃเธดเธซเธฒเธฃเธซเธเนเธงเธขเธเธฒเธเธเธฃเธดเธเธฒเธฃเธซเธฃเธทเธญเธจเธนเธเธขเนเธ”เธนเนเธฅ",
+          "เน€เธเนเธฒเนเธเธเธฒเธฃเธเธฃเธฐเธชเธฒเธเธเธฒเธเธ—เธตเธกเธซเธฅเธฒเธขเธเธ—เธเธฒเธ—เนเธเธชเธ เธฒเธเนเธงเธ”เธฅเนเธญเธกเธ—เธตเนเธกเธตเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃเธเธฃเธดเธ",
+          "เนเธเน€เธขเนเธ เธกเธตเธงเธธเธ’เธดเธ เธฒเธงเธฐ เนเธฅเธฐเธฃเธฑเธเธกเธทเธญเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเน€เธเธเธฒเธฐเธซเธเนเธฒเนเธ”เนเธ”เธต",
+          "เธซเธฒเธเธกเธตเธเธทเนเธเธเธฒเธเธ”เนเธฒเธเธชเธธเธเธ เธฒเธเธซเธฃเธทเธญ care service เธเธฐเธเธดเธเธฒเธฃเธ“เธฒเน€เธเนเธเธเธดเน€เธจเธฉ"
+        ],
+        idealProfile: [
+          "เธเธญเธเธ—เธณเนเธซเนเธเธทเนเธเธ—เธตเนเธเธฃเธดเธเธฒเธฃเธ”เธนเธญเธเธญเธธเนเธเนเธ•เนเธกเธตเธฃเธฐเธเธ",
+          "เธชเธฒเธกเธฒเธฃเธ–เธ”เธนเนเธฅเธ—เธฑเนเธเธเธเนเธฅเธฐเธเธธเธ“เธ เธฒเธเธซเธเนเธฒเธเธฒเธเนเธ”เนเธเธฃเนเธญเธกเธเธฑเธ",
+          "เนเธซเนเธเธงเธฒเธกเธชเธณเธเธฑเธเธเธฑเธเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธญเธเธเธฃเธญเธเธเธฃเธฑเธงเนเธฅเธฐเธเธนเนเธชเธนเธเธญเธฒเธขเธธ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธเนเธฒเน€เธเธฃเธทเนเธญเธเนเธเธเธซเธฃเธทเธญเธชเธดเนเธเธชเธเธฑเธเธชเธเธธเธเธเธฒเธเธ•เธฒเธกเธเธ—เธเธฒเธ—",
+          "เธกเธตเนเธญเธเธฒเธชเน€เธ•เธดเธเนเธ•เธชเธนเนเธเธ—เธเธฒเธ—เธเธฃเธดเธซเธฒเธฃ operations เนเธเธฃเธฐเธ”เธฑเธเธชเธนเธเธเธถเนเธ"
+        ]
+      },
+      {
+        id: "p07",
+        code: "P07",
+        title: "เธเธนเนเธเธฑเธ”เธเธฒเธฃเธเธฃเธดเธเธฒเธฃเธ”เธนเนเธฅเธ–เธถเธเธเนเธฒเธ",
+        titleEn: "Home Care Manager",
+        category: "home-care",
+        teamLabel: "Home Care",
+        location: "FYI Center / เธ เธฒเธเธชเธเธฒเธก",
+        type: "Full-time",
+        reportTo: "General Manager",
+        headcount: { planned: 1, filled: 0, open: 1 },
+        status: "open",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธเธนเนเธเธฑเธ”เธเธฒเธฃเธเธฃเธดเธเธฒเธฃเธ–เธถเธเธเนเธฒเธ",
+        schedule: "เธเธฑเธเธ—เธฃเน-เธจเธธเธเธฃเน เนเธฅเธฐเธ•เธดเธ”เธ•เธฒเธก service schedule เธ•เธฒเธกเธเธงเธฒเธกเธเธณเน€เธเนเธ",
+        summary: "เธเธณเธเธฑเธเธเธฒเธ Home Care เนเธซเนเธเธฒเธฃเธ”เธนเนเธฅเธ–เธถเธเธเนเธฒเธเธกเธตเธกเธฒเธ•เธฃเธเธฒเธ เธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญ เนเธฅเธฐเธ•เนเธญเน€เธเธทเนเธญเธเนเธเธ—เธธเธเน€เธเธช",
+        responsibilities: [
+          "เธงเธฒเธเนเธเธเธเธณเธฅเธฑเธเธเธเนเธฅเธฐเธเธฑเธ”เธเธดเธงเธเธฃเธดเธเธฒเธฃเธเธญเธเธ—เธตเธก Home Care",
+          "เธ•เธดเธ”เธ•เธฒเธกเธเธธเธ“เธ เธฒเธเธเธฒเธฃเธ”เธนเนเธฅ เธเธฃเธฐเน€เธกเธดเธ feedback เนเธฅเธฐเนเธเนเธเธฑเธเธซเธฒเน€เธเธชเธ—เธตเนเธเธฑเธเธเนเธญเธ",
+          "เธเธฃเธฐเธชเธฒเธเธเธฑเธ Home Care Coordinator, เธเธขเธฒเธเธฒเธฅ เนเธฅเธฐ caregiver เนเธเนเธ•เนเธฅเธฐเน€เธเธช",
+          "เธ”เธนเนเธฅเนเธซเนเธเธฒเธฃเธชเธทเนเธญเธชเธฒเธฃเธเธฑเธเธเธฃเธญเธเธเธฃเธฑเธงเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃเธกเธตเธเธงเธฒเธกเธเธฑเธ”เน€เธเธเนเธฅเธฐเธ•เธฃเธเน€เธงเธฅเธฒ",
+          "เธเนเธงเธขเธเธฑเธ’เธเธฒเธกเธฒเธ•เธฃเธเธฒเธเธเธฒเธฃเธเธฃเธดเธเธฒเธฃเธ–เธถเธเธเนเธฒเธเนเธฅเธฐเธฃเธฐเธเธเธ•เธดเธ”เธ•เธฒเธกเธเธฅ"
+        ],
+        qualifications: [
+          "เธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธฃเธดเธซเธฒเธฃเธ—เธตเธกเธ เธฒเธเธชเธเธฒเธกเธซเธฃเธทเธญเธ—เธตเธกเธเธฃเธดเธเธฒเธฃเธ–เธถเธเธเนเธฒเธ",
+          "เธเธฑเธ”เธเธฒเธฃ schedule เนเธฅเธฐเธเธฒเธเธซเธฅเธฒเธขเน€เธเธชเธเธฃเนเธญเธกเธเธฑเธเนเธ”เนเธ”เธต",
+          "เธชเธทเนเธญเธชเธฒเธฃเธเธฑเธเธเธฃเธญเธเธเธฃเธฑเธงเนเธฅเธฐเธ—เธตเธกเธเธเธดเธเธฑเธ•เธดเธเธฒเธฃเนเธ”เนเธญเธขเนเธฒเธเน€เธเนเธเธฃเธฐเธเธ",
+          "เธซเธฒเธเน€เธเนเธฒเนเธเธเธฃเธดเธเธฒเธฃเธ”เธนเนเธฅ เธชเธธเธเธ เธฒเธ เธซเธฃเธทเธญ home service เธเธฐเน€เธซเธกเธฒเธฐเธกเธฒเธ"
+        ],
+        idealProfile: [
+          "เธเธญเธเธเธฒเธเธ—เธตเนเธ•เนเธญเธเธเธดเธ”เธ—เธฑเนเธ logistics เนเธฅเธฐเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธญเธเธฅเธนเธเธเนเธฒ",
+          "เธ•เธฑเธ”เธชเธดเธเนเธเธซเธเนเธฒเธเธฒเธเนเธ”เนเธ”เธตเนเธฅเธฐเนเธกเนเธ•เธทเนเธเธ•เธฃเธฐเธซเธเธเธเนเธฒเธข",
+          "เนเธซเนเธเธงเธฒเธกเธชเธณเธเธฑเธเธเธฑเธเธเธงเธฒเธกเธ•เนเธญเน€เธเธทเนเธญเธเธเธญเธเธเธฒเธฃเธ”เธนเนเธฅ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธเนเธฒเน€เธ”เธดเธเธ—เธฒเธเธซเธฃเธทเธญเธเนเธฒเนเธเนเธเนเธฒเธขเธ—เธตเนเน€เธเธตเนเธขเธงเธเนเธญเธเธเธฑเธเธเธฒเธเธ เธฒเธเธชเธเธฒเธกเธ•เธฒเธกเธเนเธขเธเธฒเธข",
+          "เธญเธธเธเธเธฃเธ“เนเธชเธทเนเธญเธชเธฒเธฃเนเธฅเธฐเธฃเธฐเธเธเธเธฒเธเธ—เธตเนเธเนเธงเธขเธ•เธดเธ”เธ•เธฒเธก service เนเธ”เนเธเธฑเธ”เน€เธเธ"
+        ]
+      },
+      {
+        id: "p08",
+        code: "P08",
+        title: "เธซเธฑเธงเธซเธเนเธฒเธเธขเธฒเธเธฒเธฅ",
+        titleEn: "Head Nurse",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time",
+        reportTo: "Care Center Manager / General Manager",
+        headcount: { planned: 1, filled: 1, open: 0 },
+        status: "filled",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธซเธฑเธงเธซเธเนเธฒเธเธขเธฒเธเธฒเธฅ",
+        schedule: "เธเธฃเธฐเธเธณเธจเธนเธเธขเน เนเธฅเธฐเธเธณเธเธฑเธเธกเธฒเธ•เธฃเธเธฒเธเธเธฒเธเธเธขเธฒเธเธฒเธฅ",
+        summary: "เธ”เธนเนเธฅเธกเธฒเธ•เธฃเธเธฒเธเธงเธดเธเธฒเธเธตเธเธเธขเธฒเธเธฒเธฅเนเธฅเธฐเธเธธเธ“เธ เธฒเธเธเธฒเธฃเธ”เธนเนเธฅเธเธญเธเธ—เธตเธก clinical เนเธซเนเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธ”เนเธฃเธฑเธเธเธฃเธดเธเธฒเธฃเธ—เธตเนเธเธฅเธญเธ”เธ เธฑเธขเนเธฅเธฐเน€เธซเธกเธฒเธฐเธชเธก",
+        responsibilities: [
+          "เธเธณเธซเธเธ”เนเธเธงเธเธเธดเธเธฑเธ•เธดเธ—เธฒเธเธเธฒเธฃเธเธขเธฒเธเธฒเธฅเนเธฅเธฐเธเธงเธเธเธธเธกเธเธธเธ“เธ เธฒเธเธเธฒเธฃเธ”เธนเนเธฅ",
+          "เธชเธญเธเธเธฒเธเนเธฅเธฐเธชเธเธฑเธเธชเธเธธเธเธ—เธตเธกเธเธขเธฒเธเธฒเธฅเธ—เธฑเนเธเนเธเธจเธนเธเธขเนเนเธฅเธฐเธเธฃเธดเธเธฒเธฃเน€เธเธตเนเธขเธงเน€เธเธทเนเธญเธ",
+          "เธเธฃเธฐเน€เธกเธดเธเนเธเธเธเธฒเธฃเธ”เธนเนเธฅเธฃเธฒเธขเธเธธเธเธเธฅเธฃเนเธงเธกเธเธฑเธ caregiver เนเธฅเธฐเธเธฃเธญเธเธเธฃเธฑเธง",
+          "เธ•เธดเธ”เธ•เธฒเธกเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธเธดเธ”เธเธเธ•เธดเนเธฅเธฐเธเนเธงเธขเธงเธฒเธเนเธเธงเธ—เธฒเธเธเนเธญเธเธเธฑเธเธเธงเธฒเธกเน€เธชเธตเนเธขเธ",
+          "เน€เธเนเธ clinical lead เนเธเธเธฒเธฃเธขเธเธฃเธฐเธ”เธฑเธเธกเธฒเธ•เธฃเธเธฒเธเธเธฃเธดเธเธฒเธฃเธเธญเธ CareWise"
+        ],
+        qualifications: [
+          "เธกเธตเนเธเธเธฃเธฐเธเธญเธเธงเธดเธเธฒเธเธตเธเธเธขเธฒเธเธฒเธฅ",
+          "เธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธขเธฒเธเธฒเธฅเธญเธขเนเธฒเธเธเนเธญเธข 5 เธเธต เนเธฅเธฐเน€เธเธขเธเธธเธกเธเธฒเธเธ—เธตเธก",
+          "เธฅเธฐเน€เธญเธตเธขเธ” เธฃเธญเธเธเธญเธ เนเธฅเธฐเนเธซเนเธเธณเนเธเธฐเธเธณเธ—เธตเธกเนเธ”เนเธ”เธต",
+          "เน€เธเนเธฒเนเธเธเธฒเธเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธฅเธฐเธเธฃเธดเธเธ—เธเธฒเธฃเธ—เธณเธเธฒเธเธฃเนเธงเธกเธเธฑเธเธเธฃเธญเธเธเธฃเธฑเธง"
+        ],
+        idealProfile: [
+          "เน€เธเนเธเธเธเธ—เธตเนเธ—เธตเธกเธเธถเนเธเธเธฒเนเธ”เนเนเธเธงเธฑเธเธ—เธตเนเธ•เนเธญเธเธ•เธฑเธ”เธชเธดเธเนเธเน€เธฃเธทเนเธญเธเธชเธณเธเธฑเธ",
+          "เธฃเธฑเธเธฉเธฒเธชเธกเธ”เธธเธฅเธฃเธฐเธซเธงเนเธฒเธเธกเธฒเธ•เธฃเธเธฒเธเธงเธดเธเธฒเธเธตเธเธเธฑเธเธเธงเธฒเธกเธญเนเธญเธเนเธขเธเนเธเธเธฒเธฃเธ”เธนเนเธฅ",
+          "เธชเธทเนเธญเธชเธฒเธฃ clinical reasoning เนเธซเนเธ—เธตเธก non-clinical เน€เธเนเธฒเนเธเนเธ”เน"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธชเธดเธ—เธเธดเนเธญเธเธฃเธกเธงเธดเธเธฒเธเธตเธเนเธฅเธฐเธเธฑเธ’เธเธฒเธเธงเธฒเธกเธฃเธนเนเธ”เนเธฒเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธ",
+          "เน€เธเธฃเธทเนเธญเธเนเธเธเนเธฅเธฐเธญเธธเธเธเธฃเธ“เนเธ—เธตเนเธเธณเน€เธเนเธเธ•เนเธญเธเธฒเธฃเธเธเธดเธเธฑเธ•เธดเธเธฒเธ"
+        ]
+      },
+      {
+        id: "p09",
+        code: "P09",
+        title: "เธเธขเธฒเธเธฒเธฅเธงเธดเธเธฒเธเธตเธเธเธฃเธฐเธเธณเธจเธนเธเธขเนเธ”เธนเนเธฅ",
+        titleEn: "Care Center Registered Nurse",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time / Shift",
+        reportTo: "Head Nurse",
+        headcount: { planned: 4, filled: 3, open: 1 },
+        status: "hot",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธเธขเธฒเธเธฒเธฅเธงเธดเธเธฒเธเธตเธเธเธฃเธฐเธเธณเธจเธนเธเธขเน",
+        schedule: "เธ—เธณเธเธฒเธเน€เธเนเธเธเธฐเธ•เธฒเธกเธ•เธฒเธฃเธฒเธเธจเธนเธเธขเนเธ”เธนเนเธฅ",
+        summary: "เธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธเธ เธฒเธขเนเธเธจเธนเธเธขเน เธ•เธดเธ”เธ•เธฒเธกเธญเธฒเธเธฒเธฃ เธเธฃเธฐเธชเธฒเธเนเธเธเธเธฒเธฃเธ”เธนเนเธฅ เนเธฅเธฐเธชเธเธฑเธเธชเธเธธเธเธ—เธตเธก caregiver เนเธซเนเธเธฒเธฃเธเธฃเธดเธเธฒเธฃเน€เธเนเธเธกเธฒเธ•เธฃเธเธฒเธ",
+        responsibilities: [
+          "เธเธฃเธฐเน€เธกเธดเธเธญเธฒเธเธฒเธฃเธ—เธฑเนเธงเนเธ เธ•เธดเธ”เธ•เธฒเธก vital signs เนเธฅเธฐเธ”เธนเนเธฅเธเธฒเธฃเธเธขเธฒเธเธฒเธฅเธ•เธฒเธกเนเธเธ",
+          "เธชเธทเนเธญเธชเธฒเธฃเธเธฑเธ Head Nurse เนเธฅเธฐเธเธฃเธญเธเธเธฃเธฑเธงเน€เธกเธทเนเธญเธเธเธเธฃเธฐเน€เธ”เนเธเธ—เธตเนเธ•เนเธญเธเธ•เธดเธ”เธ•เธฒเธก",
+          "เนเธเธฐเธเธณ caregiver เน€เธฃเธทเนเธญเธเธเนเธญเธเธงเธฃเธฃเธฐเธงเธฑเธเนเธฅเธฐเธเธดเธเธเธฃเธฃเธกเธเธฒเธฃเธ”เธนเนเธฅเธเธฃเธฐเธเธณเธงเธฑเธ",
+          "เธเธฑเธเธ—เธถเธเธเนเธญเธกเธนเธฅเธเธฒเธฃเธ”เธนเนเธฅเนเธฅเธฐเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธชเธณเธเธฑเธเธญเธขเนเธฒเธเธเธฃเธเธ–เนเธงเธ",
+          "เธชเธเธฑเธเธชเธเธธเธเธเธฃเธฃเธขเธฒเธเธฒเธจเธเธฒเธฃเธ”เธนเนเธฅเธ—เธตเนเธเธฅเธญเธ”เธ เธฑเธข เธชเธธเธ เธฒเธ เนเธฅเธฐเน€เธเนเธเธกเธทเธญเธญเธฒเธเธตเธ"
+        ],
+        qualifications: [
+          "เธกเธตเนเธเธเธฃเธฐเธเธญเธเธงเธดเธเธฒเธเธตเธเธเธขเธฒเธเธฒเธฅ",
+          "เธชเธเนเธเธเธฒเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธฅเธฐเธเธฒเธฃเธ”เธนเนเธฅเธฃเธฐเธขเธฐเธขเธฒเธง",
+          "เธ—เธณเธเธฒเธเน€เธเนเธเธ—เธตเธกเนเธเธฃเธฐเธเธเธเธฐเนเธ”เนเธ”เธต",
+          "เธชเธทเนเธญเธชเธฒเธฃเธเธฑเธเธเธฃเธญเธเธเธฃเธฑเธงเนเธ”เนเธญเธขเนเธฒเธเธกเธฑเนเธเนเธเนเธฅเธฐเธญเนเธญเธเนเธขเธ"
+        ],
+        idealProfile: [
+          "เธเธญเธเธเธฒเธเธ—เธตเนเนเธ”เนเน€เธซเนเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃเธญเธขเนเธฒเธเธ•เนเธญเน€เธเธทเนเธญเธ",
+          "เนเธชเนเนเธเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เนเธฅเธฐเธชเธฑเธเน€เธเธ•เธเธฒเธฃเน€เธเธฅเธตเนเธขเธเนเธเธฅเธเธเธญเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธ”เนเธ”เธต",
+          "เธเธฃเนเธญเธกเธ—เธณเธเธฒเธเธฃเนเธงเธกเธเธฑเธเธ—เธตเธกเธซเธฅเธฒเธขเธเธ—เธเธฒเธ—เนเธเธเธทเนเธเธ—เธตเนเน€เธ”เธตเธขเธงเธเธฑเธ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธเนเธฒเน€เธงเธฃเธซเธฃเธทเธญเธเนเธฒเธเธฐเธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธ—เธตเนเธเธฃเธดเธฉเธฑเธ—เธเธณเธซเธเธ”",
+          "เธเธฒเธฃเธชเธเธฑเธเธชเธเธธเธเธ”เนเธฒเธเธเธธเธ”เธขเธนเธเธดเธเธญเธฃเนเธกเนเธฅเธฐเธญเธธเธเธเธฃเธ“เนเธเธฒเธฃเธเธขเธฒเธเธฒเธฅ"
+        ]
+      },
+      {
+        id: "p10",
+        code: "P10",
+        title: "เธเธขเธฒเธเธฒเธฅเธงเธดเธเธฒเธเธตเธ Home Care",
+        titleEn: "Home Care Registered Nurse",
+        category: "home-care",
+        teamLabel: "Home Care",
+        location: "เธ เธฒเธเธชเธเธฒเธก / เธเนเธฒเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃ",
+        type: "Full-time",
+        reportTo: "Home Care Manager / Head Nurse",
+        headcount: { planned: 3, filled: 1, open: 2 },
+        status: "open",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธเธขเธฒเธเธฒเธฅเธงเธดเธเธฒเธเธตเธ Home Care",
+        schedule: "เธ•เธฒเธกเธ•เธฒเธฃเธฒเธเธเธฑเธ”เธซเธกเธฒเธขเธเธญเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃ",
+        summary: "เนเธซเนเธเธฃเธดเธเธฒเธฃเธเธขเธฒเธเธฒเธฅเธ–เธถเธเธเนเธฒเธ เธ”เธนเนเธฅเน€เธเธชเน€เธเธเธฒเธฐเธฃเธฒเธข เนเธฅเธฐเน€เธเธทเนเธญเธกเนเธเธเธเธฒเธฃเธ”เธนเนเธฅเธเธญเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเธเธฑเธเธเธฃเธญเธเธเธฃเธฑเธงเนเธฅเธฐเธ—เธตเธก CareWise",
+        responsibilities: [
+          "เน€เธขเธตเนเธขเธกเธเนเธฒเธ เธเธฃเธฐเน€เธกเธดเธเธญเธฒเธเธฒเธฃ เนเธฅเธฐเนเธซเนเธเธฒเธฃเธเธขเธฒเธเธฒเธฅเธ•เธฒเธกเนเธเธเธ”เธนเนเธฅ",
+          "เธชเธทเนเธญเธชเธฒเธฃเธเนเธญเนเธเธฐเธเธณเนเธเนเธเธฃเธญเธเธเธฃเธฑเธงเน€เธเธตเนเธขเธงเธเธฑเธเธเธฒเธฃเธ”เธนเนเธฅเธ•เนเธญเน€เธเธทเนเธญเธเธ—เธตเนเธเนเธฒเธ",
+          "เธเธฃเธฐเธชเธฒเธเธเนเธญเธกเธนเธฅเธเธฑเธ Home Care Coordinator, Telehealth เนเธฅเธฐ Head Nurse",
+          "เธ•เธดเธ”เธ•เธฒเธกเธเธงเธฒเธกเน€เธเธฅเธตเนเธขเธเนเธเธฅเธเธเธญเธเน€เธเธชเนเธฅเธฐเธฃเธฒเธขเธเธฒเธเน€เธซเธ•เธธเธ—เธตเนเธ•เนเธญเธเน€เธเนเธฒเธฃเธฐเธงเธฑเธ",
+          "เธชเธฃเนเธฒเธเธเธงเธฒเธกเธกเธฑเนเธเนเธเนเธซเนเธเธฃเธญเธเธเธฃเธฑเธงเธเนเธฒเธเธเธฒเธฃเธ”เธนเนเธฅเธ—เธตเนเน€เธเนเธเธกเธทเธญเธญเธฒเธเธตเธเนเธฅเธฐเธ•เธฃเธเน€เธงเธฅเธฒ"
+        ],
+        qualifications: [
+          "เธกเธตเนเธเธเธฃเธฐเธเธญเธเธงเธดเธเธฒเธเธตเธเธเธขเธฒเธเธฒเธฅ",
+          "เธเธฃเนเธญเธกเธ—เธณเธเธฒเธเธเธญเธเธชเธ–เธฒเธเธ—เธตเนเนเธฅเธฐเธเธฃเธดเธซเธฒเธฃเธ•เธฒเธฃเธฒเธเธเธฃเธดเธเธฒเธฃเนเธ”เน",
+          "เธกเธตเธ—เธฑเธเธฉเธฐเธเธฃเธฐเน€เธกเธดเธเน€เธเธชเนเธฅเธฐเธชเธทเนเธญเธชเธฒเธฃเธเธฑเธเธเธฃเธญเธเธเธฃเธฑเธงเนเธ”เนเธเธฑเธ”เน€เธเธ",
+          "เธซเธฒเธเธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เน Home Care เธซเธฃเธทเธญ case management เธเธฐเธเธดเธเธฒเธฃเธ“เธฒเน€เธเนเธเธเธดเน€เธจเธฉ"
+        ],
+        idealProfile: [
+          "เธเธญเธเธเธฒเธเธ—เธตเนเธกเธตเธเธงเธฒเธกเธขเธทเธ”เธซเธขเธธเนเธเนเธฅเธฐเนเธ”เนเน€เธซเนเธเธเธฃเธดเธเธ—เธเธญเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃเธเธฃเธดเธ",
+          "เธงเธฒเธเธ•เธฑเธงเธ”เธต เธชเธธเธ เธฒเธ เนเธฅเธฐเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญเน€เธกเธทเนเธญเน€เธเนเธฒเนเธเนเธเธเนเธฒเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃ",
+          "เธกเธตเธเธงเธฒเธกเธฃเธฑเธเธเธดเธ”เธเธญเธเธชเธนเธเนเธฅเธฐเธฃเธฒเธขเธเธฒเธเธเธฒเธเธญเธขเนเธฒเธเธเธฃเธเธ–เนเธงเธ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธเนเธฒเน€เธ”เธดเธเธ—เธฒเธเธซเธฃเธทเธญเธชเธงเธฑเธชเธ”เธดเธเธฒเธฃเธ•เธฒเธกเธฅเธฑเธเธฉเธ“เธฐเธเธฒเธเธ เธฒเธเธชเธเธฒเธก",
+          "เธญเธธเธเธเธฃเธ“เนเนเธฅเธฐเธฃเธฐเธเธเธชเธเธฑเธเธชเธเธธเธเธเธฒเธฃเธ•เธดเธ”เธ•เธฒเธกเน€เธเธช"
+        ]
+      },
+      {
+        id: "p11",
+        code: "P11",
+        title: "เธเธขเธฒเธเธฒเธฅ Telehealth",
+        titleEn: "Telehealth Nurse",
+        category: "home-care",
+        teamLabel: "Home Care",
+        location: "FYI Center / Hybrid",
+        type: "Full-time",
+        reportTo: "Head Nurse",
+        headcount: { planned: 3, filled: 2, open: 1 },
+        status: "hot",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธเธขเธฒเธเธฒเธฅ Telehealth",
+        schedule: "เธ•เธฒเธกเธฃเธญเธเน€เธงเธฅเธฒเธเธฒเธฃเธ•เธดเธ”เธ•เธฒเธกเนเธฅเธฐเธเธฒเธฃเนเธซเนเธเธณเธเธฃเธถเธเธฉเธฒเธ—เธฒเธเนเธเธฅ",
+        summary: "เธ•เธดเธ”เธ•เธฒเธกเธเนเธญเธกเธนเธฅเธชเธธเธเธ เธฒเธเนเธฅเธฐเนเธซเนเธเธณเนเธเธฐเธเธณเธ—เธฒเธเนเธเธฅ เน€เธเธทเนเธญเน€เธเธดเนเธกเธเธงเธฒเธกเธ•เนเธญเน€เธเธทเนเธญเธเธเธญเธเธเธฒเธฃเธ”เธนเนเธฅเนเธฅเธฐเธเนเธงเธขเนเธซเนเธเธฃเธญเธเธเธฃเธฑเธงเน€เธเนเธฒเธ–เธถเธเธ—เธตเธกเธงเธดเธเธฒเธเธตเธเนเธ”เนเธเนเธฒเธขเธเธถเนเธ",
+        responsibilities: [
+          "เธ•เธดเธ”เธ•เธฒเธกเธเนเธญเธกเธนเธฅเธเธฒเธเธฃเธฐเธเธเนเธฅเธฐเธเธฃเธฐเน€เธกเธดเธเธชเธฑเธเธเธฒเธ“เธ—เธตเนเธ•เนเธญเธเน€เธเนเธฒเธฃเธฐเธงเธฑเธ",
+          "เนเธซเนเธเธณเนเธเธฐเธเธณเธ—เธฒเธเนเธ—เธฃเธจเธฑเธเธ—เนเธซเธฃเธทเธญเธเนเธญเธเธ—เธฒเธเธ”เธดเธเธดเธ—เธฑเธฅเนเธเนเธเธฃเธญเธเธเธฃเธฑเธงเนเธฅเธฐเธเธนเนเธ”เธนเนเธฅ",
+          "เธเธฃเธฐเธชเธฒเธเน€เธเธชเธ•เนเธญเธเธฑเธเธ—เธตเธก Home Care เธซเธฃเธทเธญ Care Center เน€เธกเธทเนเธญเธกเธตเธเธฃเธฐเน€เธ”เนเธเธชเธณเธเธฑเธ",
+          "เธเธฑเธเธ—เธถเธเธเธฒเธฃเธ•เธดเธ”เธ•เธฒเธกเนเธฅเธฐเธเธฅเธเธฒเธฃเธเธฃเธฐเน€เธกเธดเธเธญเธขเนเธฒเธเน€เธเนเธเธฃเธฐเธเธ",
+          "เธเนเธงเธขเธชเธฃเนเธฒเธ protocol เธเธฒเธฃเธ”เธนเนเธฅเนเธเธเธเธชเธกเธเธชเธฒเธเธฃเธฐเธซเธงเนเธฒเธเธเธเนเธฅเธฐเน€เธ—เธเนเธเนเธฅเธขเธต"
+        ],
+        qualifications: [
+          "เธกเธตเนเธเธเธฃเธฐเธเธญเธเธงเธดเธเธฒเธเธตเธเธเธขเธฒเธเธฒเธฅ",
+          "เธชเธทเนเธญเธชเธฒเธฃเธ—เธฒเธเนเธ—เธฃเธจเธฑเธเธ—เนเธซเธฃเธทเธญ online consultation เนเธ”เนเธ”เธต",
+          "เธงเธดเน€เธเธฃเธฒเธฐเธซเนเธเนเธญเธกเธนเธฅเนเธฅเธฐเธ•เธฑเธ”เธชเธดเธเนเธเธชเนเธเธ•เนเธญเน€เธเธชเนเธ”เนเน€เธซเธกเธฒเธฐเธชเธก",
+          "เธชเธเนเธเธเธฒเธฃเนเธเนเน€เธ—เธเนเธเนเธฅเธขเธตเนเธเธเธฒเธเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธ"
+        ],
+        idealProfile: [
+          "เนเธเน€เธขเนเธเนเธฅเธฐเธญเธเธดเธเธฒเธขเน€เธฃเธทเนเธญเธเธชเธธเธเธ เธฒเธเนเธซเนเธเธฃเธญเธเธเธฃเธฑเธงเน€เธเนเธฒเนเธเธเนเธฒเธข",
+          "เธเธญเธเธเธฒเธเธ—เธตเนเธเธชเธกเธ—เธฑเนเธเธเธฒเธฃเธ•เธดเธ”เธ•เธฒเธกเธเนเธญเธกเธนเธฅเนเธฅเธฐเธเธฒเธฃเธชเธทเนเธญเธชเธฒเธฃเน€เธเธดเธเธ”เธนเนเธฅ",
+          "เธกเธญเธเน€เธซเนเธเธชเธฑเธเธเธฒเธ“เธชเธณเธเธฑเธเธเธฒเธเธเนเธญเธกเธนเธฅเนเธฅเธฐเธเธฃเธดเธเธ—เธเธญเธเน€เธเธชเนเธ”เน"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธฃเธฐเธเธเนเธฅเธฐเน€เธเธฃเธทเนเธญเธเธกเธทเธญ digital health เธ—เธตเนเธเนเธงเธขเธ—เธณเธเธฒเธเนเธ”เนเธชเธฐเธ”เธงเธ",
+          "เนเธญเธเธฒเธชเธเธฑเธ’เธเธฒเธ—เธฑเธเธฉเธฐเธ”เนเธฒเธ telehealth เนเธฅเธฐ care technology"
+        ]
+      },
+      {
+        id: "p12",
+        code: "P12",
+        title: "เธเธนเนเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธเธเธฃเธฐเธเธณเธจเธนเธเธขเน",
+        titleEn: "Professional Caregiver",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time / Shift",
+        reportTo: "Head Nurse / Care Center Manager",
+        headcount: { planned: 12, filled: 8, open: 4 },
+        status: "open",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธ caregiver เธเธฃเธฐเธเธณเธจเธนเธเธขเน",
+        schedule: "เธ—เธณเธเธฒเธเน€เธเนเธเธเธฐเธ•เธฒเธกเธ•เธฒเธฃเธฒเธเธจเธนเธเธขเน",
+        summary: "เน€เธเนเธเธเธณเธฅเธฑเธเธซเธฅเธฑเธเธเธญเธเธเธฒเธฃเธ”เธนเนเธฅเธฃเธฒเธขเธงเธฑเธเนเธเธจเธนเธเธขเน เธเนเธงเธขเนเธซเนเธเธนเนเธชเธนเธเธญเธฒเธขเธธเธฃเธนเนเธชเธถเธเธเธฅเธญเธ”เธ เธฑเธข เธชเธเธฒเธขเนเธ เนเธฅเธฐเธกเธตเธเธธเธ“เธ เธฒเธเธเธตเธงเธดเธ•เธ—เธตเนเธ”เธตเธเธถเนเธเนเธเธ—เธธเธเธงเธฑเธ",
+        responsibilities: [
+          "เธเนเธงเธขเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธเธเธดเธเธงเธฑเธ•เธฃเธเธฃเธฐเธเธณเธงเธฑเธ เน€เธเนเธ เธเธฒเธฃเน€เธเธฅเธทเนเธญเธเนเธซเธง เธฃเธฑเธเธเธฃเธฐเธ—เธฒเธเธญเธฒเธซเธฒเธฃ เนเธฅเธฐเธเธฒเธฃเธ”เธนเนเธฅเธ•เธเน€เธญเธ",
+          "เธชเธฑเธเน€เธเธ•เธญเธฒเธเธฒเธฃ เธเธคเธ•เธดเธเธฃเธฃเธก เธซเธฃเธทเธญเธเธงเธฒเธกเน€เธเธฅเธตเนเธขเธเนเธเธฅเธเธ—เธตเนเธเธงเธฃเนเธเนเธเธ—เธตเธกเธเธขเธฒเธเธฒเธฅ",
+          "เธฃเนเธงเธกเธ”เธนเนเธฅเธเธฃเธฃเธขเธฒเธเธฒเธจเธ เธฒเธขเนเธเธจเธนเธเธขเนเนเธซเนเน€เธเนเธเธกเธดเธ•เธฃ เธญเธเธญเธธเนเธ เนเธฅเธฐเธเธฅเธญเธ”เธ เธฑเธข",
+          "เธชเธเธฑเธเธชเธเธธเธเธเธดเธเธเธฃเธฃเธกเธเธฃเธฐเธเธณเธงเธฑเธเธฃเนเธงเธกเธเธฑเธเธ—เธตเธก Wellness เนเธฅเธฐเธ—เธตเธกเธเธขเธฒเธเธฒเธฅ",
+          "เธฃเธฒเธขเธเธฒเธเธเธฅเธเธฒเธฃเธ”เธนเนเธฅเธ•เธฒเธกเธฃเธญเธเนเธฅเธฐเธเธเธดเธเธฑเธ•เธดเธ•เธฒเธกเธกเธฒเธ•เธฃเธเธฒเธเธเธญเธเธจเธนเธเธขเน"
+        ],
+        qualifications: [
+          "เธกเธตเนเธเธฃเธฑเธเธเธฒเธเธเธฃเธดเธเธฒเธฃเนเธฅเธฐเธเธฃเนเธญเธกเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธเธญเธขเนเธฒเธเธเธฃเธดเธเนเธ",
+          "เธญเธ”เธ—เธ เนเธเน€เธขเนเธ เธชเธธเธ เธฒเธ เนเธฅเธฐเธ—เธณเธเธฒเธเน€เธเนเธเธเธฐเนเธ”เน",
+          "เธซเธฒเธเธเนเธฒเธเธเธฒเธฃเธญเธเธฃเธก caregiver เธซเธฃเธทเธญเธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเนเธเธฅเนเน€เธเธตเธขเธเธเธฐเธเธดเธเธฒเธฃเธ“เธฒเน€เธเนเธเธเธดเน€เธจเธฉ",
+          "เธชเธธเธเธ เธฒเธเนเธเนเธเนเธฃเธเนเธฅเธฐเธกเธตเธงเธดเธเธฑเธขเนเธเธเธฒเธฃเธ—เธณเธเธฒเธ"
+        ],
+        idealProfile: [
+          "เธเธญเธเธ—เธณเธเธฒเธเนเธเธฅเนเธเธดเธ”เธเธฑเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธเธ—เธธเธเธงเธฑเธ",
+          "เธกเธญเธเน€เธซเนเธเธเธธเธ“เธเนเธฒเธเธญเธเธเธฒเธเธ”เธนเนเธฅเนเธกเนเน€เธเนเธเธเธฒเธเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เน€เธฅเนเธ เน",
+          "เธกเธตเธเธงเธฒเธกเธชเธกเนเธณเน€เธชเธกเธญเนเธฅเธฐเนเธงเนเนเธเนเธ”เน"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธเนเธฒเน€เธงเธฃเธซเธฃเธทเธญเธชเธงเธฑเธชเธ”เธดเธเธฒเธฃเธ•เธฒเธกเธฃเธฐเธเธเธเธฐเธ—เธตเนเธเธฃเธดเธฉเธฑเธ—เธเธณเธซเธเธ”",
+          "เธเธฒเธฃเธญเธเธฃเธกเธกเธฒเธ•เธฃเธเธฒเธเธเธฒเธฃเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธฅเธฐเธเธฒเธฃเธเนเธญเธเธเธฑเธเธเธงเธฒเธกเน€เธชเธตเนเธขเธเธซเธเนเธฒเธเธฒเธ"
+        ]
+      },
+      {
+        id: "p13",
+        code: "P13",
+        title: "เธเธนเนเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธเธ—เธตเนเธเนเธฒเธ",
+        titleEn: "Home Care Caregiver",
+        category: "home-care",
+        teamLabel: "Home Care",
+        location: "เธเนเธฒเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃ",
+        type: "Full-time / Shift",
+        reportTo: "Home Care Manager / Home Care Coordinator",
+        headcount: { planned: 10, filled: 6, open: 4 },
+        status: "open",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธ caregiver เธ”เธนเนเธฅเธ—เธตเนเธเนเธฒเธ",
+        schedule: "เธ•เธฒเธกเนเธเธเธเธฃเธดเธเธฒเธฃเธเธญเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃ",
+        summary: "เธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธเธเนเธฒเธเธเธญเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃเธ”เนเธงเธขเธเธงเธฒเธกเนเธชเนเนเธ เธชเธธเธ เธฒเธ เนเธฅเธฐเนเธซเนเน€เธเธตเธขเธฃเธ•เธดเธเธทเนเธเธ—เธตเนเธชเนเธงเธเธ•เธฑเธงเธเธญเธเธเธฃเธญเธเธเธฃเธฑเธง",
+        responsibilities: [
+          "เธ”เธนเนเธฅเธเธดเธเธงเธฑเธ•เธฃเธเธฃเธฐเธเธณเธงเธฑเธเธเธญเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธเธเนเธฒเธเธ•เธฒเธกเนเธเธเธเธฃเธดเธเธฒเธฃเธ—เธตเนเธเธณเธซเธเธ”",
+          "เธเนเธงเธขเธชเธฃเนเธฒเธเธเธงเธฒเธกเธชเธเธฒเธขเนเธเนเธซเนเธเธฃเธญเธเธเธฃเธฑเธงเธเนเธฒเธเธเธฒเธฃเธ”เธนเนเธฅเธ—เธตเนเธชเธกเนเธณเน€เธชเธกเธญเนเธฅเธฐเธ•เธฃเธเน€เธงเธฅเธฒ",
+          "เธชเธทเนเธญเธชเธฒเธฃเธเธฑเธ Home Care Coordinator เนเธฅเธฐเธฃเธฒเธขเธเธฒเธเธชเธดเนเธเธ—เธตเนเธ•เนเธญเธเธ•เธดเธ”เธ•เธฒเธก",
+          "เธ”เธนเนเธฅเธเธงเธฒเธกเน€เธฃเธตเธขเธเธฃเนเธญเธข เธเธงเธฒเธกเธเธฅเธญเธ”เธ เธฑเธข เนเธฅเธฐเธเธงเธฒเธกเน€เธซเธกเธฒเธฐเธชเธกเธเธญเธเธเธฒเธฃเธ”เธนเนเธฅเธ เธฒเธขเนเธเธเนเธฒเธ",
+          "เธเธเธดเธเธฑเธ•เธดเธ•เธฒเธก guideline เธเธญเธ CareWise เธญเธขเนเธฒเธเธเธฃเธเธ–เนเธงเธ"
+        ],
+        qualifications: [
+          "เธฃเธฑเธเธเธฒเธเธเธฃเธดเธเธฒเธฃเนเธฅเธฐเธชเธฒเธกเธฒเธฃเธ–เธ—เธณเธเธฒเธเนเธเธเนเธฒเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃเนเธ”เนเธญเธขเนเธฒเธเน€เธซเธกเธฒเธฐเธชเธก",
+          "เธ•เธฃเธเธ•เนเธญเน€เธงเธฅเธฒ เธชเธธเธ เธฒเธ เนเธฅเธฐเธกเธตเธเธงเธฒเธกเธฃเธฑเธเธเธดเธ”เธเธญเธเธชเธนเธ",
+          "เธเธฃเนเธญเธกเน€เธฃเธตเธขเธเธฃเธนเนเธงเธดเธเธตเธเธฒเธฃเธ”เธนเนเธฅเธ•เธฒเธกเธกเธฒเธ•เธฃเธเธฒเธเธเธญเธเธเธฃเธดเธฉเธฑเธ—",
+          "เธ–เนเธฒเธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เน Home Care เธซเธฃเธทเธญเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธเธเธฐเนเธ”เนเน€เธเธฃเธตเธขเธ"
+        ],
+        idealProfile: [
+          "เธเธญเธเธ—เธณเธเธฒเธเธ—เธตเนเธชเธฃเนเธฒเธเธเธงเธฒเธกเน€เธเธทเนเธญเนเธเนเธเธเนเธเธฅเนเธเธดเธ”เธเธฑเธเธเธฃเธญเธเธเธฃเธฑเธง",
+          "เธกเธต maturity เนเธฅเธฐเธกเธฒเธฃเธขเธฒเธ—เธเธฒเธฃเธ—เธณเธเธฒเธเนเธเธเธทเนเธเธ—เธตเนเธชเนเธงเธเธ•เธฑเธงเธเธญเธเธเธนเนเธญเธทเนเธ",
+          "เธชเธทเนเธญเธชเธฒเธฃเนเธ”เนเธชเธธเธ เธฒเธเนเธฅเธฐเธฃเธฒเธขเธเธฒเธเธเธฒเธเธญเธขเนเธฒเธเธ•เธฃเธเนเธเธ•เธฃเธเธกเธฒ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธเนเธฒเน€เธ”เธดเธเธ—เธฒเธเธซเธฃเธทเธญเธเนเธฒเธเธฃเธดเธเธฒเธฃเธ•เธฒเธกเธฅเธฑเธเธฉเธ“เธฐเธเธฒเธเธ—เธตเนเธเนเธฒเธ",
+          "เธเธฒเธฃเธเธฑเธ”เธ•เธฒเธฃเธฒเธเธเธฒเธเนเธฅเธฐเธฃเธฐเธเธเธเธฃเธฐเธชเธฒเธเธเธฒเธเธ—เธตเนเธเนเธงเธขเนเธซเนเธ—เธณเธเธฒเธเนเธ”เนเธเธฑเธ”เน€เธเธเธเธถเนเธ"
+        ]
+      },
+      {
+        id: "p14",
+        code: "P14",
+        title: "เธเธนเนเธเธฃเธฐเธชเธฒเธเธเธฒเธ Home Care",
+        titleEn: "Home Care Coordinator",
+        category: "home-care",
+        teamLabel: "Home Care",
+        location: "FYI Center, Rama 4",
+        type: "Full-time",
+        reportTo: "Home Care Manager",
+        headcount: { planned: 3, filled: 2, open: 1 },
+        status: "hot",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธ Home Care Coordinator",
+        schedule: "เธเธฑเธเธ—เธฃเน-เธจเธธเธเธฃเน เนเธฅเธฐเธเธฃเนเธญเธกเธ•เธดเธ”เธ•เธฒเธกเน€เธเธชเธ•เธฒเธกเธเนเธงเธเน€เธงเธฅเธฒเธเธฃเธดเธเธฒเธฃ",
+        summary: "เน€เธเนเธเธจเธนเธเธขเนเธเธฅเธฒเธเธเธญเธเธเธฒเธฃเธเธฑเธ”เธซเธกเธฒเธขเนเธฅเธฐเธเธฒเธฃเธเธฃเธฐเธชเธฒเธเธเธฒเธเธฃเธฐเธซเธงเนเธฒเธเธ—เธตเธกเธ”เธนเนเธฅเธเธฑเธเธเธฃเธญเธเธเธฃเธฑเธง เน€เธเธทเนเธญเนเธซเนเธเธฃเธดเธเธฒเธฃ Home Care เธฃเธฒเธเธฃเธทเนเธเธ—เธตเนเธชเธธเธ”",
+        responsibilities: [
+          "เธเธฑเธ”เธ•เธฒเธฃเธฒเธเธเธฑเธ”เธซเธกเธฒเธขเนเธฅเธฐเธเธฑเธเธเธนเนเธ—เธตเธกเธ”เธนเนเธฅเนเธซเนเน€เธซเธกเธฒเธฐเธเธฑเธเนเธ•เนเธฅเธฐเน€เธเธช",
+          "เธ•เธดเธ”เธ•เธฒเธกเธเธงเธฒเธกเธเธฃเนเธญเธกเธเธญเธเธเนเธญเธกเธนเธฅเน€เธเธช เน€เธญเธเธชเธฒเธฃ เนเธฅเธฐเธเธฒเธฃเธญเธฑเธเน€เธ”เธ•เธซเธเนเธฒเธเธฒเธ",
+          "เธเธฃเธฐเธชเธฒเธเธเธฒเธฃเน€เธเธฅเธตเนเธขเธเนเธเธฅเธเธ•เธฒเธฃเธฒเธ เธเธฒเธเธ”เนเธงเธ เนเธฅเธฐ feedback เธเธฒเธเธเธฃเธญเธเธเธฃเธฑเธง",
+          "เธ”เธนเนเธฅเธเธฒเธฃเธชเธทเนเธญเธชเธฒเธฃเธฃเธฐเธซเธงเนเธฒเธเธ—เธตเธก field service เธเธฑเธเธ—เธตเธกเธเธฃเธดเธซเธฒเธฃเธเธฒเธเธซเธฅเธฑเธเธเนเธฒเธ",
+          "เธชเธฃเธธเธเธเนเธญเธกเธนเธฅเนเธฅเธฐเธฃเธฒเธขเธเธฒเธเธชเธดเนเธเธ—เธตเนเธเธงเธฃเธเธฃเธฑเธเธเธฃเธธเธเธ•เนเธญเธเธนเนเธเธฑเธ”เธเธฒเธฃเธเธฃเธดเธเธฒเธฃ"
+        ],
+        qualifications: [
+          "เธเธฑเธ”เธเธฒเธฃเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เนเธฅเธฐเธเธฒเธเธซเธฅเธฒเธขเธฃเธฒเธขเธเธฒเธฃเธเธฃเนเธญเธกเธเธฑเธเนเธ”เนเธ”เธต",
+          "เธชเธทเนเธญเธชเธฒเธฃเธชเธธเธ เธฒเธ เธเธฑเธ”เน€เธเธ เนเธฅเธฐเธ•เธญเธเธชเธเธญเธเนเธง",
+          "เธกเธตเธ—เธฑเธเธฉเธฐเธ”เนเธฒเธ coordination, scheduling เธซเธฃเธทเธญ customer support",
+          "เธซเธฒเธเน€เธเธขเธ”เธนเนเธฅเธเธฒเธเธเธฃเธดเธเธฒเธฃเธ—เธตเนเธกเธต field team เธเธฐเน€เธซเธกเธฒเธฐเธกเธฒเธ"
+        ],
+        idealProfile: [
+          "เธเธญเธเธเธฒเธเธซเธฅเธฑเธเธเนเธฒเธเธ—เธตเนเธเนเธงเธขเนเธซเนเธเธเธซเธเนเธฒเธเธฒเธเธ—เธณเธเธฒเธเธเนเธฒเธขเธเธถเนเธ",
+          "เธเธดเธ”เน€เธเนเธเธฃเธฐเธเธเนเธฅเธฐเนเธกเนเธเธฅเธฒเธ”เน€เธฃเธทเนเธญเธเธชเธณเธเธฑเธ",
+          "เนเธเน€เธขเนเธเน€เธกเธทเนเธญเธ•เนเธญเธเธฃเธฑเธเธกเธทเธญเธเธฑเธเธเธฒเธฃเน€เธเธฅเธตเนเธขเธเนเธเธฅเธเธซเธฅเธฒเธขเธญเธขเนเธฒเธเธเธฃเนเธญเธกเธเธฑเธ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เน€เธเธฃเธทเนเธญเธเธกเธทเธญเนเธฅเธฐเธฃเธฐเธเธเธเธฒเธเธ—เธตเนเธเนเธงเธขเธ•เธดเธ”เธ•เธฒเธก schedule เนเธ”เนเธเธฑเธ”เน€เธเธ",
+          "เธกเธตเนเธญเธเธฒเธชเน€เธ•เธดเธเนเธ•เธชเธนเนเธเธ—เธเธฒเธ— operations coordination เนเธฅเธฐ service planning"
+        ]
+      },
+      {
+        id: "p15",
+        code: "P15",
+        title: "เธเธฃเธนเธซเธฃเธทเธญเธเธนเนเธเธถเธเธเธดเธเธเธฃเธฃเธกเธเธนเนเธชเธนเธเธญเธฒเธขเธธ",
+        titleEn: "Wellness Instructor",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time / Part-time",
+        reportTo: "Care Center Manager",
+        headcount: { planned: 2, filled: 1, open: 1 },
+        status: "hot",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธ Wellness Instructor",
+        schedule: "เธ•เธฒเธกเธ•เธฒเธฃเธฒเธเธเธดเธเธเธฃเธฃเธกเธเธญเธเธจเธนเธเธขเน",
+        summary: "เธญเธญเธเนเธเธเนเธฅเธฐเธเธณเธเธดเธเธเธฃเธฃเธกเธ—เธตเนเธเนเธงเธขเธชเนเธเน€เธชเธฃเธดเธกเธชเธธเธเธ เธฒเธงเธฐเธเธฒเธขเนเธเธเธญเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธซเนเธเธตเธงเธดเธ•เธเธฃเธฐเธเธณเธงเธฑเธเนเธเธจเธนเธเธขเนเธกเธตเธเธงเธฒเธกเธซเธกเธฒเธขเนเธฅเธฐเธกเธตเธเธตเธงเธดเธ•เธเธตเธงเธฒ",
+        responsibilities: [
+          "เธญเธญเธเนเธเธเธเธดเธเธเธฃเธฃเธกเนเธซเนเน€เธซเธกเธฒเธฐเธเธฑเธเธเนเธงเธเธงเธฑเธข เธชเธ เธฒเธเธฃเนเธฒเธเธเธฒเธข เนเธฅเธฐเธญเธฒเธฃเธกเธ“เนเธเธญเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธ",
+          "เธเธณเธเธดเธเธเธฃเธฃเธกเธเธฅเธธเนเธกเธซเธฃเธทเธญเธเธดเธเธเธฃเธฃเธกเธฃเธฒเธขเธเธธเธเธเธฅเธฃเนเธงเธกเธเธฑเธเธ—เธตเธกเธ”เธนเนเธฅ",
+          "เธชเธฑเธเน€เธเธ•เธเธฒเธฃเธกเธตเธชเนเธงเธเธฃเนเธงเธกเนเธฅเธฐ feedback เธเธญเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเน€เธเธทเนเธญเธเธณเนเธเธเธฑเธ’เธเธฒเนเธเธฃเนเธเธฃเธก",
+          "เธเธฃเธฐเธชเธฒเธเธเธฑเธเธ—เธตเธกเธเธขเธฒเธเธฒเธฅเนเธฅเธฐ caregiver เน€เธเธทเนเธญเนเธซเนเธเธดเธเธเธฃเธฃเธกเธเธฅเธญเธ”เธ เธฑเธขเนเธฅเธฐเน€เธซเธกเธฒเธฐเธชเธก",
+          "เธเนเธงเธขเธชเธฃเนเธฒเธเธเธฃเธฃเธขเธฒเธเธฒเธจเน€เธเธดเธเธเธงเธเธ เธฒเธขเนเธเธจเธนเธเธขเน"
+        ],
+        qualifications: [
+          "เธฃเธฑเธเธเธฒเธฃเธ—เธณเธเธดเธเธเธฃเธฃเธกเนเธฅเธฐเธเธฒเธฃเธ—เธณเธเธฒเธเธเธฑเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธ",
+          "เธกเธตเธเธงเธฒเธกเธเธดเธ”เธชเธฃเนเธฒเธเธชเธฃเธฃเธเนเนเธฅเธฐเธเธฃเธฑเธเธเธดเธเธเธฃเธฃเธกเนเธซเนเน€เธซเธกเธฒเธฐเธเธฑเธเธเธนเนเน€เธเนเธฒเธฃเนเธงเธกเนเธ”เน",
+          "เธชเธทเนเธญเธชเธฒเธฃเธญเธเธญเธธเนเธ เน€เธเนเธเธกเธดเธ•เธฃ เนเธฅเธฐเธกเธต energy เน€เธเธดเธเธเธงเธ",
+          "เธซเธฒเธเธกเธตเธเธทเนเธเธเธฒเธเธเธดเธเธเธฃเธฃเธกเธเธณเธเธฑเธ” เธเธฒเธฃเธญเธญเธเธเธณเธฅเธฑเธเธเธฒเธขเน€เธเธฒ เน เธซเธฃเธทเธญ wellness เธเธฐเธ”เธตเธกเธฒเธ"
+        ],
+        idealProfile: [
+          "เน€เธเธทเนเธญเธงเนเธฒเธเธธเธ“เธ เธฒเธเธเธตเธงเธดเธ•เนเธกเนเนเธ”เนเธกเธตเนเธเนเน€เธฃเธทเนเธญเธเธเธฒเธฃเธฃเธฑเธเธฉเธฒ เนเธ•เนเธฃเธงเธกเธ–เธถเธเธเธงเธฒเธกเธชเธธเธเนเธเนเธ•เนเธฅเธฐเธงเธฑเธ",
+          "เธเธญเธเน€เธซเนเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธ”เนเธเธขเธฑเธ เนเธ”เนเธกเธตเธชเนเธงเธเธฃเนเธงเธก เนเธฅเธฐเธขเธดเนเธกเธกเธฒเธเธเธถเนเธ",
+          "เธเธฃเนเธญเธกเธ—เธณเธเธฒเธเธฃเนเธงเธกเธเธฑเธเธ—เธตเธกเธ”เธนเนเธฅเนเธเธเนเธเธฅเนเธเธดเธ”"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธเธเธญเธธเธเธเธฃเธ“เนเธเธดเธเธเธฃเธฃเธกเธซเธฃเธทเธญเธชเธทเนเธญเธเธฒเธฃเธชเธญเธเธ•เธฒเธกเธเธงเธฒเธกเธเธณเน€เธเนเธ",
+          "เนเธญเธเธฒเธชเธฃเนเธงเธกเธญเธญเธเนเธเธ signature wellness activities เธเธญเธ CareWise"
+        ]
+      },
+      {
+        id: "p16",
+        code: "P16",
+        title: "เธ—เธตเธกเธฃเธฐเธเธ AI",
+        titleEn: "AI System Team",
+        category: "technology",
+        teamLabel: "Technology",
+        location: "Hybrid / FYI Center",
+        type: "Full-time",
+        reportTo: "CTO",
+        headcount: { planned: 4, filled: 2, open: 2 },
+        status: "open",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธ—เธตเธกเธฃเธฐเธเธ AI",
+        schedule: "เธเธฑเธเธ—เธฃเน-เธจเธธเธเธฃเน",
+        summary: "เธเธฑเธ’เธเธฒเนเธฅเธฐเธ”เธนเนเธฅเธฃเธฐเธเธ AI, dashboards เนเธฅเธฐ data workflow เธ—เธตเนเธเนเธงเธขเนเธซเนเธ—เธตเธกเธ”เธนเนเธฅเนเธฅเธฐเธ—เธตเธกเธเธฃเธดเธซเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธเนเธ”เนเธ”เธตเธเธถเนเธ",
+        responsibilities: [
+          "เธญเธญเธเนเธเธเนเธฅเธฐเธเธฑเธ’เธเธฒเธฃเธฐเธเธ AI เธ—เธตเนเน€เธเธตเนเธขเธงเธเนเธญเธเธเธฑเธเธเธฒเธฃเธ•เธดเธ”เธ•เธฒเธก เธเธฒเธฃเธชเธฃเธธเธเธเนเธญเธกเธนเธฅ เนเธฅเธฐเธเธฒเธฃเธชเธเธฑเธเธชเธเธธเธเธเธฒเธฃเธ”เธนเนเธฅ",
+          "เธ—เธณเธเธฒเธเธฃเนเธงเธกเธเธฑเธเธ—เธตเธกเธเธเธดเธเธฑเธ•เธดเธเธฒเธฃเน€เธเธทเนเธญเนเธเธฅเธ requirement เธเธฒเธเธซเธเนเธฒเธเธฒเธเน€เธเนเธเน€เธเธฃเธทเนเธญเธเธกเธทเธญเธ—เธตเนเนเธเนเธเธฒเธเนเธ”เนเธเธฃเธดเธ",
+          "เธ”เธนเนเธฅ data quality, workflow เนเธฅเธฐเธเธงเธฒเธกเน€เธชเธ–เธตเธขเธฃเธเธญเธเธฃเธฐเธเธเธ—เธตเนเน€เธเธทเนเธญเธกเธเธฑเธเธเธฒเธเธเธฃเธดเธเธฒเธฃ",
+          "เธ—เธ”เธชเธญเธ เธเธฃเธฑเธเธเธฃเธธเธ เนเธฅเธฐเธงเธฑเธ”เธเธฅเธเธฒเธฃเนเธเนเธเธฒเธเธเธญเธเน€เธเธฃเธทเนเธญเธเธกเธทเธญเนเธเธชเธ เธฒเธเธเธฃเธดเธ",
+          "เธเนเธงเธขเธเธขเธฒเธขเธเธตเธ”เธเธงเธฒเธกเธชเธฒเธกเธฒเธฃเธ–เธเธญเธ CareWise เนเธเธ”เนเธฒเธ smart service"
+        ],
+        qualifications: [
+          "เธกเธตเธเธทเนเธเธเธฒเธเธ”เนเธฒเธ software, data, automation เธซเธฃเธทเธญ AI implementation",
+          "เธเธญเธเนเธเนเธเธฑเธเธซเธฒเธ—เธตเนเน€เธเธทเนเธญเธกเน€เธ—เธเนเธเนเธฅเธขเธตเธเธฑเธเนเธฅเธเธเธฒเธฃเธ—เธณเธเธฒเธเธเธฃเธดเธ",
+          "เน€เธเนเธฒเนเธเธเธฒเธฃเธญเธญเธเนเธเธเธฃเธฐเธเธเนเธฅเธฐเธชเธฒเธกเธฒเธฃเธ–เธ—เธณเธเธฒเธเธเธฑเธเธเธนเนเนเธเนเธเธฒเธเธ—เธตเนเนเธกเนเนเธเนเธชเธฒเธขเน€เธ—เธเธเธดเธเนเธ”เน",
+          "เธซเธฒเธเธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธฑเธ dashboards, LLM workflow เธซเธฃเธทเธญ data platform เธเธฐเนเธ”เนเน€เธเธฃเธตเธขเธ"
+        ],
+        idealProfile: [
+          "เนเธกเนเนเธ”เนเธชเธเนเธเนเธเนเน€เธ—เธเนเธเนเธฅเธขเธต เนเธ•เนเธชเธเนเธเธเธฅเธฅเธฑเธเธเนเธ—เธตเนเธฃเธฐเธเธเธชเธฃเนเธฒเธเนเธซเนเธ—เธตเธก",
+          "เธเธฃเนเธญเธก iterate เธเธฒเธเธเธฒเธ feedback เธซเธเนเธฒเธเธฒเธ",
+          "เธกเธญเธเธเธฑเธเธซเธฒเน€เธเนเธเธฃเธฐเธเธเนเธฅเธฐเธญเธเธดเธเธฒเธขเธงเธดเธเธตเนเธเนเนเธ”เนเธเธฑเธ”"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธญเธธเธเธเธฃเธ“เนเนเธฅเธฐ software stack เธ•เธฒเธกเธเธ—เธเธฒเธ—เน€เธ—เธเนเธเนเธฅเธขเธต",
+          "เนเธ”เนเธฃเนเธงเธกเธชเธฃเนเธฒเธ use case AI เธ—เธตเนเธกเธตเธเธฅเธเธฃเธดเธเธ•เนเธญเธเธธเธ“เธ เธฒเธเธเธฒเธฃเธ”เธนเนเธฅ"
+        ]
+      },
+      {
+        id: "p17",
+        code: "P17",
+        title: "เน€เธเนเธฒเธซเธเนเธฒเธ—เธตเนเธเธเธดเธเธฑเธ•เธดเธเธฒเธฃเธฃเธฐเธเธ AI",
+        titleEn: "AI Operator",
+        category: "technology",
+        teamLabel: "Technology",
+        location: "FYI Center / Hybrid",
+        type: "Full-time",
+        reportTo: "CTO / AI System Team Lead",
+        headcount: { planned: 4, filled: 2, open: 2 },
+        status: "open",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธ AI Operator",
+        schedule: "เธเธฑเธเธ—เธฃเน-เธจเธธเธเธฃเน เธซเธฃเธทเธญเธ•เธฒเธกเธฃเธญเธเน€เธงเธฅเธฒเธเธญเธเธฃเธฐเธเธ",
+        summary: "เธ”เธนเนเธฅเธเธฒเธฃเนเธเนเธเธฒเธเธฃเธฐเธเธ AI เนเธเธฃเธฐเธ”เธฑเธเธเธเธดเธเธฑเธ•เธดเธเธฒเธฃ เธ•เธฃเธงเธเธชเธญเธเธเนเธญเธกเธนเธฅ เนเธฅเธฐเธเนเธงเธขเนเธซเนเน€เธเธฃเธทเนเธญเธเธกเธทเธญเธ—เธตเนเธ—เธตเธกเนเธเนเนเธเนเธ•เนเธฅเธฐเธงเธฑเธเธ—เธณเธเธฒเธเนเธ”เนเธ•เนเธญเน€เธเธทเนเธญเธ",
+        responsibilities: [
+          "เธ•เธฃเธงเธเธชเธญเธ workflow เธเธญเธเธฃเธฐเธเธ AI เนเธฅเธฐเธเธงเธฒเธกเธเธฃเธเธ–เนเธงเธเธเธญเธเธเนเธญเธกเธนเธฅเธ—เธตเนเธเนเธญเธเน€เธเนเธฒ",
+          "เธเนเธงเธขเนเธเนเธเธฑเธเธซเธฒเน€เธเธทเนเธญเธเธ•เนเธเธเธฒเธเธเธฒเธฃเนเธเนเธเธฒเธเธเธญเธเธ—เธตเธกเธเธฃเธดเธเธฒเธฃเธซเธฃเธทเธญเธ—เธตเธกเธ เธฒเธขเนเธ",
+          "เธเธฃเธฐเธชเธฒเธ issue เนเธฅเธฐ feedback เนเธเธขเธฑเธเธ—เธตเธกเธฃเธฐเธเธเน€เธเธทเนเธญเธเธฃเธฑเธเธเธฃเธธเธเธ•เนเธญ",
+          "เธเธฑเธ”เธ—เธณเธฃเธฒเธขเธเธฒเธเธชเธฑเนเธ เน เน€เธเธตเนเธขเธงเธเธฑเธเธเธฒเธฃเนเธเนเธเธฒเธเนเธฅเธฐเธเนเธญเธเธฑเธ”เธเนเธญเธเธ—เธตเนเธเธ",
+          "เธเนเธงเธขเธญเธเธฃเธกเธซเธฃเธทเธญเธชเธเธฑเธเธชเธเธธเธเธเธฒเธฃเนเธเนเธเธฒเธเน€เธเธฃเธทเนเธญเธเธกเธทเธญเธชเธณเธซเธฃเธฑเธเธ—เธตเธกเธ—เธตเนเน€เธเธตเนเธขเธงเธเนเธญเธ"
+        ],
+        qualifications: [
+          "เธ—เธณเธเธฒเธเธเธฑเธเธเนเธญเธกเธนเธฅเธซเธฃเธทเธญเธฃเธฐเธเธเธเนเธณ เน เนเธ”เนเธฅเธฐเน€เธญเธตเธขเธ”เนเธฅเธฐเธชเธกเนเธณเน€เธชเธกเธญ",
+          "เน€เธฃเธตเธขเธเธฃเธนเนเน€เธเธฃเธทเนเธญเธเธกเธทเธญเนเธซเธกเนเนเธ”เนเนเธง",
+          "เธชเธทเนเธญเธชเธฒเธฃเธเธฑเธเธ—เธฑเนเธเธ—เธตเธกเน€เธ—เธเธเธดเธเนเธฅเธฐเธ—เธตเธกเธเธเธดเธเธฑเธ•เธดเธเธฒเธฃเนเธ”เน",
+          "เธซเธฒเธเน€เธเธขเธ—เธณ operations support, QA เธซเธฃเธทเธญ system coordination เธเธฐเน€เธซเธกเธฒเธฐเธกเธฒเธ"
+        ],
+        idealProfile: [
+          "เธเธญเธเธเธฒเธเธ—เธตเนเธ•เนเธญเธเธเธธเธกเธเธงเธฒเธกเน€เธฃเธตเธขเธเธฃเนเธญเธขเนเธฅเธฐเธเธธเธ“เธ เธฒเธเธเธญเธเธฃเธฐเธเธ",
+          "เธกเธตเธเธงเธฒเธกเธญเธ”เธ—เธเนเธฅเธฐเนเธกเนเธกเธญเธเธเนเธฒเธกเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เน€เธฅเนเธ เน",
+          "เธเธฃเนเธญเธกเน€เธเนเธเธ•เธฑเธงเธเธฅเธฒเธเธฃเธฐเธซเธงเนเธฒเธเธเธเนเธเนเธฃเธฐเธเธเธเธฑเธเธเธเธเธฑเธ’เธเธฒเธฃเธฐเธเธ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธเธฒเธฃเน€เธฃเธตเธขเธเธฃเธนเนเน€เธเธฃเธทเนเธญเธเธกเธทเธญ AI เนเธฅเธฐ operations platform เธญเธขเนเธฒเธเธ•เนเธญเน€เธเธทเนเธญเธ",
+          "เน€เธชเนเธเธ—เธฒเธเน€เธ•เธดเธเนเธ•เนเธเธขเธฑเธเธชเธฒเธข system operations เธซเธฃเธทเธญ data workflow"
+        ]
+      },
+      {
+        id: "p18",
+        code: "P18",
+        title: "เน€เธเนเธฒเธซเธเนเธฒเธ—เธตเนเธเธฑเธ’เธเธฒเธเธธเธฃเธเธดเธเนเธฅเธฐเธเธฒเธข B2B",
+        titleEn: "BD / Sales B2B",
+        category: "growth",
+        teamLabel: "Growth & Marketing",
+        location: "FYI Center / เธญเธญเธเธเธเธฅเธนเธเธเนเธฒ",
+        type: "Full-time",
+        reportTo: "CMO / CEO",
+        headcount: { planned: 3, filled: 1, open: 2 },
+        status: "open",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธ BD / Sales เนเธฅเธฐ incentive เธ•เธฒเธกเธเธฅเธเธฒเธ",
+        schedule: "เธเธฑเธเธ—เธฃเน-เธจเธธเธเธฃเน เนเธฅเธฐเธเธฑเธ”เธซเธกเธฒเธขเธ•เธฒเธกเธฅเธนเธเธเนเธฒเธญเธเธเนเธเธฃ",
+        summary: "เธเธขเธฒเธขเนเธญเธเธฒเธชเธ—เธฒเธเธเธธเธฃเธเธดเธเธเธญเธ CareWise เธเธฑเธเธญเธเธเนเธเธฃ เนเธฃเธเธเธขเธฒเธเธฒเธฅ เธเธฅเธดเธเธดเธ เนเธฅเธฐเธเธฑเธเธเธกเธดเธ•เธฃเธ—เธตเนเน€เธเธตเนเธขเธงเธเนเธญเธเธเธฑเธเธเธฒเธฃเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธ",
+        responsibilities: [
+          "เธชเธฃเนเธฒเธ pipeline เธเธญเธเธฅเธนเธเธเนเธฒเธญเธเธเนเธเธฃเนเธฅเธฐเธเธฑเธเธเธกเธดเธ•เธฃเนเธซเธกเน",
+          "เธเธณเน€เธชเธเธญ solution เธเธญเธ CareWise เนเธซเนเน€เธซเธกเธฒเธฐเธเธฑเธเนเธเธ—เธขเนเธเธญเธเนเธ•เนเธฅเธฐเธญเธเธเนเธเธฃ",
+          "เธ•เธดเธ”เธ•เธฒเธกเนเธญเธเธฒเธชเธ—เธฒเธเธเธธเธฃเธเธดเธเธเธเธ–เธถเธเธเธฒเธฃเธเธดเธ”เธ”เธตเธฅเธซเธฃเธทเธญเธเธฒเธฃเธชเธฃเนเธฒเธเธเธงเธฒเธกเธฃเนเธงเธกเธกเธทเธญ",
+          "เธเธฃเธฐเธชเธฒเธเธเธฒเธเธเธฑเธเธ—เธตเธกเธเธฃเธดเธเธฒเธฃเนเธฅเธฐเธเธนเนเธเธฃเธดเธซเธฒเธฃเน€เธเธทเนเธญเธเธฑเธ’เธเธฒ proposal เธ—เธตเนเธเธณเนเธเนเธเนเนเธ”เนเธเธฃเธดเธ",
+          "เธ”เธนเนเธฅเธเธงเธฒเธกเธชเธฑเธกเธเธฑเธเธเนเธเธฑเธ partner เนเธฅเธฐเธเธฑเธเธเธตเธฅเธนเธเธเนเธฒเธชเธณเธเธฑเธ"
+        ],
+        qualifications: [
+          "เธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธ”เนเธฒเธ B2B sales เธซเธฃเธทเธญ business development",
+          "เธเธณเน€เธชเธเธญเนเธฅเธฐเน€เธเธฃเธเธฒเธ—เธฒเธเธเธธเธฃเธเธดเธเนเธ”เนเธ”เธต",
+          "เธ•เธดเธ”เธ•เธฒเธกเธเธฒเธเธ•เนเธญเน€เธเธทเนเธญเธเนเธฅเธฐเธเธฃเธดเธซเธฒเธฃ pipeline เธญเธขเนเธฒเธเน€เธเนเธเธฃเธฐเธเธ",
+          "เธ–เนเธฒเน€เธเนเธฒเนเธเธเธฃเธดเธเธฒเธฃเธ”เนเธฒเธเธชเธธเธเธ เธฒเธ elderly care เธซเธฃเธทเธญ partnership model เธเธฐเนเธ”เนเน€เธเธฃเธตเธขเธ"
+        ],
+        idealProfile: [
+          "เธเธญเธเธชเธฃเนเธฒเธเนเธญเธเธฒเธชเนเธซเธกเนเนเธฅเธฐเธ•เนเธญเธขเธญเธ”เธเธงเธฒเธกเธชเธฑเธกเธเธฑเธเธเนเธฃเธฐเธขเธฐเธขเธฒเธง",
+          "เน€เธเนเธฒเนเธเธงเนเธฒเธเธฒเธฃเธเธฒเธขเนเธเธเธธเธฃเธเธดเธ care เธ•เนเธญเธเธญเธฒเธจเธฑเธขเธ—เธฑเนเธเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธฑเนเธเนเธฅเธฐเธเธงเธฒเธกเธเธฑเธ”เน€เธเธ",
+          "เธ—เธณเธเธฒเธเน€เธเธดเธเธฃเธธเธเนเธ•เนเธขเธฑเธเธฃเธฑเธเธเธฑเธเธฅเธนเธเธเนเธฒเนเธ”เนเธ”เธต"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "incentive เธซเธฃเธทเธญ commission เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธเธฃเธดเธฉเธฑเธ—",
+          "เธเนเธฒเน€เธ”เธดเธเธ—เธฒเธเนเธฅเธฐเธเธฒเธฃเธชเธเธฑเธเธชเธเธธเธเธเธฒเธฃเธเธเธฅเธนเธเธเนเธฒเธ•เธฒเธกเธเธงเธฒเธกเธเธณเน€เธเนเธ"
+        ]
+      },
+      {
+        id: "p19",
+        code: "P19",
+        title: "เน€เธเนเธฒเธซเธเนเธฒเธ—เธตเนเธเธฒเธฃเธ•เธฅเธฒเธ”เธ”เธดเธเธดเธ—เธฑเธฅ",
+        titleEn: "Digital Marketing Specialist",
+        category: "growth",
+        teamLabel: "Growth & Marketing",
+        location: "FYI Center, Rama 4",
+        type: "Full-time",
+        reportTo: "CMO",
+        headcount: { planned: 2, filled: 1, open: 1 },
+        status: "hot",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธ Digital Marketing",
+        schedule: "เธเธฑเธเธ—เธฃเน-เธจเธธเธเธฃเน",
+        summary: "เธชเธทเนเธญเธชเธฒเธฃเธเธงเธฒเธกเธญเธเธญเธธเนเธเนเธฅเธฐเธเธงเธฒเธกเธ—เธฑเธเธชเธกเธฑเธขเธเธญเธ CareWise เธเนเธฒเธเธเธญเธเน€เธ—เธเธ•เน เนเธเธกเน€เธเธ เนเธฅเธฐเธเนเธญเธเธ—เธฒเธเธ”เธดเธเธดเธ—เธฑเธฅ เน€เธเธทเนเธญเนเธซเนเนเธเธฃเธเธ”เนเน€เธเนเธฒเธ–เธถเธเธเธฃเธญเธเธเธฃเธฑเธงเธขเธธเธเนเธซเธกเนเนเธ”เนเธกเธฒเธเธเธถเนเธ",
+        responsibilities: [
+          "เธงเธฒเธเนเธเธเธเธญเธเน€เธ—เธเธ•เนเนเธฅเธฐเนเธเธกเน€เธเธเธเธฒเธฃเธ•เธฅเธฒเธ”เนเธเธเนเธญเธเธ—เธฒเธเธญเธญเธเนเธฅเธเน",
+          "เธ”เธนเนเธฅ social media, website content เนเธฅเธฐ communication assets เธเธญเธเนเธเธฃเธเธ”เน",
+          "เธ•เธดเธ”เธ•เธฒเธกเธเธฅ lead generation, engagement เนเธฅเธฐ performance เธเธญเธเนเธเธกเน€เธเธ",
+          "เธ—เธณเธเธฒเธเธฃเนเธงเธกเธเธฑเธเธ—เธตเธกเธเธฒเธขเนเธฅเธฐ operations เน€เธเธทเนเธญเนเธซเนเธชเธฒเธฃเธ—เธตเนเธชเธทเนเธญเธญเธญเธเนเธเธ•เธฃเธเธเธฑเธเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธฃเธดเธ",
+          "เธเนเธงเธขเธเธฑเธ’เธเธฒ tone of voice เนเธฅเธฐ narrative เธเธญเธเนเธเธฃเธเธ”เนเนเธซเนเธเธเน€เธชเนเธเธเธเธงเธฒ"
+        ],
+        qualifications: [
+          "เธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เน Digital Marketing เธซเธฃเธทเธญ Content Marketing 1-3 เธเธต",
+          "เน€เธเธตเธขเธเธชเธทเนเธญเธชเธฒเธฃเนเธ”เนเธ”เธตเนเธฅเธฐเธกเธต sense เน€เธฃเธทเนเธญเธเนเธเธฃเธเธ”เน",
+          "เธญเนเธฒเธเธเนเธญเธกเธนเธฅ performance เนเธฅเธฐเธเธฃเธฑเธเธเธฃเธธเธเธเธฒเธเธ•เธฒเธก insight เนเธ”เน",
+          "เธซเธฒเธเธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธฑเธ service business เธซเธฃเธทเธญ health-related communication เธเธฐเนเธ”เนเน€เธเธฃเธตเธขเธ"
+        ],
+        idealProfile: [
+          "เน€เธฅเนเธฒเน€เธฃเธทเนเธญเธเน€เธเนเธเนเธฅเธฐเนเธเธฅเธเธเธธเธ“เธเนเธฒเธเธญเธเนเธเธฃเธเธ”เนเนเธซเนเธเธเธฃเธนเนเธชเธถเธเนเธ”เน",
+          "เธ—เธณเธเธฒเธ creative เนเธ”เนเนเธ•เนเธขเธฑเธเธงเธฑเธ”เธเธฅเน€เธเนเธ",
+          "เนเธชเนเนเธเธ เธฒเธเธฅเธฑเธเธฉเธ“เนเธเธญเธเนเธเธฃเธเธ”เนเนเธเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เน€เธเธฃเธทเนเธญเธเธกเธทเธญเธเธฒเธฃเธ•เธฅเธฒเธ”เนเธฅเธฐเธฃเธฐเธเธ analytics เธ•เธฒเธกเธเธ—เธเธฒเธ—",
+          "เนเธญเธเธฒเธชเธฃเนเธงเธกเธญเธญเธเนเธเธเนเธเธกเน€เธเธเธซเธฅเธฑเธเธเธญเธ CareWise"
+        ]
+      },
+      {
+        id: "p20",
+        code: "P20",
+        title: "เธเนเธญเธเธฃเธฑเธงเธซเธฃเธทเธญเนเธกเนเธเธฃเธฑเธงเธ”เนเธฒเธเนเธ เธเธเธฒเธเธฒเธฃเธเธนเนเธชเธนเธเธญเธฒเธขเธธ",
+        titleEn: "Nutrition Cook",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time",
+        reportTo: "Care Center Manager",
+        headcount: { planned: 2, filled: 1, open: 1 },
+        status: "hot",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธเธฃเธฑเธงเนเธฅเธฐเนเธ เธเธเธฒเธเธฒเธฃ",
+        schedule: "เธ•เธฒเธกเน€เธงเธฅเธฒเธเธฒเธฃเนเธซเนเธเธฃเธดเธเธฒเธฃเธญเธฒเธซเธฒเธฃเธเธญเธเธจเธนเธเธขเน",
+        summary: "เธเธฑเธ”เน€เธ•เธฃเธตเธขเธกเธญเธฒเธซเธฒเธฃเธ—เธตเนเน€เธซเธกเธฒเธฐเธเธฑเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธ”เธขเธเธณเธเธถเธเธ–เธถเธเนเธ เธเธเธฒเธเธฒเธฃ เธเธงเธฒเธกเธชเธฐเธญเธฒเธ” เธเธงเธฒเธกเธเธฅเธญเธ”เธ เธฑเธข เนเธฅเธฐเธเธงเธฒเธกเธเนเธฒเธฃเธฑเธเธเธฃเธฐเธ—เธฒเธ",
+        responsibilities: [
+          "เธงเธฒเธเนเธฅเธฐเน€เธ•เธฃเธตเธขเธกเน€เธกเธเธนเนเธซเนเน€เธซเธกเธฒเธฐเธเธฑเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธฅเธฐเธเนเธญเธเธณเธเธฑเธ”เน€เธเธเธฒเธฐเธฃเธฒเธข",
+          "เธ”เธนเนเธฅเธกเธฒเธ•เธฃเธเธฒเธเธเธงเธฒเธกเธชเธฐเธญเธฒเธ”เนเธฅเธฐเธเธงเธฒเธกเธเธฅเธญเธ”เธ เธฑเธขเธเธญเธเธเธฃเธฑเธง",
+          "เธเธฃเธฐเธชเธฒเธเธเธฑเธเธ—เธตเธกเธ”เธนเนเธฅเน€เธกเธทเนเธญเธกเธตเธเนเธญเธเธณเธซเธเธ”เธ”เนเธฒเธเธญเธฒเธซเธฒเธฃเธเธญเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃเนเธ•เนเธฅเธฐเธเธ",
+          "เธเธฑเธ”เธเธฒเธฃเธงเธฑเธ•เธ–เธธเธ”เธดเธเนเธฅเธฐเธเธงเธเธเธธเธกเธเธธเธ“เธ เธฒเธเธญเธฒเธซเธฒเธฃเนเธเนเธ•เนเธฅเธฐเธกเธทเนเธญ",
+          "เธเนเธงเธขเธขเธเธฃเธฐเธ”เธฑเธเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธฒเธฃเธญเธขเธนเนเธญเธฒเธจเธฑเธขเธเธญเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเธเนเธฒเธเน€เธฃเธทเนเธญเธเธญเธฒเธซเธฒเธฃ"
+        ],
+        qualifications: [
+          "เธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธ—เธณเธญเธฒเธซเธฒเธฃเธซเธฃเธทเธญเธเธฃเธฑเธงเธเธฃเธดเธเธฒเธฃ",
+          "เน€เธเนเธฒเนเธเน€เธฃเธทเนเธญเธเนเธ เธเธเธฒเธเธฒเธฃเธเธทเนเธเธเธฒเธเนเธฅเธฐเธเธฒเธฃเธเธฑเธ”เธญเธฒเธซเธฒเธฃเธชเธณเธซเธฃเธฑเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธ",
+          "เธกเธตเธงเธดเธเธฑเธขเน€เธฃเธทเนเธญเธเธเธงเธฒเธกเธชเธฐเธญเธฒเธ”เนเธฅเธฐเธกเธฒเธ•เธฃเธเธฒเธเธเธงเธฒเธกเธเธฅเธญเธ”เธ เธฑเธขเธญเธฒเธซเธฒเธฃ",
+          "เธซเธฒเธเธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธฑเธเธญเธฒเธซเธฒเธฃเน€เธเธเธฒเธฐเนเธฃเธเธเธฐเธเธดเธเธฒเธฃเธ“เธฒเน€เธเนเธเธเธดเน€เธจเธฉ"
+        ],
+        idealProfile: [
+          "เนเธชเนเนเธเธ—เธฑเนเธเธฃเธชเธเธฒเธ•เธด เธเธงเธฒเธกเน€เธซเธกเธฒเธฐเธชเธก เนเธฅเธฐเธเธงเธฒเธกเธเธฅเธญเธ”เธ เธฑเธข",
+          "เธกเธญเธเธงเนเธฒเธญเธฒเธซเธฒเธฃเธเธทเธญเธชเนเธงเธเธซเธเธถเนเธเธเธญเธเธเธฒเธฃเธ”เธนเนเธฅเธเธธเธ“เธ เธฒเธเธเธตเธงเธดเธ•",
+          "เธเธฃเนเธญเธกเธ—เธณเธเธฒเธเธฃเนเธงเธกเธเธฑเธเธ—เธตเธกเธเธฃเธดเธเธฒเธฃเนเธเธเธฃเธดเธเธ— care setting"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธเธธเธ”เนเธฅเธฐเธญเธธเธเธเธฃเธ“เนเธ—เธตเนเธเธณเน€เธเนเธเธชเธณเธซเธฃเธฑเธเธเธฒเธเธเธฃเธฑเธง",
+          "เนเธญเธเธฒเธชเธเธฑเธ’เธเธฒเน€เธกเธเธนเน€เธเธเธฒเธฐเธชเธณเธซเธฃเธฑเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเธฃเนเธงเธกเธเธฑเธเธ—เธตเธก"
+        ]
+      },
+      {
+        id: "p21",
+        code: "P21",
+        title: "เนเธกเนเธเนเธฒเธเธเธฃเธฐเธเธณเธจเธนเธเธขเน",
+        titleEn: "Housekeeper",
+        category: "care-center",
+        teamLabel: "Care Center",
+        location: "Care Center",
+        type: "Full-time / Shift",
+        reportTo: "Care Center Manager",
+        headcount: { planned: 3, filled: 2, open: 1 },
+        status: "hot",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเนเธกเนเธเนเธฒเธเธเธฃเธฐเธเธณเธจเธนเธเธขเน",
+        schedule: "เธ•เธฒเธกเธ•เธฒเธฃเธฒเธเธเธญเธเธจเธนเธเธขเนเธ”เธนเนเธฅ",
+        summary: "เธ”เธนเนเธฅเธเธงเธฒเธกเธชเธฐเธญเธฒเธ”เนเธฅเธฐเธเธงเธฒเธกเน€เธฃเธตเธขเธเธฃเนเธญเธขเธเธญเธเธจเธนเธเธขเน เน€เธเธทเนเธญเนเธซเน CareWise เน€เธเนเธเธเธทเนเธเธ—เธตเนเธ—เธตเนเธชเธฐเธญเธฒเธ” เธเนเธฒเธญเธขเธนเน เนเธฅเธฐเธชเธฃเนเธฒเธเธเธงเธฒเธกเธกเธฑเนเธเนเธเนเธซเนเธ—เธฑเนเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเนเธฅเธฐเธเธฃเธญเธเธเธฃเธฑเธง",
+        responsibilities: [
+          "เธ—เธณเธเธงเธฒเธกเธชเธฐเธญเธฒเธ”เธเธทเนเธเธ—เธตเนเธชเนเธงเธเธเธฅเธฒเธ เธซเนเธญเธเธเธฑเธ เนเธฅเธฐเธเธธเธ”เนเธเนเธเธฒเธเธซเธฅเธฑเธเธ•เธฒเธกเธกเธฒเธ•เธฃเธเธฒเธ",
+          "เธ”เธนเนเธฅเธเธงเธฒเธกเธเธฃเนเธญเธกเธเธญเธเธญเธธเธเธเธฃเธ“เน เธชเธดเนเธเธเธญเธเนเธเน เนเธฅเธฐเธเธงเธฒเธกเน€เธฃเธตเธขเธเธฃเนเธญเธขเนเธ”เธขเธฃเธงเธกเธเธญเธเธจเธนเธเธขเน",
+          "เธเธฃเธฐเธชเธฒเธเธ—เธตเธกเธ”เธนเนเธฅเน€เธกเธทเนเธญเธกเธตเธเธงเธฒเธกเธเธณเน€เธเนเธเธ”เนเธฒเธเธเธงเธฒเธกเธชเธฐเธญเธฒเธ”เธซเธฃเธทเธญเธเธฒเธฃเธเธฑเธ”เธเธทเนเธเธ—เธตเน",
+          "เธชเธเธฑเธเธชเธเธธเธเธเธฃเธฃเธขเธฒเธเธฒเธจเธเธญเธเธจเธนเธเธขเนเนเธซเนเธ”เธนเธเธฅเธญเธ”เธ เธฑเธขเนเธฅเธฐเธเธฃเนเธญเธกเนเธเนเธเธฒเธเธญเธขเธนเนเน€เธชเธกเธญ",
+          "เธเธเธดเธเธฑเธ•เธดเธ•เธฒเธก guideline เน€เธฃเธทเนเธญเธเธชเธธเธเธญเธเธฒเธกเธฑเธขเนเธฅเธฐเธเธงเธฒเธกเธเธฅเธญเธ”เธ เธฑเธข"
+        ],
+        qualifications: [
+          "เธกเธตเธเธงเธฒเธกเธฃเธฑเธเธเธดเธ”เธเธญเธเนเธฅเธฐเนเธชเนเนเธเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เน€เธฃเธทเนเธญเธเธเธงเธฒเธกเธชเธฐเธญเธฒเธ”",
+          "เธ—เธณเธเธฒเธเธชเธกเนเธณเน€เธชเธกเธญ เธกเธตเธงเธดเธเธฑเธข เนเธฅเธฐเน€เธเธทเนเธญเธ–เธทเธญเนเธ”เน",
+          "เน€เธเนเธฒเนเธเธงเนเธฒเธเธงเธฒเธกเธชเธฐเธญเธฒเธ”เน€เธเนเธเธชเนเธงเธเธซเธเธถเนเธเธเธญเธเธเธธเธ“เธ เธฒเธเธเธฒเธฃเธ”เธนเนเธฅ",
+          "เธซเธฒเธเธกเธตเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเนเธเธจเธนเธเธขเนเธเธฃเธดเธเธฒเธฃเธซเธฃเธทเธญเนเธฃเธเนเธฃเธกเธเธฐเธเธดเธเธฒเธฃเธ“เธฒเน€เธเนเธเธเธดเน€เธจเธฉ"
+        ],
+        idealProfile: [
+          "เธเธญเธเธเธฒเธเธ—เธตเนเธ—เธณเนเธซเนเธชเธ–เธฒเธเธ—เธตเนเธเธฃเนเธญเธกเธ•เนเธญเธเธฃเธฑเธเธ—เธธเธเธเธ",
+          "เธฅเธฐเน€เธญเธตเธขเธ”เธฃเธญเธเธเธญเธเนเธฅเธฐเนเธกเนเธกเธญเธเธเนเธฒเธกเธเธฒเธเน€เธฅเนเธ เน",
+          "เธ—เธณเธเธฒเธเธฃเนเธงเธกเธเธฑเธเธ—เธตเธกเธเธฃเธดเธเธฒเธฃเนเธ”เนเธ”เธต"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เน€เธเธฃเธทเนเธญเธเนเธเธเนเธฅเธฐเธญเธธเธเธเธฃเธ“เนเธ—เธณเธเธงเธฒเธกเธชเธฐเธญเธฒเธ”เธ•เธฒเธกเธกเธฒเธ•เธฃเธเธฒเธเธเธฒเธ",
+          "เธกเธตเนเธญเธเธฒเธชเน€เธ•เธดเธเนเธ•เนเธเธชเธฒเธขเธชเธเธฑเธเธชเธเธธเธเธเธฃเธดเธเธฒเธฃ"
+        ]
+      }
+    ];
+
+    const extraPositions = [
+      {
+        id: "x01",
+        code: "P09B",
+        title: "เธเธขเธฒเธเธฒเธฅเธงเธดเธเธฒเธเธตเธเธเธฐเน€เธเนเธฒ",
+        titleEn: "Care Center RN - Morning Shift",
+        category: "clinical",
+        teamLabel: "Clinical Care",
+        location: "Care Center",
+        type: "Full-time / Shift",
+        reportTo: "Head Nurse",
+        headcount: { planned: 1, filled: 1, open: 0 },
+        status: "filled",
+        salary: "เธฃเธงเธกเธญเธขเธนเนเนเธเนเธเธฃเธเธเธขเธฒเธเธฒเธฅเธเธฃเธฐเธเธณเธจเธนเธเธขเน",
+        schedule: "เธเธฐเน€เธเนเธฒ",
+        summary: "เธ•เธณเนเธซเธเนเธเธขเนเธญเธขเนเธเนเธเธฃเธเธเธขเธฒเธเธฒเธฅเธเธฃเธฐเธเธณเธจเธนเธเธขเนเธ—เธตเนเธ”เธนเนเธฅเธเนเธงเธเน€เธเนเธฒเธเธญเธ Care Center",
+        responsibilities: [
+          "เธ”เธนเนเธฅเธฃเธญเธเน€เธเนเธฒเธเธญเธเธเธนเนเธชเธนเธเธญเธฒเธขเธธเธ เธฒเธขเนเธเธจเธนเธเธขเน",
+          "เธเธฃเธฐเธชเธฒเธเธเธฒเธเธเธฑเธเธ—เธตเธก caregiver เนเธฅเธฐเธซเธฑเธงเธซเธเนเธฒเธเธขเธฒเธเธฒเธฅ",
+          "เธ•เธดเธ”เธ•เธฒเธกเธญเธฒเธเธฒเธฃเนเธฅเธฐเธเธฑเธ”เธเธฒเธฃเธเธฒเธเธเธขเธฒเธเธฒเธฅเธ•เธฒเธกเธกเธฒเธ•เธฃเธเธฒเธ"
+        ],
+        qualifications: [
+          "เธกเธตเนเธเธเธฃเธฐเธเธญเธเธงเธดเธเธฒเธเธตเธเธเธขเธฒเธเธฒเธฅ",
+          "เธ—เธณเธเธฒเธเธเธฐเน€เธเนเธฒเนเธฅเธฐเธเธฃเธฐเธชเธฒเธเธเธฒเธเธ—เธตเธกเนเธ”เนเธ”เธต",
+          "เธกเธตเธเธงเธฒเธกเธฅเธฐเน€เธญเธตเธขเธ”เนเธฅเธฐเธเธฃเนเธญเธกเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธ"
+        ],
+        idealProfile: [
+          "เธเธฃเนเธญเธกเธ”เธนเนเธฅเธเธงเธฒเธกเธ•เนเธญเน€เธเธทเนเธญเธเธเธญเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃเนเธเธเนเธงเธเน€เธฃเธดเนเธกเธ•เนเธเธงเธฑเธ",
+          "เธ—เธณเธเธฒเธเน€เธเนเธเธฃเธฐเธเธเนเธฅเธฐเธชเธทเนเธญเธชเธฒเธฃเธเธฑเธเธ—เธตเธกเนเธ”เนเธ”เธต",
+          "เธเธญเธเธเธฒเธเนเธ care setting เธ—เธตเนเธกเธตเธเธงเธฒเธกเนเธเธฅเนเธเธดเธ”เธเธฑเธเธเธนเนเนเธเนเธเธฃเธดเธเธฒเธฃ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธชเธงเธฑเธชเธ”เธดเธเธฒเธฃเธ•เธฒเธกเธชเธฒเธขเธงเธดเธเธฒเธเธตเธเธเธขเธฒเธเธฒเธฅ"
+        ]
+      }
+    ];
+
+    const allPositions = [
+      ...positions,
+      {
+        id: "p09x",
+        code: "P09X",
+        title: "เธเธขเธฒเธเธฒเธฅเธงเธดเธเธฒเธเธตเธเธเธฃเธฐเธเธณเธจเธนเธเธขเนเธ”เธนเนเธฅ (เธชเธณเธฃเธญเธเธเธณเธฅเธฑเธเธเธ)",
+        titleEn: "Care Center RN Reserve",
+        category: "clinical",
+        teamLabel: "Clinical Care",
+        location: "Care Center",
+        type: "Full-time / Shift",
+        reportTo: "Head Nurse",
+        headcount: { planned: 1, filled: 0, open: 1 },
+        status: "open",
+        salary: "เธ•เธฒเธกเนเธเธฃเธเธชเธฃเนเธฒเธเธเธขเธฒเธเธฒเธฅเธเธฃเธฐเธเธณเธจเธนเธเธขเน",
+        schedule: "เธ•เธฒเธกเธ•เธฒเธฃเธฒเธเธเธฐ",
+        summary: "เธเธณเธฅเธฑเธเธเธเธชเธณเธฃเธญเธเน€เธเธทเนเธญเธฃเธญเธเธฃเธฑเธเธเธฒเธฃเธเธขเธฒเธขเธเธฃเธดเธเธฒเธฃเธเธญเธ Care Center",
+        responsibilities: [
+          "เธเนเธงเธขเธฃเธญเธเธฃเธฑเธเน€เธเธชเนเธฅเธฐ coverage เน€เธเธดเนเธกเน€เธ•เธดเธกเธ•เธฒเธกเธเธฒเธฃเธเธขเธฒเธขเธ—เธตเธก",
+          "เธเธเธดเธเธฑเธ•เธดเธเธฒเธเธเธขเธฒเธเธฒเธฅเธ•เธฒเธกเธกเธฒเธ•เธฃเธเธฒเธเธเธญเธเธจเธนเธเธขเน",
+          "เธชเธเธฑเธเธชเธเธธเธเธเธงเธฒเธกเธ•เนเธญเน€เธเธทเนเธญเธเธเธญเธเธเธฒเธฃเนเธซเนเธเธฃเธดเธเธฒเธฃ"
+        ],
+        qualifications: [
+          "เธกเธตเนเธเธเธฃเธฐเธเธญเธเธงเธดเธเธฒเธเธตเธเธเธขเธฒเธเธฒเธฅ",
+          "เธเธฃเนเธญเธกเธ—เธณเธเธฒเธเน€เธเนเธเธเธฐ",
+          "เธชเธเนเธเธเธฒเธเธ”เธนเนเธฅเธเธนเนเธชเธนเธเธญเธฒเธขเธธ"
+        ],
+        idealProfile: [
+          "เธเธฃเนเธญเธกเน€เธ•เธดเธเนเธ•เนเธเธเธฑเธเธเธฒเธฃเธเธขเธฒเธขเธ—เธตเธกเธเธญเธเธจเธนเธเธขเน",
+          "เธ—เธณเธเธฒเธเธฃเนเธงเธกเธเธฑเธเธ—เธตเธก clinical เนเธ”เนเธ”เธต",
+          "เธฅเธฐเน€เธญเธตเธขเธ”เนเธฅเธฐเธฃเธฑเธเธเธดเธ”เธเธญเธเธชเธนเธ"
+        ],
+        benefits: [
+          ...commonBenefits,
+          "เธชเธงเธฑเธชเธ”เธดเธเธฒเธฃเธ•เธฒเธกเธชเธฒเธขเธงเธดเธเธฒเธเธตเธเธเธขเธฒเธเธฒเธฅ"
+        ]
+      }
+    ];
+
+    const positionsFull = [
+      positions[0], positions[1], positions[2], positions[3], positions[4], positions[5], positions[6], positions[7], positions[8], positions[9],
+      positions[10], positions[11], positions[12], positions[13], positions[14], positions[15], positions[16], positions[17], positions[18], positions[19], positions[20]
+    ];
+
+    const totals = positionsFull.reduce((acc, position) => {
+      acc.roles += 1;
+      acc.planned += position.headcount.planned;
+      acc.filled += position.headcount.filled;
+      acc.open += position.headcount.open;
+      return acc;
+    }, { roles: 0, planned: 0, filled: 0, open: 0 });
+
+    const quickStats = [
+      { value: totals.roles, label: "เธ•เธณเนเธซเธเนเธ", note: "เธเธฃเธเธ•เธฒเธกเนเธเธฃเธ Position Master List" },
+      { value: totals.planned, label: "Planned", note: "เธเธณเธเธงเธเธเธณเธฅเธฑเธเธเธเธ•เธฒเธกเนเธเธฃเธเธ—เธตเนเธงเธฒเธเนเธงเน" },
+      { value: totals.filled, label: "Filled", note: "เธเธณเธเธงเธเธเธธเธเธฅเธฒเธเธฃ" },
+      { value: totals.open, label: "Open", note: "เธเธณเธเธงเธเธ—เธตเนเธขเธฑเธเน€เธเธดเธ”เธฃเธฑเธ" }
+    ];
+
+    document.getElementById("quickStats").innerHTML = quickStats.map((item) => `
+      <article class="stat-card" data-reveal>
+        <strong>${item.value}</strong>
+        <span>${item.label}</span>
+        <p>${item.note}</p>
+      </article>
+    `).join("");
+
+    const state = {
+      activeGroup: "all",
+      openOnly: false
+    };
+
+    function getStatusMeta(position) {
+      if (position.headcount.open === 0) {
+        return { label: "เธ—เธตเธกเธเธฃเธเนเธฅเนเธง", className: "status-filled" };
+      }
+      return {
+        label: `เน€เธเธดเธ”เธฃเธฑเธ ${position.headcount.open} เธญเธฑเธ•เธฃเธฒ`,
+        className: position.headcount.open === 1 ? "status-hot" : "status-open"
+      };
+    }
+
+    function renderJobs() {
+      const container = document.getElementById("jobContainer");
+      let filtered = state.activeGroup === "all"
+        ? positionsFull
+        : positionsFull.filter((position) => position.category === state.activeGroup);
+
+      if (state.openOnly) {
+        filtered = filtered.filter((position) => position.headcount.open > 0);
+      }
+
+      if (!filtered.length) {
+        container.innerHTML = `
+          <article class="note-card" data-reveal>
+            <h3>เนเธกเนเธเธเธ•เธณเนเธซเธเนเธเธ•เธฒเธกเน€เธเธทเนเธญเธเนเธเธ—เธตเนเน€เธฅเธทเธญเธ</h3>
+            <p>เธฅเธญเธเน€เธเธฅเธตเนเธขเธเธเธฅเธธเนเธกเธ•เธณเนเธซเธเนเธ เธซเธฃเธทเธญเธเธดเธ”เธ•เธฑเธงเธเธฃเธญเธเน€เธเธเธฒเธฐเธ•เธณเนเธซเธเนเธเธ—เธตเนเธขเธฑเธเธงเนเธฒเธเน€เธเธทเนเธญเธ”เธนเธฃเธฒเธขเธเธฒเธฃเธ—เธฑเนเธเธซเธกเธ”เธเธญเธ CareWise</p>
+          </article>
+        `;
+        observeReveals();
+        return;
+      }
+
+      container.innerHTML = filtered.map((position) => {
+        const statusMeta = getStatusMeta(position);
+        return `
+          <article class="job-item" data-reveal>
+            <div class="job-info">
+              <div class="job-topline">
+                <h3>${position.title} <span class="role-sub">(${position.titleEn})</span></h3>
+                <span class="status-chip ${statusMeta.className}">${statusMeta.label}</span>
+              </div>
+              <p class="job-summary">${position.summary}</p>
+            </div>
+            <div class="job-actions">
+              <div class="headcount-badge">
+                <strong>${position.headcount.filled}/${position.headcount.planned}</strong>
+                <span>Filled / Planned</span>
+              </div>
+              <button class="button button-secondary" onclick="openJd('${position.id}')">เธ”เธนเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”</button>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      observeReveals();
+    }
+
+    function renderList(items) {
+      return `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+    }
+
+    function openJd(id) {
+      const job = positionsFull.find((position) => position.id === id);
+      if (!job) return;
+
+      const statusMeta = getStatusMeta(job);
+      const body = document.getElementById("jdBody");
+
+      body.innerHTML = `
+        <div class="modal-header">
+          <div class="modal-header-meta">
+            <span class="meta-chip">${job.code}</span>
+            <span class="meta-chip">${job.teamLabel}</span>
+            <span class="status-chip ${statusMeta.className}">${statusMeta.label}</span>
+          </div>
+          <h2>${job.title} (${job.titleEn})</h2>
+          <p class="modal-summary">${job.summary}</p>
+        </div>
+
+        <hr class="modal-divider">
+
+        <div class="modal-grid">
+          <div class="modal-panel">
+            <h3>เธซเธเนเธฒเธ—เธตเนเธเธงเธฒเธกเธฃเธฑเธเธเธดเธ”เธเธญเธเธซเธฅเธฑเธ</h3>
+            ${renderList(job.responsibilities)}
+          </div>
+
+          <div class="modal-panel">
+            <h3>เธเนเธญเธกเธนเธฅเน€เธเธทเนเธญเธเธ•เนเธเธเธญเธเธ•เธณเนเธซเธเนเธ</h3>
+            <div class="detail-grid">
+              <div class="detail-item">
+                <strong>เธชเธ–เธฒเธเธ—เธตเนเธ—เธณเธเธฒเธ</strong>
+                <span>${job.location}</span>
+              </div>
+              <div class="detail-item">
+                <strong>เธฃเธนเธเนเธเธเธเธฒเธ</strong>
+                <span>${job.type}</span>
+              </div>
+              <div class="detail-item">
+                <strong>เธฃเธฒเธขเธเธฒเธเธ•เนเธญ</strong>
+                <span>${job.reportTo}</span>
+              </div>
+              <div class="detail-item">
+                <strong>เน€เธงเธฅเธฒเธ—เธณเธเธฒเธ</strong>
+                <span>${job.schedule}</span>
+              </div>
+              <div class="detail-item">
+                <strong>เนเธเธฃเธเธเนเธฒเธ•เธญเธเนเธ—เธ</strong>
+                <span>${job.salary}</span>
+              </div>
+              <div class="detail-item">
+                <strong>เธเธณเธเธงเธเธเธณเธฅเธฑเธเธเธ</strong>
+                <span>Planned ${job.headcount.planned} / Filled ${job.headcount.filled} / Open ${job.headcount.open}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-panel">
+            <h3>เธเธธเธ“เธชเธกเธเธฑเธ•เธดเธ—เธตเนเธกเธญเธเธซเธฒ</h3>
+            ${renderList(job.qualifications)}
+          </div>
+
+          <div class="modal-panel">
+            <h3>เน€เธซเธกเธฒเธฐเธเธฑเธเธเธเนเธเธเนเธซเธ</h3>
+            ${renderList(job.idealProfile)}
+          </div>
+
+          <div class="modal-panel" style="grid-column: 1 / -1;">
+            <h3>เธชเธงเธฑเธชเธ”เธดเธเธฒเธฃเนเธฅเธฐเธชเธดเนเธเธ—เธตเนเธเธนเนเธชเธเนเธเธฃเนเธงเธกเธเธฒเธเธเธงเธฃเธฃเธนเน</h3>
+            <div class="benefit-list">
+              ${job.benefits.map((benefit) => `<span class="tag-chip">${benefit}</span>`).join("")}
+            </div>
+            <p class="apply-note">เธซเธกเธฒเธขเน€เธซเธ•เธธ: เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธเนเธฒเธ•เธญเธเนเธ—เธเนเธฅเธฐเธชเธดเธ—เธเธดเธเธฃเธฐเนเธขเธเธเนเน€เธเธดเธเธ•เธฑเธงเน€เธฅเธเธชเธฒเธกเธฒเธฃเธ–เธเธฃเธฑเธเธ•เธฒเธกเธเนเธขเธเธฒเธขเธเธฃเธดเธฉเธฑเธ—เนเธฅเธฐเธเธฃเธฐเธชเธเธเธฒเธฃเธ“เนเธเธญเธเธเธนเนเธชเธกเธฑเธเธฃเนเธ”เนเนเธเน€เธงเธญเธฃเนเธเธฑเธเนเธเนเธเธฒเธเธเธฃเธดเธ</p>
+          </div>
+        </div>
+
+        <div class="modal-footer-actions">
+          <a class="button button-primary" href="mailto:hr_carewise@carewise.co.th?subject=Application%20for%20${encodeURIComponent(job.titleEn)}">เธชเนเธเนเธเธชเธกเธฑเธเธฃเธ•เธณเนเธซเธเนเธเธเธตเน</a>
+          <button class="button button-secondary" id="closeJdBtn">เธเธฅเธฑเธเนเธเธ”เธนเธ•เธณเนเธซเธเนเธเธญเธทเนเธ</button>
+        </div>
+      `;
+
+      const modal = document.getElementById("jdModal");
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+
+      const closeBtn = document.getElementById("closeJdBtn");
+      if (closeBtn) {
+        closeBtn.onclick = closeModal;
+      }
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("jdModal");
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    document.querySelectorAll(".filter-btn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        document.querySelectorAll(".filter-btn").forEach((item) => item.classList.remove("active"));
+        event.currentTarget.classList.add("active");
+        state.activeGroup = event.currentTarget.dataset.group;
+        renderJobs();
+      });
+    });
+
+    document.getElementById("openOnlyToggle").addEventListener("change", (event) => {
+      state.openOnly = event.currentTarget.checked;
+      renderJobs();
+    });
+
+    document.getElementById("closeJd").addEventListener("click", closeModal);
+    document.getElementById("jdModal").addEventListener("click", (event) => {
+      if (event.target.id === "jdModal") {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    renderJobs();
+
+    function observeReveals() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+      document.querySelectorAll("[data-reveal]").forEach((element) => {
+        if (!element.classList.contains("is-visible")) observer.observe(element);
+      });
+    }
+
+    observeReveals();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
+
